@@ -1,0 +1,109 @@
+body{
+  width: 800px;
+  margin: 0 auto;
+  background-color: green;
+}
+
+section{
+  background-color: bisque;
+  margin-top: 20px;
+  padding: 10px 50px 50px 50px;
+}
+
+article{
+  border: 5px solid blue;
+  padding: 10px 50px 50px 50px;
+  margin: 0px 10px 10px 10px;
+  width: 400px;
+}
+
+h1 {
+  text-align: center;
+  line-height: 100px;
+  margin: 0;
+}
+
+.flex-container {
+    /* We first create a flex layout context */
+    display: flex;
+    
+    /* Then we define how is distributed the remaining space */
+    justify-content: space-around;
+    
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .fila {
+    /* Then we define the flow direction 
+       and if we allow the items to wrap 
+     * Remember this is the same as:
+     * flex-direction: row;
+     * flex-wrap: wrap;
+     */
+     flex-flow: row wrap;
+
+  }
+
+
+  .columna {
+    flex-flow: column wrap;
+  }
+
+  .columna-al-reves{
+    flex-direction: column-reverse;
+  }
+
+  .flex-item {
+    background:azure;
+    padding: 5px;
+    width: 100px;
+    height: 50px;
+    margin-top: 10px;
+    line-height: 50px;
+    color: black;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+  }
+
+  .sin-lista {
+    list-style: none;
+  }
+
+
+.nowrap{
+  flex-flow:  nowrap; 
+}
+
+.fila-al-reves{
+  flex-direction: row-reverse;
+}
+
+/*#pequeño{
+  width: 10px;
+}*/
+
+.navigation {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  
+  list-style: none;
+  margin: 0; 
+  background: deepskyblue;
+
+}
+
+.navigation a {
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+  color: white;
+}
+
+.navigation a:hover {
+  background: #1565C0;
+}
+

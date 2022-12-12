@@ -1,0 +1,46 @@
+body {
+  width: 800px;
+  max-width: 900px;
+  margin: 0 auto;
+  font: 0.9em/1.2 Arial, Helvetica, sans-serif;
+}
+
+.flota_izquierda {
+    float: left;
+}
+
+.flota_derecha {
+    float: right;
+}
+
+.flota{
+    margin: 15px;
+    width: 150px;
+    height: 100px;
+    border-radius: 5px;
+    background-color: rgb(207, 232, 220);
+    padding: 1em;
+}
+
+p{
+    background-color:cornsilk;
+}
+
+/*p:nth-of-type(2){
+    clear: left;
+}*/
+
+#salto{
+    clear:both;
+}
+
+.destacado{
+    color: red;
+}
+
+.envolver{
+    background-color: cornsilk;
+    padding: 10px;
+    display: flow-root;
+    clear:both;
+}
