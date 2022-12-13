@@ -1,0 +1,65 @@
+body{
+    width: 80%;
+    margin: 0 auto;
+    background-color:antiquewhite;
+}
+
+.grid-general{
+	display: grid;
+    /*height: 500px;*/
+    row-gap: 1em;
+    column-gap:1%;    
+    grid-template-columns: 2fr repeat(3, 1fr) 2fr;  /*Se crean 6 columnas y tantas filas como sean necesarias para acomodar elementos (filas implícitas)*/
+    grid-auto-rows: minmax(75px, auto); /*Las filas auto creadas son de entre 75px y el máximo de la anchura del contenedor*/
+    border: 2px solid red;
+}
+
+p{
+    margin:0;
+    padding: 0;
+}
+
+article:nth-of-type(even){
+    background-color: aquamarine;
+}
+
+article:nth-of-type(odd){
+    background-color:coral;
+}
+
+/*article:nth-of-type(1){*/
+#segundo-grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-column: 1/4;
+    grid-row: 1/3;
+    background-color:azure;
+    gap: 1em 1em;
+    z-index: 1;
+}
+
+/*Si dejo el siguiente código, el artículo 3 se mete dentro del primer grid
+article:nth-of-type(3){
+    grid-column: 2/2;
+    grid-row: 1/3;
+}
+*/
+article:nth-of-type(7){
+    grid-area: 2 / 3 / 4 / 3;   /* fila inicio / columna inicio / fila fin / columna fin*/
+/*    grid-row: 2/4;
+    grid-column: 3/3;*/
+}
+
+article:nth-of-type(5){
+    grid-column: 5;
+    grid-row:2 / span 2;    /*le pido que coloque en la fila 2 y se expanda 2 filas más. Alternativa a la instrucción de debajo
+/*    grid-row:2/4;*/
+}
+
+#segundo-grid>p{
+    border: 2px solid blue;
+}
+
+#segundo-grid>p:nth-of-type(1){
+    grid-column: 1/4;
+}

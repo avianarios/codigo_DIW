@@ -1,11 +1,11 @@
 body{
   width: 50%;
   margin: 0 auto;
-  background-color: green;
+  background-color:antiquewhite;
 }
 
 section{
-  background-color: bisque;
+  background-color: green;
   margin-top: 20px;
   padding: 10px 50px 50px 50px;
   display: flex;
@@ -39,10 +39,8 @@ h1 {
 }
 
 .flex-container {
-    /* We first create a flex layout context */
     display: flex;
-    
-    /* Then we define how is distributed the remaining space */
+    /*We define how is distributed the remaining space */
     justify-content: space-around;
     
     padding: 0;
@@ -51,11 +49,9 @@ h1 {
   }
 
 .fila {
-  /* Then we define the flow direction 
-      and if we allow the items to wrap 
-    * Remember this is the same as:
-    * flex-direction: row;
-    * flex-wrap: wrap;
+    /*Equivalente a dos instrucciones:
+      flex-direction: row;
+      flex-wrap: wrap;
     */
     flex-flow: row wrap;
 
