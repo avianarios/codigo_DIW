@@ -1,0 +1,35 @@
+body{
+    width: 80%;
+    margin: 0 auto;
+    background-color:rgb(234, 230, 224);
+}
+
+section > *{
+    background-color:rgb(232, 204, 161);
+    border: 1px solid rgb(234, 157, 41);
+}
+
+header, nav, footer{
+    grid-column: inicio-col / span 9;
+}
+
+sidebar{
+    grid-area: inicio-col / span 2;
+}
+
+.contenido{
+    grid-area: inicio-col / span 7;
+}
+
+.grid-general{
+    display: grid;
+    /*No es necesario declararlo porque al colocar las áreas ya crea las columnas y filas*/
+    grid-template-columns: repeat(9, [inicio-col] 1fr);
+    border: 2px solid rgb(174, 127, 127);
+    grid-auto-rows: minmax(75px, auto); /*Las filas auto creadas son de entre 75px y el máximo de la anchura del contenedor*/
+}
+
+p{
+    margin:0;
+    padding: 0;
+}

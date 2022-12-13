@@ -1,0 +1,84 @@
+body{
+    width: 80%;
+    margin: 0 auto;
+    background-color:rgb(234, 230, 224);
+}
+
+section > *{
+    background-color:rgb(232, 204, 161);
+    border: 1px solid rgb(234, 157, 41);
+}
+
+header{
+    grid-area: en;
+}
+
+nav{
+    grid-area:nav;
+}
+
+.contenido{
+    grid-area: con;
+}
+
+sidebar{
+    grid-area: lat;
+}
+
+footer{
+    grid-area:pie;
+}
+
+.grid-general{
+    display: grid;
+    /*No es necesario declararlo porque al colocar las áreas ya crea las columnas y filas*/
+    grid-template-columns: repeat(9, 1fr);
+    border: 2px solid rgb(174, 127, 127);
+}
+
+p{
+    margin:0;
+    padding: 0;
+}
+
+@media (max-width: 500px) {
+    .grid-general {
+  
+        grid-template-areas:
+          "en en en en   en   en   en   en   en"
+          "con con con con con con con con con"
+          "pie pie pie  pie  pie   pie   pie   pie   pie";
+    }
+    nav{
+        display:none;
+    }
+    sidebar{
+        display:none;
+    }
+}  
+
+@media (min-width: 501px) and (max-width: 700px) {
+    .grid-general {
+      grid-template-areas:
+        "en en en en   en   en   en   en   en"
+        "lat lat lat con con con con con con"
+        "pie pie pie  pie  pie   pie   pie   pie   pie";
+    }
+    nav{
+        display:none;
+    }
+  }
+
+@media (min-width: 701px) {
+    .grid-general {
+        grid-auto-rows: minmax(75px, auto); /*Las filas auto creadas son de entre 75px y el máximo de la anchura del contenedor*/
+        grid-template-areas:
+            "en en en en en en en en en"
+            "nav nav nav nav nav nav nav nav nav"
+            "lat lat con con con con con con con"
+            "lat lat con con con con con con con"
+            "lat lat con con con con con con con"
+             "pie pie pie pie pie pie pie pie pie";
+    }
+}
+  
