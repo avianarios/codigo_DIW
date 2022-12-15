@@ -9,7 +9,11 @@ body{
     width: 50%;
 /*	grid-template-columns: 200px 100px 200px 100px;
     grid-template-rows: auto auto;*/
+    /* Dejo en espacio de 10px en las líneas entre filas y columnas */
     grid-gap: 10px;
+    /* Creación de tres columnas. La de enmedio tiene el doble de tamaño que las otras. Usando fr, el navegador calcula el tamaño de cada columna en función del tamaño de su contenedor
+        Se crean tantas filas como sea necesario para acomodar las cajas que se hayan definido
+    */
     grid-template-columns: 1fr 2fr 1fr;
     border: 2px solid red;
 }

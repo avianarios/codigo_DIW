@@ -14,11 +14,6 @@ body{
     border: 2px solid red;
 }
 
-/*p{
-    margin:0;
-    padding: 15px;
-}*/
-
 article:nth-of-type(even){
     background-color: aquamarine;
 }

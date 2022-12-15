@@ -16,10 +16,10 @@ section > *{
     grid-template-rows: repeat(3, 200px);
     gap: 10px;
     grid-auto-flow: column;
-    /*Las columnas consecutivas tienen tamaños distintos. Se puede hacer igual con las filas si se crean las columnas*/
     grid-auto-columns: 300px 100px; 
-    /*Las cajas se colocan según su orden en el DOM. Si movemos cajas, se quedan huecos.
-    grid-auto-flow obliga a CSS a rellenarlos*/
+    /*Las cajas se colocan según su orden en el DOM y con CSS las puedo mover DESPUÉS de montado el DOM, lo que hace que queden huecos.
+        La siguiente instrucción obliga a CSS a rellenarlos
+      */
     grid-auto-flow: dense;
 }
 
@@ -27,7 +27,6 @@ p{
     margin:0;
     padding: 0;
 }
-
 
 .grid-general article:nth-child(4n + 1) {
     grid-column-end: span 2;

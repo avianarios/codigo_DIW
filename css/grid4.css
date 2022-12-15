@@ -9,6 +9,8 @@ section > *{
     border: 1px solid rgb(234, 157, 41);
 }
 
+/*  En vez de decirle dónde colocarse especificando fila y columna, vamos a darle nombre a las áreas con grid-area
+     Luego tendré que especificar dónde va cada área en la malla   */
 header{
     grid-area: en;
 }
@@ -31,24 +33,21 @@ footer{
 
 .grid-general{
     display: grid;
-    /*No es necesario declararlo porque al colocar las áreas ya crea las columnas y filas*/
-    grid-template-columns: repeat(9, 1fr);
+    /*  No es necesario definir la malla (cuántas filas o columnas hay), porque se crean automáticamente al colocar las áreas 
+     grid-template-columns: repeat(9, 1fr);*/
     border: 2px solid rgb(174, 127, 127);
 }
 
-p{
-    margin:0;
-    padding: 0;
-}
-
+/*  Esto no es de grid, es media queries. Controlo cómo se ve en función del tamaño de la zona de visualización */
 @media (max-width: 500px) {
     .grid-general {
-  
+        /*  Aquí uso los nombres de las áreas que he creado antes para indicar que hay 9 columnas y 3 filas y dónde va cada área */
         grid-template-areas:
           "en en en en   en   en   en   en   en"
           "con con con con con con con con con"
           "pie pie pie  pie  pie   pie   pie   pie   pie";
     }
+    /* Para esta resolución no se muestra ni nav ni sidebar (aunque existen, no se puede borrar un elemento del DOM con CSS) */
     nav{
         display:none;
     }

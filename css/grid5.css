@@ -23,7 +23,7 @@ sidebar{
 
 .grid-general{
     display: grid;
-    /*No es necesario declararlo porque al colocar las áreas ya crea las columnas y filas*/
+    /*  Le doy un nombre a una columna , inicio-col, que luego me servirá para referenciarla */
     grid-template-columns: repeat(9, [inicio-col] 1fr);
     border: 2px solid rgb(174, 127, 127);
     grid-auto-rows: minmax(75px, auto); /*Las filas auto creadas son de entre 75px y el máximo de la anchura del contenedor*/

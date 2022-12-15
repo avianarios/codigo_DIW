@@ -10,6 +10,7 @@ section{
   padding: 10px 50px 50px 50px;
   display: flex;
 /*  align-items: center;*/
+  /* Cajas centradas */
   justify-content: center;
   flex-flow: row wrap;
  }
@@ -19,18 +20,19 @@ article{
   padding: 10px 30px 30px 30px;
   margin: 0px 10px 10px 10px;
   height: 10%;
-  flex-basis: 25%;
+  flex-basis: 25%; /*cada caja mide un 25% de la anchura de su contenedor (porque el eje principal de su contenedor es horizontal, en fila)*/
   text-align: center;
 }
 
 li:nth-of-type(1){
+  /* El primer li de cada caja encogerá el doble que el resto cuando no haya espacio suficiente y no se puedan reubicar los elementos */
   flex-shrink: 2;
 }
 
 li:nth-of-type(2){
+  /* El segundo li de cada caja crecerá el doble que el resto cuando haya espacio suficiente. Siempre lo habrá si se permite reubicar */
   flex-grow: 2;
 }
-
 
 h1 {
   text-align: center;
@@ -40,9 +42,8 @@ h1 {
 
 .flex-container {
     display: flex;
-    /*We define how is distributed the remaining space */
+    /* Distribución del espacio sobrante en la fila */
     justify-content: space-around;
-    
     padding: 0;
     margin: 0;
     list-style: none;
@@ -78,10 +79,6 @@ h1 {
   border: 2px blue solid;
 }
 
-.sin-lista {
-  list-style: none;
-}
-
 .nowrap{
   flex-flow:  nowrap; 
 }
@@ -93,12 +90,11 @@ h1 {
 .navigation {
   display: flex;
   flex-flow: row wrap;
+  /* Alineo los elementos al final */
   justify-content: flex-end;
-  
   list-style: none;
   margin: 0; 
   background:crimson;
-
 }
 
 .navigation a {

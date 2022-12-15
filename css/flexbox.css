@@ -4,6 +4,12 @@ body{
   background-color: green;
 }
 
+h1 {
+  text-align: center;
+  line-height: 100px;
+  margin: 0;
+}
+
 section{
   background-color: bisque;
   margin-top: 20px;
@@ -12,41 +18,31 @@ section{
   align-items: center;
   flex-flow: column wrap;
  }
+
 article{
   border: 5px solid blue;
   padding: 10px 30px 30px 30px;
   margin: 0px 10px 10px 10px;
   width: 80%; 
-  flex-basis: 200px;  /*cada caja mide 200px de alto (la sección está puesta como columna)*/
-}
-
-h1 {
-  text-align: center;
-  line-height: 100px;
-  margin: 0;
+  flex-basis: 200px;  /*cada caja mide 200px de alto (porque el eje principal de su contenedor es vertical, en columna)*/
 }
 
 .flex-container {
-    /* We first create a flex layout context */
     display: flex;
-    
-    /* Then we define how is distributed the remaining space */
+    /* Distribución del espacio sobrante en la fila */
     justify-content: space-around;
-    
     padding: 0;
     margin: 0;
     list-style: none;
   }
 
 .fila {
-  /* Then we define the flow direction 
-      and if we allow the items to wrap 
-    * Remember this is the same as:
-    * flex-direction: row;
-    * flex-wrap: wrap;
+  /* La dirección es en fila y se permite el desbordamiento (los elementos que no caben se van a la siguiente línea)
+     Es lo mismo que especificarlas por separado:
+     flex-direction: row;
+     flex-wrap: wrap;
     */
     flex-flow: row wrap;
-
 }
 
 .columna {
@@ -69,27 +65,24 @@ h1 {
   text-align: center;
 }
 
-.sin-lista {
-  list-style: none;
-}
-
 .nowrap{
-  flex-flow:  nowrap; 
+  /* Los elementos que no caben se desbordan, es decir, el contenedor no cambia de tamaño, así que las cajas no pueden pasar a la siguiente línea y se salen del contenedor (se desbordan) */
+  flex-flow: nowrap; 
 }
 
 .fila-al-reves{
   flex-direction: row-reverse;
 }
 
+/*Última caja*/
 .navigation {
   display: flex;
   flex-flow: row wrap;
+  /* Alineo los elementos al final */
   justify-content: flex-end;
-  
   list-style: none;
   margin: 0; 
   background: deepskyblue;
-
 }
 
 .navigation a {
@@ -102,4 +95,3 @@ h1 {
 .navigation a:hover {
   background: #1565C0;
 }
-
