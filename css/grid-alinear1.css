@@ -1,0 +1,37 @@
+body{
+  width: 80%;
+  margin: 0 auto;
+  background-color:rgb(234, 230, 224);
+}
+
+.grid-general {
+  display: grid;
+  border: 1px solid red;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  grid-auto-rows: 100px 75px;
+  
+  /*Cuando el tamaño de la rejilla (grid), es menor que el de su contenedor (la suma del tamaño de las filas o columnas, definidas en una unidad rígida como px, 
+  es menor el tamaño del contenedor), se puede elegir cómo se reparten la rejilla en el contenedor. Para ello tenemos tres propiedades:
+      -justify-content controla la alineación de la rejilla en el eje enlínea (inline, el eje x) 
+      -align-content controla la alineación de la rejilla en el eje bloque (block, el eje y) 
+      -place-content controla la alineación en ambos ejes
+      Todos los valores posibles en https://css-tricks.com/snippets/css/complete-guide-grid/#aa-grid-properties
+  */
+  align-content: end;
+  justify-content:end;
+
+}
+
+article{
+  background-color: aquamarine;
+  border: 1px solid blue;
+}
+
+h1{
+  text-align: center;
+  font-size: 1.5rem;
+}

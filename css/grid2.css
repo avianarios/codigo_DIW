@@ -9,7 +9,9 @@ body{
     /*height: 500px;*/
     row-gap: 1em;
     column-gap:1%;    
+    /* Creación explícita de columnas. Obligo a que se creen 5 columnas, ni una más */
     grid-template-columns: 2fr repeat(3, 1fr) 2fr;  /*Se crean 6 columnas y tantas filas como sean necesarias para acomodar elementos (filas implícitas)*/
+    /* Creación implícita de filas. Se crean tantas como sean necesarias para acomodar todos los elementos */
     grid-auto-rows: minmax(75px, auto); /*Las filas auto creadas son de entre 75px y el máximo de la anchura del contenedor*/
     border: 2px solid red;
 }
@@ -22,7 +24,6 @@ article:nth-of-type(odd){
     background-color:coral;
 }
 
-
 article:nth-of-type(3){
     grid-column: 2/2;
     grid-row: 1/3;
@@ -31,4 +32,9 @@ article:nth-of-type(3){
 article:nth-of-type(7){
     grid-column: 3/3;
     grid-row: 2/4;
+}
+
+h1{
+    font-size: 1.5rem;
+    text-align: center;
 }

@@ -1,0 +1,36 @@
+body{
+  width: 80%;
+  margin: 0 auto;
+  background-color:rgb(234, 230, 224);
+}
+
+.grid-general {
+  display: grid;
+  border: 1px solid red;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  width: 75%;
+  margin: 0 auto;
+  grid-auto-rows: 100px 75px;
+  
+  /*Cuando el tamaño del elemento dentro de cada área, es menor que el del área que la contiene, se puede elegir cómo se alinean. Para ello tenemos tres propiedades:
+      -justify-items controla la alineación de la rejilla en el eje enlínea (inline, el eje x) 
+      -align-items controla la alineación de la rejilla en el eje bloque (block, el eje y) 
+      -place-items controla la alineación en ambos ejes
+      Todos los valores posibles en https://css-tricks.com/snippets/css/complete-guide-grid/#aa-grid-properties
+  */
+  align-items:end;
+  justify-items:end;
+}
+  
+article{
+  background-color: aquamarine;
+  border: 1px solid blue;
+  /*Fuerzo a que cada artículo sea más pequeño que el área que lo contiene para que se pueda usar la propiedad justify-items. Si no, éste llenaría entera el área*/
+  width: 100px;
+}
+
+h1{
+  text-align: center;
+  font-size: 1.5rem;
+}

@@ -58,9 +58,10 @@ footer{
 
 @media (min-width: 501px) and (max-width: 700px) {
     .grid-general {
+        /*Con el . dejo un área vacía*/
       grid-template-areas:
         "en en en en   en   en   en   en   en"
-        "lat lat lat con con con con con con"
+        ". lat lat con con con con con con"
         "pie pie pie  pie  pie   pie   pie   pie   pie";
     }
     nav{

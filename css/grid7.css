@@ -1,5 +1,5 @@
 body{
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     background-color:rgb(234, 230, 224);
 }
@@ -15,10 +15,13 @@ section > *{
     /*en vez de crear las columnas, puedo crear las filas*/
     grid-template-rows: repeat(3, 200px);
     gap: 10px;
+    /*Le pido que los elementos se coloquen por columnas*/
     grid-auto-flow: column;
+    /*El tamaño de las columnas es 300px las impares y 100px las pares*/
     grid-auto-columns: 300px 100px; 
     /*Las cajas se colocan según su orden en el DOM y con CSS las puedo mover DESPUÉS de montado el DOM, lo que hace que queden huecos.
         La siguiente instrucción obliga a CSS a rellenarlos
+        QUITA la instrucción de debajo y mira el cambio
       */
     grid-auto-flow: dense;
 }

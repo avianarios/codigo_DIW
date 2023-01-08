@@ -15,7 +15,7 @@ section > *{
     /* En vez de crear las columnas, puedo crear las filas*/
     grid-template-rows: repeat(3, 200px);
     gap: 10px;
-    /* Controlo cómo se posicionan los elementos por defecto, es decir, aquellos que se colocan sin que yo les diga dónde ir */
+    /* Si yo no coloco los elementos, éstos se van a posicionar por sí solos por columnas */
     grid-auto-flow: column;
     /*Las columnas consecutivas tienen tamaños distintos. Se puede hacer igual con las filas si se crean las columnas*/
     grid-auto-columns: 300px 100px; 
