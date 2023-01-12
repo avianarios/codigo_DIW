@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/imagenes.css">
+    </head>
+    <body>
+        <section class="grid">
+            <h1>Ejemplo de imágenes adaptables</h1>
+                <p>Puntos de ruptura 1800,1200, 800</p>
+            <p>Imágenes con dos formatos:</p>
+                <ul>
+                    <li>webp</li>
+                    <li>jpg</li>
+                </ul>
+            <p>Cada formato tiene cuatro tamaños:</p>
+                <ul>
+                    <li>1600px</li>
+                    <li>1000px</li>
+                    <li>700px</li>
+                    <li>300px</li>
+                </ul>
+            <picture>
+                <source type="image/webp"  media="(max-width: 799px)" srcset="../img/paisaje_arbol-300px.webp" />
+                <source type="image/webp"  media="(min-width: 800px) and (max-width: 1199)" srcset="../img/paisaje_arbol-700px.webp" />
+                <source type="image/webp"  media="(min-width: 1200px) and (max-width: 1799)" srcset="../img/paisaje_arbol-1000px.webp" />
+                <source type="image/webp"  media="(min-width: 1800px)" srcset="../img/paisaje_arbol-1600px.webp" />
+
+                <source type="image/jpeg"  media="(max-width: 799px)" srcset="../img/paisaje_arbol-300px.jpg" />
+                <source type="image/jpeg"  media="(min-width: 800px) and (max-width: 1199)" srcset="../img/paisaje_arbol-700px.jpg" />
+                <source type="image/jpeg"  media="(min-width: 1200px) and (max-width: 1799)" srcset="../img/paisaje_arbol-1000px.jpg" />
+                <source type="image/jpeg"  media="(min-width: 1800px)" srcset="../img/paisaje_arbol-1600px.jpg" />
+                <img
+                src="../img/paisaje_arbol-700px.jpg"
+                alt="regular paisaje built from four equilateral triangles" />
+            </picture>
+
+    <!--
+            <picture>
+                <source media="(max-width: 799px)" srcset="elva-480w-close-portrait.jpg">
+                <source media="(min-width: 800px)" srcset="elva-800w.jpg">
+                <img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva">
+            </picture>
+
+
+
+            <img srcset="paisaje-centrado-480w.jpg 480w,
+                            elva-fairy-800w.jpg 800w"
+                    sizes="(max-width: 600px) 480px,
+                            800px"
+                    src="elva-fairy-800w.jpg" alt="Elva dressed as a fairy">
+
+            -->
+        </section>
+    </body>
+</html>
