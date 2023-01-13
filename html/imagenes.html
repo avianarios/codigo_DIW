@@ -34,6 +34,7 @@
                 <p>Por supuesto, los cálculos anteriores se aplican cuando se trata de imágenes que ocupan toda la página a las que se les deja expandirse a su máximo tamaño.
                      A las que se les ha puesto unas dimensiones en CSS, su tamaño en el fichero debe ser justo ese y sólo debería cambiar cuando cambie el código CSS para adaptarse a distintos dispositivos.</p>
 
+            <p>Opción 1: Se necesita recortar una imagen para que se vea lo importante en dispositivos pequeños (art-direction problem). Hay que usar le etiqueta media</p>
             <picture>
                 <source type="image/webp"  media="(max-width: 799px)" srcset="../img/paisaje_arbol-300px.webp" />
                 <source type="image/webp"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/paisaje_arbol-700px.webp" />
@@ -46,6 +47,18 @@
                 <!--No hace falta poner la última regla (mayor o igual que 1800). Si ninguna concuerda ,elige la siguiente imagen-->                
                 <img src="../img/paisaje_arbol-1600px.jpg" alt="Un bonito paisaje" />
             </picture>
+
+            <p>Opción 2: Alternativa que NO permite proporcionar varios formatos de imagen para que el navegador elija</p>
+            <img
+                srcset="../img/paisaje-sierra-1600px.webp 1600w,
+                        ../img/paisaje-sierra-1000px.webp 1000w,
+                        ../img/paisaje-sierra-700px.webp 700w"
+                sizes="(max-width: 799px) 300px,
+                        (max-width: 1199px) 700px,
+                        (max-width: 1799px) 1000px,
+                        1600px"
+                        src="../img/paisaje-sierra-300px." alt="Un bonito paisaje de sierra"
+            />
         </section>
     </body>
 </html>
