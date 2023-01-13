@@ -15,50 +15,37 @@
     <body>
         <section class="grid">
             <h1>Ejemplo de imágenes adaptables</h1>
-                <p>Puntos de ruptura 1800,1200, 800</p>
-            <p>Imágenes con dos formatos:</p>
+                <p>Los puntos de ruptura son: 1800px,1200px y 800px</p>
+                <p>Las imágenes tienen dos formatos: webp y jpg</p>
+                <p>Cada formato tiene cuatro tamaños (en píxeles), para acomodarse a cada resolución (resolution switching). El último tamaño es una imagen recortada (art direction): 1600, 1000, 700 y 300</p>
+                <p>Se usan las siguientes reglas para asignar cada tamaño de imagen a cada resolución con la idea de que siempre queden márgenes a los lados de la imagen:</p>
                 <ul>
-                    <li>webp</li>
-                    <li>jpg</li>
+                    <li>En una pantalla con más de 1800px de anchura, se muestra la imagen de 1600px</li>
+                    <li>En una pantalla entre 1200 y 1799px de anchura, se muestra la imagen de 1000px</li>
+                    <li>En una pantalla entre 800 y 1199px de anchura, se muestra la imagen de 700px</li>
+                    <li>En una pantalla menor de 800px de anchura, se muestra la imagen de 3000px</li>
                 </ul>
-            <p>Cada formato tiene cuatro tamaños:</p>
+                <p>Estos puntos de ruptura se han elegido a partir de unas estadísticas que dicen que las resoluciones (horizontales, en píxeles) más usadas son:</p>
                 <ul>
-                    <li>1600px</li>
-                    <li>1000px</li>
-                    <li>700px</li>
-                    <li>300px</li>
+                    <li>Para escritorio, 1920 y 1366</li>
+                    <li>Para Tableta, 768</li>
+                    <li>Para móviles, Alrededor de 400</li>
                 </ul>
+                <p>Por supuesto, los cálculos anteriores se aplican cuando se trata de imágenes que ocupan toda la página a las que se les deja expandirse a su máximo tamaño.
+                     A las que se les ha puesto unas dimensiones en CSS, su tamaño en el fichero debe ser justo ese y sólo debería cambiar cuando cambie el código CSS para adaptarse a distintos dispositivos.</p>
+
             <picture>
                 <source type="image/webp"  media="(max-width: 799px)" srcset="../img/paisaje_arbol-300px.webp" />
-                <source type="image/webp"  media="(min-width: 800px) and (max-width: 1199)" srcset="../img/paisaje_arbol-700px.webp" />
-                <source type="image/webp"  media="(min-width: 1200px) and (max-width: 1799)" srcset="../img/paisaje_arbol-1000px.webp" />
+                <source type="image/webp"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/paisaje_arbol-700px.webp" />
+                <source type="image/webp"  media="(min-width: 1200px) and (max-width: 1799px)" srcset="../img/paisaje_arbol-1000px.webp" />
                 <source type="image/webp"  media="(min-width: 1800px)" srcset="../img/paisaje_arbol-1600px.webp" />
 
                 <source type="image/jpeg"  media="(max-width: 799px)" srcset="../img/paisaje_arbol-300px.jpg" />
-                <source type="image/jpeg"  media="(min-width: 800px) and (max-width: 1199)" srcset="../img/paisaje_arbol-700px.jpg" />
-                <source type="image/jpeg"  media="(min-width: 1200px) and (max-width: 1799)" srcset="../img/paisaje_arbol-1000px.jpg" />
-                <source type="image/jpeg"  media="(min-width: 1800px)" srcset="../img/paisaje_arbol-1600px.jpg" />
-                <img
-                src="../img/paisaje_arbol-700px.jpg"
-                alt="regular paisaje built from four equilateral triangles" />
+                <source type="image/jpeg"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/paisaje_arbol-700px.jpg" />
+                <source type="image/jpeg"  media="(min-width: 1200px) and (max-width: 1799px)" srcset="../img/paisaje_arbol-1000px.jpg" />
+                <!--No hace falta poner la última regla (mayor o igual que 1800). Si ninguna concuerda ,elige la siguiente imagen-->                
+                <img src="../img/paisaje_arbol-1600px.jpg" alt="Un bonito paisaje" />
             </picture>
-
-    <!--
-            <picture>
-                <source media="(max-width: 799px)" srcset="elva-480w-close-portrait.jpg">
-                <source media="(min-width: 800px)" srcset="elva-800w.jpg">
-                <img src="elva-800w.jpg" alt="Chris standing up holding his daughter Elva">
-            </picture>
-
-
-
-            <img srcset="paisaje-centrado-480w.jpg 480w,
-                            elva-fairy-800w.jpg 800w"
-                    sizes="(max-width: 600px) 480px,
-                            800px"
-                    src="elva-fairy-800w.jpg" alt="Elva dressed as a fairy">
-
-            -->
         </section>
     </body>
 </html>
