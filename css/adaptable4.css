@@ -15,10 +15,8 @@ html { font-size: 22px; }
   display: grid;
   gap: 1rem;
 
-  /*
-  Auto-fit expande las columnas hasta llenar los huecos que pueda haber
-  minmax crea columnas con un tamaño entre 300px y 1fr 
-  */
+  /*  Auto-fit expande las columnas hasta llenar los huecos que pueda haber
+  minmax crea columnas con un tamaño entre 300px y 1fr   */
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
