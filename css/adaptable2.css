@@ -1,0 +1,35 @@
+body {
+    margin: 0 auto;
+    width: 80%;
+}
+
+h1{
+    text-align: center;
+}
+
+.fila {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Crea 4 columnas*/
+.columna {
+    flex: 25%;
+    max-width: 25%;
+}
+
+/*Crea dos columnas cuando el viewport mide menos de 1000px*/
+@media screen and (max-width: 1000px) {
+    .columna {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
+/*Crea una columna cuando el viewport mide menos de 500px*/
+@media screen and (max-width: 500px) {
+    .columna {
+        flex: 100%;
+        max-width: 100%;
+    }
+}

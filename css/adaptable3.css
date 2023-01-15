@@ -1,0 +1,29 @@
+
+
+html { font-size: 22px; }
+
+.tarjeta {
+  background-color: dodgerblue;
+  color: white;
+  padding: 1rem;
+  height: 4rem;
+}
+
+.tarjetas {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+
+  /*
+  Auto-fit expande las columnas hasta llenar los huecos que pueda haber
+  minmax crea columnas con un tamaño entre 300px y 1fr 
+  */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+h1{
+  font-size: 1rem;
+  text-align: center;
+  padding: 50px;
+}
