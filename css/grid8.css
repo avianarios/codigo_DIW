@@ -1,0 +1,50 @@
+html, body {
+    font-family: sans-serif;
+    margin: 0;
+
+    /*Definición de variables*/
+    --main-spacing: 15px 5px 10px 5px;
+    --header-footer-spacing: 10px 5px;
+}
+
+h1{
+    text-align: center;
+}
+
+#cuerpo {
+    height: 100vh;
+    display: grid;
+
+    /*Creo una rejilla de 1 columna y 3 filas. Dentro de esa rejilla, crearé otra rejilla*/
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+
+    /*Les pongo nombre a cada fila para meterle contenido*/
+    grid-template-areas: 'header' 'main' 'footer';
+}
+#cuerpo > header, #cuerpo > footer {
+    padding: var(--header-footer-spacing);
+    background-color: lightblue;
+}   
+#cuerpo > header {
+    grid-area: header;
+}
+#cuerpo > main {
+    grid-area: main;
+    padding: var(--main-spacing);
+    /*overflow:auto Permite que el pie de página se pegue al fondo y la barra de desplazamiento afecte sólo al contenido. Si se quita, el pie de paǵina se oculta y hay que mover la barra de desplazamiento*/
+    overflow: auto;
+
+    /*En el main se crea otra rejilla de 1 fila y 3 columnas. Podría haberse hecho de cualquier número*/
+    display: grid;
+    /*La fila ocupa todo el ancho*/
+    grid-template-rows: 1fr;
+    /*Tres columnas, dos de entre 0 y 200px y otra que ocupa entre 200px y el resto del tamaño*/
+    grid-template-columns: minmax(0,200px) minmax(200px, 1fr) minmax(0,200px);
+    /*Puedo ponerle nombre a cada columna para meterle contenido (en el HTML no lo uso)*/
+    grid-template-areas: 'izquierda' 'contenido' 'derecha';
+}
+
+#cuerpo > footer {
+    grid-area: footer;
+}
