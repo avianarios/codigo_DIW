@@ -1,0 +1,54 @@
+/*IMPORTACIÓN DE FICHEROS
+Ahora podemos separar los css fácilmente*/
+@import './_variables.scss';
+
+
+//Uso de variables definidas en _variables.scss
+body{
+  background-color: $color-fondo;
+  color: $color-texto;
+}
+
+/*MIXINS
+que permiten reutilizar el mismo código css en diferentes partes invocándolo por su nombre
+Se pueden usar argumentos en los mixins
+*/
+  @mixin formato-texto($tamanyo) {
+    text-align: center;
+    color: $color-texto2;
+    font-weight: bold;
+    font-size: $tamanyo;
+  }
+
+  //Aquí invoco al mixin en dos partes distintas del código
+  main > p, footer > p{
+    @include formato-texto(1.25em);
+  }
+
+
+//FUNCIONES
+@function pxToRem($pxValue) {
+  $remValue: ($pxValue / 16) + rem;
+  @return $remValue;
+}
+
+
+  //SELECTORES ANIDADOS
+.header {
+  width: $anchura;
+  margin: 0 auto;
+
+  &-link {
+    color: $color-enlace;
+  }
+} 
+
+nav{
+  h1{
+    @include formato-texto(2em);
+  }
+  p{
+    
+        @include formato-texto(pxToRem(1.25));
+  }
+}

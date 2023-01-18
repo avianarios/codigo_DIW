@@ -1,0 +1,39 @@
+@charset "UTF-8";
+/*IMPORTACIÓN DE FICHEROS
+Ahora podemos separar los css fácilmente*/
+body {
+  background-color: #a3b3de;
+  color: #fcf0f0;
+}
+
+/*MIXINS
+que permiten reutilizar el mismo código css en diferentes partes invocándolo por su nombre
+Se pueden usar argumentos en los mixins
+*/
+main > p, footer > p {
+  text-align: center;
+  color: #c17581;
+  font-weight: bold;
+  font-size: 1.25em;
+}
+
+.header {
+  width: 80%;
+  margin: 0 auto;
+}
+.header-link {
+  color: #1300ff;
+}
+
+nav h1 {
+  text-align: center;
+  color: #c17581;
+  font-weight: bold;
+  font-size: 2em;
+}
+nav p {
+  text-align: center;
+  color: #c17581;
+  font-weight: bold;
+  font-size: 0.078125rem;
+}/*# sourceMappingURL=scss.css.map */
