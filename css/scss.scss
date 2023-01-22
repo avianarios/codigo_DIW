@@ -1,6 +1,6 @@
 /*IMPORTACIÓN DE FICHEROS
 Ahora podemos separar los css fácilmente*/
-@import './_variables.scss';
+@import 'variables';
 
 
 //Uso de variables definidas en _variables.scss
@@ -10,12 +10,12 @@ body{
 }
 
 /*MIXINS
-que permiten reutilizar el mismo código css en diferentes partes invocándolo por su nombre
-Se pueden usar argumentos en los mixins
+Los Mixins permiten reutilizar el mismo código css en diferentes partes invocándolo por su nombre. Permiten usar argumentos 
+En este se ha usado una función (mas Oscuro)
 */
   @mixin formato-texto($tamanyo) {
     text-align: center;
-    color: $color-texto2;
+    color: masOscuro($color-texto2);
     font-weight: bold;
     font-size: $tamanyo;
   }
@@ -25,30 +25,27 @@ Se pueden usar argumentos en los mixins
     @include formato-texto(1.25em);
   }
 
-
-//FUNCIONES
-@function pxToRem($pxValue) {
-  $remValue: ($pxValue / 16) + rem;
-  @return $remValue;
-}
-
-
   //SELECTORES ANIDADOS
 .header {
   width: $anchura;
   margin: 0 auto;
 
-  &-link {
+  &-primero {
+    color: $color-enlace;
+  }
+
+  .segundo{
     color: $color-enlace;
   }
 } 
 
+
+//Aquí incluyo un mixin y le paso un parámetro. El parámetro del segundo lo calculo con una fórmula
 nav{
   h1{
     @include formato-texto(2em);
   }
   p{
-    
-        @include formato-texto(pxToRem(1.25));
+    @include formato-texto(pxToRem(1.25));
   }
 }

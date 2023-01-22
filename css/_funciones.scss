@@ -1,0 +1,10 @@
+@function pxToRem($pxValue) {
+    $remValue: ($pxValue / 16) + rem;
+    @return $remValue;
+  }
+@function aunMasOscuro( $color ) 	{ @return darken($color,20%); }
+@function masOscuro( $color ) 		{ @return darken($color,13.333%); }
+@function oscuro( $color ) 		{ @return darken($color,6.667%); }
+@function claro( $color ) 		{ @return lighten($color,16.667%); }
+@function masClaro( $color ) 	{ @return lighten($color,33.333%); }
+@function aunMasClaro( $color ) 	{ @return lighten($color,50%); }
