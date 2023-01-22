@@ -1,5 +1,6 @@
 /*IMPORTACIÓN DE FICHEROS
 Ahora podemos separar los css fácilmente*/
+@import 'funciones';
 @import 'variables';
 
 
@@ -46,6 +47,20 @@ nav{
     @include formato-texto(2em);
   }
   p{
-    @include formato-texto(pxToRem(1.25));
+    @include formato-texto(pasaPXaREM(100));
   }
+}
+
+//Operadores de control de flujo
+$modo-oscuro: true;
+
+@if $modo-oscuro {
+  color: $color-texto-oscuro;
+  font-weight: 300;
+  background-color: $color-fondo-oscuro;
+}
+@else {
+  color: $color-texto-claro;
+  font-weight: 400;
+  background-color: $color-fondo-claro;
 }
