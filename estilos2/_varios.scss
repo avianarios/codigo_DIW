@@ -1,0 +1,82 @@
+//Este comentario no irá en el CSS
+/*Este comentario irá en el CSS, salvo que se use el modo comprimido*/
+/*!Este comentario siempre irá en el CSS*/
+
+
+
+
+/*VARIABLES
+Uso de variables de forma más natural que en CSS(definidas en _variables.scss)*/
+body{
+  background-color: $color-fondo;
+  color: $color-texto;
+}
+
+/*MIXINS
+Los Mixins permiten reutilizar el mismo código css en diferentes partes invocándolo por su nombre. Permiten usar argumentos 
+En este se ha usado una función ("masOscuro", definida en el fichero _funciones.scss)*/
+  @mixin formato-texto($tamanyo) {
+    text-align: center;
+    color: masOscuro($color-texto2);
+    font-weight: bold;
+    font-size: $tamanyo;
+  }
+  //Aquí invoco al mixin en cuatro partes distintas del código con un argumento (aunque luego no le hago nada dentro del mixin)
+  main, footer{
+    p, .clase{
+      @include formato-texto(1.25em);
+    }
+  }
+
+/*ANIDACIÓN DE SELECTORES
+*/
+.header {
+  width: $anchura;
+  margin: 0 auto;
+
+  &-primero {
+    color: $color-enlace;
+  }
+
+  .segundo{
+    color: $color-enlace;
+  }
+} 
+
+
+//Ejemplo de selectores anidados, mixins con parámetros y uso de fórmulas (en el parámetro del segundo mixin)
+nav{
+  h1{
+    @include formato-texto(2em);
+  }
+  p{
+    @include formato-texto(pasaPXaREM(100));
+  }
+}
+
+/*OPERADORES CONDICIONALES*/
+$modo-oscuro:true;
+body{
+  @if $modo-oscuro {
+    color: $color-texto-oscuro;
+    background-color: $color-fondo-oscuro;
+  }
+  @else {
+    color: $color-texto-claro;
+    background-color: $color-fondo-claro;
+  }
+}
+
+/*HERENCIA*/
+%hereda-color{
+  color: red;
+}
+
+%hereda-texto{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.clase-hereda{
+  @extend %hereda-color;
+  @extend %hereda-texto;
+}
