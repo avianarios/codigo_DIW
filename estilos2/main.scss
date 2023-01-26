@@ -18,3 +18,49 @@
     
 
 }
+
+/*OPERADORES
+The unary operators not, +, -, and /.
+The *, /, and % operators.
+The + and - operators.
+The >, >=, < and <= operators.
+The == and != operators.
+The and operator.
+The or operator.
+The = operator, when it’s available.
+*/
+//Operadores aritméticos y de comparación
+$padding: 50px;
+h2 {
+    @if($padding <= 20px) {
+        padding: $padding;
+    } @else {
+        padding: $padding / 2;
+    }
+}
+
+
+//Operadores lógicos
+$list-map: (success: lightgreen, alert: tomato, info: lightblue);
+@mixin button-state($btn-state) {
+    @if (length($list-map) > 2 or length($list-map) < 5) {
+        background-color: map-get($list-map, $btn-state);
+    }
+}
+
+.btn {
+    @include button-state(success);
+}
+
+
+//Operadores de cadenas de texto
+@mixin string-concat {
+  &:after {
+      content: "My favorite language is " + Sass;
+      font: Arial + " sans-serif";
+  }
+}
+
+h2 {
+  @include string-concat;
+}
