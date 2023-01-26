@@ -1,0 +1,22 @@
+@use "sass:map";
+/*MAPA
+Se accede a los valores con una llave*/
+$ruptura: (
+  p: 30em,
+  m: 50em,
+  g: 75em,
+);
+
+@mixin mixin_media_query($key) {
+  $size: map.get($ruptura, $key);
+
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+$colors: ('primary': black, 'secondary': white);
+
+@function color($color) {
+  @return map.get($colors, $color);
+}

@@ -1,3 +1,20 @@
-@import 'funciones';
+/*@use permite incluir */
+@use 'media-query' as *;
+@use 'funciones' as *;
 @import 'variables';
 @import 'varios';
+
+
+.texto {
+    @include mixin_media_query("p") {
+      color: red;
+    }
+    @include mixin_media_query("m") {
+        color: green;
+      }
+    @include mixin_media_query("g") {
+        color: blue;
+    }
+    
+
+}

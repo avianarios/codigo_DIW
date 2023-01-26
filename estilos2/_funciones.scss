@@ -14,7 +14,9 @@ Para usar funciones incluidas en esos módulos en nuestro código, hay que invoc
 
 @use "sass:math";
 
-@function pasaPXaREM($px) {
+/*FUNCIONES
+Se usan cuando hay que hacer algún cálculo, NO PARA REUTILIZAR CÓDIGO. Para eso están los mixins*/
+@function pasaPXaREM($px: 500px) {
   @return math.div($px, 16) * 1rem;
 }
 
