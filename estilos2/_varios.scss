@@ -1,3 +1,4 @@
+@use 'media-query' as *;
 @use "sass:map";
 /************AVISO************
 El presente documento sólo pretende dar a conocer, de forma breve, las posibilidades de SASS.
@@ -150,8 +151,6 @@ cada párrafo de un color*/
   }
 }
 
-
-
 /*RECORRIDO DE MAPAS CON MÁS DE UN VALOR POR CLAVE E INTERPOLACIÓN*/
 $buttons: (
   error: (#d82d2d, #666),
@@ -217,3 +216,64 @@ Si necesitamos usar variables, hay que usar mixins
   font-size: 2rem;
 }
 
+
+/*Media queries implementadas mediante mixins*/
+.texto {
+  @include mixin_media_query(p) {
+    color: red;
+  }
+  @include mixin_media_query(m) {
+      color: green;
+    }
+  @include mixin_media_query(g) {
+      color: blue;
+  }
+  
+
+}
+
+/*OPERADORES
+The unary operators not, +, -, and /.
+The *, /, and % operators.
+The + and - operators.
+The >, >=, < and <= operators.
+The == and != operators.
+The and operator.
+The or operator.
+The = operator, when it’s available.
+*/
+//Operadores aritméticos y de comparación
+$padding: 50px;
+h2 {
+  @if($padding <= 20px) {
+      padding: $padding;
+  } @else {
+      padding: math.div($padding, 2);
+  }
+}
+
+
+//Operadores lógicos
+$list-map: (success: lightgreen, alert: tomato, info: lightblue);
+@mixin button-state($btn-state) {
+  @if (length($list-map) > 2 and length($list-map) < 5) {
+      background-color: map-get($list-map, $btn-state);
+  }
+}
+
+.btn {
+  @include button-state(success);
+}
+
+
+//Operadores de cadenas de texto
+@mixin string-concat {
+&:after {
+    content: "My favorite language is " + Sass;
+    font: Arial + " sans-serif";
+}
+}
+
+h2 {
+@include string-concat;
+}
