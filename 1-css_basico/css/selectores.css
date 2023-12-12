@@ -1,0 +1,52 @@
+/*tags*/
+h1{
+    color: blue;
+  }
+  
+/*class*/
+.seccion{
+  background-color: red;
+}
+
+/*id*/
+#listaCompra{
+  font-size: 1rem;
+}
+
+/*direct child of an id*/
+#listaCompra > li{
+  border: 3px solid green;
+}
+
+/*attribute*/
+img[alt]{
+  margin: 200px;
+}
+
+/*attribute with value*/
+a[target="_blank"]{
+  color: beige;
+}
+
+/*attribute containing a string*/
+[href*='es.wikipedia.org'] {
+  color: red;
+}
+
+/* starting with https */
+[href^='https'] {
+  color: green;
+}
+
+/* ending with .com */
+[href$='.com'] {
+  color: blue;
+}
+
+/*selectors can be grouped*/
+[href*='es.wikipedia.org'],
+[href^='https'],
+[href$='.com']{
+  color: red;
+}
+

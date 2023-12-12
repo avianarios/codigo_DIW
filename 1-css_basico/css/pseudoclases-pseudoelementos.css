@@ -1,0 +1,14 @@
+
+/*focus on specific platform state, like when an element is hovered, structures inside an element, or parts of an element*/
+
+/*links are hovered*/
+a:hover{
+  font-size: 2rem;
+  text-decoration: none;
+  color: red;
+}
+
+/*Sets all even elements of a list to have a different background*/
+li:nth-child(even) {
+  background: coral;
+}
