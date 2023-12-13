@@ -1,0 +1,131 @@
+/*allows to apply styles based on status of elements*/
+
+/*********************************/
+/*Interactive states: due to an interaction a user has with your page
+  :hover -> mouse pointer places it over an element
+  :active -> an element is actively being interacted with— such as a click—before click is released
+  :focus, focus-within and focus-visible -> an element receive focus
+*/
+a:hover{
+  font-size: 2rem;
+  text-decoration: none;
+  color: red;
+}
+
+button:focus {
+  outline: #4CAF50 solid 10px;
+}
+
+
+/*Sets all even elements of a list to have a different background*/
+li:nth-child(even) {
+  background: coral;
+}
+
+/*********************************/
+/*historical state
+  :link -> matches any non-visited link (<a> element)
+  :visited -> matches any visited link (<a> element)
+  :target -> selects any element with an id that matches an URL anchor. If there's an #section1 in URL, it would match id="section1"*/
+
+a:link {
+  color: green;
+  font-weight: bold
+}
+
+a:visited {
+  color: purple;
+  font-weight: bold;
+}
+
+/*********************************/
+/*structural -> allows to select elements according to its position or structure in document
+  :root -> selects the root element
+  :first-child
+  :last-child
+  :nth-child()
+  :nth-last-child() -> nth child starting from the end
+  :first-of-type -> first son element of the same type
+  :last-of-type -> last son element of the same type
+  :nth-of-type() -> nth son of a given type
+  :nth-last-of-type() -> nth last son of a given type
+  :only-child -> selects a lonely son 
+  :only-of-type -> selects an element of a given type which is alone
+  :empty
+*/
+li:first-child{
+  background: lightskyblue;
+  font-weight: bold;
+}
+
+li:last-child {
+  background: lightgreen;
+  font-weight: bold;
+}
+
+li:nth-child(2){
+  background-color: lightpink;
+}
+
+/*select the 2nd child of the class "parrafos" with an "especial" id*/
+#parrafos :nth-child(2 of .especial){
+  background-color: red;
+}
+
+li:nth-last-child(2){
+  background-color: lightsalmon;
+}
+
+/*All even elements
+li:nth-last-child(2n){
+  background-color: lightsalmon;
+}
+
+odds elements
+li:nth-last-child(2n-1){
+  background-color: lightsalmon;
+}*/
+
+section p:first-of-type{
+  background-color: #4CAF50;
+}
+
+#parrafos p:last-of-type{
+  background-color: aquamarine;
+}
+
+#listaCompra :nth-of-type(2){
+  border: 2px dashed green;
+}
+
+
+#parrafos p:nth-last-of-type(2){
+  border: 2px dotted red;
+}
+
+
+/*********************************/
+/*Logical
+  :is
+  :where
+  :has
+  :not()
+
+*/
+
+
+/*********************************/
+/*forms
+  :checked
+  :indeterminate
+  :enabled
+  :disabled
+  :read-only
+  :read-write
+  :placeholder-shown
+  :default
+*/
+
+input:checked+label{
+  color:coral;
+}
