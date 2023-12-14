@@ -10,7 +10,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../estilos/normal.css">
+        <link rel="stylesheet" href="../estilos/1.-modeloCaja.css">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -42,9 +42,27 @@
           line. Overflowing inline elements will
           <span>wrap onto a new line if possible (like this one containing text)</span>,
           or just go on to a new line if not, much like this image will do:
-          <img src="long.jpg" alt="snippet of cloth" />
+          <img src="../img/long.jpg" alt="snippet of cloth" />
         </p>
-        
-
+        <p id="parte_arriba">las cajas tienen 4 parámetros:</p>
+        <ul class="parte_central">
+          <li>margen (margin)</li>
+          <li>border (border)</li>
+          <li>relleno (padding)</li>
+          <li>contenido (content)</li>
+        </ul>
+        <p class="parte_central">y tienen varias partes</p>
+        <ul class="parte_abajo">
+          <li>top</li>
+          <li>bottom</li>
+          <li>left</li>          
+          <li>right</li>          
+        </ul>
+        <p id="caja_fija">El texto se desborda porque le hemos dado un tamaño fijo a la caja. 
+          El texto se desborda porque le hemos dado un tamaño fijo a la caja.
+          El texto se desborda porque le hemos dado un tamaño fijo a la caja.
+          El texto se desborda porque le hemos dado un tamaño fijo a la caja.
+        </p>
+        <p id="desbordamiento">En esta caja permitimos que se desborde</p>
     </body>
 </html>
