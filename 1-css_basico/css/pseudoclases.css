@@ -1,3 +1,7 @@
+#formulario-contacto>label{
+  display: block;
+}
+
 /*allows to apply styles based on status of elements*/
 
 /*********************************/
@@ -106,26 +110,111 @@ section p:first-of-type{
 
 /*********************************/
 /*Logical
-  :is
+  :is -> Allows to replace grouped selectors
   :where
   :has
   :not()
 
 */
 
+/*
+Instead of 
+  #parrafos .texto, 
+  #parrafos .especial
+  #parrafos p{
+
+we could write the following:
+}*/
+
+/*
+Specifity (a,b,c) 
+  a-> number of #ids in selector
+  b-> number of .class, [attribute] of :pseudoclass
+  c-> number of element of ::pseudoelement
+specifity (1,0,1). It's not applied as there's another rule with (1,1,1)
+
+*/
+#parrafos > p{
+  background-color: bisque;
+}
+
+/*specifity is the highest of the three included in :is, (1,1,0)*/
+#parrafos :is(.texto, .especial, p){
+  background-color: aquamarine;
+}
+
+/*same as :is, but specifity of what's included in :where is zero (1,0,0)*/
+#parrafos :where(.texto, .especial, p){
+  background-color: aquamarine;
+}
+
+/*selects parents who has a given child*/
+/*not fully supported check caniuse.com*/
+h1:has(h2){
+  border: 3px dotted blue;
+}
+
+p:not(.especial){
+  border: 3px dashed red;
+}
+
 
 /*********************************/
-/*forms
+/*form states
   :checked
   :indeterminate
   :enabled
-  :disabled
-  :read-only
+  :disabled -> user can't change. No information is sent
+  :read-only -> user can't change, but information is sent
   :read-write
   :placeholder-shown
-  :default
+  :default -> elements with a default value
 */
 
 input:checked+label{
   color:coral;
+}
+
+input:disabled+label{
+  color:gray;
+}
+
+input:placeholder-shown {
+  color:coral;
+}
+
+/*form validation
+  :required
+  :optional -> not required
+  :valid
+  :invalid
+  :user-valid
+  :user-invalid
+  :in-range
+  :out-of-range
+*/
+
+/*select label before a required input*/
+label:has(+input:required){
+  color: red;
+}
+
+input:required{
+  border: 3px solid red;
+}
+
+input:invalid {
+  color: red;
+}
+
+input:valid {
+  color: green;
+}
+
+input:in-range {
+  color: green;
+}
+
+input:out-of-range{
+  color: red;
 }
