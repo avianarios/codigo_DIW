@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/1-dimensiones.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="" async defer></script>
+        <h1>Modelo de cajas</h1>
+        <section>
+          <article>
+            <h2>Dimensiones</h2>
+
+            <p class="fondo_rojo">
+              Soy una caja. Como todo en HTML. Y tengo anchura y altura.
+              Si no se especifica lo contrario, me expando para ocupar todo el ancho de la pantalla (500px)
+            </p>
+            
+            <p class="fondo_rojo anchura_fija">
+              Esta caja tiene una anchura de 250px. El texto que haya dentro de ella hace que la caja sea tan alta como se 
+              necesite para caber dentro
+            </p>
+
+            <p class="fondo_rojo anchura_variable altura_variable">
+              También se puede especificar un rango mínimo y máximo para la anchura y para la altura
+              Para esta caja es 100-200px y 100-200px. La caja se ajusta al contenido
+            </p>
+          </article>
+          <article>
+            <h2>Tamaño de las cajas</h2>
+            <p>
+              Hay dos opciones a la hora de darle tamaño a las cajas: content-box y border-box
+              <ul>
+                <li>content-box: en el valor de anchura y altura no está incluido borde, relleno y/o margen. Valor por defecto.</li>
+                <li>border-box: en el valor de anchura y altura, ya está incluido el borde y relleno.</li>
+              </ul>
+            </p>
+            <p class="fondo_rojo border-box caja_fija">
+              Esta caja está en modo border-box. Cuando le demos anchura y altura, ya estará incluido borde y relleno
+            </p>
+
+            <p class=" fondo_rojo content-box caja_fija">
+              Esta caja está en modo content-box. Cuando le demos anchura y altura, habrá que sumarle borde y relleno
+            </p>
+          </article>            
+      </section>
+    </body>
+</html>

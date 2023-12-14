@@ -1,0 +1,43 @@
+body {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.fondo_rojo {
+  background: rgba(255, 84, 104, 0.3);
+  border: 2px solid rgb(255, 84, 104);
+  padding: 10px;
+  margin: 10px;
+}
+
+ul{
+  padding-left: 40px;
+}
+
+.caja_fija{
+  width: 200px;
+  height: 100px;
+}
+
+.content-box{
+  box-sizing: content-box;
+}
+
+.border-box{
+  box-sizing: border-box;
+}
+
+p.relleno{
+  padding: 20px; /*shortcut that changes all paddings*/
+  /*one value: all paddings
+  two values: top/bottom and left/right
+  three values: top, left/right, bottom
+  four values: top, right, bottom, left
+
+  padding-top: 35px;
+  padding-bottom: 0.75rem;*/
+}
+
+p.margen{
+  margin: 20px;
+}

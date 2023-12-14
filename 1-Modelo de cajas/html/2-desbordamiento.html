@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/2-desbordamiento.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        
+        <script src="" async defer></script>
+        <h1>Modelo de cajas</h1>
+        <section>
+          <article>
+            <h2>Desbordamiento</h2>
+            <p>Ahora vamos a restringir ambas dimensiones de las cajas a 200x75px (an x al)</p>
+            <p class="fondo_rojo caja_fija">
+              Si el texto no cabe, se desborda (overflow). Este es el comportamiento por defecto (overflow=visible)
+              Hay retornos de línea para que la siguiente caja se pueda leer (mal hecho, no se hace así)
+            </p>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <p class="desbordamiento_oculto fondo_rojo caja_fija">
+              El texto de esta caja no cabe y se va a desbordar. Vamos a usar overflow=hidden para ocultar el contenido
+              que se sale de la caja y que no se vea por fuera. 
+            </p>
+            <p class="desbordamiento_desplazamiento fondo_rojo caja_fija">
+              El texto de esta caja no cabe y se va a desbordar. Vamos a usar overflow=scroll para que aparezcan barras de
+              desplazamiento y poder leer el contenido que se sale de la caja. 
+            </p>
+          </article>
+      </section>
+    </body>
+</html>
