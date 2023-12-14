@@ -1,0 +1,70 @@
+/*A CSS pseudo-element is a selector that lets you style a specific part of an element.
+
+Content
+    ::after
+    ::before
+    content -> it only can be used inside ::after or ::before
+    attr()
+*/
+
+p::before{
+    content: "Texto generado con ::before y content ";
+    color:red;
+    font-size:0.75rem;
+}
+
+p::after{
+    content: " Texto generado con ::after y content ";
+    color:red;
+    font-size: 0.75rem;
+
+}
+
+/*
+typographic
+    ::first-letter
+    ::first-line
+*/
+
+p:first-of-type:first-letter{
+    font-family: 'Fancy Decorative', serif;
+    font-size: 4rem;
+}
+
+p:first-of-type::first-line{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/*
+highlighting
+    ::selection -> selected text with mouse
+    ::target-text -> Allows to highlight a text, defined by #:~:text="texto", after anchor (#) in an URL
+    ::spelling-error
+    ::grammar-error
+*/
+
+::selection {
+    background: indigo;
+    color: white;
+  }
+
+/*
+
+::marker
+::backdrop -> applies styles to a dialog or modal message
+::placeholder
+*/
+
+::marker{
+    color:green;
+}
+
+::backdrop{
+    background: white;
+    opacity: 0.6;
+
+}
+
+::placeholder{
+    background-color: blanchedalmond;
+}
