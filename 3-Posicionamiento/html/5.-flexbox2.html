@@ -10,45 +10,55 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../estilos/4.-flexbox.css">
+        <link rel="stylesheet" href="../estilos/5.-flexbox2.css">
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <section class="flex-contenedor-nv1 gap">
-            <article>
-                <h1>Terminología básica de flex</h1>
-                <p>Flex está pensado para colocar elementos en una sola línea, pero permite desbordamiento, es decir, que los elementos que no quepan se vayan a la siguiente línea.</p>
-                <p>Los elementos se organizan según la siguiente imagen</p>
-                <img src="../img/00-basic-terminology-flexbox.svg">
-                <p>Hay que definir un contenedor con display: flex;</p>
-                <p>Aquí se muestran algunos ejemplos, no se muestran todas los valores de todas las propiedades</p>
-                <p>En todos los contenedores flex se ha usado column-gap y row-gap para dejar un espacio entre elementos sin tener que usar márgenes o rellenos</p>
-            </article>
 
             <article>
-                <h2>Propiedades que actúan sobre el contenedor</h2>
-                <h3>flex-direction y flex-wrap</h3>
-                <p>Define el eje principal y controla si los elementos se pueden desbordar</p>
-                <p>Posibles valores de flex-direction: row, column, row-reverse y column-reverse </p>
-                <p>Posibles valores de flex-wrap: wrap y nowrap </p>
+                <h2>Propiedades de flexbox que actúan sobre los elementos</h2>
+                <h3>align-self</h3>
+                <p>Align-self permite definir el comportamiento solo para un valor. Sólo funciona cuando los elementos ocupan todo el espacio. Valores: flex-start, flex-end, center, baseline y stretch</p>
+            </article>
+            <article class="articulo-borde">
+                <h3>align-self</h3>
+                <p>Los elementos se organizan en una fila (flex-direction: row) y se estiran para ocupar todo el contenedor (align-content: flex-stretch), el tercer elemento se alinea al final (align-self:end)</p>
+                <ul class="flex-contenedor-nv2 fila gap wrap min-height ac-stretch">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item as-end">3</li>
+                    <li class="flex-item">4</li>
+                    <li class="flex-item">5</li>
+                    <li class="flex-item">6</li>
+                    <li class="flex-item">7</li>
+                    <li class="flex-item">8</li>
+                    <li class="flex-item">9</li>
+                    <li class="flex-item">10</li>
+                </ul>
+            </article>                     
+
+            <article>
+                <h2>Order</h2>
+                <p>Primero se colocan los elementos con un número más alto y al final los más bajos (incluso negativos)</p>
             </article>
             <article class="articulo-borde">
                 <h3>flex-direction</h3>
                 <p>Los elementos se organizan en una columna inversa (flex-direction: column-reverse)</p>
                 <ul class="flex-contenedor-nv2 columna-al-reves gap">
-                    <li class="flex-item">1</li>
-                    <li class="flex-item">2</li>
-                    <li class="flex-item">3</li>
-                    <li class="flex-item">4</li>
+                    <li class="flex-item orden3">1</li>
+                    <li class="flex-item orden1">2</li>
+                    <li class="flex-item orden2">3</li>
+                    <li class="flex-item orden2">4</li>
                     <li class="flex-item">5</li>
                     <li class="flex-item">6</li>
                 </ul>
-            </article>            
+            </article>
             <article class="articulo-borde">
-                <h3>flex-direction y flex-wrap</h3>
-                <p>Los elementos se organizan en una fila inversa (flex-direction: row-reverse) y no se permite el desbordamiento (flex-wrap: nowrap, los elementos reducen su tamaño para caber en la misma línea, no se van a la siguiente)</p>
+                <h3>flex-basis</h3>
+                <p>Define el tamaño base del elemento</p>
                 <ul class="flex-contenedor-nv2 fila-al-reves nowrap gap">
                     <li class="flex-item">1</li>
                     <li class="flex-item">2</li>
@@ -190,7 +200,7 @@
 
 
             <article>
-                <h2>align-content</h2>
+                <h2>align-content y align-self</h2>
                 <p>Justify-content alinea en el eje principal, align-items alinea en el eje secundario (si el contenedor es más grande) y hay desbordamiento</p>
                 <p>Align-content alinea a la vez en el eje principal y el secundario. valores: flex-start, flex-end, center, stretch, space-between, space-around </p></p>
             </article>
@@ -226,6 +236,7 @@
                     <li class="flex-item">10</li>
                 </ul>
             </article>                
+
         </section>
     </body>
 </html>
