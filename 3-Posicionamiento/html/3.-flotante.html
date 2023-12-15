@@ -10,7 +10,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../estilos/flotante.css">
+        <link rel="stylesheet" href="../estilos/3.-flotante.css">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -22,30 +22,28 @@
         </header>
         <section>
             <article>
-                <div class="flota_izquierda flota">Ejemplo de caja flotante a la izquierda</div>
-                <div class="flota_derecha flota">Ejemplo de caja flotante a la derecha</div>
+                <p class="flota_izquierda flota">Ejemplo de caja flotante a la izquierda</p>
+                <p class="flota_derecha flota">Ejemplo de caja flotante a la derecha</p>
                 <p>Este párrafo queda en medio de ambos flotantes. Este texto es para rellenar</p>
                 <p id="salto"><span class="destacado">Este párrafo tiene un clear:both, por lo que queda debajo de las cajas flotantes, aunque tenga sitio </span></p>
             </article>
             <article>
-                <div class="flota_izquierda flota">Ejemplo de caja flotante a la izquierda</div>
-                <div class="flota_izquierda flota">Otro ejemplo de caja flotante a la izquierda</div>
-                <div class="flota_derecha flota">Ejemplo de caja flotante a la derecha</div>
+                <p class="flota_izquierda flota">Ejemplo de caja flotante a la izquierda</p>
+                <p class="flota_izquierda flota">Otro ejemplo de caja flotante a la izquierda</p>
+                <p class="flota_derecha flota">Ejemplo de caja flotante a la derecha</p>
                 <p>Este párrafo queda en medio de ambos flotantes</p>
-                <p><span class="destacado">Este párrafo NO tiene clear, por lo que queda en medio de las cajas flotantes</span></p>
+                <p class="destacado">Este párrafo NO tiene clear, por lo que queda en medio de las cajas flotantes</p>
             </article>
             <article>
-                <div class="envolver">
-                    <div class="flota_izquierda flota">Ejemplo de caja flotante a la izquierda</div>
-                    <div class="flota_derecha flota">Ejemplo de caja flotante a la derecha</div>
+                <article class="envolver">
+                    <p class="flota_izquierda flota">Ejemplo de caja flotante a la izquierda</p>
+                    <p class="flota_derecha flota">Ejemplo de caja flotante a la derecha</p>
                     
                     <p>
                         Este párrafo queda en medio de ambos flotantes y los envuelve gracias a display: flow-root
                     </p>
-                </div>
-                <p>
-                    <span class="destacado">Este párrafo NO tiene clear, pero no queda en medio de las flotantes porque el anterior párrafo ha usado display:flow-root </span>
-                </p>
+                </article>
+                <p class="destacado">Este párrafo NO tiene clear, pero no queda en medio de las flotantes porque el anterior párrafo ha usado display:flow-root</p>
             </article>
         </section>
     </body>

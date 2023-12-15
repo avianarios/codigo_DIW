@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../estilos/4.-flexbox.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <section>
+            <h1>Terminología básica de flex</h1>
+            <p>Flex está pensado para colocar elementos en una sola línea, pero permite desbordamiento, es decir, que los elementos que no quepan se vayan a la siguiente línea.</p>
+            <p>Los elementos se organizan según la siguiente imagen</p>
+            <img src="../img/00-basic-terminology-flexbox.svg">
+            <p>Hay que definir un contenedor con display: flex;</p>
+            <p>Aquí se muestran algunos ejemplos, no se muestran todas los valores de todas las propiedades</p>
+            <p>En todos los contenedores flex se ha usado column-gap y row-gap para dejar un espacio entre elementos sin tener que usar márgenes o rellenos</p>
+            <article>
+                <h1>flex-direction</h1>
+                <p>Los elementos se organizan en una columna inversa (flex-direction: column-reverse)</p>
+                <ul class="flex-container columna-al-reves gap">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+                    <li class="flex-item">4</li>
+                    <li class="flex-item">5</li>
+                    <li class="flex-item">6</li>
+                </ul>
+            </article>            
+            <article>
+                <h1>flex-direction y flex-wrap</h1>
+                <p>Los elementos se organizan en una fila inversa (flex-direction: row-reverse) y no se permite el desbordamiento (flex-wrap: nowrap, los elementos reducen su tamaño para caber en la misma línea, no se van a la siguiente)</p>
+                <ul class="flex-container fila-al-reves nowrap gap">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+                    <li class="flex-item">4</li>
+                    <li class="flex-item">5</li>
+                    <li class="flex-item">6</li>
+                    <li class="flex-item">7</li>
+                    <li class="flex-item">8</li>
+                    <li class="flex-item">9</li>
+                    <li class="flex-item">10</li>
+                </ul>
+            </article>            
+            <article>
+                <h1>flex-direction y flex-wrap</h1>
+                <p>Los elementos se organizan en una fila (flex-direction: row) y se permite desbordamiento (flex-wrap: wrap)
+                </p>
+                <ul class="flex-container fila wrap gap">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+                    <li class="flex-item">4</li>
+                    <li class="flex-item">5</li>
+                    <li class="flex-item">6</li>
+                    <li class="flex-item">7</li>
+                    <li class="flex-item">8</li>
+                    <li class="flex-item">9</li>
+                    <li class="flex-item">10</li>
+                </ul>
+            </article>
+            <article>
+                <h1>justify-content</h1>
+                <p>Justify-content alinea objetos en el eje principal que por defecto es el horizontal, pero se puede cambiar</p>
+                <p>Los elementos se organizan en una fila (flex-direction: row) y se deja un espacio equitativo entre los elementos (justify-content: space-around)</p>
+                <ul class="flex-container fila gap jc-space-around">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+                </ul>
+            </article>
+            <article>
+                <h1>justify-content</h1>
+                <p>Justify-content alinea objetos en el eje principal. Por defecto es el horizontal, pero en este caso es el vertical</p>
+                <p>Los elementos se organizan en una columna (flex-direction: column) y se colocan los elementos en el principio (justify-content: flex-start)</p>
+                <ul class="flex-container columna gap jc-start">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+                </ul>
+            </article>
+
+            <article>
+                <h1>justify-content</h1>
+                <p>Los elementos se organizan en una fila (flex-direction: row) y se alinean los elementos al final de su eje (justify-content: flex-end)</p>
+                <ul class="flex-container fila gap jc-flex-end">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+
+                </ul>
+            </article>
+            <article>
+                <h1>justify-content</h1>
+                <p>Los elementos se organizan en una fila (flex-direction: row) y se centran los elementos en su eje (justify-content: center)</p>
+                <ul class="flex-container fila gap jc-center">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+                </ul>
+            </article>
+            <article>
+                <h1>justify-content y align-items</h1>
+                <p>Los elementos se organizan en una fila (flex-direction: row)
+                    se centran los elementos en su eje principal (fila) al centro (justify-content: center) y en su eje secundario (columna) arriba (align-items: start)</p>
+                <p>align-items sólo tiene sentido cuando le damos un tamaño al contenedor y es más grande que los elementos que contiene</p>
+                <ul class="flex-container fila gap min-height jc-center ai-start">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+                </ul>
+            </article>
+            <article>
+                <h1>justify-content y align-items</h1>
+                <p>Los elementos se organizan en una fila (flex-direction: row)
+                    se centran los elementos en su eje principal (fila) al centro (justify-content: flex-end) y en su eje secundario (columna) arriba (align-items: end)</p>
+                <p>align-items sólo tiene sentido cuando le damos un tamaño al contenedor y es más grande que los elementos que contiene</p>
+                <ul class="flex-container fila gap min-height jc-flex-end ai-end">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+                </ul>
+            </article>
+            <article>
+                <h1>justify-content y align-items</h1>
+                <p>Los elementos se organizan en una fila (flex-direction: row)
+                    se reparte el espacio entre los elementos en su eje principal (fila) (justify-content: space-evenly) y en su eje secundario (columna) se estira para ocupar todo el sitio (align-items: stretch)</p>
+                <p>align-items sólo tiene sentido cuando le damos un tamaño al contenedor y es más grande que los elementos que contiene</p>
+                <ul class="flex-container fila gap min-height jc-space-evenly ai-stretch">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+                </ul>
+            </article>
+            <article>
+                <h1>justify-content y align-items</h1>
+                <p>Los elementos se organizan en una fila (flex-direction: row)
+                    se pegan los elementos a los extremos en su eje principal (justify-content: space-between) y en su eje secundario (columna) al centro (align-items: center)</p>
+                <p>align-items sólo tiene sentido cuando le damos un tamaño al contenedor y es más grande que los elementos que contiene</p>
+                <ul class="flex-container fila gap min-height jc-space-between ai-center">
+                    <li class="flex-item">1</li>
+                    <li class="flex-item">2</li>
+                    <li class="flex-item">3</li>
+                </ul>
+            </article>            
+        </section>
+    </body>
+</html>

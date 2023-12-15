@@ -1,0 +1,64 @@
+body {
+  width: 600px;
+  margin: 0 auto;
+}
+
+p:not(.linea) {
+  background: rgba(255, 84, 104, 0.3);
+  border: 2px solid rgb(255, 84, 104);
+  padding: 10px;
+  margin: 10px;
+}
+
+span {
+  background: white;
+  border: 1px solid black;
+}
+
+p.linea{
+  display: inline;  /*the box takes the space to place its content. It ignores widht and height*/
+  width: 100px;
+  height: 100px;
+  background: lightgreen;
+  border: 1px solid green;
+}
+
+p.linea_bloque_medidas{ /*if I remove p. this selector has less specifity than p:not(.linea) and, therefore, le latter is applied*/
+  display: inline-block;
+  background-color: lightblue;
+  border: 1px solid blue;
+  overflow: scroll;
+  padding: 10px;
+  margin:10px;
+  width: 100px;
+}
+
+/*if I remove p. from the following selectors, they would have less specifity than p:not(.linea) and, therefore, the latter would be applied*/
+p.linea_bloque{ 
+  display: inline-block;
+  background-color: lightblue;
+  border: 1px solid blue;
+  overflow: scroll;
+  padding: 10px;
+  margin:10px;
+}
+
+span.bloque{
+  display: block;
+  background-color: lightsalmon;
+  border: 1px solid salmon;
+  padding: 10px;
+  margin: 10px;
+}
+
+p.hidden{
+  visibility: hidden;
+}
+
+p.none{
+  display: none;
+}
+
+p.opacidad{
+  opacity: 50%;
+}
