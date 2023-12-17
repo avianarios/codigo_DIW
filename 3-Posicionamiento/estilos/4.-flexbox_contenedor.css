@@ -1,8 +1,14 @@
 body{
   /*width: 50%;*/
-  width: 600px;
+  width: 650px;
   margin: 0 auto;
   background-color: lightblue;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+ul{
+  list-style: none;
 }
 
 h1{
@@ -16,7 +22,8 @@ h2{
 h1, h2, h3{
   text-align: center;
   /*line-height: 100px;*/
-  margin: 0;
+  margin:0px
+  margin-bottom: 10px;
 }
 
 .flex-contenedor-nv1{
@@ -28,7 +35,7 @@ h1, h2, h3{
   flex-flow: column wrap;
  }
 
-.articulo-borde{
+.borde{
   border: 3px solid lightblue;
   padding: 10px 30px 30px 30px;
   width: 80%; 
@@ -39,20 +46,15 @@ h1, h2, h3{
   display: flex;
   padding: 0;
   margin: 0;
-  list-style: none;
 }
 
 
 .fila {
     flex-direction: row;
-    /*flex-flow: row wrap;*/
 }
 
 .columna {
   flex-direction: column;
-  /*  flex-flow: column wrap;*/
-  min-height: 250px;
-  border: 1px solid ;
 }
 
 .columna-al-reves{

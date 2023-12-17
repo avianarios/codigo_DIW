@@ -1,8 +1,14 @@
 body{
   /*width: 50%;*/
-  width: 600px;
+  width: 650px;
   margin: 0 auto;
   background-color: lightblue;
+  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+ul{
+  list-style: none;
 }
 
 h1{
@@ -16,7 +22,8 @@ h2{
 h1, h2, h3{
   text-align: center;
   /*line-height: 100px;*/
-  margin: 0;
+  margin:0px;
+  margin-bottom: 10px;
 }
 
 .flex-contenedor-nv1{
@@ -28,10 +35,10 @@ h1, h2, h3{
   flex-flow: column wrap;
  }
 
-.articulo-borde{
+.borde{
   border: 3px solid lightblue;
   padding: 10px 30px 30px 30px;
-  width: 80%; 
+  width: 80%;
 /*  flex-basis: 200px;  /*cada caja mide 200px de alto (porque el eje principal de su contenedor es vertical, en columna)*/
 }
 
@@ -39,20 +46,15 @@ h1, h2, h3{
   display: flex;
   padding: 0;
   margin: 0;
-  list-style: none;
 }
 
 
 .fila {
     flex-direction: row;
-    /*flex-flow: row wrap;*/
 }
 
 .columna {
   flex-direction: column;
-  /*  flex-flow: column wrap;*/
-  min-height: 250px;
-  border: 1px solid ;
 }
 
 .columna-al-reves{
@@ -86,57 +88,14 @@ h1, h2, h3{
   flex-direction: row-reverse;
 }
 
-.jc-space-around{
-    justify-content: space-around;
-}
-
-.jc-space-between{
-  justify-content: space-between;
-}
-
-.jc-flex-end{
-  justify-content: flex-end;
-}
-
-.jc-center{
-  justify-content: center;
-}
-
-.jc-start{
-  justify-content: flex-start;
-}
-
-.jc-space-evenly{
-  justify-content: space-evenly;
-}
 
 .min-height{
   min-height: 250px;
   border: 1px solid;
 }
 
-.ai-start{
-  align-items: start;
-}
-
-.ai-end{
-  align-items: end;
-}
-
 .ai-center{
   align-items: center;
-}
-
-.ai-stretch{
-  align-items: stretch;
-}
-
-.ac-start{
-  align-content: flex-start;
-}
-
-.ac-end{
-  align-content: flex-end;
 }
 
 .ac-stretch{
@@ -159,6 +118,30 @@ h1, h2, h3{
   order: 3;
 }
 
-.basis{
-  
+.basis200px{
+  flex-basis: 200px;
 }
+
+.basis100px{
+  flex-basis: 100px
+}
+
+.grow2{
+  flex-grow:2;
+}
+
+.grow3{
+  flex-grow:3;
+}
+
+.shrink2{
+  flex-shrink: 2;
+}
+
+.shrink3{
+  flex-shrink: 3;
+}
+
+/*#flex-grow>ul>li:nth-child(2n){
+  flex-grow:2;
+}*/

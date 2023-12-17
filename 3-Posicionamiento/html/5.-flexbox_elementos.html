@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Roboto:wght@300&display=swap" rel="stylesheet">        
+        <link rel="stylesheet" href="../estilos/5.-flexbox_elementos.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <section class="flex-contenedor-nv1 gap">
+
+            <header>
+                <h2>Flexbox properties acting over elements</h2>
+                <!--Propiedades de flexbox que actúan sobre los elementos-->
+                <h3>align-self</h3>
+                <p>Align-self allows to define behaviour only for one element. It only works when elements occupy all the space. Values: flex-start, flex-end, center, baseline y stretch</p>
+                <!--Align-self permite definir el comportamiento solo para un elemento. Sólo funciona cuando los elementos ocupan todo el espacio. Valores: flex-start, flex-end, center, baseline y stretch-->
+            </header>
+
+
+            <section class="flex-contenedor-nv2 columna ai-center gap">
+                <article class="borde">
+                    <h3>align-self</h3>
+                    <p>Elements are organized in a row (flex-direction: row) and the stretch to occupy the whole container (align-content: flex-stretch). Third element aligns at the end (align-self:end)</p>
+                    <!--Los elementos se organizan en una fila (flex-direction: row) y se estiran para ocupar todo el contenedor (align-content: flex-stretch). El tercer elemento se alinea al final (align-self:end)-->
+
+                    <ul class="flex-contenedor-nv2 fila gap wrap min-height ac-stretch">
+                        <li class="flex-item">1</li>
+                        <li class="flex-item">2</li>
+                        <li class="flex-item as-end">3</li>
+                        <li class="flex-item">4</li>
+                        <li class="flex-item">5</li>
+                        <li class="flex-item">6</li>
+                        <li class="flex-item">7</li>
+                        <li class="flex-item">8</li>
+                        <li class="flex-item">9</li>
+                        <li class="flex-item">10</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="flex-contenedor-nv2 columna ai-center gap">
+                <article>
+                    <h2>Order</h2>
+                    <p>flex-order: when web browser renders an HTML document, it places the elements on the order they are on the document.
+                        flex-order allows to modify this order by placing first elements with higher number</p>
+
+                    <!--Cuando un navegador web renderiza un documento HTML, coloca los elementos en el orden en el que están en el documento
+                        flex-order permite modificar ese orden colocando primero los elementos con un número mayor-->
+                         
+                </article>
+                <article class="borde">
+                    <h3>Order</h3>
+                    <p>Elements 1, 2, 3 and 4 have been rearranged</p>
+                    <!--Los elementos 1, 2, 3 y 4 han sido modificados para situarlos en el DOM en una posición distinta -->
+                    <ul class="flex-contenedor-nv2 columna-al-reves gap">
+                        <li class="flex-item orden3">1</li>
+                        <li class="flex-item orden1">2</li>
+                        <li class="flex-item orden2">3</li>
+                        <li class="flex-item orden2">4</li>
+                        <li class="flex-item">5</li>
+                        <li class="flex-item">6</li>
+                    </ul>
+                </article>
+                <article class="borde">
+                    <h3>Order</h3>
+                    <p>Elements 5, 3 and 6 have been rearranged</p>
+                    <!--Los elementos 5, 3 y 6 han sido reorganizados-->
+                    <ul class="flex-contenedor-nv2 fila gap">
+                        <li class="flex-item">1</li>
+                        <li class="flex-item">2</li>
+                        <li class="flex-item orden2">3</li>
+                        <li class="flex-item">4</li>
+                        <li class="flex-item orden3">5</li>
+                        <li class="flex-item orden1">6</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="flex-contenedor-nv2 columna ai-center gap">
+                <article>
+                    <h2>Grow properties</h2>
+                    <!--<h2>Propiedades de crecimiento</h2>-->
+                    <p>flex-basis, flex-grow y flex-shrink</p>
+                </article>
+                <article class="borde">
+                    <h3>flex-basis</h3>
+                    <p>Defines the base size of the element. Element size 3 and 6 have changed. Wrap is allowed</p>
+                    <!--Define el tamaño base del elemento-->
+                    <ul class="flex-contenedor-nv2 fila wrap gap">
+                        <li class="flex-item">1</li>
+                        <li class="flex-item">2</li>
+                        <li class="flex-item basis100px">3</li>
+                        <li class="flex-item">4</li>
+                        <li class="flex-item">5</li>
+                        <li class="flex-item basis200px">6</li>
+                        <li class="flex-item">7</li>
+                        <li class="flex-item">8</li>
+                        <li class="flex-item">9</li>
+                        <li class="flex-item">10</li>                        
+                    </ul>
+                </article>
+                <article class="borde">
+                    <h3>flex-grow</h3>
+                    <p>It specifies the amount of free space within the flex container is assigned to the items with flex-grow property.
+                        Free space is defined as the size of flex container minus the size of all flex items combined</p>
+                    <p>Items will first fill the main axis, then free space is redistributed. Flex-grow will not force items to wrap. If there's no free space, no space is redistributed</p>
+                    <!--<p>Especifica la cantidad de espacio libre dentro del contenedor flex que es asignado a los items con la propiedad flex-grow.
+                        El espacio restante es el tamaño del contenedor flexible menos el tamaño de todos los elementos flexibles juntos.</p>
+                        <p>Los elementos primero ocuparán el eje principal, luego se distribuirá el espacio libre. Flex-grow no forzará a los elementos a crecer. Si no hay espacio libre, no hay espacio que redistribuir</p>
+                    -->
+                    <p>item 2 has flex-grown:2 and item 4 , flex-grown 3</p>
+                    <ul class="flex-contenedor-nv2 fila wrap gap">
+                        <li class="flex-item ">1</li>
+                        <li class="flex-item grow2">2</li>
+                        <li class="flex-item ">3</li>
+                        <li class="flex-item grow3">4</li>
+                    </ul>
+                </article>
+                <article class="borde">
+                    <h3>flex-grow</h3>
+                    <p>Less free space to redistribute, and yet no wrap</p>
+                    <!--<p>Hay menos espacio libre que redistribuir y, aún así, no saltan a la siguiente línea</p>-->
+                    <p>item 2 has flex-grown:2 and item 4 , flex-grown 3</p>
+                    <ul class="flex-contenedor-nv2 fila wrap gap">
+                        <li class="flex-item">1</li>
+                        <li class="flex-item grow2">2</li>
+                        <li class="flex-item">3</li>
+                        <li class="flex-item grow3">4</li>
+                        <li class="flex-item">5</li>
+                        <li class="flex-item">6</li>
+                        <li class="flex-item">7</li>
+                        <li class="flex-item">8</li>                        
+                    </ul>
+                </article>
+                <article class="borde">
+                    <h3>flex-shrink</h3>
+                    <p>The opposite property of flex-grow</p>
+                    <p>If the size of all flex items is larger than the flex container, items shrink to fit according to flex-shrink.</p>
+                    width is 440px
+                    <!--<p>Hay menos espacio libre que redistribuir y, aún así, no saltan a la siguiente línea</p>-->
+                    <p>item 2 has flex-grown:2 and item 4 , flex-grown 3</p>
+                    <ul class="flex-contenedor-nv2 fila gap">
+                        <li class="flex-item">1</li>
+                        <li class="flex-item">2</li>
+                        <li class="flex-item">3</li>
+                        <li class="flex-item">4</li>
+                        <li class="flex-item shrink2">5</li>
+                        <li class="flex-item">6</li>
+                        <li class="flex-item shrink3">7</li>
+                        <li class="flex-item">8</li>
+                        <li class="flex-item">9</li>
+                        <li class="flex-item">10</li>
+                    </ul>
+                </article>                
+           </section>
+
+
+            <section class="flex-contenedor-nv2 columna ai-center gap">
+                <article>
+                    <h2>justify-content</h2>
+                    <p>Justify-content alinea objetos en el eje principal que por defecto es el horizontal, pero se puede cambiar</p>
+                    <p>Posibles valores: flex-start, flex-end, center, space-between, space-around y space-evenly </p>
+                </article>            
+                <article class="borde">
+                    <h3>justify-content</h3>
+                    <p>Los elementos se organizan en una fila (flex-direction: row) y se deja un espacio equitativo entre los elementos (justify-content: space-around)</p>
+                    <ul class="flex-contenedor-nv2 fila gap jc-space-around">
+                        <li class="flex-item">1</li>
+                        <li class="flex-item">2</li>
+                        <li class="flex-item">3</li>
+                    </ul>
+                </article>
+                <article class="borde">
+                    <h3>justify-content</h3>
+                    <p>Los elementos se organizan en una columna (flex-direction: column) y se colocan los elementos en el principio (justify-content: flex-start)</p>
+                    <ul class="flex-contenedor-nv2 columna gap jc-start">
+                        <li class="flex-item">1</li>
+                        <li class="flex-item">2</li>
+                        <li class="flex-item">3</li>
+                    </ul>
+                </article>
+                <article class="borde">
+                    <h3>justify-content</h3>
+                    <p>Los elementos se organizan en una fila (flex-direction: row) y se alinean los elementos al final de su eje (justify-content: flex-end)</p>
+                    <ul class="flex-contenedor-nv2 fila gap jc-flex-end">
+                        <li class="flex-item">1</li>
+                        <li class="flex-item">2</li>
+                        <li class="flex-item">3</li>
+
+                    </ul>
+                </article>
+                <article class="borde">
+                    <h3>justify-content</h3>
+                    <p>Los elementos se organizan en una fila (flex-direction: row) y se centran los elementos en su eje (justify-content: center)</p>
+                    <ul class="flex-contenedor-nv2 fila gap jc-center">
+                        <li class="flex-item">1</li>
+                        <li class="flex-item">2</li>
+                        <li class="flex-item">3</li>
+                    </ul>
+                </article>
+            </section>
+
+
+        </section>
+    </body>
+</html>
