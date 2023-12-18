@@ -1,7 +1,7 @@
 body{
     width: 650px;
     margin: 0 auto;
-    background-color:antiquewhite;
+    background-color: lightblue;
     font-family: 'Open Sans', sans-serif;
     font-family: 'Roboto', sans-serif;
 }
@@ -21,27 +21,36 @@ h1{
 }
 
 h2{
+    font-size: 1.5rem;
+}
+
+h3{
     font-size: 1.25rem;
 }
 
-h1, h2, h3{
+h1, h2, h3, h4{
     text-align: center;
     /*line-height: 100px;*/
-    margin:0px
-    margin-bottom: 10px;
+    margin: 10px;
 }
   
 article>p{
     margin-bottom: 0px;
 }
 
-.borde{
+.borde-externo{
     border: 3px solid lightblue;
     padding: 10px 30px 30px 30px;
     width: 80%;     
 }
 
+.borde-interno{
+    border: 1px solid black;
+}
+
 .gap{
+    /*shortcut for column-gap and row-gap
+    gap: row-gap column-gap*/
     gap: 10px;
 }
 
@@ -92,6 +101,14 @@ article>p{
     grid-template-rows: [fila1] 25% [fila2] 2fr [fila3] auto [fin-filas];
 }
 
+.dos-columnas{
+    grid-template-columns: 1fr 2fr;    
+}
+
+.dos-filas{
+    grid-template-rows: 1fr 2fr;
+}
+
 .elemento-grid{
     margin:0;
     padding: 15px;
@@ -99,29 +116,68 @@ article>p{
     text-align: center;
 }
 
-.recolocado>li:nth-of-type(3){
-    grid-column: 2/2;
-    grid-row: 1/3;
+.min-height{
+    min-height: 300px;
 }
 
-.recolocado>li:nth-of-type(7){
-    grid-column: 3/3;
-    grid-row: 2/4;
+.max-width{
+/*pertentages with fr when creating columns and rows provide with weird behaviour*/
+    max-width: 300px;
+    border: 1px solid;
 }
 
-
-/*
-article:nth-of-type(even){
-    background-color: aquamarine;
+.ji-center{
+    justify-items: center;
 }
 
-article:nth-of-type(odd){
-    background-color:coral;
-}*/
+.ji-end{
+    justify-items: end;
+}
 
+.ai-start{
+    align-items: start;
+}
 
+.ai-end{
+    align-items: end;
+}
 
+.pi-center{
+    place-items: center;
+}
 
-.jc-center{
-    justify-content: center;
-  }
+.pi-start-end{
+    place-items: start end;
+}
+
+.jc-end{
+    justify-content: end;
+}
+
+.jc-space-around{
+    justify-content: space-around;
+}
+
+.ac-center{
+    align-content: center;
+}
+
+.ac-end{
+    align-content: end;
+}
+
+.pc-start-end{
+    place-content: start end;
+}
+
+.gar{
+    grid-auto-rows: 60px;
+}
+
+.gac{
+    grid-auto-columns: 75px;
+}
+
+.gaf{
+    grid-auto-flow: column;
+}

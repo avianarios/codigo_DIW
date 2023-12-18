@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../estilos/9.-grid_contenedor.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <section class="contenedor-grid-nv1">
+            <header>
+                <h1>Grid basic therminology</h1>
+                <p>Flex gave an illusion of having multiline by using wrap, but the control was not total on that scenarios. On the contrary, Grid is a multirow and multicolumn layout system since its definition</p>
+                <p>Elements are organized according to the following image</p>
+                <img src="../img/grid_therminology.png">
+                <p>A container has to be declared with display: grid or inline-grid. </p>
+                <p>In this document some examples are shown. Nevertheless Not every value of every property is shown</p>
+                <!--
+                    <h1>Terminología básica de Grid</h1>
+                <p>Flex daba la impresión de ser multilínea mediante el uso de wrap, pero el control no era total en esos escenarios. Sin embargo, Grid es multilínea y multicolumna desde el principio</p>
+                <p>Los elements se organizan según la siguiente imagen</p>
+                <p>Hay que declarar un contenedor con display: grid o display: inline-grid</p>
+                <p>Aquí se muestran algunos ejemplos, no se muestran todas los valores de todas las propiedades</p>
+-->
+            <h1>Properties for the parent container</h1>
+            </header>
+
+            <section class="contenedor-grid-nv2 gap jc-center">
+                <article>
+                    <h3>grid-template-columns, grid-template-rows and gap</h3>
+                    <p>The first one defines how many columns are part of the grid. Elements sits along created columns and creates as many rows as needed</p>
+                    <p>This very section is a grid container. It defines no columns nor rows and yet items are placed creating two rows, one for each article inside grid</p>
+                    <p>The second one defines how many rows are part of the grid. If undefined, web browser implicitly creates as much as needed</p>
+                    <p>the third one creates space between files and/or columns. But no space on the outher edges</p>
+                </article>
+                <article class="contenedor-grid-nv2 gap borde-externo">
+                    <p>Creating 3 columns, the second one twice as big as the others (grid-template-columns: 1fr 2fr 1fr)</p>
+                    <p>Leaving 10px columns and row gap </p>
+                    <ul class="contenedor-grid-nv3 tres-columnas gap">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>      
+                <article class="contenedor-grid-nv2 gap borde-externo">
+                    <h3>grid-template-columns and minmax</h3>
+                    <p>Minmax allows to define minimum and maximum size of the container</p>
+                    <p>Creating 3 columns, the second one between 40px and 3 times as big as the first one, and the last one half the size of the first one (grid-template-columns: 1fr minmax(40px 3fr) 0.5fr)</p>
+                    <ul class="contenedor-grid-nv3 tres-columnas-minmax gap">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>                           
+                <article class="contenedor-grid-nv2 gap borde-externo">
+                    <h3>grid-template-columns and grid-template-rows</h3>
+                    <p>columns and rows creation is really flexible. Units can be mixed and names can be provided to refer to columns and rows by their names</p>
+                    <p>grid-template-columns: [columna1] 150px [columna2] minmax(50px, 10%) [columna3] 1fr [fin-columnas]</p>
+                    <p>grid-template-rows: [fila1] 25% [fila2] 2fr [fila3] auto [fin-filas]</p>
+                    <ul class="contenedor-grid-nv3 columnas-y-filas-nombres gap">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>
+                <article class="contenedor-grid-nv2 gap borde-externo">
+                    <h3>grid-template-columns, grid-auto-rows and minmax</h3>
+                    <p>Creating repetitive columns (grid-template-columns: 1fr repeat(3, 2fr) 0.5fr)</p>
+                    <p>Defining implicit row dimensions (grid-auto-rows: minmax(60px, auto))</p>
+                    <ul class="contenedor-grid-nv3 tres-columnas-repetitivas minmax gap">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>
+                <article class="contenedor-grid-nv2 gap borde-externo">
+                    <h3>grid-column and grid-row</h3>
+                    <p>grid-column allows to reallocate items to a specific column</p>
+                    <p>grid-row allows to reallocate items to a specific row</p>
+                    <ul class="contenedor-grid-nv3 tres-columnas-repetitivas gap ">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="contenedor-grid-nv2 gap">
+                <article class="contenedor-grid-nv2 gap">
+                    <h3>aligning items and containers</h3>
+                    <h3>justify-items, align-items and place-items</h3>
+                    <p>The first one allows to place items along the horizontal axis. values: start end center stretch</p>
+                    <p>the second one allows to place items along the vertical axis. values: start end center stretch baseline. It just takes sense when vertical size of container is bigger than the addition of the size of its elements</p>
+                    <p>the third one is a shortcut to place items along both axis at the same time</p>
+                </article>                
+                <article class="contenedor-grid-nv2 gap borde-externo">
+                    <h4>justify-items: center</h4>
+                    <ul class="contenedor-grid-nv3 tres-columnas-repetitivas gap borde-interno ji-center">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>
+                <article class="contenedor-grid-nv2 gap borde-externo">
+                    <h4>justify-items: end</h4>
+                    <ul class="contenedor-grid-nv3 tres-columnas-repetitivas gap borde-interno ji-end">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>
+
+                <article class="contenedor-grid-nv2 gap borde-externo">
+                    <h4>justify-items: end</h4>
+                    <ul class="contenedor-grid-nv3 tres-columnas-repetitivas gap min-height borde-interno ai-start">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>
+                <article class="contenedor-grid-nv2 gap borde-externo">
+                    <h4>justify-items: end</h4>
+                    <ul class="contenedor-grid-nv3 tres-columnas-repetitivas gap min-height borde-interno ai-end">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>                
+                <article class="contenedor-grid-nv2 gap borde-externo">
+                    <h4>place-items: center</h4>
+                    <ul class="contenedor-grid-nv3 tres-columnas-repetitivas gap min-height borde-interno pi-center">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article> 
+                <article class="contenedor-grid-nv2 gap borde-externo">
+                    <h4>place-items: start end</h4>
+                    <ul class="contenedor-grid-nv3 tres-columnas-repetitivas gap min-height borde-interno pi-start-end">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>
+
+
+                <article class="contenedor-grid-nv2 gap">
+                    <h3>aligning containers</h3>
+                    <h3>justify-content, aling-content and place-content</h3>
+                    <p>the first one allows a grid container to be placed along the horizontal axis on its grid container . Values: start, end, center, stretch, space-around, space-between, space-evenly</p>
+                    <p>the second one allows a grid container to be placed along the vertical axis on its grid container. Values: start, end, center, stretch, space-around, space-between, space-evenly</p>
+                    <p>the third one is a shortcut for the previous ones</p>
+                </article>                  
+                <article class="contenedor-grid-nv2 gap borde-externo jc-end">
+                    <h4>justify-content: end</h4>
+                    <ul class="contenedor-grid-nv3 tres-columnas-repetitivas gap max-width borde-interno">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>     
+                <article class="contenedor-grid-nv2 gap borde-externo jc-space-around">
+                    <h4>justify-content: space-around</h4>
+                    <ul class="contenedor-grid-nv3 tres-columnas-repetitivas gap max-width borde-interno">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>
+
+                <article class="contenedor-grid-nv2 gap borde-externo ac-center min-height">
+                    <h4>align-content: center</h4>
+                    <ul class="contenedor-grid-nv3 tres-columnas-repetitivas gap max-width borde-interno">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>     
+                <article class="contenedor-grid-nv2 gap borde-externo ac-end min-height">
+                    <h4>align-content: end</h4>
+                    <ul class="contenedor-grid-nv3 tres-columnas-repetitivas gap max-width borde-interno">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>
+                <article class="contenedor-grid-nv2 gap borde-externo pc-start-end min-height">
+                    <h4>place-content: start end</h4>
+                    <ul class="contenedor-grid-nv3 tres-columnas-repetitivas gap max-width borde-interno">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>                
+            </section>
+
+            <section class="contenedor-grid-nv2 gap">
+                <article class="contenedor-grid-nv2 gap">
+                    <h3>grid-auto-rows, grid-auto-columns and git-auto-flow</h3>
+                    <p>The two firsts allow to define the size of the implicit rows and columns (those created to accomodate items that are outside defined grid)</p>
+                    <p>The second one allows to define whether to create implicit rows or implicit columns to place items</p>
+                </article>                  
+                <article class="contenedor-grid-nv2 gap borde-externo">
+                    <h4>grid-auto-rows</h4>
+                    <ul class="contenedor-grid-nv3 dos-columnas gap gar">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>
+                <article class="contenedor-grid-nv2 gap borde-externo">
+                    <h4>grid-auto-flow: column (creates columns instead of rows which is the default behaviour)</h4>
+                    <ul class="contenedor-grid-nv3 dos-filas gap gac gaf">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>                
+            </section>
+
+
+        </section>
+    </body>
+</html>
