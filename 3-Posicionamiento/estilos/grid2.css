@@ -1,8 +1,12 @@
 body{
-    width: 80%;
+    /*width: 50%;*/
+    width: 75%;
     margin: 0 auto;
-    background-color:antiquewhite;
-}
+    background-color: lightblue;
+/*    background-color:antiquewhite;*/
+font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+  }
 
 .grid{
 	display: grid;
@@ -12,7 +16,7 @@ body{
     /* Creación explícita de columnas. Obligo a que se creen 5 columnas, ni una más */
     grid-template-columns: 2fr repeat(3, 1fr) 2fr;  /*Se crean 6 columnas y tantas filas como sean necesarias para acomodar elementos (filas implícitas)*/
     /* Creación implícita de filas. Se crean tantas como sean necesarias para acomodar todos los elementos */
-    grid-auto-rows: minmax(75px, auto); /*Las filas auto creadas son de entre 75px y el máximo de la anchura del contenedor*/
+    grid-auto-rows: minmax(60px, auto); /*Las filas auto creadas son de entre 60px y el máximo de la anchura del contenedor*/
     border: 2px solid red;
 }
 

@@ -26,7 +26,7 @@ h1, h2, h3{
   margin-bottom: 10px;
 }
 
-.flex-contenedor-nv1{
+.contenedor-flex-nv1{
   background-color: bisque;
   margin-top: 20px;
   padding: 10px 50px 50px 50px;
@@ -42,7 +42,7 @@ h1, h2, h3{
 /*  flex-basis: 200px;  /*cada caja mide 200px de alto (porque el eje principal de su contenedor es vertical, en columna)*/
 }
 
-.flex-contenedor-nv2 {
+.contenedor-flex-nv2 {
   display: flex;
   padding: 0;
   margin: 0;

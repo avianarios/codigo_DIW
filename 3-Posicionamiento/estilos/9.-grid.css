@@ -1,0 +1,127 @@
+body{
+    width: 650px;
+    margin: 0 auto;
+    background-color:antiquewhite;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+img{
+    max-width:100%;
+    max-height:100%;
+}
+
+ul{
+    list-style: none;
+    padding: 0px;
+}
+
+h1{
+    font-size: 2rem;
+}
+
+h2{
+    font-size: 1.25rem;
+}
+
+h1, h2, h3{
+    text-align: center;
+    /*line-height: 100px;*/
+    margin:0px
+    margin-bottom: 10px;
+}
+  
+article>p{
+    margin-bottom: 0px;
+}
+
+.borde{
+    border: 3px solid lightblue;
+    padding: 10px 30px 30px 30px;
+    width: 80%;     
+}
+
+.gap{
+    gap: 10px;
+}
+
+.contenedor-grid-nv1{
+	display: grid;
+/*	grid-template-columns: 200px 100px 200px 100px;
+    grid-template-rows: auto auto;*/
+    /* Dejo en espacio de 10px en las líneas entre filas y columnas */
+    /* Creación de tres columnas (creación explícita). La de enmedio tiene el doble de tamaño que las otras. Usando fr, el navegador calcula el tamaño de cada columna en función del tamaño de su contenedor
+        Se crean tantas filas como sea necesario para acomodar las cajas que se hayan definido (creación implícita)
+    */
+    background-color: bisque;
+    grid-template-columns: 1fr;
+    padding: 10px 50px 50px 50px;
+    align-items: center;
+
+}
+
+.contenedor-grid-nv2{
+    display: grid;
+    background-color: bisque;
+    margin:0px;
+}
+
+.contenedor-grid-nv3{
+    display:grid;
+    margin:0px;
+}
+
+.tres-columnas{
+    grid-template-columns: 1fr 2fr 1fr; 
+}
+
+.tres-columnas-repetitivas{
+    grid-template-columns: 1fr repeat(3, 2fr) 0.5fr;  /*Se crean 5 columnas y tantas filas como sean necesarias para acomodar elementos (filas implícitas)*/
+}
+
+.minmax{
+    grid-auto-rows: minmax(75px, auto); /*Las filas auto creadas son de entre 75px y el máximo de la anchura del contenedor*/
+}
+
+.tres-columnas-minmax{
+    grid-template-columns: 1fr minmax(40px, 3fr) 0.5fr;
+}
+
+.columnas-y-filas-nombres{
+    grid-template-columns: [columna1] 150px [columna2] minmax(50px, 10%) [columna3] 1fr [fin-columnas];
+    grid-template-rows: [fila1] 25% [fila2] 2fr [fila3] auto [fin-filas];
+}
+
+.elemento-grid{
+    margin:0;
+    padding: 15px;
+    background:azure;
+    text-align: center;
+}
+
+.recolocado>li:nth-of-type(3){
+    grid-column: 2/2;
+    grid-row: 1/3;
+}
+
+.recolocado>li:nth-of-type(7){
+    grid-column: 3/3;
+    grid-row: 2/4;
+}
+
+
+/*
+article:nth-of-type(even){
+    background-color: aquamarine;
+}
+
+article:nth-of-type(odd){
+    background-color:coral;
+}*/
+
+
+
+
+.jc-center{
+    justify-content: center;
+  }
