@@ -80,33 +80,42 @@ article>p{
     margin:0px;
 }
 
-.tres-columnas{
+.disposicion-tres-columnas{
     grid-template-columns: 1fr 2fr 1fr; 
 }
 
-.tres-columnas-repetitivas{
+.disposicion-tres-columnas-repetitivas{
     grid-template-columns: 1fr repeat(3, 2fr) 0.5fr;  /*Se crean 5 columnas y tantas filas como sean necesarias para acomodar elementos (filas implícitas)*/
 }
 
-.minmax{
+.disposicion-minmax{
     grid-auto-rows: minmax(75px, auto); /*Las filas auto creadas son de entre 75px y el máximo de la anchura del contenedor*/
 }
 
-.tres-columnas-minmax{
+.disposicion-tres-columnas-minmax{
     grid-template-columns: 1fr minmax(40px, 3fr) 0.5fr;
 }
 
-.columnas-y-filas-nombres{
+.disposicion-columnas-y-filas-nombres{
     grid-template-columns: [columna1] 150px [columna2] minmax(50px, 10%) [columna3] 1fr [columna4] 0.5fr [columna5] 1fr [fin-columnas];
     grid-template-rows: [fila1] 35% [fila2] 2fr [fila3] auto [fin-filas];
 }
 
-.dos-columnas{
+.disposicion-dos-columnas{
     grid-template-columns: 1fr 2fr;    
 }
 
-.dos-filas{
+.disposicion-dos-filas{
     grid-template-rows: 1fr 2fr;
+}
+
+.disposicion-areas {
+    display: grid;
+    grid-template-columns: 0.5 fr repeat (3, 1fr);
+    grid-template-areas: 
+      "header header header header"
+      "sidebar main main main"
+      "footer footer footer footer";
 }
 
 .elemento-grid{
@@ -114,6 +123,23 @@ article>p{
     padding: 15px;
     background:azure;
     text-align: center;
+}
+
+.elemento-grid-encabezado{
+    grid-area: header;
+}
+
+.elemento-grid-lateral{
+    grid-area: sidebar;
+}
+
+
+.elemento-grid-principal{
+    grid-area: main;
+}
+
+.elemento-grid-pie{
+    grid-area: footer;
 }
 
 .min-height{
@@ -178,6 +204,6 @@ article>p{
     grid-auto-columns: 75px;
 }
 
-.gaf{
+.gaf-column{
     grid-auto-flow: column;
 }
