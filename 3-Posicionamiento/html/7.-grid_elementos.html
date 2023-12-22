@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="../estilos/10.-grid_elementos.css">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <section class="contenedor-grid-nv1">
+            <header>
+                <h1>Properties for the grid elements</h1>
+            </header>
+
+            <section class="contenedor-grid-nv2 gap ji-center" id="colocacion">
+                <article>
+                    <h3>grid-column-start, grid-column-end, grid-row-start and grid-row-end</h3>
+                    <p>Determines a grid item’s location within the grid by referring to specific grid lines. 
+                        grid-column-start/grid-row-start is the line where the item begins, and grid-column-end/grid-row-end is the line where the item ends</p>
+                </article>
+                <article class="contenedor-grid-nv2 gap borde-externo" id="ejemplo1">
+                    <p>Positioning element 1: 2 to fin-columnas and fila1 to 3</p>
+                    <p>Positioning element 5: 1 to columna-3 and fila2 to fila4</p>
+                    <p>Controlling which element stands over which when overlapping with z-index</p>
+                    <p>Implicit rows are created in order to satisfy previous positioning schema</p>
+                    <ul class="contenedor-grid-nv3 disposicion-columnas-y-filas-nombres gap">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article> 
+                <article>
+                    <h3>grid-column and grid-row</h3>
+                    <p>Shorthand for grid-column-start + grid-column-end, and grid-row-start + grid-row-end, respectively.</p>
+                </article>
+                <article class="contenedor-grid-nv2 gap borde-externo" id="ejemplo2">
+                    <p>3rd element: grid-column: 2/2 and grid-row: 1/3</p>
+                    <p>7th element: grid-column: 3/3 and grid-row: 2/4</p>
+                    <ul class="contenedor-grid-nv3 disposicion-columnas-y-filas-nombres gap">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>
+                <article class="contenedor-grid-nv2 gap borde-externo" id="ejemplo3">
+                    <p>Using span alongside with grid-row and grid-column allows to define how many rows/columns is taking from the first one</p>
+                    <p>grid-column: 2/span 2, grid-row: fila2 / span 3</p>
+                    <ul class="contenedor-grid-nv3 disposicion-tres-columnas-repetitivas minmax gap">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>
+
+                <article>
+                    <h3>grid-area</h3>
+                    <p>Shorthand for grid-column-start + grid-column-end and grid-row-start + grid-row-end</p>
+                </article>  
+                <article class="contenedor-grid-nv2 gap borde-externo" id="ejemplo4">
+                    <p>grid-area: fila4 / 3 / span 1 / 5 y grid-area: fila1 / span 2 / columna1 / 3</p>
+                    <p>equivalent to grid-row: 2/4 and grid-column: 3/5</p>
+                    <ul class="contenedor-grid-nv3 disposicion-columnas-y-filas-nombres gap">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                    </ul>
+                </article>
+                <article class="contenedor-grid-nv2 gap borde-externo" id="ejemplo5">
+                    <p>Names given to columns and rows can be used to place items</p>
+                    <ul class="contenedor-grid-nv3 disposicion-areas gap">
+                        <li class="elemento-grid elemento-grid-encabezado">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid elemento-grid-pie">5</li>
+                    </ul>
+                </article>
+            </section>
+
+
+
+            <section class="contenedor-grid-nv2 gap ji-center" id="alineamiento">
+                <article class="contenedor-grid-nv2 gap">
+                    <h3>aligning one particular item</h3>
+                    <h3>justify-self, align-self, and place-self</h3>
+                    <p>The first one aligns a grid item inside a cell along the inline (row) axis. values: start end center stretch</p>
+                    <p>the second one aligns a grid item inside a cell along the block (column) axis . values: start end center stretch baseline. It just takes sense when vertical size of container is bigger than the addition of the size of its elements</p>
+                    <p>the third one is a shortcut to place the item along both axis at the same time</p>
+                </article> 
+                <article class="contenedor-grid-nv2 gap borde-externo" id="ejemplo6">
+                    <h4>justify-self</h4>
+                    <p>Item 1: start, item 2: center, item 3 and 5: end, itemp 4: stretch</p>
+                    <ul class="contenedor-grid-nv3 disposicion-tres-columnas-minmax gap">
+                        <li class="elemento-grid js-start">1</li>
+                        <li class="elemento-grid js-center">2</li>
+                        <li class="elemento-grid js-end">3</li>
+                        <li class="elemento-grid js-stretch">4</li>
+                        <li class="elemento-grid js-end">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>
+                <article class="contenedor-grid-nv2 gap borde-externo" id="ejemplo6">
+                    <h4>align-self</h4>
+                    <p>Item 1: start, item 2: center, item 3 and 5: end, itemp 4: stretch</p>
+                    <ul class="contenedor-grid-nv3 disposicion-tres-filas-repeat-minmax gap gaf-column">
+                        <li class="elemento-grid as-start">1</li>
+                        <li class="elemento-grid as-center">2</li>
+                        <li class="elemento-grid as-end">3</li>
+                        <li class="elemento-grid as-stretch">4</li>
+                        <li class="elemento-grid as-end">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>
+                <article class="contenedor-grid-nv2 gap borde-externo" id="ejemplo6">
+                    <h4>place self</h4>
+                    <p>Item 1: start end, item 2: center start, item 3 end stretch</p>
+                    <ul class="contenedor-grid-nv3 disposicion-tres-filas-repeat-minmax disposicion-tres-columnas-minmax gaf-column">
+                        <li class="elemento-grid ps-start-end">1</li>
+                        <li class="elemento-grid ps-center-start">2</li>
+                        <li class="elemento-grid ps-end-stretch">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>
+
+                <article class="contenedor-grid-nv2 gap borde-externo">
+                    <h4>Creating 3 columns, the second one twice as big as the others (grid-template-columns: 1fr 2fr 1fr)</h4>
+                    <p>Leaving 10px columns and row gap </p>
+                    <ul class="contenedor-grid-nv3 disposicion-tres-columnas gap">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid elemento">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                    </ul>
+                </article>    
+            </section>
+
+
+            <section class="contenedor-grid-nv2 gap ji-center" id="subgrid">
+                <article class="contenedor-grid-nv2 gap">
+                    <h3>subgrid</h3>
+                    <p>subgrid allows to place elements taking its parent columns and/or rows as a reference and, therefore, aligning with them</p>
+                </article> 
+                <article class="borde-externo">
+                    <p>at this example only columns are defined as subgrid. Therefore, the row ending of subelement does not match with its parent's row ending (see developer mode)</p>
+                    <article class="contenedor-grid-nv2 disposicion-4filas-y-9columnas gap borde-interno">
+                        <ul class="contenedor-grid-nv3 subgrid-columnas gap">
+                            <li class="elemento-grid">1</li>
+                            <li class="elemento-grid elemento-dentro-subgrid">2
+                            <li class="elemento-grid">3</li>
+                            <li class="elemento-grid">4</li>
+                            <li class="elemento-grid">5</li>
+                            <li class="elemento-grid">6</li>
+                        </ul>
+                    </article>
+                </article>
+                <article class="borde-externo">
+                    <p>at this example only rows are defined as subgrid. Therefore, the column ending of subelement does not match with its parent's row ending (see developer mode)</p>
+                    <article class="contenedor-grid-nv2 disposicion-4filas-y-9columnas gap borde-interno">
+                        <ul class="contenedor-grid-nv3 subgrid-filas gap">
+                            <li class="elemento-grid">1</li>
+                            <li class="elemento-grid elemento-dentro-subgrid">2
+                            <li class="elemento-grid">3</li>
+                            <li class="elemento-grid">4</li>
+                            <li class="elemento-grid">5</li>
+                            <li class="elemento-grid">6</li>
+                        </ul>
+                    </article>
+                </article>
+                <article class="borde-externo">
+                    <p>at this example both rows and columns are defined as subgrid. Therefore, both columns and rows ending of subelement match with its parent's columns and rows ending (see developer mode)</p>
+                    <article class="contenedor-grid-nv2 disposicion-4filas-y-9columnas gap borde-interno">
+                        <ul class="contenedor-grid-nv3 subgrid-filas-y-columnas gap">
+                            <li class="elemento-grid">1</li>
+                            <li class="elemento-grid elemento-dentro-subgrid">2
+                            <li class="elemento-grid">3</li>
+                            <li class="elemento-grid">4</li>
+                            <li class="elemento-grid">5</li>
+                            <li class="elemento-grid">6</li>
+                        </ul>
+                    </article>
+                </article>
+            </section>
+        </section>
+    </body>
+</html>

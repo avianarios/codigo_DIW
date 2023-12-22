@@ -1,5 +1,5 @@
 body{
-    width: 650px;
+    width: 700px;
     margin: 0 auto;
     background-color: lightblue;
     font-family: 'Open Sans', sans-serif;
@@ -39,7 +39,7 @@ article>p{
 }
 
 .borde-externo{
-    border: 3px solid lightblue;
+    border: 4px solid lightblue;
     padding: 10px 30px 30px 30px;
     width: 80%;     
 }
@@ -109,6 +109,16 @@ article>p{
     grid-template-rows: 1fr 2fr;
 }
 
+.disposicion-tres-filas-repeat-minmax{
+    grid-template-rows: repeat(3, minmax(100px, 2fr));
+}
+
+.disposicion-4filas-y-9columnas {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-rows: repeat(4, minmax(100px, auto));
+}
+
 .disposicion-areas {
     display: grid;
     grid-template-columns: 0.5 fr repeat (3, 1fr);
@@ -133,7 +143,6 @@ article>p{
     grid-area: sidebar;
 }
 
-
 .elemento-grid-principal{
     grid-area: main;
 }
@@ -152,58 +161,147 @@ article>p{
     border: 1px solid;
 }
 
+.gaf-column{
+    grid-auto-flow: column;
+}
+
+#ejemplo1 li:nth-child(2){
+        grid-column-start: 2;
+        grid-column-end: fin-columnas;
+        grid-row-start: fila1;
+        grid-row-end: 3;
+        z-index: 1;
+}
+/*Alternative to previous rule. Remove ID from article*/
+/*first section, second article (first one with examples), second element
+#colocacion>:nth-child(2)>ul>:nth-child(2){*/
+
+#ejemplo1 li:nth-child(5){
+    grid-column-start: 1;
+    grid-column-end: columna-3;
+    grid-row-start: fila2;
+    grid-row-end: fila4;
+    background-color:coral;
+}
+
+#ejemplo2 li:nth-child(3){
+    grid-column: 2/2;
+    grid-row: 1/3;
+}
+
+
+#ejemplo2 li:nth-child(7){
+    grid-column: 3/3;
+    grid-row: 2/4;
+}
+
+#ejemplo3 li:nth-child(4){
+    /*It starts at column num 2 and it ends two columns later */
+    grid-column: 2/span 2;
+    /*It starts at row called "fila2" and it ends three rows later */
+    grid-row: fila2 / span 3;
+}
+
+#ejemplo4 li:nth-child(2){
+    /* Defino dónde se va a colocar una caja. La sintaxis es:   fila inicio / columna inicio / fila fin / columna fin   
+        Es equivalente a:
+            grid-row: 2/4;
+            grid-column: 3/5;   
+    */
+    grid-area: fila4 / 3 / span 1 / 5;
+}
+
+#ejemplo4 li:nth-child(4){
+    /* Defino dónde se va a colocar una caja. La sintaxis es:   fila inicio / columna inicio / fila fin / columna fin   
+        Es equivalente a:
+            grid-row: 2/4;
+            grid-column: 3/5;   
+    */
+    grid-area: fila1 / span 2 / columna1 / 3;
+}
+
 .ji-center{
     justify-items: center;
 }
 
-.ji-end{
-    justify-items: end;
+.js-start{
+    justify-self: start;
 }
 
-.ai-start{
-    align-items: start;
+.js-center{
+    justify-self: center;
 }
 
-.ai-end{
-    align-items: end;
+.js-end{
+    justify-self: end;
 }
 
-.pi-center{
-    place-items: center;
+.js-stretch{
+    justify-self: stretch;
 }
 
-.pi-start-end{
-    place-items: start end;
+.as-start{
+    align-self: start;
 }
 
-.jc-end{
-    justify-content: end;
+.as-center{
+    align-self: center;
 }
 
-.jc-space-around{
-    justify-content: space-around;
+.as-end{
+    align-self: end;
 }
 
-.ac-center{
-    align-content: center;
+.ai-start-end{
+    align-items: start end;
 }
 
-.ac-end{
-    align-content: end;
+.ps-start-end{
+    place-self: start end;
 }
 
-.pc-start-end{
-    place-content: start end;
+.ps-center-start{
+    place-self: center start;
 }
 
-.gar{
-    grid-auto-rows: 60px;
-}
-
-.gac{
-    grid-auto-columns: 75px;
+.ps-end-stretch{
+    place-self: end stretch;
 }
 
 .gaf-column{
     grid-auto-flow: column;
+}
+
+li{
+    border: 2px solid lightblue;
+}
+
+.subgrid-columnas {
+    display: grid;
+    grid-column: 2 / 7;
+    grid-row: 2 / 4;
+    grid-template-columns: subgrid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.subgrid-filas {
+    display: grid;
+    grid-column: 2 / 7;
+    grid-row: 2 / 4;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: subgrid;
+}
+
+.subgrid-filas-y-columnas{
+    display: grid;
+    grid-column: 2 / 7;
+    grid-row: 2 / 4;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+}
+
+.elemento-dentro-subgrid{
+    /*grid-column: 2 / 6;
+    grid-row: 1 / 3;*/
+    grid-area: 1 / 2 / 3/ 6;
 }
