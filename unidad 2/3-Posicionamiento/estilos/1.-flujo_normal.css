@@ -1,5 +1,5 @@
 body {
-  width: 600px;
+  width: 700px;
   margin: 0 auto;
 }
 
@@ -61,31 +61,4 @@ p.none{
 
 p.opacidad{
   opacity: 50%;
-}
-
-/*Nuevas reglas*/
-
-p.relativo {
-  position: relative;
-  background: yellow;
-  top: 30px;
-  left: 30px;
-}
-
-article.relativo{
-  position: relative;
-}
-
-p.absoluto {
-  position: absolute;
-  background: yellow;
-  top: 80px;
-  left: 50px;
-}
-
-.pegajoso {
-  position: sticky;
-  top: 0px;
-  left: 0px;
-  z-index: 1;
 }

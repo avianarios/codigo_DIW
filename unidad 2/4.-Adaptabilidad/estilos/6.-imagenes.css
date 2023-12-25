@@ -1,0 +1,29 @@
+body{
+    width: 90%;
+    margin: 0 auto;
+    background-color: lightblue;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+  }
+
+
+h1, h2, h3{
+    text-align: center;
+    /*line-height: 100px;*/
+    margin:0px;
+    margin-bottom: 10px;
+}
+
+.contenedor-flex-nv1{
+    background-color: bisque;
+    margin-top: 20px;
+    padding: 10px 50px 50px 50px;
+    display:flex;
+    flex-direction: column;
+/*    display: grid;
+    grid-template-rows: 1fr 1fr;*/
+}
+
+img{
+    align-items: center;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../estilos/6.-imagenes.css">
+    </head>
+    <body>
+        <section class="contenedor-flex-nv1">
+            <h1>Ejemplo de imágenes adaptables</h1>
+            <p>Los puntos de ruptura son: 1800px,1200px y 800px</p>
+            <p>Las imágenes tienen dos formatos: webp y jpg</p>
+            <p>Cada formato tiene cuatro tamaños (en píxeles), para acomodarse a cada resolución (resolution switching). El último tamaño es una imagen recortada (art direction): 1600, 1000, 700 y 300</p>
+            <p>Se usan las siguientes reglas para asignar cada tamaño de imagen a cada resolución con la idea de que siempre queden márgenes a los lados de la imagen:</p>
+            <ul>
+                <li>En una pantalla con más de 1800px de anchura, se muestra la imagen de 1600px</li>
+                <li>En una pantalla entre 1200 y 1799px de anchura, se muestra la imagen de 1000px</li>
+                <li>En una pantalla entre 800 y 1199px de anchura, se muestra la imagen de 700px</li>
+                <li>En una pantalla menor de 800px de anchura, se muestra la imagen de 3000px</li>
+            </ul>
+            <p>Estos puntos de ruptura se han elegido a partir de unas estadísticas que dicen que las resoluciones (horizontales, en píxeles) más usadas son:</p>
+            <ul>
+                <li>Para escritorio, 1920 y 1366</li>
+                <li>Para Tableta, 768</li>
+                <li>Para móviles, Alrededor de 400</li>
+            </ul>
+            <p>Por supuesto, los cálculos anteriores se aplican cuando se trata de imágenes que ocupan toda la página a las que se les deja expandirse a su máximo tamaño.
+                    A las que se les ha puesto unas dimensiones en CSS, su tamaño en el fichero debe ser justo ese y sólo debería cambiar cuando cambie el código CSS para adaptarse a distintos dispositivos.</p>
+
+            <p>Opción 1: Se necesita recortar una imagen para que se vea lo importante en dispositivos pequeños (art-direction problem). Hay que usar la etiqueta media</p>
+            <picture>
+                <source type="image/webp"  media="(max-width: 799px)" srcset="../img/paisaje_arbol-300px.webp" />
+                <source type="image/webp"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/paisaje_arbol-700px.webp" />
+                <source type="image/webp"  media="(min-width: 1200px) and (max-width: 1899px)" srcset="../img/paisaje_arbol-1000px.webp" />
+                <source type="image/webp"  media="(min-width: 1000px)" srcset="../img/paisaje_arbol-1600px.webp" />
+
+                <source type="image/jpeg"  media="(max-width: 799px)" srcset="../img/paisaje_arbol-300px.jpg" />
+                <source type="image/jpeg"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/paisaje_arbol-700px.jpg" />
+                <source type="image/jpeg"  media="(min-width: 1200px) and (max-width: 1899px)" srcset="../img/paisaje_arbol-1000px.jpg" />
+                <!--No hace falta poner la última regla (mayor o igual que 1800). Si ninguna concuerda ,elige la siguiente imagen-->                
+                <img src="../img/paisaje_arbol-1600px.jpg" alt="Un bonito paisaje" />
+            </picture>
+
+            <p>Opción 2: Alternativa que NO permite proporcionar varios formatos de imagen para que el navegador elija</p>
+            <img
+                srcset="../img/paisaje-sierra-1600px.webp 1600w,
+                        ../img/paisaje-sierra-1000px.webp 1000w,
+                        ../img/paisaje-sierra-700px.webp 700w"
+                sizes="(max-width: 799px) 300px,
+                        (max-width: 1199px) 700px,
+                        (max-width: 1799px) 1000px,
+                        1600px"
+                        src="../img/paisaje-sierra-300px." alt="Un bonito paisaje de sierra"
+            />
+        </section>
+    </body>
+</html>
