@@ -13,7 +13,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Roboto:wght@300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="../estilos/9.-grid_contenedor.css">
+        <link rel="stylesheet" href="../estilos/6.-grid_contenedor.css">
     </head>
     <body>
         <!--[if lt IE 7]>
@@ -123,7 +123,7 @@
                 </article>
             </section>
 
-            <section class="contenedor-grid-nv2 gap">
+            <section class="contenedor-grid-nv2 gap ji-center">
                 <article class="contenedor-grid-nv2 gap">
                     <h3>aligning containers and all items at once</h3>
                     <h3>justify-items, align-items and place-items</h3>
@@ -275,7 +275,7 @@
                 </article>                
             </section>
 
-            <section class="contenedor-grid-nv2 gap">
+            <section class="contenedor-grid-nv2 gap ji-center">
                 <article class="contenedor-grid-nv2 gap">
                     <h3>grid-auto-rows, grid-auto-columns and git-auto-flow</h3>
                     <p>The two firsts allow to define the size of the implicit rows and columns (those created to accomodate items that are outside defined grid)</p>
@@ -305,23 +305,23 @@
                         <li class="elemento-grid">7</li>
                     </ul>
                 </article>                
+                <article class="contenedor-grid-nv2 gap borde-externo">
+                    <h4>Creating rows combining repeat and minimax with different units</h4>
+                    <p>grid-template-rows: repeat(3, minmax(100px, 2fr)) and grid-auto-flow: column</p>
+                    <ul class="contenedor-grid-nv3 disposicion-tres-filas-repeat-minmax gaf-column gap">
+                        <li class="elemento-grid">1</li>
+                        <li class="elemento-grid">2</li>
+                        <li class="elemento-grid">3</li>
+                        <li class="elemento-grid">4</li>
+                        <li class="elemento-grid">5</li>
+                        <li class="elemento-grid">6</li>
+                        <li class="elemento-grid">7</li>
+                        <li class="elemento-grid">8</li>
+                        <li class="elemento-grid">9</li>
+                        <li class="elemento-grid">10</li>
+                    </ul>
+                </article>
             </section>
-            <article class="contenedor-grid-nv2 gap borde-externo">
-                <h4>Creating rows combining repeat and minimax with different units</h4>
-                <p>grid-template-rows: repeat(3, minmax(100px, 2fr)) and grid-auto-flow: column</p>
-                <ul class="contenedor-grid-nv3 disposicion-tres-filas-repeat-minmax gaf-column gap">
-                    <li class="elemento-grid">1</li>
-                    <li class="elemento-grid">2</li>
-                    <li class="elemento-grid">3</li>
-                    <li class="elemento-grid">4</li>
-                    <li class="elemento-grid">5</li>
-                    <li class="elemento-grid">6</li>
-                    <li class="elemento-grid">7</li>
-                    <li class="elemento-grid">8</li>
-                    <li class="elemento-grid">9</li>
-                    <li class="elemento-grid">10</li>
-                </ul>
-            </article> 
         </section>
     </body>
 </html>

@@ -109,10 +109,6 @@ article>p{
     grid-template-rows: 1fr 2fr;
 }
 
-.disposicion-tres-filas-repeat-minmax{
-    grid-template-rows: repeat(3, minmax(100px, 2fr));
-}
-
 .disposicion-areas {
     display: grid;
     grid-template-columns: 0.5 fr repeat (3, 1fr);
@@ -210,4 +206,13 @@ article>p{
 
 .gaf-column{
     grid-auto-flow: column;
+}
+
+.gaf-dense{
+    grid-auto-flow: dense;
+}
+
+#dense < li:nth-child(3n){
+    grid-column: span 2;
+    grid-row: span 2;
 }
