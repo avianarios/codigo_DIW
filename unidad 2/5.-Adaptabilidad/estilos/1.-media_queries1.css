@@ -42,6 +42,7 @@ p{
     font-size: 1rem;
 }
 
+
 /* On screens that are 992px wide or less, go from four columns to two columns */
 @media screen and (max-width: 1000px) {
     .columna {
@@ -99,6 +100,15 @@ p{
 
 }
 
-@media screen and (orientation:portrait) {
-    
+@media screen and (orientation:landscape) {
+    body{
+        background-color: antiquewhite;
+    }
 }
+
+@media print {
+    body {
+      background-color: transparent;
+    }
+}
+  
