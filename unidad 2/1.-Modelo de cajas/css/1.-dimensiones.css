@@ -17,12 +17,12 @@ body {
 
 .anchura_variable{
   min-width: 100px;
-  max-width: 200px;
+  max-width: 250px;
 }
 
 .altura_variable{
   min-height: 100px;
-  max-height: 200px;
+  max-height: 250px;
 }
 
 .content-box{
