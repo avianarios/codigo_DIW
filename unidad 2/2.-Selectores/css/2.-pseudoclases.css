@@ -1,3 +1,9 @@
+body{
+  margin: 0 auto;
+  width: 66vw;
+  background-color:aliceblue;
+}
+
 #formulario-contacto>label{
   display: block;
 }
@@ -18,12 +24,6 @@ a:hover{
 
 button:focus {
   outline: #4CAF50 solid 10px;
-}
-
-
-/*Sets all even elements of a list to have a different background*/
-li:nth-child(even) {
-  background: coral;
 }
 
 /*********************************/
@@ -65,6 +65,11 @@ li:first-child{
 li:last-child {
   background: lightgreen;
   font-weight: bold;
+}
+
+/*Sets all even elements of a list to have a different background*/
+li:nth-child(even) {
+  background: coral;
 }
 
 li:nth-child(2){
@@ -119,7 +124,7 @@ section p:first-of-type{
 
 /*
 Instead of 
-  #parrafos .texto, 
+  #parrafos .normal, 
   #parrafos .especial
   #parrafos p{
 
@@ -139,12 +144,12 @@ specifity (1,0,1). It's not applied as there's another rule with (1,1,1)
 }
 
 /*specifity is the highest of the three included in :is, (1,1,0)*/
-#parrafos :is(.texto, .especial, p){
+#parrafos :is(.normal, .especial, p){
   background-color: aquamarine;
 }
 
 /*same as :is, but specifity of what's included in :where is zero (1,0,0)*/
-#parrafos :where(.texto, .especial, p){
+#parrafos :where(.normal, .especial, p){
   background-color: aquamarine;
 }
 
@@ -211,10 +216,12 @@ input:valid {
   color: green;
 }
 
+/*controls what happens when values in a form field are between min and max property values*/
 input:in-range {
   color: green;
 }
 
+/*controls what happens when values in a form field are not between min and max property values*/
 input:out-of-range{
   color: red;
 }

@@ -1,7 +1,13 @@
 /*tags*/
+body{
+  margin: 0 auto;
+  width: 66vw;
+  background-color:aliceblue;
+}
+
 h1{
-    color: blue;
-  }
+  font-size: 1.25rem;
+}
   
 /*class*/
 .seccion{
@@ -22,31 +28,32 @@ section.seccion{
   border: 3px solid green;
 }
 
-/*attribute*/
-img[alt]{
-  margin: 50px;
-}
-
-/*attribute with value*/
+/*any link opened in a new window*/
 a[target="_blank"]{
   color: beige;
 }
 
-/*attribute containing a string*/
+/*tags with an attribute href containing the string 'es.wikipedia.org' (tipically links)*/
 [href*='es.wikipedia.org'] {
   color: red;
 }
 
-/* starting with https */
+/* tags with an attribute href starting with https (tipically links) */
 [href^='https'] {
   color: green;
 }
 
-/* ending with .com */
+/* tags with an attribute href ending with .com (tipically links) */
 [href$='.com'] {
   color: blue;
 }
 
+/* links with an attribute href ending with .pdf case insensitive*/
+a[href$=".pdf" i] {
+  background: red;
+}
+
+/* any tag with a disabled attribute */
 [disabled]{
   background: grey;
 }
@@ -59,23 +66,28 @@ a[target="_blank"]{
 }
 
 /*selectors can be combined*/
-/*descendant*/
+/*descendant. Selects paragraphs with "especial" class inside "section" elements with "parrafos" class no matter the level */
 section#parrafos p.especial{
   background-color: aqua;
 }
 
-/*first level of sons*/
+/*any descentant, no matter the level*/
+#listaCompra li{
+  border: 1px solid red;
+}
+
+/*first level descendant*/
 #listaCompra>li{
   border: 3px solid coral;
 }
 
 /*adjacent brother*/
-.texto + p{
+.normal + p{
   border: 3px dashed greenyellow;
 }
 
 /*any brother, no matter if it is adjacent or not*/
-.texto ~ p{
+.normal ~ p{
   border: 3px dashed greenyellow;
 }
 
