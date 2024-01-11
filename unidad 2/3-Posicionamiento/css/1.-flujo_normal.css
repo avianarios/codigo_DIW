@@ -17,10 +17,11 @@ span {
 
 p.linea{
   display: inline;  /*the box takes the space to place its content. It ignores widht and height*/
-  width: 100px;
-  height: 100px;
+  width: 100px; /*ignored*/
+  height: 100px; /*ignored*/
   background: lightgreen;
   border: 1px solid green;
+  margin: 0px 10px;
 }
 
 p.linea_bloque_medidas{ /*if I remove p. this selector has less specifity than p:not(.linea) and, therefore, le latter is applied*/
@@ -31,6 +32,7 @@ p.linea_bloque_medidas{ /*if I remove p. this selector has less specifity than p
   padding: 10px;
   margin:10px;
   width: 100px;
+  height: 150px;
 }
 
 /*if I remove p. from the following selectors, they would have less specifity than p:not(.linea) and, therefore, the latter would be applied*/
