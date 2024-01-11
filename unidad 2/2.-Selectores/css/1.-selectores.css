@@ -10,11 +10,11 @@ h1{
 }
   
 /*class*/
-.seccion{
+.parrafo_cuerpo{
   background-color: red;
 }
 
-section.seccion{
+p.parrafo_cuerpo{
   border: 3px dashed blue;
 }
 
