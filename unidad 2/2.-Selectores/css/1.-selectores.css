@@ -76,7 +76,7 @@ section#parrafos p.especial{
   border: 1px solid red;
 }
 
-/*first level descendant*/
+/*first level descendants*/
 #listaCompra>li{
   border: 3px solid coral;
 }
