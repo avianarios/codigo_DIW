@@ -35,7 +35,7 @@ h1, h2, h3{
   padding: 10px 50px 50px 50px;
   display: flex;
   align-items: center;
-  flex-flow: column wrap;
+  flex-direction: column;
  }
 
 .borde{

@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -16,9 +12,6 @@
         <link rel="stylesheet" href="../css/5.-flexbox_elementos.css">
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
         <section class="contenedor-flex-nv1 gap">
 
             <header>
@@ -28,7 +21,6 @@
                 <p>Align-self allows to define behaviour only for one element. It only works when elements occupy all the space. Values: flex-start, flex-end, center, baseline y stretch</p>
                 <!--Align-self permite definir el comportamiento solo para un elemento. Sólo funciona cuando los elementos ocupan todo el espacio. Valores: flex-start, flex-end, center, baseline y stretch-->
             </header>
-
 
             <section class="contenedor-flex-nv2 columna ai-center gap">
                 <article class="borde">
@@ -119,14 +111,14 @@
                 </article>
                 <article class="borde">
                     <h3>flex-grow</h3>
-                    <p>It specifies the amount of free space within the flex container is assigned to the items with flex-grow property.
+                    <p>It specifies the amount of free space assigned to the elements within the flex container.
                         Free space is defined as the size of flex container minus the size of all flex items combined</p>
                     <p>Items will first fill the main axis, then free space is redistributed. Flex-grow will not force items to wrap. If there's no free space, no space is redistributed</p>
                     <!--<p>Especifica la cantidad de espacio libre dentro del contenedor flex que es asignado a los items con la propiedad flex-grow.
                         El espacio restante es el tamaño del contenedor flexible menos el tamaño de todos los elementos flexibles juntos.</p>
                         <p>Los elementos primero ocuparán el eje principal, luego se distribuirá el espacio libre. Flex-grow no forzará a los elementos a crecer. Si no hay espacio libre, no hay espacio que redistribuir</p>
                     -->
-                    <p>item 2 has flex-grown:2 and item 4 , flex-grown 3</p>
+                    <p>item 2 has flex-grown:2 and item 4, flex-grown 3</p>
                     <ul class="contenedor-flex-nv2 fila wrap gap">
                         <li class="flex-item ">1</li>
                         <li class="flex-item grow2">2</li>
@@ -157,6 +149,7 @@
                     width is 440px
                     <!--<p>Hay menos espacio libre que redistribuir y, aún así, no saltan a la siguiente línea</p>-->
                     <p>item 5 has flex-shrink:2 and item 7, flex-shrink: 3</p>
+                    <p>They all look similar, but inspect them with developer's tools</p>
                     <ul class="contenedor-flex-nv2 fila gap">
                         <li class="flex-item">1</li>
                         <li class="flex-item">2</li>
@@ -171,54 +164,6 @@
                     </ul>
                 </article>                
            </section>
-
-
-            <section class="contenedor-flex-nv2 columna ai-center gap">
-                <article>
-                    <h2>justify-content</h2>
-                    <p>Justify-content alinea objetos en el eje principal que por defecto es el horizontal, pero se puede cambiar</p>
-                    <p>Posibles valores: flex-start, flex-end, center, space-between, space-around y space-evenly </p>
-                </article>            
-                <article class="borde">
-                    <h3>justify-content</h3>
-                    <p>Los elementos se organizan en una fila (flex-direction: row) y se deja un espacio equitativo entre los elementos (justify-content: space-around)</p>
-                    <ul class="contenedor-flex-nv2 fila gap jc-space-around">
-                        <li class="flex-item">1</li>
-                        <li class="flex-item">2</li>
-                        <li class="flex-item">3</li>
-                    </ul>
-                </article>
-                <article class="borde">
-                    <h3>justify-content</h3>
-                    <p>Los elementos se organizan en una columna (flex-direction: column) y se colocan los elementos en el principio (justify-content: flex-start)</p>
-                    <ul class="contenedor-flex-nv2 columna gap jc-start">
-                        <li class="flex-item">1</li>
-                        <li class="flex-item">2</li>
-                        <li class="flex-item">3</li>
-                    </ul>
-                </article>
-                <article class="borde">
-                    <h3>justify-content</h3>
-                    <p>Los elementos se organizan en una fila (flex-direction: row) y se alinean los elementos al final de su eje (justify-content: flex-end)</p>
-                    <ul class="contenedor-flex-nv2 fila gap jc-flex-end">
-                        <li class="flex-item">1</li>
-                        <li class="flex-item">2</li>
-                        <li class="flex-item">3</li>
-
-                    </ul>
-                </article>
-                <article class="borde">
-                    <h3>justify-content</h3>
-                    <p>Los elementos se organizan en una fila (flex-direction: row) y se centran los elementos en su eje (justify-content: center)</p>
-                    <ul class="contenedor-flex-nv2 fila gap jc-center">
-                        <li class="flex-item">1</li>
-                        <li class="flex-item">2</li>
-                        <li class="flex-item">3</li>
-                    </ul>
-                </article>
-            </section>
-
-
         </section>
     </body>
 </html>

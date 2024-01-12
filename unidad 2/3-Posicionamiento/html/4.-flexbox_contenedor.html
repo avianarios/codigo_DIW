@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -16,9 +12,6 @@
         <link rel="stylesheet" href="../css/4.-flexbox_contenedor.css">
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
         <section class="contenedor-flex-nv1 gap">
             <header>
                 <h1>Basic flex therminology</h1>
@@ -109,8 +102,8 @@
                 </article>
                 <article class="borde">
                     <h3>justify-content</h3>
-                    <p>Los elementos se organizan en una columna (flex-direction: column) y se colocan los elementos en el principio (justify-content: flex-start)</p>
-                    <ul class="contenedor-flex-nv2 columna gap jc-start">
+                    <p>Los elementos se organizan en una fila (flex-direction: row) y se colocan los elementos en el principio (justify-content: flex-start)</p>
+                    <ul class="contenedor-flex-nv2 fila gap jc-start">
                         <li class="flex-item">1</li>
                         <li class="flex-item">2</li>
                         <li class="flex-item">3</li>
@@ -123,7 +116,6 @@
                         <li class="flex-item">1</li>
                         <li class="flex-item">2</li>
                         <li class="flex-item">3</li>
-
                     </ul>
                 </article>
                 <article class="borde">
@@ -140,6 +132,7 @@
             <section class="contenedor-flex-nv2 columna ai-center gap">
                 <article>
                     <h2>align-items</h2>
+                    <p>Alinea los elementos en el eje secundario</p>
                     <p>align-items sólo tiene sentido cuando le damos un tamaño al contenedor y es más grande que los elementos que contiene</p>
                     <p>Posibles valores: flex-start, flex-end, center, strech y baseline </p>
                 </article>
