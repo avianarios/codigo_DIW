@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
     <head>
         <meta charset="utf-8">
@@ -13,112 +9,61 @@
         <link rel="stylesheet" href="../css/2.-position.css">
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
-        <script src="" async defer></script>
-        <h1>Posicionamiento</h1>
+        <header class="pegajoso">
+          <h1>Posicionamiento</h1>
+          <h2>Let's see how normal box flow can be changed by using position property</h2>
+          <h3>Esto es un encabezado pegajoso. Tiene un z-index para quedar por encima del resto de cajas</h3>
+        </header>
         <section>
-          <h2 class="pegajoso">Esto es un subtítulo pegajoso. Tiene un z-index para quedar por encima del resto de cajas</h2>
-          <h3>Define cómo coloca el navegador las cajas por defecto</h3>
-          <h4>Su colocación y comportamiento depende del tipo de etiqueta: bloque (block) o línea (inline).
-            Cada etiqueta tiene su tipo y no se puede cambiar </h4>
           <article>
+            <h3>Título del artículo</h3>
             <p class="absoluto">
-              Soy un elemento a nivel de bloque posicionado de forma absoluta. Me salgo del flujo normal y me posiciono respecto al elemento padre que tenga un posicionamiento. 
+              Pertenezco al primer artículo pero, al estar posicionado de forma absoluta, me salgo del flujo normal y me posiciono respecto al elemento padre que tenga un posicionamiento. 
               Si ninguno tiene, respecto al HTML
             </p>
             <p class="relativo">
-              Soy un elemento a nivel de bloque posicionado de forma relativa. Ocupo mi flujo normal y luego me muevo respecto a la posición que habría ocupado
+              Pertenezco al primer artículo. Estoy posicionado de forma relativa, así que ocupo mi flujo normal y luego me muevo respecto a esa posición inicial
             </p>
-          </article>
-          <article>
-            <p>
-              I am a basic block level element. My adjacent block level elements sit on new
-              lines below me.
-            </p>
-            
-            <p>
-              By default we span 100% of the width of our parent element, and we are as tall
-              as our child content. Our total width and height is our content + padding +
-              border width/height.
-            </p>
-            
-            <p>
-              We are separated by our margins. Because of margin collapsing, we are
-              separated by the width of one of our margins, not both.
-            </p>
-            
-            <p>
-              Inline elements <span>like this one</span> and <span>this one</span> sit on
-              the same line along with adjacent text nodes, if there is space on the same
-              line. Overflowing inline elements will
-              <span>wrap onto a new line if possible (like this one containing text)</span>,
-              or just go on to a new line if not, much like this image will do:
-              <img src="../img/long.jpg" alt="snippet of cloth" />
-            </p>
-            <p class="linea">
-              Esto es un párrafo que ha sido forzado a ser un elemento de línea con display=inline
-            </p>
-            <p class="linea">
-              Esto es un párrafo que ha sido forzado a ser un elemento de línea con display=inline
-            </p>
-            <p class="linea">
-              Esto es un párrafo que ha sido forzado a ser un elemento de línea con display=inline
-            </p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
           </article>
           <article class="relativo">
+            <h3>Título del artículo</h3>
             <p class="absoluto">
-              <br><br>
-              Soy un elemento de bloque posicionado de forma absoluta. Me salgo del flujo normal y me posiciono respecto al elemento padre (article), ya que éste está definido como relative. 
+              Pertenezco al artículo 3. Estoy posicionado de forma absoluta, así que me salgo del flujo normal y me posiciono respecto al elemento padre (article), ya que éste está definido como relative. 
             </p>
+            <p>Este artículo está posicionado de forma relativa. Como no se especifican coordenadas, se queda donde le toca según el flujo normal.</p>
+            <p>Este artículo está posicionado de forma relativa. Como no se especifican coordenadas, se queda donde le toca según el flujo normal.</p>
+            <p>Este artículo está posicionado de forma relativa. Como no se especifican coordenadas, se queda donde le toca según el flujo normal.</p>
           </article>
           <article>
-            <span class="bloque">
-              Este span ha sido forzado a ser un elemento block
-            </span>
-            <span class="bloque">
-              Este span ha sido forzado a ser un elemento block
-            </span>
-            <span class="bloque">
-              Este span ha sido forzado a ser un elemento block
-            </span>
-
-
-            <p class="linea_bloque_medidas">
-              Esto es un párrafo que ha sido forzado a ser un elemento inline_block con medidas
-            </p>
-            <p class="linea_bloque_medidas">
-              Esto es un párrafo que ha sido forzado a ser un elemento inline_block con medidas
-            </p>
-            <p class="linea_bloque_medidas">
-              Esto es un párrafo que ha sido forzado a ser un elemento inline_block con medidas
-            </p>
-
-            <p class="linea_bloque">
-              Esto es un párrafo que ha sido forzado a ser un elemento inline_block y ocupa todo el espacio a lo ancho
-            </p>
-          </article>
-        </section>
-
-        <section>
-          <h3>Visualización de cajas</h3>
-          <p>
-            Aquí debajo va un párrafo que ha sido ocultado con visibility=hidden. El navegador lo renderiza, le guarda su sitio, pero no lo muestra
-          </p>
-          <p class="hidden">
-            Esto es un párrafo que ha sido ocultado con hidden
-          </p>
-          <p>
-            Aquí debajo va un párrafo que no vas a poder ver en el navegador. Ha sido ocultado con display=none, así que el navegador no lo renderiza y no le guarda sitio
-          </p>
-          <p class="none">
-            Esto es un párrafo que no vas a poder ver
-          </p>
-          <p class="opacidad">
-            Esto es un párrafo con una opacidad del 50%
-          </p>
+            <h3>Título del artículo</h3>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+          </article>            
+          <article>
+            <h3>Título del artículo</h3>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+          </article>            
+          <article>
+            <h3>Título del artículo</h3>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+          </article>            
+          <article>
+            <h3>Título del artículo</h3>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+          </article>            
         </section>
     </body>
 </html>
