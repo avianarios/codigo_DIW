@@ -82,6 +82,20 @@ li:nth-child(2){
   background-color: lightpink;
 }
 
+/*n would select all elements, 2n even and 2n-1, odds
+li:nth-child(n){
+  background-color: lightpink;
+}
+
+li:nth-child(2n){
+  background-color: lightpink;
+}
+
+li:nth-child(2n-1){
+  background-color: lightpink;
+}
+*/
+
 /*Selects the 2nd of #parrafos.especial*/
 #parrafos :nth-child(2 of .especial){
   background-color: red;
@@ -92,20 +106,11 @@ li:nth-last-child(2){
   background-color: lightsalmon;
 }
 
-/*All even elements
-li:nth-last-child(2n){
-  background-color: lightsalmon;
-}
-
-odds elements
-li:nth-last-child(2n-1){
-  background-color: lightsalmon;
-}*/
-
 section p:first-of-type{
   background-color: #4CAF50;
 }
 
+/*Selects the last paragraph, children at any level, of those elements with a "parrafos" ID*/
 #parrafos p:last-of-type{
   background-color: aquamarine;
 }
