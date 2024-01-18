@@ -17,26 +17,19 @@
             <article>
                 <p class="flota_izquierda flota">Ejemplo de caja flotante a la izquierda</p>
                 <p class="flota_derecha flota">Ejemplo de caja flotante a la derecha</p>
-                <p>Este párrafo queda en medio de ambos flotantes. Este texto es para rellenar</p>
-                <p id="salto"><span class="destacado">Este párrafo tiene un clear:both, por lo que queda debajo de las cajas flotantes, aunque tenga sitio </span></p>
+                <p>Primero se posicionan las cajas flotantes y este párrafo rellena el espacio que queda en medio de ambos flotantes</p>
+                <p class="salto_both">Aún queda sitio entre las cajas flotantes, pero este párrafo tiene un<span class="destacado"> clear:both </span>, por lo que queda debajo de las cajas flotantes que haya a un lado o a otro, aunque tenga sitio </p>
             </article>
             <article>
                 <p class="flota_izquierda flota">Ejemplo de caja flotante a la izquierda</p>
                 <p class="flota_izquierda flota">Otro ejemplo de caja flotante a la izquierda</p>
                 <p class="flota_derecha flota">Ejemplo de caja flotante a la derecha</p>
-                <p>Este párrafo queda en medio de ambos flotantes</p>
-                <p class="destacado">Este párrafo NO tiene clear, por lo que queda en medio de las cajas flotantes</p>
+                <p>Primero se posicionan las cajas flotantes y este párrafo rellena el espacio que queda en medio de ambos flotantes</p>
             </article>
-            <article>
-                <article class="envolver">
+            <article class="envolver">
                     <p class="flota_izquierda flota">Ejemplo de caja flotante a la izquierda</p>
                     <p class="flota_derecha flota">Ejemplo de caja flotante a la derecha</p>
-                    
-                    <p>
-                        Este párrafo queda en medio de ambos flotantes y los envuelve gracias a display: flow-root
-                    </p>
-                </article>
-                <p class="destacado">Este párrafo NO tiene clear, pero no queda en medio de las flotantes porque el anterior párrafo ha usado display:flow-root</p>
+                    <p>Primero se posicionan las cajas flotantes y este párrafo rellena el espacio que queda en medio de ambos flotantes y los envuelve gracias a display: flow-root</p>
             </article>
         </section>
     </body>

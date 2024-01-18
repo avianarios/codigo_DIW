@@ -30,8 +30,12 @@ p{
     clear: left;
 }*/
 
-#salto{
+.salto_both{
     clear:both;
+}
+
+.salto_izquierdo{
+    clear:left;
 }
 
 .destacado{
