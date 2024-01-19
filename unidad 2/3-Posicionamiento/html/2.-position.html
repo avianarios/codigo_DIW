@@ -16,7 +16,7 @@
         </header>
         <section>
           <article>
-            <h3>Título del artículo</h3>
+            <h3>Artículo 1</h3>
             <p class="absoluto">
               Pertenezco al primer artículo pero, al estar posicionado de forma absoluta, me salgo del flujo normal y me posiciono respecto al elemento padre que tenga un posicionamiento. 
               Si ninguno tiene, respecto al HTML
@@ -28,27 +28,26 @@
             <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
           </article>
           <article class="relativo">
-            <h3>Título del artículo</h3>
-            <p class="absoluto">
-              Pertenezco al artículo 3. Estoy posicionado de forma absoluta, así que me salgo del flujo normal y me posiciono respecto al elemento padre (article), ya que éste está definido como relative. 
-            </p>
-            <p>Este artículo está posicionado de forma relativa. Como no se especifican coordenadas, se queda donde le toca según el flujo normal.</p>
-            <p>Este artículo está posicionado de forma relativa. Como no se especifican coordenadas, se queda donde le toca según el flujo normal.</p>
-            <p>Este artículo está posicionado de forma relativa. Como no se especifican coordenadas, se queda donde le toca según el flujo normal.</p>
+            <h3>Artículo 2. Estoy posicionado de forma relativa. Al no especificar coordenadas se queda donde le toca según el flujo normal</h3>
+            <p class="absoluto">Pertenezco al artículo 3. Estoy posicionado de forma absoluta, así que me salgo del flujo normal y me posiciono
+               respecto al elemento padre (article), ya que éste está posicionado de forma relativa.</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto.</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto.</p>
+            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto.</p>
           </article>
           <article>
-            <h3>Título del artículo</h3>
+            <h3>Artículo 3</h3>
             <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
             <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
             <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
-            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+            <p class="fijo_sin_coordenadas">Soy un párrafo del artículo 3. Al no tener coordenadas, ocupo el sitio que ocuparía en el flujo normal, pero al estar posicionado de forma fija, me salgo del flujo normal y mi sitio no se respeta. </p>
           </article>            
           <article>
-            <h3>Título del artículo</h3>
+            <h3>Artículo 4</h3>
             <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
             <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
             <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
-            <p>Soy un elemento de bloque, sin anchura ni altura, posicionado por defecto</p>
+            <p class="fijo">Soy un párrafo del artículo 4 posicionado de forma fija con coordenadas determinadas. Me salgo del flujo normal y mi sitio en el artículo 4 no se respeta. </p>
           </article>            
           <article>
             <h3>Título del artículo</h3>

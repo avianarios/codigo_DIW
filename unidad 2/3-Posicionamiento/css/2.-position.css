@@ -50,3 +50,14 @@ p.absoluto {
   left: 0px;
   z-index: 1;
 }
+
+.fijo_sin_coordenadas{
+  position: fixed;
+}
+
+.fijo{
+  position:fixed;
+  top: 420px;
+  left: 180px;
+  width: 200px;
+}
