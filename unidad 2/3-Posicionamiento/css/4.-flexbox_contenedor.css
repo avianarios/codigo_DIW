@@ -51,11 +51,6 @@ h1, h2, h3{
   margin: 0;
 }
 
-
-.fila {
-    flex-direction: row;
-}
-
 .columna {
   flex-direction: column;
 }
@@ -64,9 +59,13 @@ h1, h2, h3{
   flex-direction: column-reverse;
 }
 
+/*flex-basis vs width
+  -flex-basis applies to main axis which is not always width
+  -flex-basis applies only to flex items, not containers
+  -flex-basis is the initial size (it may not be the final one) before shrink or grow comes into play*/
 .flex-item {
   background:azure;
-  flex-basis: 40px;
+  flex-basis: 50px;
   color: black;
   font-weight: bold;
   font-size: 2em;
@@ -79,10 +78,10 @@ h1, h2, h3{
 }
 
 .nowrap{
-  /* Los elementos que no caben se desbordan, es decir, el contenedor no cambia de tamaño, así que las cajas no pueden pasar a la siguiente línea y se salen del contenedor (se desbordan) */
-  flex-flow: nowrap; 
+  flex-wrap: nowrap; 
 }
 
+/*Wrap: Los elementos que no caben se desbordan, es decir, el contenedor no cambia de tamaño, así que las cajas no pueden pasar a la siguiente línea y se salen del contenedor (se desbordan) */
 .wrap{
   flex-wrap: wrap;
 }
@@ -147,3 +146,8 @@ h1, h2, h3{
 .ac-stretch{
   align-content: stretch;
 }
+
+/*shortcuts
+gap: 10px -> row-gap y column-gap
+flex-flow: column wrap -> flex-direction y flex-wrap
+*/

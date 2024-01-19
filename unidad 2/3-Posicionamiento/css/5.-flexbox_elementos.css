@@ -42,17 +42,12 @@ h1, h2, h3{
   border: 3px solid lightblue;
   padding: 10px 30px 30px 30px;
   width: 80%;
-/*  flex-basis: 200px;  /*cada caja mide 200px de alto (porque el eje principal de su contenedor es vertical, en columna)*/
 }
 
 .contenedor-flex-nv2 {
   display: flex;
   padding: 0;
   margin: 0;
-}
-
-.fila {
-    flex-direction: row;
 }
 
 .columna {
@@ -63,9 +58,13 @@ h1, h2, h3{
   flex-direction: column-reverse;
 }
 
+/*flex-basis vs width
+  -flex-basis applies to main axis which is not always width
+  -flex-basis applies only to flex items, not containers
+  -flex-basis is the initial size (it may not be the final one) before shrink or grow comes into play*/
 .flex-item {
   background:azure;
-  flex-basis: 40px;
+  flex-basis: 50px;
   color: black;
   font-weight: bold;
   font-size: 2em;
@@ -74,14 +73,13 @@ h1, h2, h3{
 
 .gap{
   gap:10px;
-  /*atajo para row-gap y column-gap*/
 }
 
 .nowrap{
-  /* Los elementos que no caben se desbordan, es decir, el contenedor no cambia de tamaño, así que las cajas no pueden pasar a la siguiente línea y se salen del contenedor (se desbordan) */
   flex-flow: nowrap; 
 }
 
+/* Wrap: Los elementos que no caben se desbordan, es decir, el contenedor no cambia de tamaño, así que las cajas no pueden pasar a la siguiente línea y se salen del contenedor (se desbordan) */
 .wrap{
   flex-wrap: wrap;
 }
@@ -89,7 +87,6 @@ h1, h2, h3{
 .fila-al-reves{
   flex-direction: row-reverse;
 }
-
 
 .min-height{
   min-height: 250px;
@@ -100,12 +97,20 @@ h1, h2, h3{
   align-items: center;
 }
 
-.ac-stretch{
-  align-content: stretch;
-}
-
 .as-end{
   align-self: flex-end;
+}
+
+.as-start{
+  align-self: flex-start;
+}
+
+/*.as-center{
+  align-self: center;
+}*/
+
+.as-stretch{
+  align-self: stretch;
 }
 
 .orden1{
@@ -144,6 +149,12 @@ h1, h2, h3{
   flex-shrink: 3;
 }
 
-/*#flex-grow>ul>li:nth-child(2n){
-  flex-grow:2;
-}*/
+/*flex is a shortcut for flex-grow, flex-shrink and flex-basis
+
+flex: 3;        //one number, no unit: flex-grow. flex-basis=0
+flex: 10rem;    //one value with unid: flex-basis
+flex: 1 20px;   //two values with unit: flex-grow and flex-basis
+flex: 2 2;      //two values, no unit: flex-grow and flex-shrink
+flex: 2 2 10%;  //three values: flex-grow, flex-shrink and flex-basis
+
+*/

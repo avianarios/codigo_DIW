@@ -15,7 +15,7 @@
         <section class="contenedor-flex-nv1 gap">
 
             <header>
-                <h2>Flexbox properties acting over elements</h2>
+                <h2>Flexbox properties acting over flex items</h2>
                 <!--Propiedades de flexbox que actúan sobre los elementos-->
                 <h3>align-self</h3>
                 <p>Align-self allows to define behaviour only for one element. It only works when elements occupy all the space. Values: flex-start, flex-end, center, baseline y stretch</p>
@@ -25,22 +25,21 @@
             <section class="contenedor-flex-nv2 columna ai-center gap">
                 <article class="borde">
                     <h3>align-self</h3>
-                    <p>Elements are organized in a row (flex-direction: row) and the stretch to occupy the whole container (align-content: flex-stretch). Third element aligns at the end (align-self:end)</p>
+                    <p>The base alignment is align-item:center. If not specified, the flex boxes takes all the available space</p>
+                    <p>Third element aligns at the end (align-self:end), 7th at stretch, 8th at start</p>
                     <!--Los elementos se organizan en una fila (flex-direction: row) y se estiran para ocupar todo el contenedor (align-content: flex-stretch). El tercer elemento se alinea al final (align-self:end)-->
-
-                    <ul class="contenedor-flex-nv2 fila gap wrap min-height ac-stretch">
+                    <ul class="contenedor-flex-nv2 gap min-height ai-center">
                         <li class="flex-item">1</li>
                         <li class="flex-item">2</li>
                         <li class="flex-item as-end">3</li>
                         <li class="flex-item">4</li>
                         <li class="flex-item">5</li>
                         <li class="flex-item">6</li>
-                        <li class="flex-item">7</li>
-                        <li class="flex-item">8</li>
+                        <li class="flex-item as-stretch">7</li>
+                        <li class="flex-item as-start">8</li>
                         <li class="flex-item">9</li>
                         <li class="flex-item">10</li>
                     </ul>
-                </article>
             </section>
 
             <section class="contenedor-flex-nv2 columna ai-center gap">
@@ -70,7 +69,7 @@
                     <h3>Order</h3>
                     <p>Elements 5, 3 and 6 have been rearranged</p>
                     <!--Los elementos 5, 3 y 6 han sido reorganizados-->
-                    <ul class="contenedor-flex-nv2 fila gap">
+                    <ul class="contenedor-flex-nv2 gap">
                         <li class="flex-item">1</li>
                         <li class="flex-item">2</li>
                         <li class="flex-item orden2">3</li>
@@ -88,15 +87,18 @@
                     <p>flex-basis, flex-grow y flex-shrink</p>
                     <p>flex: a b c is a shortcut for the three properties. 
                         If a=number -> equivalent to flex-grow, if a=size -> equivalent to flex-basis
-                        if a and b are set, a=grow and b=shrink
+                        if a and b are set, a=grow and b=shrink if it is a number or b=flex-basis if it is a size
                         if a, b and c, then a=grow, b=shrink and c=basis
                     </p>
                 </article>
                 <article class="borde">
                     <h3>flex-basis</h3>
-                    <p>Defines the base size of the element. Element size 3 and 6 have changed. Wrap is allowed</p>
+                    <p>Defines the initial size of the flexbox on its MAIN AXIS. It may grow due to other properties before being presented to user</p>
+                    <p>If not defined: flex boxes take the minimum space to accomodate their content</p>
+                    <p>If defined: flex boxes are rendered with this size unless not enough room on the container. Anyway, proportions are respected
+                    <p>Boxes 3 and 6 have changed theis size. Wrap is allowed</p>
                     <!--Define el tamaño base del elemento-->
-                    <ul class="contenedor-flex-nv2 fila wrap gap">
+                    <ul class="contenedor-flex-nv2 wrap gap">
                         <li class="flex-item">1</li>
                         <li class="flex-item">2</li>
                         <li class="flex-item basis100px">3</li>
@@ -111,15 +113,15 @@
                 </article>
                 <article class="borde">
                     <h3>flex-grow</h3>
-                    <p>It specifies the amount of free space assigned to the elements within the flex container.
-                        Free space is defined as the size of flex container minus the size of all flex items combined</p>
-                    <p>Items will first fill the main axis, then free space is redistributed. Flex-grow will not force items to wrap. If there's no free space, no space is redistributed</p>
+                    <p>It specifies the amount of FREE SPACE assigned to the elements within the flex container.
+                        Free space is defined as the size of flex container minus the size of all flex items combined AFTER being renderized</p>
+                    <p>Items will first fill the main axis according to flex-basis, then free space is redistributed. Flex-grow will not force items to wrap. If there's no free space, no space is redistributed</p>
                     <!--<p>Especifica la cantidad de espacio libre dentro del contenedor flex que es asignado a los items con la propiedad flex-grow.
                         El espacio restante es el tamaño del contenedor flexible menos el tamaño de todos los elementos flexibles juntos.</p>
                         <p>Los elementos primero ocuparán el eje principal, luego se distribuirá el espacio libre. Flex-grow no forzará a los elementos a crecer. Si no hay espacio libre, no hay espacio que redistribuir</p>
                     -->
                     <p>item 2 has flex-grown:2 and item 4, flex-grown 3</p>
-                    <ul class="contenedor-flex-nv2 fila wrap gap">
+                    <ul class="contenedor-flex-nv2 wrap gap">
                         <li class="flex-item ">1</li>
                         <li class="flex-item grow2">2</li>
                         <li class="flex-item ">3</li>
@@ -131,7 +133,7 @@
                     <p>Less free space to redistribute, and yet no wrap</p>
                     <!--<p>Hay menos espacio libre que redistribuir y, aún así, no saltan a la siguiente línea</p>-->
                     <p>item 2 has flex-grown:2 and item 4 , flex-grown 3</p>
-                    <ul class="contenedor-flex-nv2 fila wrap gap">
+                    <ul class="contenedor-flex-nv2 gap">
                         <li class="flex-item">1</li>
                         <li class="flex-item grow2">2</li>
                         <li class="flex-item">3</li>
@@ -144,13 +146,13 @@
                 </article>
                 <article class="borde">
                     <h3>flex-shrink</h3>
-                    <p>The opposite property of flex-grow</p>
+                    <p>The opposite to flex-grow</p>
                     <p>If the size of all flex items is larger than the flex container, items shrink to fit according to flex-shrink.</p>
                     width is 440px
                     <!--<p>Hay menos espacio libre que redistribuir y, aún así, no saltan a la siguiente línea</p>-->
                     <p>item 5 has flex-shrink:2 and item 7, flex-shrink: 3</p>
                     <p>They all look similar, but inspect them with developer's tools</p>
-                    <ul class="contenedor-flex-nv2 fila gap">
+                    <ul class="contenedor-flex-nv2 gap">
                         <li class="flex-item">1</li>
                         <li class="flex-item">2</li>
                         <li class="flex-item">3</li>
