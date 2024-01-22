@@ -1,5 +1,5 @@
 body{
-    width: 700px;
+    width: 50vw;
     margin: 0 auto;
     background-color: lightblue;
     font-family: 'Open Sans', sans-serif;
@@ -83,6 +83,10 @@ article>p{
     grid-template-columns: 1fr 2fr 1fr; 
 }
 
+.disposicion-cuatro-columnas{
+    grid-template-columns: 20% 2fr 1fr 100px; 
+}
+
 .disposicion-tres-columnas-repetitivas{
     grid-template-columns: 1fr repeat(3, 2fr) 0.5fr;  /*Se crean 5 columnas y tantas filas como sean necesarias para acomodar elementos (filas implícitas)*/
 }
@@ -98,6 +102,11 @@ article>p{
 .disposicion-columnas-y-filas-nombres{
     grid-template-columns: [columna1] 150px [columna2] minmax(50px, 10%) [columna3] 1fr [columna4] 0.5fr [columna5] 1fr [fin-columnas];
     grid-template-rows: [fila1] 35% [fila2] 2fr [fila3] auto [fin-filas];
+}
+
+.disposicion-tres-filas-repeat-minmax{
+    grid-template-rows: repeat(3, minmax(100px, 2fr));
+    grid-auto-flow: column;
 }
 
 .disposicion-dos-columnas{
