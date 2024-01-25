@@ -179,7 +179,7 @@ article>p{
         grid-column-end: fin-columnas;
         grid-row-start: fila1;
         grid-row-end: 3;
-        z-index: 1;
+        z-index: 1; /*elements with larger z-index get over those with smaller z-index */
 }
 
 #ejemplo1 li:nth-child(5){
