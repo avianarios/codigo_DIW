@@ -29,19 +29,22 @@
       </section>
       <section>
         <form id="formulario-contacto">
-          <label for="nombre">Nombre</label>
           <input type="text" id="nombre" name="nombre" placeholder="nombre" required>
-          <label for="apellidos">Apellidos</label>
           <input type="text" id="apellidos" name="apellidos" placeholder="apellidos">
-          <label for="correo">Correo-e</label>
           <input type="text" id="correo" name="correo" placeholder="Correo electrónico">
-          <label for="dni">DNI</label>
-          <input type="text" name="dni" required pattern="(([X-Z]{1}-?[0-9]{7})|([0-9]{8}))[A-Z]{1}" />
-          <label for="dni">Edad</label>
-          <input type="number" name="edad" min="18" max="100"/>
-          <input type="checkbox" checked name="first" value="first"> <label for="first">First option</label>
-          <input type="checkbox" name="second" value="second"> <label for="second">Second option</label>
-          <input type="checkbox" name="third" value="third" disabled> <label for="third">Third option</label>
+          <input type="text" name="dni" required pattern="(([X-Z]{1}-?[0-9]{7})|([0-9]{8}))[A-Z]{1}" placeholder="DNI"/>
+          <input type="number" name="edad" min="18" max="100" placeholder="Edad"/>
+          <article class="contenedor-flex-fila">
+            <input type="checkbox" name="options" value="first" checked> <label for="first">First option</label>
+            <input type="checkbox" name="options" value="second"> <label for="second">Second option</label>
+            <input type="checkbox" name="options" value="third" disabled> <label for="third">Third option</label>
+          </article>
+          <select name="selector_color">
+            <option value="default.css">White Theme</option>
+            <option value="red.css">Red Theme</option>
+            <option value="blue.css">Blue Theme</option>
+            <option value="green.css">Green Theme</option>
+          </select>
           <button id="enviar">Enviar</button>
         </form>
       </section>
