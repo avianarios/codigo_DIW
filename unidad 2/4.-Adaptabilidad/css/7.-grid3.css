@@ -9,6 +9,13 @@
   
     display:grid;
     grid-template-columns:
+/* Clamp takes three parameters:
+    Minimum value
+    Preferred value
+    Maximum value
+
+The minimum value comes in handy when the preferred value is smaller than the minimum value similarly maximum value comes in handy when the preferred value is more than the maximum value. The preferred value becomes useful when it is between the minimum and maximum value.*/
+
       repeat(auto-fill,
         minmax(
             clamp(
