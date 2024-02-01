@@ -6,6 +6,7 @@
         <title>Responsiveness with images</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--Obliga al dispositivo móvil a usar su ancho de pantalla real. Algunos mienten y usan uno más ancho para luego redimensionar la página web recibida-->
         <link rel="stylesheet" type="text/css" href="../css/8.-imagenes.css">
     </head>
     <body>
@@ -38,7 +39,7 @@
                 <p>Opción 1: usar max-width o max-heigth para que la imagen se adapte</p>
                 <p>Muy mala idea</p>
                 <picture>
-                    <img src="../img/Paisaje-sierra-1000px exercises.webp" alt="un paisaje precioso" id="imagen1">
+                    <img src="../img/Paisaje-arbol-1600px.webp" alt="un paisaje precioso" id="imagen1">
                 </picture>
             </article>
 
@@ -51,12 +52,11 @@
                     <source type="image/webp"  media="(max-width: 799px)" srcset="../img/Paisaje-arbol-300px.webp" />
                     <source type="image/webp"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/Paisaje-arbol-700px.webp" />
                     <source type="image/webp"  media="(min-width: 1200px) and (max-width: 1899px)" srcset="../img/Paisaje-arbol-1000px.webp" />
-                    <source type="image/webp"  media="(min-width: 1000px)" srcset="../img/Paisaje-arbol-1600px.webp" />
+                    <source type="image/webp"  media="(min-width: 1900px)" srcset="../img/Paisaje-arbol-1600px.webp" />
 
                     <source type="image/jpeg"  media="(max-width: 799px)" srcset="../img/Paisaje-arbol-300px.jpg" />
                     <source type="image/jpeg"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/Paisaje-arbol-700px.jpg" />
                     <source type="image/jpeg"  media="(min-width: 1200px) and (max-width: 1899px)" srcset="../img/Paisaje-arbol-1000px.jpg" />
-                    <!--No hace falta poner la última regla (mayor o igual que 1800). Si ninguna concuerda ,elige la siguiente imagen-->                
                     <img src="../img/Paisaje-arbol-1600px.jpg" alt="Un bonito paisaje" />
                 </picture>
             </article>
@@ -68,26 +68,15 @@
                             ../img/Paisaje-arbol-1000px.webp 1000w,
                             ../img/Paisaje-arbol-700px.webp 700w,
                             ../img/Paisaje-arbol-300px.webp 300w"
-                    sizes=" (max-width: 499px) 75vw,
-                            (max-width: 799px) 50vw,
-                            (max-width: 1199px) 66vw,
-                            (max-width: 1799px) 80vw,
+                    sizes=" (max-width: 499px) 80vw,
+                            (max-width: 799px) 70vw,
+                            (max-width: 1199px) 60vw,
+                            (max-width: 1799px) 50vw,
                             1600px"
                             src="../img/Paisaje-arbol-300px.webp" alt="Un bonito paisaje de sierra"
                 />
-                <!--If the viewport is less than 799px, the image will fill 33% of the viewport width. Other units can be used
-                    ...
-                    ...
-                    If no rule fits (the width of the viewport is higher than 1799px), then 1600px image will be selected
-                
-                -->
-                    <!--
-                        sizes="(max-width: 799px) 300px,
-                        (max-width: 1199px) 700px,
-                        (max-width: 1799px) 1000px,
-                        1600px"
-                    -->                            
-
+                <!--If the viewport is less than 499px, the image will fill 80% of the viewport width. Other units can be used
+                    If no rule fits (the width of the viewport is higher than 1799px), then 1600px image will be selected-->
             </article>
             <article>
                 <p>Is unavoidable to have presentation information on a markup document due to the fact that the browser starts downloading image sources before the size of the image in the page is known</p>
