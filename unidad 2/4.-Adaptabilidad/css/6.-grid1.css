@@ -1,28 +1,36 @@
-
-
-html { font-size: 22px; }
-
-.tarjeta {
-  background-color: dodgerblue;
-  color: white;
-  padding: 1rem;
-  height: 4rem;
+body {
+  margin: 0 auto;
+  background-color: antiquewhite;
+  width: 90vw;
 }
 
-.tarjetas {
+.tarjeta {
+  background-color: lightblue;
+  padding: 1rem;
+}
+
+.contenedor-grid-nv1 {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
   gap: 1rem;
-
-
 /* The elements will wrap into rows when the width is not large enough to fit them in without any overflow*/
-/*auto-fit FITS the CURRENTLY AVAILABLE columns into the space by expanding them so that they take up any available space*/
+/*auto-fit expands the CURRENTLY AVAILABLE columns so that they fill any available space*/
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+/*p{
+  font-size: 0.75rem;
+  margin:0px;
+  padding:0px;
 }
 
 h1{
   font-size: 1rem;
   text-align: center;
   padding: 50px;
+}*/
+
+h1{
+  text-align: center;
 }

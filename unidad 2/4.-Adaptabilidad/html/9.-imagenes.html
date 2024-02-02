@@ -34,35 +34,19 @@
 <!--
     When the browser starts to load a page, it starts to download (preload) any images before the main parser has started to load and interpret the page's CSS and JavaScript.
     For example, you couldn't load the <img> element, then detect the viewport width with JavaScript, and then dynamically change the source image to a smaller one if desired. By then, the original image would already have been loaded, and you would load the small image as well, which is even worse in responsive image terms.
+    Is unavoidable to have presentation information on a markup document due to the fact that the browser starts downloading image sources before the size of the image in the page is known
 -->
             <article>
                 <p>Opción 1: usar max-width o max-heigth para que la imagen se adapte</p>
-                <p>Muy mala idea</p>
+                <p>Muy mala idea, aunque en pantalla aparezca con tamaño reducido, se sigue descargando la imagen a plena resolución</p>
                 <picture>
                     <img src="../img/Paisaje-arbol-1600px.webp" alt="un paisaje precioso" id="imagen1">
                 </picture>
             </article>
 
             <article>
-                <p>Opción 2: resuelve el problema de art-direction</p>
-                <p>Cuando la pantalla se vuelve tan pequeña que es imposible ver todo el contenido de la imagen de pequeña que se hace</p>
-                <p>Solución: Se recorta la imagen para que se vea lo importante en dispositivos pequeños</p>
-                <p>con picture es el diseñador quien elige la imagen que se muestra, no el navegador</p>
-                <picture>
-                    <source type="image/webp"  media="(max-width: 799px)" srcset="../img/Paisaje-arbol-300px.webp" />
-                    <source type="image/webp"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/Paisaje-arbol-700px.webp" />
-                    <source type="image/webp"  media="(min-width: 1200px) and (max-width: 1899px)" srcset="../img/Paisaje-arbol-1000px.webp" />
-                    <source type="image/webp"  media="(min-width: 1900px)" srcset="../img/Paisaje-arbol-1600px.webp" />
-
-                    <source type="image/jpeg"  media="(max-width: 799px)" srcset="../img/Paisaje-arbol-300px.jpg" />
-                    <source type="image/jpeg"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/Paisaje-arbol-700px.jpg" />
-                    <source type="image/jpeg"  media="(min-width: 1200px) and (max-width: 1899px)" srcset="../img/Paisaje-arbol-1000px.jpg" />
-                    <img src="../img/Paisaje-arbol-1600px.jpg" alt="Un bonito paisaje" />
-                </picture>
-            </article>
-
-            <article>
-                <p>Opción 3: Se proporcionan varios archivos y el navegador elige en función de la resolución</p>
+                <h3>Resolution problem</h3>
+                <p>Se le proporciona al navegador información sobre las imágenes disponibles, su resolución y el tamaño que queremos que ocupen en pantalla según la resolución y el navegador es quien elige la imagen</p>
                 <img
                     srcset="../img/Paisaje-arbol-1600px.webp 1600w,
                             ../img/Paisaje-arbol-1000px.webp 1000w,
@@ -78,9 +62,25 @@
                 <!--If the viewport is less than 499px, the image will fill 80% of the viewport width. Other units can be used
                     If no rule fits (the width of the viewport is higher than 1799px), then 1600px image will be selected-->
             </article>
+
             <article>
-                <p>Is unavoidable to have presentation information on a markup document due to the fact that the browser starts downloading image sources before the size of the image in the page is known</p>
+                <h3>Art-direction problem</h3>
+                <p>Cuando la pantalla es muy pequeña, la imagen se reduce tanto que es imposible apreciar bien al protagonista de la imagen</p>
+                <p>Solución: Para resoluciones muy pequeñas, se descarta parte del fondo para centrar la atención en el protagonista, recortando la imagen</p>
+                <p>El diseñador obliga al navegador a usar la imagen que él especifica</p>
+                <picture>
+                    <source type="image/webp"  media="(max-width: 799px)" srcset="../img/Paisaje-arbol-300px.webp" />
+                    <source type="image/webp"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/Paisaje-arbol-700px.webp" />
+                    <source type="image/webp"  media="(min-width: 1200px) and (max-width: 1899px)" srcset="../img/Paisaje-arbol-1000px.webp" />
+                    <source type="image/webp"  media="(min-width: 1900px)" srcset="../img/Paisaje-arbol-1600px.webp" />
+
+                    <source type="image/jpeg"  media="(max-width: 799px)" srcset="../img/Paisaje-arbol-300px.jpg" />
+                    <source type="image/jpeg"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/Paisaje-arbol-700px.jpg" />
+                    <source type="image/jpeg"  media="(min-width: 1200px) and (max-width: 1899px)" srcset="../img/Paisaje-arbol-1000px.jpg" />
+                    <img src="../img/Paisaje-arbol-1600px.jpg" alt="Un bonito paisaje" />
+                </picture>
             </article>
+
         </section>
     </body>
 </html>

@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/6.-grid2.css">
-    <title>Responsiveness with grid</title>
+    <link rel="stylesheet" type="text/css" href="../css/7.-grid2.css">
+    <link rel="stylesheet" type="text/css" href="../css/4.-clamp.css">
+    <title>Responsiveness with grid + clamp for text</title>
 </head>
 <body>
     <main class="gallery">
         <h1>Example on how to build a responsive layout with grid and no need tu use media queries</h1>
         <p>By using grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)) the viewport is filled with columns if there's room for them and, if not, wrap them into a new row on smaller viewports</p>
         <p>By using grid-auto-flow: dense gaps left due to different elements size are filled</p>
+        <p>by using clamp, text is adapted to the viewport size</p>
         <ul class="gallery__list">
           <li>
             <figure>
