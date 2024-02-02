@@ -1,0 +1,33 @@
+$paleta_actual: (#ffffff,#52a9ff,#045f90,#2d455d, #ff796a);
+$color_fondo: nth($paleta_actual, 1);
+$color_texto: nth($paleta_actual, 2);
+$color_texto_destacado: nth($paleta_actual, 3);
+$color_destacado: nth($paleta_actual, 4);
+$color_contraste: nth($paleta_actual, 5);
+
+body{
+    background-color: $color_fondo;
+    margin: 0 auto;
+}
+
+section{
+    background-color: lightcoral;
+
+    > article{
+        background-color: lightgreen;
+        > p{
+            color:$color_texto;
+        }
+    }
+
+    > h1{
+        color:$color_destacado;
+    }
+
+    
+}
+
+
+article{
+    background-color: lightpink;
+}
