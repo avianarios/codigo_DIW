@@ -1,4 +1,6 @@
 node_modules
 desarrollo
 produccion
+tmp*
 .parcel-cache
+*.css*
