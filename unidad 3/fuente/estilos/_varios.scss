@@ -1,5 +1,6 @@
-@use 'media-query' as *;
+//@use 'media-query' as *;
 @use "sass:map";
+@use "sass:math";
 /************AVISO************
 El presente documento sólo pretende dar a conocer, de forma breve, las posibilidades de SASS.
 Para conocer el verdadero potencial de cada elemento, hay que acudir a la página oficial https://sass-lang.com/documentation
@@ -16,10 +17,9 @@ En caso de conflicto se usa la local
 Las variables deberían estar todas en el mismo fichero _variables.scss
 */
 
-$color_fondo:blue;  //variable global
-$color_fondo: green !default; //Se asigna el valor "green" SÓLO SI $color_fondo no tenía valor antes o no existía
+
 body{
-  $color-fondo:red; //variable local
+  $color-fondo:rgb(116, 222, 246); //variable local
   background-color: $color-fondo; //compilará a red
   color: $color-texto;
 }
@@ -32,7 +32,7 @@ En este se ha usado una función ("masOscuro", definida en el fichero _funciones
 
   @mixin formato-texto($tamanyo:2rem) { //Se usa un valor por defecto para el parámetro
     text-align: center;
-    color: masOscuro($color-texto2);
+    color: masOscuro($color-texto);
     font-weight: bold;
     font-size: $tamanyo;
   }

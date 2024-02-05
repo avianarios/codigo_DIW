@@ -9,3 +9,7 @@ $color-texto-claro: #191919;
 $color-texto-oscuro:#dedede;
 $color-fondo-claro:#fafafa;
 $color-fondo-oscuro: #191919;
+
+$color_texto:rgb(248, 176, 176);
+$color_fondo:rgb(181, 181, 243);  //variable global
+$color_fondo: rgb(201, 255, 201) !default; //Se asigna el valor "green" SÓLO SI $color_fondo no tenía valor antes o no existía
