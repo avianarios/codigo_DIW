@@ -20,6 +20,10 @@ Se usan cuando hay que hacer algún cálculo, NO PARA REUTILIZAR CÓDIGO. Para e
   @return math.div($px, 16) * 1rem;
 }
 
+@function color($color) {
+  @return map.get($colores, $color);
+}
+
 @function aunMasOscuro( $color ) 	{ @return darken($color,20%); }
 @function masOscuro( $color ) 		{ @return darken($color,13.333%); }
 @function oscuro( $color ) 		{ @return darken($color,6.667%); }

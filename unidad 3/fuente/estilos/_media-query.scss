@@ -14,9 +14,3 @@ $ruptura: (
     @content;
   }
 }
-
-$colors: ('primary': black, 'secondary': white);
-
-@function color($color) {
-  @return map.get($colors, $color);
-}
