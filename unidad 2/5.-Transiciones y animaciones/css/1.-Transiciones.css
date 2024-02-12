@@ -1,0 +1,161 @@
+.borde{
+    border: 3px solid lightblue;
+    padding: 10px 0px;
+    width: 85%; 
+}
+
+/*general classes*/
+.fondo-rojo{
+    background-color: red;
+}
+
+.fondo-verde{
+    background-color: lightgreen;
+}
+
+.letra-2rem{
+    font-size: 2rem;
+}
+
+.letra_roja{
+    color:red;
+}
+
+.letra-verde{
+    color:lightgreen;
+}
+
+/*Botones*/
+button{
+    color: #fff;
+    background: #fd7c2a;
+    font: bold 18px sans-serif;
+}
+
+.boton {
+    border: none;
+    transition: background 2s;
+}
+
+.boton:hover {
+    background: #3cc16e;
+}
+
+.boton2 {
+    border: 3px solid #dc5801;
+    transition-property: background, border;
+    transition-duration: 1s, 2s;
+}
+
+.boton2:hover {
+    background: #3cc16e;
+    border-color: #288049;
+}
+
+
+
+/*transitions*/
+.trasladar{
+    transform: translate(30vw);
+}
+
+.rotar{
+    /*180deg = 0.5turn*/
+    transform: rotate(360deg);
+}
+
+.escalar{
+    transform:scale(2);
+}
+
+.escalar_y_rotar{
+    transform: scale(0.15) rotate(1turn);
+}
+
+.transformacion1{
+    transition-property: background-color;
+    transition-duration: 2s;
+}
+
+.transformacion2{
+    transition: font-size 3s, color 2s;
+}
+
+.transformacion3{
+    transition-property: transform;
+    transition-duration: 2s;
+}
+
+.transition-ease{
+    transition: transform 5s ease;
+}
+
+.transition-linear{
+    transition: transform 5s linear;
+}
+
+.transition-ease-in{
+    transition: transform 5s ease-in;
+}
+
+.transition-ease-out{
+    transition: transform 5s ease-out;
+}
+
+.transition-ease-in-out{
+    transition: transform 5s ease-in-out;
+}
+
+.transition-bezier{
+    /*transition-property: transform;
+    transition-duration: 3s;
+    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);*/
+    transition: transform 3s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.transition-bezier2{
+    transition: transform 5s cubic-bezier(.5, -1, .5, 2.5);
+}
+
+.transition-steps{
+    transition-property: transform;
+    transition-duration: 9s;
+    transition-timing-function: steps(9, start);
+}
+
+.animate {
+    transform: translate(30vw);
+}
+
+
+#boat {
+    max-width: 150px;
+    margin-left: 0;
+    cursor: pointer;
+    transition: margin-left 3s ease-in-out;
+}
+  
+/* flipping the picture with CSS */
+.back {
+    transform: scaleX(-1);
+    filter: fliph;
+}
+
+
+#digit {
+    width: .55em;
+    overflow: hidden;
+    font: 32px monospace;
+    cursor: pointer;
+}
+  
+#stripe {
+    display: inline-block
+}
+  
+#stripe.animate {
+    transform: translate(-90%);
+    transition-property: transform;
+    transition-duration: 9s;
+    transition-timing-function: steps(9, start);
+}
