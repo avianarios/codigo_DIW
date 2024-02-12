@@ -1,0 +1,32 @@
+{
+  "name": "3.-tailwindcss",
+  "version": "1.0.0",
+  "description": "A tailwindCSS example",
+  "scripts": {
+    "parcel:desarrollo": "parcel fuente/index.html --dist-dir 'desarrollo'",
+    "parcel:produccion": "parcel build fuente/index.html --public-url './' --dist-dir 'produccion'",
+    "limpia": "rimraf desarrollo produccion .parcel-cache",
+    "tailwind:una-vez": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css",
+    "tailwind:vigila": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css --watch",
+    "des": "npm-run-all -p tailwind:vigila parcel:desarrollo",
+    "prod": "npm-run-all limpia tailwind:una-vez parcel:produccion",
+    "ordena": "prettier --write fuente"
+  },
+  "author": "Alejandro Viana Ríos",
+  "license": "ISC",
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "parcel": "^2.11.0",
+    "parcel-plugin-imagemin": "^4.0.2",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.11",
+    "rimraf": "^5.0.5",
+    "tailwindcss": "^3.4.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "ionicons": "^7.2.2",
+    "remixicon": "^4.1.0"
+  }
+}

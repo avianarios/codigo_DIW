@@ -14,10 +14,11 @@
     All imported members are namespaced by default.
     */
 
-/*@use 'media-query' as *;
+/*@use 'variables' as *;
+@use 'media-query' as *;
 @use 'funciones' as *;
-@use 'varios' as *;
-@use 'variables' as *;*/
+@use 'varios' as *;*/
+
 @import "variables";
 @import 'media-query';
 @import 'funciones';
