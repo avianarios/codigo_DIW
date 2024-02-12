@@ -18,10 +18,10 @@ cambio2.addEventListener("click", (evento) => {
 let transformaciones=["escalar_y_rotar", "escalar", "rotar", "trasladar"];
 for (let imagen of document.querySelectorAll("#imagenes1 > img")){
     imagen.addEventListener("mouseover", (evento)=>{
-        if (!imagen.classList.contains("transformacion3")){
+        if (!imagen.classList.contains("transition_linear")){
             evento.target.classList.toggle(transformaciones.pop());
             evento.target.classList.toggle("transition_linear");
-            evento.target.classList.toggle("transformacion3");
+//            evento.target.classList.toggle("transformacion3");
         }
     });
 }
@@ -43,7 +43,6 @@ for (let imagen of document.querySelectorAll("#imagenes2 > img")){
 
 
 document.getElementById("digit").addEventListener("click", ()=> {
-    console.log("aaa")
     document.getElementById("stripe").classList.add('animate');
   });
 
