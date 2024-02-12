@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS transitions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/comun.css" type="text/css">
+    <link rel="stylesheet" href="../css/1.-Transiciones.css">
+    <script src="../js/1.-Transiciones.js" defer></script>
+</head>
+<body>
+    <section class="contenedor-flex-columna ai-center">
+        <head>
+            <h3>CSS Transitions</h3>
+            <p>They allow to animate a property from the old value to the new value smoothly over time when the value of a CSS property changes</p>
+            <p>To create a transition effect:</p>
+            <ul>
+                <li>Define which property will be the transition based on</li>
+                <li>Assign an initial value for this property</li>
+                <li>Define the duration of the effect</li>
+                <li>Change the value of the selected property to trigger transition</li>
+            </ul> 
+            <p>Transitions are controlled by using 4 properties:</p>
+            <ul>
+                <li>transition-property: CSS property to be animated</li>
+                <li>transition-duration: in s or ms</li>
+                <li>transition-timing-function: bezier curve or step</li>
+                <li>transition-delay: time before animation starts</li>
+            </ul>
+            <p>There is a shortcut property that sums up the previous properties (in that order): transition</p>
+        </head>
+
+        <section class="contenedor-flex-columna ai-center borde gap">
+            <article class="contenedor-flex-columna gap borde ai-center">
+                <head>
+                    <h3>Simple CSS transitions</h3>
+                    <p>Using background-color or size and linear transitions</p>
+                </head>
+                <ol>
+                    <li>Assign a class describing transformation-property</li>
+                    <li>Assign an event handler that toggles a new class related with what's specified at transition-property</li>
+                </ol>
+                <button class="transformacion1" id="boton_color">Click</button>
+                <button class="transformacion2" id="boton_tamaño">Click</button>
+                <button class="boton">Hover (only CSS)</button>
+                <button class="boton2">Hover (only CSS)</button>
+
+                
+            </article>
+
+            <article class="contenedor-flex-columna gap borde ai-center relativo" id="imagenes1">
+                <head>
+                    <h3>Transform transitions</h3>
+                    <p>using transforms (rotate, scale, rotate and scale, and translate)</p>
+                    <p>When click at any ball, three classes are added to it: one for the type of animation (linear an any case), other for the CSS property that will change and how much time animation will last and last one for the CSS property itself (different types of transforms at any case)</p>                    
+                </head>
+                <img src="../img/150px-Basketball.png" alt="basketball" class="as-start">
+                <img src="../img/150px-Basketball.png" alt="basketball">
+                <img src="../img/150px-Basketball.png" alt="basketball">
+                <img src="../img/150px-Basketball.png" alt="basketball">
+            </article>
+
+            <article class="contenedor-flex-columna gap borde jc-center" id="imagenes2">
+                <head>
+                    <h3>Transition-timing function</h3>
+                    <p>Controls how animation behaves while is active. Two values: bezier curve or steps</p>
+                    <ol>
+                        <li>Bezier curve: animation speeds up or slows down during certain amount of time</li>
+                        <li>Steps: transition is divided in steps</li>
+                    </ol>
+                    <p>Already provided Bezier curves:</p>
+                    <ul>
+                        <li>linear: the same speed from start to end</li>
+                        <li>ease: slow start, then fast, then end slowly (this is default)</li>
+                        <li>ease-in: slow start</li>
+                        <li>ease-out: slow end</li>
+                        <li>ease-in-out: slow start and end</li>
+                        <li>cubic-bezier(n,n,n,n): customized function. It can be tested at developer tools, clicking on bezier icon at CSS properties if the element has a bezier curve defined or at http://cubic-bezier.com/.</li>
+                    </ul>
+                </head>
+                <p>Transitions by order of mouseover: Linear, ease, ease-in, ease-out, ease-in-out, custom bezier 1, custom bezier 2, steps</p>
+                <img src="../img/150px-Basketball.png" alt="basketball" class="as-start">
+                <img src="../img/150px-Basketball.png" alt="basketball" class="as-start">
+                <img src="../img/150px-Basketball.png" alt="basketball" class="as-start">
+                <img src="../img/150px-Basketball.png" alt="basketball" class="as-start">
+                <img src="../img/150px-Basketball.png" alt="basketball" class="as-start">
+                <img src="../img/150px-Basketball.png" alt="basketball" class="as-start">
+                <img src="../img/150px-Basketball.png" alt="basketball" class="as-start">
+                <img src="../img/150px-Basketball.png" alt="basketball" class="as-start">
+            </article>
+
+
+            <div id="digit"><div id="stripe">0123456789</div></div>
+
+            <article class="contenedor-flex-columna gap borde">
+                <head>
+                    <h3>Transitionend event</h3>
+                    <p>when animation has ended, transitioned event is triggered. It can be used to perform an action after an animation has ended like, for instance, add another animation</p>
+                </head>
+               <article id="barco">
+                    <img src="../img/boat.png" alt="a boat" id="boat">
+                </article>
+            </article>
+            
+        </section>
+    </section>
+</body>
+</html>
