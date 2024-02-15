@@ -68,7 +68,7 @@ button{
     transform:scale(2);
 }
 
-.escalar_y_rotar{
+.escalar-rotar{
     transform: scale(0.15) rotate(1turn);
 }
 

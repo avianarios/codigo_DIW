@@ -15,12 +15,12 @@ cambio2.addEventListener("click", (evento) => {
 });
 
 
-let transformaciones=["escalar_y_rotar", "escalar", "rotar", "trasladar"];
+let transformaciones=["escalar-rotar", "escalar", "rotar", "trasladar"];
 for (let imagen of document.querySelectorAll("#imagenes1 > img")){
     imagen.addEventListener("mouseover", (evento)=>{
-        if (!imagen.classList.contains("transition_linear")){
+        if (!imagen.classList.contains("transition-linear")){
             evento.target.classList.toggle(transformaciones.pop());
-            evento.target.classList.toggle("transition_linear");
+            evento.target.classList.toggle("transition-linear");
 //            evento.target.classList.toggle("transformacion3");
         }
     });
