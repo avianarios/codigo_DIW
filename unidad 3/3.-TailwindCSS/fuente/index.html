@@ -81,7 +81,6 @@
               </tr>
             </tbody>
           </table>
-          <p>prefix the utility (class) with the name of the breakpoint followed by colon to apply it only at this breakpoint. (md:w-32 will apply a width of 32 only to md screens, 768px to 1024px)</p>
           <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
             <div class="md:flex">
               <div class="md:shrink-0">
@@ -97,6 +96,8 @@
           <p>interesting classes</p>
           <ul>
             <li>md:flex makes the container flex for resolutions above breaking point "md" (768px)</li>
+            <li>md:shrink-0 avoid flex images shrinking at resolutions 768px and above</li>
+            <li>on Small screens the img is full width by default. At 768px screens and widther, md:w-48 makes image to have a 48 size</li>
 
           </ul>
         </header>
