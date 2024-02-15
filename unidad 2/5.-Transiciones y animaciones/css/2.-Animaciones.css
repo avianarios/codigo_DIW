@@ -36,6 +36,13 @@ img{
     to {left: 50vw;}
 }
 
+/*Nedless to add move-left
+@keyframes move-right {
+    0% {left:0}
+    50% {left:500px}
+    100% {left:0}
+}*/
+
 @keyframes move-left {
     from {left: 50vw;}
     to {left: 0;}
@@ -48,6 +55,7 @@ img{
 }
 
 @keyframes shakeit {
+    0% {left: 0}
     10% {left: -15vw;}
     20% {left: 15vw;}
     30% {left: -12vw;}
