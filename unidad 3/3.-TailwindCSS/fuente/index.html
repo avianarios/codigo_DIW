@@ -3,44 +3,109 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Tailwindcss</title>
     <link rel="stylesheet" href="estilos/salida.css" />
     <link rel="stylesheet" href="../node_modules/remixicon/fonts/remixicon.css">
-    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">
+<!--    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">-->
 <!--   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>-->
   </head>
   <body>
     <section>
-      <header>Tailwindcss</header>
-      <p>
-        Utility-first: Keep css classes as simple as they can be and use
-        descriptive names
-      </p>
-      <p>
-        it results on a considerable amount of classes but they are reusable
-      </p>
-      <p>
-        HTML code gets bigger, but it is easy to mantain and just by reading the
-        classes name you know what to expect from it
-      </p>
-      <p>no new classes have to be created for every single component</p>
-      <p>
-        Class have a recommended order. prettier reorders them (as well as HTML
-        and CSS code)
-      </p>
+      <article>
+        <header>
+          <h3>Utility-first</h3>
+          <p>Tailwindcss uses a huge amount of small but simple classes with descriptive names (Utility-first approach)</p>
+          <p>Advantages: reusable classes, easy to read code and mantain it, </p>
+          <p>HTML code gets bigger, but it is easy to mantain and just by reading the classes name you know what to expect from it</p>
+          <p>no new classes have to be created for every single component</p>
+          <p>Class have a recommended order. prettier reorders them (as well as HTML and CSS code)</p>
+          <p>Some classes have modifiers to show that a cuantity has changed or that a class applies only to certain screens</p>
+        </header>
+        <div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
+          <div class="shrink-0">
+            <img class="h-12 w-12" src="img/message-circle.svg" alt="ChitChat Logo">
+  <!--fort          <i class="fa-regular fa-comment"></i>-->
+  <!--remix          <i class="fa-brands fa-square-js" style="color: #B197FC;"></i>-->
+          </div>
+          <div>
+            <div class="text-xl font-medium text-black">ChitChat</div>
+            <p class="text-slate-500">You have a new message!</p>
+          </div>
+        </div>
+      </article>
 
-      <div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
-        <div class="shrink-0">
-          <img class="h-12 w-12" src="img/message-circle.svg" alt="ChitChat Logo">
-<!--fort          <i class="fa-regular fa-comment"></i>-->
-<!--remix          <i class="fa-brands fa-square-js" style="color: #B197FC;"></i>-->
-        </div>
-        <div>
-          <div class="text-xl font-medium text-black">ChitChat</div>
-          <p class="text-slate-500">You have a new message!</p>
-        </div>
-      </div>
+      <article>
+        <header>
+          <h3>Tailwindcss is responsive</h3>
+          <p>It provides breakpoints and prefix to identify them</p>
+          <ul>
+            <li>It uses a mobile-first approach (Bootstrap does it too) meaning unprefixed classes take effect on all screen sizes, while prefixed ones (like md:flex) take onle at the specified breakpoint and above</li>
+            <li>Do not use sm prefix for mobile, just the unprefixed version</li>
+            <li> class="text-center sm:text-left" will center text on mobile phones and align left at the rest of devices</li>
+          </ul>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Breakpoint prefix</th>
+                <th>Minimum width</th>
+                <th>CSS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>sm</code></td>
+                <td>640px</td>
+                <td><code>@media (min-width: 640px) { ... }</code></td>
+              </tr>
+              <tr>
+                <td><code>md</code></td>
+                <td>768px</td>
+                <td><code>@media (min-width: 768px) { ... }</code></td>
+              </tr>
+              <tr>
+                <td><code>lg</code></td>
+                <td>1024px</td>
+                <td><code>@media (min-width: 1024px) { ... }</code></td>
+              </tr>
+              <tr>
+                <td><code>xl</code></td>
+                <td>1280px</td>
+                <td><code>@media (min-width: 1280px) { ... }</code></td>
+              </tr>
+              <tr>
+                <td><code>2xl</code></td>
+                <td>1536px</td>
+                <td><code>@media (min-width: 1536px) { ... }</code></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+            <div class="md:flex">
+              <div class="md:shrink-0">
+                <img class="h-48 w-full object-cover md:h-full md:w-48" src="img/building.jpg" alt="Modern building architecture">
+              </div>
+              <div class="p-8">
+                <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Company retreats</div>
+                <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Incredible accommodation for your team</a>
+                <p class="mt-2 text-slate-500">Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine? We have a list of places to do just that.</p>
+              </div>
+            </div>
+          </div>
+          <p>interesting classes</p>
+          <ul>
+            <li>md:flex makes the container flex for resolutions above breaking point "md" (768px)</li>
+            <li>md:shrink-0 avoid flex images shrinking at resolutions 768px and above</li>
+            <li>on Small screens the img is full width by default. At 768px screens and widther, md:w-48 makes image to have a 48 size</li>
+
+          </ul>
+        </header>
+      </article>
+
+
+
+
 
 <!--      <h1 class="text-3xl font-bold underline">Hello</h1>
 
