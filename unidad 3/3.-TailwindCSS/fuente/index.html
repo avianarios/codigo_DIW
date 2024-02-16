@@ -9,19 +9,24 @@
 <!--    <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.min.css">-->
 <!--   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>-->
+    <script src="js/index.js" defer></script>
   </head>
-  <body>
-    <section>
-      <article>
-        <header>
-          <h3>Utility-first</h3>
-          <p>Tailwindcss uses a huge amount of small but simple classes with descriptive names (Utility-first approach)</p>
-          <p>Advantages: reusable classes, easy to read code and mantain it, </p>
-          <p>HTML code gets bigger, but it is easy to mantain and just by reading the classes name you know what to expect from it</p>
-          <p>no new classes have to be created for every single component</p>
-          <p>Class have a recommended order. prettier reorders them (as well as HTML and CSS code)</p>
-          <p>Some classes have modifiers to show that a cuantity has changed or that a class applies only to certain screens</p>
+  <body class="w-3/4 border-2 border-cyan-400 m-auto">
+    <section class="flex flex-col">
+      <article class="flex flex-col justify-center">
+        <header class="flex-col">
+          <h3 class="text-2xl text-center">Utility-first</h3>
+          <ul>
+            <li>Tailwindcss uses a huge amount of small but simple classes with descriptive names (Utility-first approach)</li>
+            <li>Advantages: reusable classes, easy to read code and mantain it</li>
+            <li>HTML code gets bigger, but it is easy to mantain and just by reading the classes name you know what to expect from it</li>
+            <li>no new classes have to be created for every single component</li>
+            <li>Class have a recommended order. prettier reorders them (as well as HTML and CSS code)</li>
+            <li>Some classes have modifiers to show that a cuantity has changed or that a class applies only to certain screens</li>
+          </ul>
         </header>
+        <div class="container w-9/12 flex flex-col md:flex-row justify-center gap-4 mb-4 shadow-md"></div>
+
         <div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center space-x-4">
           <div class="shrink-0">
             <img class="h-12 w-12" src="img/message-circle.svg" alt="ChitChat Logo">
@@ -34,6 +39,33 @@
           </div>
         </div>
       </article>
+
+
+
+
+
+      <div
+      className='flex justify-center mt-10 items-center'
+    >
+      <h1 className='text-xl md:text-4xl'>
+        Hello
+      </h1>
+      <button
+        className='bg-red-300 p-2 rounded mx-20 hover:bg-red-600 hover:text-white'
+      >
+        Click me!
+      </button>
+      <a
+        href='https://google.com'
+        className='underline font-bold'
+      >
+        Google
+      </a>
+    </div>
+    
+
+
+
 
       <article>
         <header>
@@ -93,11 +125,14 @@
               </div>
             </div>
           </div>
-          <p>interesting classes</p>
+
+          <p>interesting facts</p>
           <ul>
             <li>md:flex makes the container flex for resolutions above breaking point "md" (768px)</li>
             <li>md:shrink-0 avoid flex images shrinking at resolutions 768px and above</li>
             <li>on Small screens the img is full width by default. At 768px screens and widther, md:w-48 makes image to have a 48 size</li>
+            <li>Had we wanted to apply certain property to a certain range of resolutions, we should've used max-"breaking point" for instance md:max-lx:flex</li>
+            <li>Had we wanted to apply certain property to just a breaking point, we should've used for instance md:max-lg:flex (the following breaking point)</li>
 
           </ul>
         </header>
