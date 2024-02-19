@@ -8,8 +8,8 @@
     "limpia": "rimraf desarrollo produccion .parcel-cache",
     "tailwind:una-vez": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css",
     "tailwind:vigila": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css --watch",
-    "des": "npm-run-all -p tailwind:vigila parcel:desarrollo",
-    "prod": "npm-run-all limpia tailwind:una-vez parcel:produccion",
+    "des": "npm run parcel:desarrollo",
+    "prod": "npm-run-all limpia parcel:produccion",
     "ordena": "prettier --write fuente"
   },
   "author": "Alejandro Viana Ríos",
@@ -28,5 +28,9 @@
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "ionicons": "^7.2.2",
     "remixicon": "^4.1.0"
+  }
+  ,"comentarios":{
+  "des": "npm-run-all -p tailwind:una-vez parcel:desarrollo",
+  "prod": "npm-run-all limpia tailwind:una-vez parcel:produccion"
   }
 }
