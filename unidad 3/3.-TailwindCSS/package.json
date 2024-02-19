@@ -6,10 +6,10 @@
     "parcel:desarrollo": "parcel fuente/index.html --dist-dir 'desarrollo'",
     "parcel:produccion": "parcel build fuente/index.html --public-url './' --dist-dir 'produccion'",
     "limpia": "rimraf desarrollo produccion .parcel-cache",
-    "tailwind:una-vez": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css",
-    "tailwind:vigila": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css --watch",
-    "des": "npm run parcel:desarrollo",
-    "prod": "npm-run-all limpia parcel:produccion",
+    "tailwind:una-vez": "tailwindcss -i ./fuente/css/principal.css -o ./fuente/css/salida.css",
+    "tailwind:vigila": "tailwindcss -i ./fuente/css/principal.css -o ./fuente/css/salida.css --watch",
+    "des": "npm-run-all -p tailwind:vigila parcel:desarrollo",
+    "prod": "npm-run-all limpia tailwind:una-vez parcel:produccion",
     "ordena": "prettier --write fuente"
   },
   "author": "Alejandro Viana Ríos",
@@ -18,6 +18,7 @@
     "npm-run-all": "^4.1.5",
     "parcel": "^2.11.0",
     "parcel-plugin-imagemin": "^4.0.2",
+    "postcss": "^8.4.35",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "rimraf": "^5.0.5",
@@ -28,9 +29,9 @@
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
     "ionicons": "^7.2.2",
     "remixicon": "^4.1.0"
-  }
-  ,"comentarios":{
-  "des": "npm-run-all -p tailwind:una-vez parcel:desarrollo",
-  "prod": "npm-run-all limpia tailwind:una-vez parcel:produccion"
+  },
+  "comentarios": {
+    "des": "npm run parcel:desarrollo",
+    "prod": "npm-run-all limpia parcel:produccion"
   }
 }
