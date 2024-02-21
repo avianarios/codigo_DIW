@@ -12,11 +12,11 @@
 <!--   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>-->
   </head>
-<!--  <body class="border-2 border-cyan-400 m-auto">-->
-  <body class="container bg-orange-100 mx-auto my-auto text-center">
+<!--  <body class="m-auto border-2 border-cyan-400">-->
+  <body class="container mx-auto my-auto text-center bg-orange-100">
     <section>
-      <article class="bg-blue-200 border-blue-800 border-2 pb-3">
-        <h1 class="text-4xl md:text-3xl text-rose-500 bg-emerald-200 text-center uppercase py-3 my-3 border-emerald-800 rounded-lg shadow-l">This is my first tailwindcss webpage</h1>
+      <article class="pb-3 bg-blue-200 border-2 border-blue-800">
+        <h1 class="py-3 my-3 text-4xl text-center uppercase rounded-lg md:text-3xl text-rose-500 bg-emerald-200 border-emerald-800 shadow-l">This is my first tailwindcss webpage</h1>
         <p>it shows the basics of tailwindcss: how to add basic styling classes:</p>
         <ul>
           <li>font properties</li>
@@ -30,9 +30,9 @@
         </ul>
         <p>But before...</p>
       </article>
-      <article class="p-5 border border-2 text-lg md:text-sm">
-        <h2 class="text-3xl md:text-2xl text-rose-500 bg-emerald-200 text-center uppercase py-3 my-3 border-emerald-800 rounded-lg shadow-lg">Some initial facts about tailwindcss</h2>
-        <ul class="list-inside list-disc text-left box-border shadow-md pl-2">
+      <article class="p-5 text-lg border border-2 md:text-sm">
+        <h2 class="py-3 my-3 text-3xl text-center uppercase rounded-lg shadow-lg md:text-2xl text-rose-500 bg-emerald-200 border-emerald-800">Some initial facts about tailwindcss</h2>
+        <ul class="box-border pl-2 text-left list-disc list-inside shadow-md">
           <li>Tailwindcss uses a huge amount of small but simple classes with descriptive names (Utility-first approach)</li>
           <li>Advantages: reusable classes, easy to read code and mantain it</li>
           <li>HTML code gets bigger, but it is easy to mantain and just by reading the classes name you know what to expect from it</li>
@@ -41,8 +41,8 @@
           <li>Class have a recommended order. Some plugins, like prettier, reorders them (as well as HTML and CSS code)</li>
         </ul>
       </article>
-      <article class="p-5 border text-lg md:text-sm">
-        <h3 class="text-2xl md:text-xl text-rose-500 bg-emerald-200 text-center uppercase py-3 my-3 border-emerald-800 rounded-lg shadow-lg">Tailwindcss has no predefined styles</h3>
+      <article class="p-5 text-lg border md:text-sm">
+        <h3 class="py-3 my-3 text-2xl text-center uppercase rounded-lg shadow-lg md:text-xl text-rose-500 bg-emerald-200 border-emerald-800">Tailwindcss has no predefined styles</h3>
         <ul>
           <li>Todos los márgenes predeterminados de elementos como encabezados, comillas, párrafos, etc están eliminados</li>
           <li>Todos los elementos de encabezado están completamente sin estilo por defecto y tienen el mismo tamaño de fuente y peso de fuente que el texto normal.</li>
@@ -50,15 +50,15 @@
           <li>Imágenes y otros elementos sustituidos (como svg, video, canvas, y otros) son display: block de forma predeterminada.</li>
         </ul>
       </article>
-      <article class="p-5 border text-lg md:text-sm">
-        <h3 class="text-2xl md:text-xl text-rose-500 bg-emerald-200 text-center uppercase py-3 my-3 border-emerald-800 rounded-lg shadow-lg">Tailwindcss is responsive</h3>
+      <article class="p-5 text-lg border md:text-sm">
+        <h3 class="py-3 my-3 text-2xl text-center uppercase rounded-lg shadow-lg md:text-xl text-rose-500 bg-emerald-200 border-emerald-800">Tailwindcss is responsive</h3>
         <p>It provides breakpoints and prefix to identify them</p>
         <ul>
           <li>It uses a mobile-first approach (Bootstrap does it too) meaning unprefixed classes take effect on all screen sizes, while prefixed ones (like md:flex) take onle at the specified breakpoint and above</li>
           <li>Do not use sm prefix for mobile, just the unprefixed version</li>
           <li>class="text-center sm:text-left" will center text on mobile phones and align left at the rest of devices</li>
         </ul>
-        <img src="./img/lago.jpg" alt="Un lago" class="blur-sm w-3/12 my-3">
+        <img src="./img/lago.jpg" alt="Un lago" class="w-3/12 my-3 blur-sm">
 
         <table class="my-3">
           <thead>
@@ -98,20 +98,20 @@
         </table>
 
       <div class="my-3">
-        <button class="bg-red-200 md:bg-green-300 md:text-black xl:bg-blue-400 py-2 px-4 rounded hover:bg-blue-800 hover:text-white hover:text-lg"><a href="./html/1.-flexbox.html">Flexbox</a></button>
-        <button class="bg-red-200 md:bg-green-300 md:text-black xl:bg-blue-400 py-2 px-4 rounded hover:bg-blue-800 hover:text-white hover:text-lg"><a href="./html/2.-grid.html">Grid</a></button>
-        <button class="bg-red-200 md:bg-green-300 md:text-black xl:bg-blue-400 py-2 px-4 rounded hover:bg-blue-800 hover:text-white hover:text-lg"><a href="./html/3.-personalización.html">Personalización</a></button>
-        <button class="bg-red-200 md:bg-green-300 md:text-black xl:bg-blue-400 py-2 px-4 rounded hover:bg-blue-800 hover:text-white hover:text-lg"><a href="./html/4.-componentes.html">Componentes</a></button>
+        <button class="px-4 py-2 bg-red-200 rounded md:bg-green-300 md:text-black xl:bg-blue-400 hover:bg-blue-800 hover:text-white hover:text-lg"><a href="./html/1.-flexbox.html">Flexbox</a></button>
+        <button class="px-4 py-2 bg-red-200 rounded md:bg-green-300 md:text-black xl:bg-blue-400 hover:bg-blue-800 hover:text-white hover:text-lg"><a href="./html/2.-grid.html">Grid</a></button>
+        <button class="px-4 py-2 bg-red-200 rounded md:bg-green-300 md:text-black xl:bg-blue-400 hover:bg-blue-800 hover:text-white hover:text-lg"><a href="./html/3.-personalización.html">Personalización</a></button>
+        <button class="px-4 py-2 bg-red-200 rounded md:bg-green-300 md:text-black xl:bg-blue-400 hover:bg-blue-800 hover:text-white hover:text-lg"><a href="./html/4.-componentes.html">Componentes</a></button>
       
 
-        <button class="transition-transform bg-blue-500 hover:-translate-y-1 hover:scale-150 hover:bg-indigo-500 hover:opacity-40 py-2 px-4 rounded">Efecto transform a pelo</button>
-        <button class="transition-transform ease-in-out delay-150 duration-500 bg-blue-500 hover:-translate-y-1 hover:scale-150 hover:bg-indigo-500 hover:opacity-40 py-2 px-4 rounded">Efecto transform</button>
-        <button class="transition-colors ease-in delay-150 duration-500 bg-green-100 hover:-translate-y-1 hover:scale-150 hover:bg-green-700 hover:opacity-40 py-2 px-4 rounded">Efecto colors</button>
-        <button class="transition-opacity ease-out delay-150 duration-500 bg-red-100 hover:-translate-y-1 hover:scale-150 hover:bg-red-700 hover:opacity-40 py-2 px-4 rounded">Efecto shadow</button>
+        <button class="px-4 py-2 transition-transform bg-blue-500 rounded hover:-translate-y-1 hover:scale-150 hover:bg-indigo-500 hover:opacity-40">Efecto transform a pelo</button>
+        <button class="px-4 py-2 transition-transform duration-500 ease-in-out delay-150 bg-blue-500 rounded hover:-translate-y-1 hover:scale-150 hover:bg-indigo-500 hover:opacity-40">Efecto transform</button>
+        <button class="px-4 py-2 transition-colors duration-500 ease-in delay-150 bg-green-100 rounded hover:-translate-y-1 hover:scale-150 hover:bg-green-700 hover:opacity-40">Efecto colors</button>
+        <button class="px-4 py-2 transition-opacity duration-500 ease-out delay-150 bg-red-100 rounded hover:-translate-y-1 hover:scale-150 hover:bg-red-700 hover:opacity-40">Efecto shadow</button>
 
 
-        <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500 hover:bg-indigo-400 transition ease-in-out duration-150 cursor-not-allowed" disabled="">
-          <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-semibold leading-6 text-white transition duration-150 ease-in-out bg-indigo-500 rounded-md shadow cursor-not-allowed hover:bg-indigo-400" disabled="">
+          <svg class="w-5 h-5 mr-3 -ml-1 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
           </svg>
@@ -120,12 +120,12 @@
 
         
         <span class="relative inline-flex">
-          <button type="button" class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-sky-500 bg-white dark:bg-slate-800 transition ease-in-out duration-150 cursor-not-allowed ring-1 ring-slate-900/10 dark:ring-slate-200/20" disabled="">
+          <button type="button" class="inline-flex items-center px-4 py-2 text-sm font-semibold leading-6 transition duration-150 ease-in-out bg-white rounded-md shadow cursor-not-allowed text-sky-500 dark:bg-slate-800 ring-1 ring-slate-900/10 dark:ring-slate-200/20" disabled="">
             Transactions
           </button>
-          <span class="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+          <span class="absolute top-0 right-0 flex w-3 h-3 -mt-1 -mr-1 ">
+            <span class="absolute inline-flex w-full h-full rounded-full opacity-75 animate-ping bg-sky-400"></span>
+            <span class="relative inline-flex w-3 h-3 rounded-full bg-sky-500"></span>
           </span>
         </span>
       </div>
