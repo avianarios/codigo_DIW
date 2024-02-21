@@ -6,8 +6,8 @@
     "parcel:desarrollo": "parcel fuente/index.html --dist-dir 'desarrollo'",
     "parcel:produccion": "parcel build fuente/index.html --public-url './' --dist-dir 'produccion'",
     "limpia": "rimraf desarrollo produccion .parcel-cache",
-    "tailwind:una-vez": "tailwindcss -i ./fuente/css/principal.css -o ./fuente/css/salida.css",
-    "tailwind:vigila": "tailwindcss -i ./fuente/css/principal.css -o ./fuente/css/salida.css --watch",
+    "tailwind:una-vez": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css",
+    "tailwind:vigila": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css --watch",
     "des": "npm-run-all -p tailwind:vigila parcel:desarrollo",
     "prod": "npm-run-all limpia tailwind:una-vez parcel:produccion",
     "ordena": "prettier --write fuente"
@@ -27,6 +27,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "flowbite": "^2.3.0",
     "ionicons": "^7.2.2",
     "remixicon": "^4.1.0"
   },

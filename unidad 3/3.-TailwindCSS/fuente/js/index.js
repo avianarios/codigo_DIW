@@ -1,33 +1,48 @@
-//this is plain JavaScript. Later on, we'll learn how to do it with JQuery
-const urlImagenes = "https://api.thecatapi.com/v1/images/search";
+//mejoras: cambiar a jquery. Ponerle un hecho aleatorio debajo de la foto
+let urlImagenes = "https://api.thecatapi.com/v1/images/search?limit=";
 const urlHechos= "https://catfact.ninja/facts";
-const section = document.querySelector(".container");
+const section = document.querySelector("#contenedor-img");
 
-catFacts(3);
+let imgFlexbox=3;
+let imgGrid=9;
+let numFotos;
+
+//catFacts(3);
 let matrizHechos=[];
 let matrizFotos=[];
 
-
 window.addEventListener("load", ()=>{
-    for (let i=0; i<3; i++)
-        getRandomCats();
+  if (window.location.pathname.includes("flexbox")){
+    urlImagenes+=imgFlexbox;
+    numFotos=3;
+  }else{
+    if (window.location.pathname.includes("grid")){
+      urlImagenes+=imgGrid;
+      numFotos=9;
+    }
+  }
+  getRandomCats(urlImagenes);
 });
 
 randomCatPhoto = (json) => {
-  let photo = json[0].url;
-  section.classList.add("cats");
-
-  let image = document.createElement("img");
-  image.src = photo;
-  image.classList.add("random_cats", "md:w-1/4", "object-scale-down");
-  image.alt = photo;
-  section.appendChild(image);
+  for (let i=0; i<numFotos; i++){   //aunque la llamada a la API está bien hecha, ésta devuelve siempre 10 elementos. Por eso hay que usar una variable numFotos
+    let photo = json[i].url;
+    section.classList.add("cats");
+  
+    let div=document.createElement("div");
+    let image = document.createElement("img");
+    image.src = photo;
+    image.classList.add("object-scale-down");
+    image.alt = photo;
+    div.appendChild(image);
+    section.appendChild(div);
+  }
 };
 
-async function getRandomCats() {
+async function getRandomCats(url) {
   section.innerHTML = "";
   try {
-    const response = await fetch(urlImagenes);
+    const response = await fetch(url);
     const json = await response.json();
     return randomCatPhoto(json);
   } catch (e) {

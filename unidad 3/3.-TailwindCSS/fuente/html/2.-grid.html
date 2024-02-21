@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tailwindcss grid</title>
+    <link rel="stylesheet" href="../../node_modules/remixicon/fonts/remixicon.css">
+    <link rel="stylesheet" href="../estilos/salida.css" type="text/css">
+<!--    <script src="https://cdn.tailwindcss.com"></script>-->
+    <script src="../js/index.js" defer></script>
+  </head>
+  <body class="bg-orange-100 container mx-auto text-center ">
+    <section class="flex flex-col gap-3">
+
+
+      <p>creating a basic grid layout with grid-cols</p>
+      <article class="grid grid-cols-1 sm:grid-cols-3 bg-blue-100 border-blue-800 border-2 gap-4">
+        <div class="bg-blue-400">1</div>
+        <div class="bg-blue-400">2</div>
+        <div class="bg-blue-400">3</div>
+        <div class="bg-blue-400">4</div>
+        <div class="bg-blue-400">5</div>
+        <div class="bg-blue-400">6</div>
+        <div class="bg-blue-400">7</div>
+        <div class="bg-blue-400">8</div>
+        <div class="bg-blue-400">9</div>
+      </article>
+
+      <p>creating a basic grid layout with grid-cols, grid-flow-cols and auto-cols-fr</p>
+      <article class="grid grid-cols-1 sm:grid-cols-3 grid-flow-col auto-cols-fr bg-teal-100 border-teal-800 border-2 gap-4">
+        <div class="bg-teal-400">1</div>
+        <div class="bg-teal-400">2</div>
+        <div class="bg-teal-400">3</div>
+        <div class="bg-teal-400">4</div>
+        <div class="bg-teal-400">5</div>
+        <div class="bg-teal-400">6</div>
+        <div class="bg-teal-400">7</div>
+        <div class="bg-teal-400">8</div>
+        <div class="bg-teal-400">9</div>
+      </article>
+
+
+      <p>usage of col-span and row-span</p>
+      <article class="grid grid-cols-1 sm:grid-cols-4 bg-red-100 border-red-800 border-2 gap-4">
+        <div class="bg-red-400 col-span-2">1</div>
+        <div class="bg-red-400">2</div>
+        <div class="bg-red-400 row-span-4">3</div>
+        <div class="bg-red-400">4</div>
+        <div class="bg-red-400">5</div>
+        <div class="bg-red-400">6</div>
+        <div class="bg-red-400">7</div>
+        <div class="bg-red-400">8</div>
+        <div class="bg-red-400 col-span-3">9</div>
+      </article>
+
+      <p>usage of col-start and row-start</p>
+      <article class="grid grid-cols-1 sm:grid-cols-4 bg-green-100 border-green-800 border-2 gap-4">
+        <div class="bg-green-400 col-start-2 col-end-4">1</div>
+        <div class="bg-green-400">2</div>
+        <div class="bg-green-400 col-start-4 row-start-1 row-end-5">3</div>
+        <div class="bg-green-400">4</div>
+        <div class="bg-green-400 col-start-2 col-span-2">5</div>
+        <div class="bg-green-400">6</div>
+        <div class="bg-green-400">7</div>
+        <div class="bg-green-400">8</div>
+        <div class="bg-green-400 col-end-3">9</div>
+      </article>
+     
+      <!--It creates columns due to overlapping of elements 1 and 3-->
+      <p>creating a basic grid layout with grid-rows, row-start, row-end and row-span</p>
+      <article class="grid grid-rows-5 bg-yellow-100 border-yellow-800 border-2 gap-4">
+        <div class="bg-yellow-400 row-start-2 row-end-4">1</div>
+        <div class="bg-yellow-400">2</div>
+        <div class="bg-yellow-400 row-start-3 row-end-5">3</div>    
+        <div class="bg-yellow-400">4</div>
+        <div class="bg-yellow-400 row-span-2">5</div>
+        <div class="bg-yellow-400">6</div>
+        <div class="bg-yellow-400">7</div>
+        <div class="bg-yellow-400">8</div>
+        <div class="bg-yellow-400 ">9</div>
+      </article>
+      
+
+      <!--<article class="grid grid-cols-1 sm:grid-cols-3 justify-around gap-4 contenedor-img bg-red-100 border border-red-800 border-2 py-3"></article>-->
+
+
+
+
+    </section>
+
+  </body>
+</html>
