@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .boton{
+        @apply px-4 py-2 bg-red-200 rounded md:bg-green-300 md:text-black xl:bg-blue-400 ;
+    }
+
+    .boton:hover{
+        @apply hover:bg-blue-800 hover:text-white hover:text-lg;
+    }
+}
