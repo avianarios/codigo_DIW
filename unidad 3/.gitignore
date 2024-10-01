@@ -3,4 +3,4 @@ desarrollo
 produccion
 tmp*
 .parcel-cache
-*.css*
+*SASS/*/*.css*
