@@ -23,10 +23,16 @@ p.parrafo_cuerpo{
   font-size: 1rem;
 }
 
+#parrafo1{
+  background-color: black;
+}
+
+
 /*direct child of an id*/
 #listaCompra > li{
   border: 3px solid green;
 }
+
 
 /*any link opened in a new window*/
 a[target="_blank"]{
@@ -55,7 +61,7 @@ a[href$=".pdf" i] {
 
 /* any tag with a disabled attribute */
 [disabled]{
-  background: grey;
+  cursor: not-allowed;
 }
 
 /*selectors can be grouped*/
@@ -95,4 +101,6 @@ section#parrafos p.especial{
 *{
   font-size: 1rem;
 }
+
+
 
