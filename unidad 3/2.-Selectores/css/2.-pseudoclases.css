@@ -200,14 +200,17 @@ p:not(.especial){
   :default -> elements with a default value
 */
 
+/*applies styles to a <label> tag that is an adjacent brother (immediately follows) of a checked <input> element*/
 input:checked+label{
   color:coral;
 }
 
+/*applies styles to a <label> tag that is an adjacent brother (immediately follows) of a disabled <input> element*/
 input:disabled+label{
   color:gray;
 }
 
+/*applies styles to <input> elements where the placeholder is being displayed (when the user has not entered any value and the helping placeholder text is visible)*/
 input:placeholder-shown {
   color:coral;
 }
@@ -223,7 +226,7 @@ input:placeholder-shown {
   :out-of-range
 */
 
-/*select label before a required input*/
+/*select label right before (adjacent brother) a required input*/
 label:has(+input:required){
   color: red;
 }
