@@ -82,7 +82,10 @@ li:nth-child(2){
   background-color: lightpink;
 }
 
-/*n would select all elements, 2n even and 2n-1, odds
+/*n->all elements
+  2n->even
+  2n-1->odds
+  n+m->elements after the nth element
 li:nth-child(n){
   background-color: lightpink;
 }
