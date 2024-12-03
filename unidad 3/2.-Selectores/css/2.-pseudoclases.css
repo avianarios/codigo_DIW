@@ -82,24 +82,23 @@ li:nth-child(2){
   background-color: lightpink;
 }
 
-/*n->all elements
-  2n->even
-  2n-1->odds
-  n+m->elements after the nth element
+/*selects all elements*/
 li:nth-child(n){
   background-color: lightpink;
 }
 
+/*selects even elements*/
 li:nth-child(2n){
   background-color: lightpink;
 }
 
+/*selects odd elements*/
 li:nth-child(2n-1){
   background-color: lightpink;
 }
 */
 
-/*Selects the 2nd of #parrafos.especial*/
+/*Selects the second child with the .especial class within the #parrafos container*/
 #parrafos :nth-child(2 of .especial){
   background-color: red;
 }
@@ -109,20 +108,22 @@ li:nth-last-child(2){
   background-color: lightsalmon;
 }
 
+/*Selects first p element after a section (even if it's not the first child)*/
 section p:first-of-type{
   background-color: #4CAF50;
 }
 
-/*Selects the last paragraph, children at any level, of those elements with a "parrafos" ID*/
+/*Selects last paragraph, children at any level, of those elements with a "parrafos" ID*/
 #parrafos p:last-of-type{
   background-color: aquamarine;
 }
 
+/*Selects the 2nd child (doesn't matter the type) of an element with "listaCompra" ID*/
 #listaCompra :nth-of-type(2){
   border: 2px dashed green;
 }
 
-
+/*Selects the paragraph before the last one of an element with "listaCompra" ID*/
 #parrafos p:nth-last-of-type(2){
   border: 2px dotted red;
 }
@@ -144,9 +145,11 @@ Specifity (a,b,c)
 
 
 }
-  specifity (1,0,1). It's not applied as there's another rule with (1,1,1)
-
+How to apply rules?
+  -When two or more selectors match the same element, the selector with the higher specificity is applied. 
+  -If two selectors have the same specificity, the last one in the code is applied.
 */
+
 #parrafos > p{
   background-color: bisque;
 }
@@ -165,20 +168,21 @@ we could write the following: */
 
 /*Which is the difference?: Specifity (and elegance)
 First case: (1,1,0), (1,1,0) and (1,0,1).
-Second cas: (1,1,0) at any case
+Second case: (1,1,0) at any case
 */
 
-/*same as :is, but specifity of what's included in :where is zero (1,0,0)*/
+/*same as :is, but specifity is zero*/
 #parrafos :where(.normal, .especial, p){
   background-color: aquamarine;
 }
 
-/*selects parents who has a given child*/
-/*not fully supported check caniuse.com*/
+/*Selects <section> only if contains an <article> with gato ID*/
+/*not fully supported. check caniuse.com*/
 section:has(article#gato){
   border: 3px dotted blue;
 }
 
+/*Selects paragraphs which don't have an especial class*/
 p:not(.especial){
   border: 3px dashed red;
 }
