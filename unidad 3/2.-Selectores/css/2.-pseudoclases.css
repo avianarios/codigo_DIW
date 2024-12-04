@@ -162,7 +162,7 @@ Instead of
 
 we could write the following: */
 
-#parrafos :is(.normal, .especial, p){
+#parrafos:is(.normal, .especial, p){
   background-color: aquamarine;
 }
 
@@ -172,7 +172,7 @@ Second case: (1,1,0) at any case
 */
 
 /*same as :is, but specifity is zero*/
-#parrafos :where(.normal, .especial, p){
+#parrafos:where(.normal, .especial, p){
   background-color: aquamarine;
 }
 
