@@ -13,12 +13,14 @@ Content
     attr()
 */
 
+/**It adds content before p.especial. It isn't part of DOM, but it is displayed*/
 p.especial::before{
     content: "Texto generado con ::before y content ";
     color:red;
     font-size:1.15rem;
 }
 
+/**It adds content after p.especial. It isn't part of DOM, but it is displayed*/
 p.normal::after{
     content: " Texto generado con ::after y content ";
     color:blue;
@@ -63,20 +65,20 @@ highlighting
 ::marker
 ::backdrop -> applies styles to a dialog or modal message
 ::placeholder
-
-Uncomment
 */
 
+/*It applies style to markers in a list (dots)*/
 ::marker{
     color:green;
 }
 
+/*it applies style to the background behind a full-screen element such a modal <dialog> or a full-screen <video>*/
 ::backdrop{
     background: white;
     opacity: 0.6;
-
 }
 
+/*it applies style to the helping text (placeholder) in a input field like text or textarea*/
 ::placeholder{
     background-color: blanchedalmond;
 }
