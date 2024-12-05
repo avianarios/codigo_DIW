@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
+        <title>Posicionamiento flotante</title>
+        <meta name="description" content="Posicionamiento mediante float">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="../css/3.-flotante.css">
     </head>
@@ -14,22 +14,50 @@
             <h1>Simple float example</h1>
         </header>
         <section>
+
+
+            clear: left: El siguiente elemento no puede estar flotando a la izquierda del elemento anterior.
+            clear: right: El siguiente elemento no puede estar flotando a la derecha del elemento anterior.
+            clear: both: El siguiente elemento no puede estar flotando ni a la izquierda ni a la derecha del elemento anterior. Esto asegura que el elemento se coloca debajo de todos los elementos flotantes.
             <article>
-                <p class="flota_izquierda flota">Ejemplo de caja flotante a la izquierda</p>
-                <p class="flota_derecha flota">Ejemplo de caja flotante a la derecha</p>
-                <p>Primero se posicionan las cajas flotantes y este párrafo rellena el espacio que queda en medio de ambos flotantes</p>
-                <p class="salto_both">Aún queda sitio entre las cajas flotantes, pero este párrafo tiene un<span class="destacado"> clear:both </span>, por lo que queda debajo de las cajas flotantes que haya a un lado o a otro, aunque tenga sitio </p>
+                <h3>Una caja flotando a la izquierda</h3>
+                <p class="flota-izquierda estilo-flota">Ejemplo de caja flotante a la izquierda</p>
+                <p>Primero se posiciona la caja flotante y, una vez hecho, el resto de párrafos rellenan el espacio que queda a su lado</p>
+                <p>Otro párrafo que es, recordemos, un elemento de bloque</p>
+                <p class="salto-izquierdo">Aún queda sitio entre las cajas flotantes, pero este párrafo tiene definida la propiedad <span class="destacado"> clear-left </span>, que le impide flotar a la izquierda de una cajas flotante, aunque tenga sitio </p>
             </article>
+
             <article>
-                <p class="flota_izquierda flota">Ejemplo de caja flotante a la izquierda</p>
-                <p class="flota_izquierda flota">Otro ejemplo de caja flotante a la izquierda</p>
-                <p class="flota_derecha flota">Ejemplo de caja flotante a la derecha</p>
+                <h3>Dos cajas flotando a la derecha</h3>
+                <p class="flota-derecha estilo-flota">Ejemplo de caja flotante a la izquierda</p>
+                <p class="flota-derecha estilo-flota">Otra caja flotante a la izquierda. Se coloca al lado de las que haya flotando, no se solapan</p>
+                <p>Primero se posiciona la caja flotante y, una vez hecho, el resto de párrafos rellenan el espacio que queda a su lado</p>
+                <p class="salto-derecho">Aún queda sitio entre las cajas flotantes, pero este párrafo tiene definida la propiedad <span class="destacado"> clear-right </span>, que le impide flotar a la derecha de una cajas flotante, aunque tenga sitio </p>
+                <p>Como el párrafo anterior no se puede colocar al lado de una caja flotante, empuja al resto que viene debajo de él.</p>
+            </article>
+
+            <article>
+                <h3>Dos cajas flotando a ambos lados</h3>
+                <p class="flota-izquierda estilo-flota">Ejemplo de caja flotante a la izquierda</p>
+                <p class="flota-derecha estilo-flota">Ejemplo de caja flotante a la derecha</p>
+                <p>Primero se posicionan las cajas flotantes y este párrafo rellena el espacio que queda en medio de ambos flotantes</p>
+                <p class="salto-ambos">Aún queda sitio entre las cajas flotantes, pero este párrafo tiene definida la propiedad <span class="destacado"> clear:both </span>, que lo impide flotar a cualquier lado de una caja, aunque tenga sitio. En este caso da igual que sea clear:both, left o right, puesto que hay una caja en ambos lados </p>
+            </article>
+
+            <article>
+                <h3>Tres cajas flotando</h3>
+                <p class="flota-izquierda estilo-flota">Ejemplo de caja flotante a la izquierda</p>
+                <p class="flota-izquierda estilo-flota">Otro ejemplo de caja flotante a la izquierda</p>
+                <p class="flota-derecha estilo-flota">Ejemplo de caja flotante a la derecha</p>
                 <p>Primero se posicionan las cajas flotantes y este párrafo rellena el espacio que queda en medio de ambos flotantes</p>
             </article>
-            <article class="envolver">
-                    <p class="flota_izquierda flota">Ejemplo de caja flotante a la izquierda</p>
-                    <p class="flota_derecha flota">Ejemplo de caja flotante a la derecha</p>
-                    <p>Primero se posicionan las cajas flotantes y este párrafo rellena el espacio que queda en medio de ambos flotantes y los envuelve gracias a display: flow-root</p>
+
+            <article class="envolver">  
+                <h3>contenedor envolvente con display:flow-root</h3>
+                <p class="flota-izquierda estilo-flota">Ejemplo de caja flotante a la izquierda</p>
+                <p class="flota-derecha estilo-flota">Ejemplo de caja flotante a la derecha</p>
+                <p>El contenedor article, gracias a display:flow-root, envuelve completamente el contenido, aunque sea más grande que él y, gracias a clear:both, se fuerza a que el contenedor envolver se coloque debajo de ellas.
+                </p>
             </article>
         </section>
     </body>
