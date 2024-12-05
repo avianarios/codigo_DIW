@@ -8,82 +8,53 @@
     <script src="../js/boton.js" defer></script>
   </head>
   <body>
-        <!--Esto es un comentario sin ningún sentido-->
-      <header>
-        <h1 id="titulo1">Animales de compañía</h1>
-        <h2>Ejemplo de pseudoelementos</h2>      
-        <h3>Encabezado de nivel 3</h3>
-      </header>
-      <section id="animales">
-        <article id="gato">
-          <img src="../img/gato4.jpg" alt="Un lindo gatito">
-          <p muestra-info="nombre"></p>
-          <p muestra-info="raza"></p>
-          <p class="parrafo_cuerpo" id="parrafo1">Esto es un enlace a <a href="https://es.wikipedia.org/wiki/Felis_silvestris_catus" target="_blank">Felis silvestris catus</a></p>
-        </article>
-        <article id="perro">
-          <img src="../img/perro2.jpg" alt="Un lindo perrito">
-          <p muestra-info="nombre"></p>
-          <p muestra-info="raza"></p>
-          <p class="parrafo_cuerpo" id="parrafo2">Esto es un enlace a <a href="https://es.wikipedia.org/wiki/Canis_familiaris"  target="_self">Canis familiaris</a></p>
-        </article>  
-      </section>
-      <section>
-        <form id="formulario-contacto">
-          <input type="text" id="nombre" name="nombre" placeholder="nombre" required>
-          <input type="text" id="apellidos" name="apellidos" placeholder="apellidos">
-          <input type="text" id="correo" name="correo" placeholder="Correo electrónico">
-          <input type="text" name="dni" required pattern="(([X-Z]{1}-?[0-9]{7})|([0-9]{8}))[A-Z]{1}" placeholder="DNI"/>
-          <input type="number" name="edad" min="18" max="100" placeholder="Edad"/>
-          <textarea id="comentarios" name="comentarios" placeholder="comentarios" rows="4" cols="50" spellcheck="true"></textarea>
-          <article class="contenedor-flex-fila">
-            <input type="checkbox" name="options" value="first" checked> <label for="first">First option</label>
-            <input type="checkbox" name="options" value="second"> <label for="second">Second option</label>
-            <input type="checkbox" name="options" value="third" disabled> <label for="third">Third option</label>
-          </article>
-          <select name="selector_color">
-            <option value="default.css">White Theme</option>
-            <option value="red.css">Red Theme</option>
-            <option value="blue.css">Blue Theme</option>
-            <option value="green.css">Green Theme</option>
-          </select>
-          <button id="enviar">Enviar</button>
-        </form>
-      </section>
-      <section id="parrafos">
-        <article>
-          <p class="normal letra_grande fondo_rojo">esto es un párrafo normal</p>
-          <p class="especial">esto es un párrafo especial</p>
-          <p class="normal letra_pequeña fondo_verde">esto es un párrafo normal</p>
-          <p class="especial">esto es un párrafo especial</p>
-          <p class="normal letra_pequeña fondo_verde">esto es un párrafo normal</p>
-          <p>esto es un párrafo sin clase</p>
-        </article>
-      </section>
-      <section>
-        <ul id="listaCompra">
-          <li class="verdura">cebollas</li>
-          <li class="verdura">patatas</li>
+    <section id="pseudo-elements">
+      <h2>Ejemplos de Pseudo-elementos CSS</h2>
+
+      <article>
+          <h3>Contenido generado con ::before y ::after</h3>
+          <p class="especial">Este es un párrafo con el pseudo-elemento ::before aplicado. Se añade contenido antes del texto del párrafo.</p>
+          <p class="normal">Este es un párrafo con el pseudo-elemento ::after aplicado. Se añade contenido después del texto del párrafo.</p>
+          <a href="www.ecosia.org"></a>
+      </article>
+
+      <article>
+          <h3>Uso de ::first-letter y ::first-line</h3>
+          <p>Este es un párrafo donde el primer carácter y la primera línea se estilizan con los pseudo-elementos ::first-letter y ::first-line.</p>
+      </article>
+
+      <article id="selection">
+          <h3>Selección de texto con ::selection</h3>
+          <p>Selecciona este texto para ver cómo cambia su color y fondo.</p>
+      </article>
+
+      <article>
+          <h2>Ejemplo de detección de errores de ortografía y gramática</h2>
+          <form>
+              <label for="texto">Escribe algo (con errores):</label><br><br>
+              <textarea id="texto" name="texto" spellcheck="true" rows="4" cols="50"></textarea><br><br>
+              <p>Escribe un texto con errores ortográficos o gramaticales para ver los estilos aplicados.</p>
+          </form>
+      </article>
+
+      <article>
+          <h3>Marcadores de lista con ::marker</h3>
           <ul>
-            <li>blanca</li>
-            <li>roja</li>
+              <li>Elemento de lista 1</li>
+              <li>Elemento de lista 2</li>
+              <li>Elemento de lista 3</li>
           </ul>
-          <li class="verdura">cebollas</li>
-          <li class="fruta">manzanas</li>
-          <li class="fruta">peras</li>
-          <ul>
-            <li>blanquillas</li>
-            <li>conferencia</li>
-            <li>agua</li>
-          </ul>
-          <li class="fruta">plátanos</li>
-          <li class="fruta">aguacates</li>
-        </ul>
-      </section>
-      <button id="boton-abre">Pincha aquí para ver un modal</button>
-      <dialog id="modal">
-        <p>hola</p>
-        <button id="boton-cierra">Cerrar modal</button>
-      </dialog>
+      </article>
+
+      <article>
+          <h3>Uso de ::backdrop y ::placeholder</h3>
+          <p><label for="textarea">Campo de texto con placeholder: </label><textarea id="textarea" rows="4" cols="50" placeholder="Introduce tu texto aquí..." ></textarea></p>
+          <button id="boton-abre">Pincha aquí para ver un modal</button>
+          <dialog id="modal">
+            <p>hola</p>
+            <button id="boton-cierra">Cerrar modal</button>
+          </dialog>
+      </article>
+    </section>
   </body>
 </html>

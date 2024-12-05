@@ -4,6 +4,13 @@ body{
     background-color:aliceblue;
 }
 
+article{
+    border: 2px solid black;
+    margin: 10px;
+    padding: 10px;
+  }
+  
+
 /*A CSS pseudo-element is a selector that applies style to a specific part of an element or creates new content without having to modify HTML code
 
 Content pseudo elements
@@ -64,9 +71,9 @@ highlighting
 */
 
 /*Applies style to elements selected with mouse*/
-::selection {
-    background: indigo;
-    color: white;
+#selection ::selection {
+    background: red;
+    color: blue;
   }
 
 /*Applies style to mispelled words detected by the browser's spellchecker*/
@@ -76,9 +83,8 @@ highlighting
 
 /*Applies style to grammar mistakes detected by the browser's spellchecker*/
 ::grammar-error {
-    background-color: yellow; 
+    text-decoration: line-through double red;
 }
-    
   
 /*
 ::marker
