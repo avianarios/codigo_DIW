@@ -5,15 +5,23 @@ body {
   font: 0.9em/1.2 Arial, Helvetica, sans-serif;
 }
 
-.flota_izquierda {
+article{
+    background-color:azure;
+    border: 3px solid rgb(131, 255, 255);
+    margin: 10px 0px;
+    padding: 10px
+}
+
+
+.flota-izquierda {
     float: left;
 }
 
-.flota_derecha {
+.flota-derecha {
     float: right;
 }
 
-.flota{
+.estilo-flota{
     margin: 15px;
     width: 150px;
     height: 100px;
@@ -26,16 +34,16 @@ p{
     background-color:cornsilk;
 }
 
-/*p:nth-of-type(2){
-    clear: left;
-}*/
-
-.salto_both{
+.salto-ambos{
     clear:both;
 }
 
-.salto_izquierdo{
+.salto-izquierdo{
     clear:left;
+}
+
+.salto-derecho{
+    clear:right;
 }
 
 .destacado{
