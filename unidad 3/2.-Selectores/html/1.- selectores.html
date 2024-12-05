@@ -7,76 +7,89 @@
     <link rel="stylesheet" href="../css/1.-selectores.css">
   </head>
   <body>
-        <!--Esto es un comentario sin ningún sentido-->
-      <header>
-        <h1 id="titulo1">Animales de compañía</h1>
-        <h2>Ejemplo de selectores</h2>      
-        <h3>Encabezado de nivel 3</h3>
-      </header>
-      <section id="animales">
-        <article id="gato">
-          <img src="../img/gato4.jpg" alt="Un lindo gatito">
-          <p muestra-info="nombre"></p>
-          <p muestra-info="raza"></p>
-          <p class="parrafo_cuerpo" id="parrafo1">Esto es un enlace a <a href="https://es.wikipedia.org/wiki/Felis_silvestris_catus" target="_blank">Felis silvestris catus</a></p>
-        </article>
-        <article id="perro">
-          <img src="../img/perro2.jpg" alt="Un lindo perrito">
-          <p muestra-info="nombre"></p>
-          <p muestra-info="raza"></p>
-          <p class="parrafo_cuerpo" id="parrafo2">Esto es un enlace a <a href="https://es.wikipedia.org/wiki/Canis_familiaris"  target="_self">Canis familiaris</a></p>
-        </article>  
-      </section>
-      <section>
-        <form id="formulario-contacto">
-          <input type="text" id="nombre" name="nombre" placeholder="nombre" required>
-          <input type="text" id="apellidos" name="apellidos" placeholder="apellidos">
-          <input type="text" id="correo" name="correo" placeholder="Correo electrónico">
-          <input type="text" name="dni" required pattern="(([X-Z]{1}-?[0-9]{7})|([0-9]{8}))[A-Z]{1}" placeholder="DNI"/>
-          <input type="number" name="edad" min="18" max="100" placeholder="Edad"/>
-          <article class="contenedor-flex-fila">
-            <input type="checkbox" name="options" value="first" checked> <label for="first">First option</label>
-            <input type="checkbox" name="options" value="second"> <label for="second">Second option</label>
-            <input type="checkbox" name="options" value="third" disabled> <label for="third">Third option</label>
-          </article>
-          <select name="selector_color">
-            <option value="default.css">White Theme</option>
-            <option value="red.css">Red Theme</option>
-            <option value="blue.css">Blue Theme</option>
-            <option value="green.css">Green Theme</option>
-          </select>
-          <button id="enviar">Enviar</button>
-        </form>
-      </section>
-      <section id="parrafos">
-        <article>
-          <p class="normal letra_grande fondo_rojo">esto es un párrafo normal</p>
-          <p class="especial">esto es un párrafo especial</p>
-          <p class="normal letra_pequeña fondo_verde">esto es un párrafo normal</p>
-          <p class="especial">esto es un párrafo especial</p>
-          <p class="normal letra_pequeña fondo_verde">esto es un párrafo normal</p>
-          <p>esto es un párrafo sin clase</p>
-        </article>
-      </section>
-      <section>
+    <section>
+      <h1>Demostración de reglas CSS</h1>
+
+      <!-- Clase aplicada -->
+      <article>
+        <p class="parrafo_cuerpo">Este párrafo tiene la clase "parrafo_cuerpo" aplicada. Tiene fondo rojo y un borde azul.</p>
+      </article>
+
+
+      <!-- ID aplicado -->
+      <article>
+        <p id="parrafo1">Este párrafo tiene el ID "parrafo1", con fondo negro y texto blanco.</p>
+      </article>
+
+      <!-- Enlaces con atributos específicos -->
+      <article>
+        <h2>Ejemplos de enlaces con estilos basados en atributos:</h2>
+        <a href="https://es.wikipedia.org/wiki/HTML" target="_blank">Enlace a Wikipedia</a><br>
+        <a href="https://example.com">Enlace que empieza con https y termina en .com</a><br>
+        <a href="documento.pdf">Enlace a un archivo PDF</a><br>
+      </article>
+
+
+      <!-- Lista con estilos aplicados -->
+      <article>
+        <h2>Lista de compra con estilos aplicados a cualquier descendiente, directo o noº:</h2>
         <ul id="listaCompra">
-          <li class="verdura">cebollas</li>
-          <li class="verdura">patatas</li>
-          <ul>
-            <li>blanca</li>
-            <li>roja</li>
-          </ul>
-          <li class="verdura">cebollas</li>
-          <li class="fruta">manzanas</li>
-          <li class="fruta">peras</li>
-          <ul>
-            <li>blanquillas</li>
-            <li>conferencia</li>
-            <li>agua</li>
-          </ul>
-          <li class="fruta">plátanos</li>
-          <li class="fruta">aguacates</li>
+            <li>Manzanas</li>
+            <ul>
+              <li>lorem</li>
+              <li>lorem</li>
+              <li>lorem</li>
+            </ul>
+            <li>Plátanos</li>
+            <li>Naranjas</li>
         </ul>
-      </section>
+      </article>
+
+      <!-- Lista con estilos aplicados -->
+      <article>
+        <h2>Lista de compra con estilos aplicados a descendientes directos:</h2>
+        <ul id="listaCompra2">
+            <li>Manzanas</li>
+            <ul>
+              <li>lorem</li>
+              <li>lorem</li>
+              <li>lorem</li>
+            </ul>
+            <li>Plátanos</li>
+            <li>Naranjas</li>
+        </ul>
+      </article>
+
+      <!-- Ejemplo de selector descendente -->
+      <article id="parrafos">
+          <p class="especial">Este es un párrafo especial dentro de una sección con ID "parrafos".</p>
+          <p>a este párrafo no se le aplica la regla section#parrafos p.especial porque no tiene clase especial</p>
+      </article>
+
+      <!-- Ejemplo de hermanos -->
+      <article>
+        <h3>Ejemplo de hermano adyacente</h3>
+        <p class="adyacente">Párrafo normal</p>
+        <p>Hermano adyacente del párrafo normal</p>
+        <p>Otro hermano del párrafo normal</p>
+      </article>
+
+
+      <!-- Ejemplo de hermanos -->
+      <article>
+        <h3>Ejemplo de cualquier hermano</h3>
+        <p class="noadyacente">Párrafo normal</p>
+        <p>Hermano adyacente del párrafo normal</p>
+        <p>Otro hermano del párrafo normal</p>
+      </article>
+
+          
+      <!-- Input deshabilitado -->
+      <article>
+        <h2>Ejemplo de input deshabilitado:</h2>
+        <input type="text" disabled placeholder="Campo deshabilitado">
+      </article>
+
+    </section>
   </body>
 </html>

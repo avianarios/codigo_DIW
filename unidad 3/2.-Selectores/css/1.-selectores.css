@@ -5,6 +5,11 @@ body{
   background-color:aliceblue;
 }
 
+article{
+  border: 1px solid black;
+  margin: 10px;
+}
+
 h1{
   font-size: 1.25rem;
 }
@@ -25,6 +30,7 @@ p.parrafo_cuerpo{
 
 #parrafo1{
   background-color: black;
+  color:white
 }
 
 
@@ -83,17 +89,17 @@ section#parrafos p.especial{
 }
 
 /*first level descendants*/
-#listaCompra>li{
+#listaCompra2>li{
   border: 3px solid coral;
 }
 
-/*adjacent brother*/
-.normal + p{
+/*brother*/
+.adyacente + p{
   border: 3px dashed greenyellow;
 }
 
 /*any brother, no matter if it is adjacent or not*/
-.normal ~ p{
+.noadyacente ~ p{
   border: 3px dashed greenyellow;
 }
 
