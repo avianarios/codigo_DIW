@@ -4,29 +4,34 @@ body{
     background-color:aliceblue;
 }
 
-/*A CSS pseudo-element is a selector that lets you style a specific part of an element.
+/*A CSS pseudo-element is a selector that applies style to a specific part of an element or creates new content without having to modify HTML code
 
-Content
-    ::after
-    ::before
-    content -> it only can be used inside ::after or ::before
-    attr()
+Content pseudo elements
+    ::after -> inserts new content after the element
+    ::before -> inserts new content before the element
+    content -> defines the content to be inserted. It can only be used with ::after and ::before
+    attr() -> allows to access the value of certain attributes. It can only be used with ::after and ::before
 */
 
-/**It adds content before p.especial. It isn't part of DOM, but it is displayed*/
+/*It adds content before p.especial. It isn't part of DOM, but it is displayed*/
 p.especial::before{
     content: "Texto generado con ::before y content ";
     color:red;
     font-size:1.15rem;
 }
 
-/**It adds content after p.especial. It isn't part of DOM, but it is displayed*/
+/*It adds content after p.especial. It isn't part of DOM, but it is displayed*/
 p.normal::after{
     content: " Texto generado con ::after y content ";
     color:blue;
     font-size: 1.15rem;
-
 }
+
+/*it adds the href text before a tag*/
+a::before {
+    content: attr(href);
+}
+  
 
 /*
 typographic
@@ -51,16 +56,30 @@ p:first-of-type::first-line{
 /*
 highlighting
     ::selection -> selected text with mouse
-    ::target-text -> Allows to highlight a text, defined by #:~:text="texto", after anchor (#) in an URL
-    ::spelling-error
-    ::grammar-error
+    ::target-text -> apply styling to the text displayed when an anchor fragment (i.e. a URL with an #id) is the target of an internal reference.
+
+    Used at input and textarea. Not supported by some browsers. spellcheck="true" must be set
+        ::spelling-error -> applies a style to words with spelling errors that are detected by the browser's spellchecker. 
+        ::grammar-error -> applies a style to words with grammar errors that are detected by the browser's spellchecker.
 */
 
+/*Applies style to elements selected with mouse*/
 ::selection {
     background: indigo;
     color: white;
   }
 
+/*Applies style to mispelled words detected by the browser's spellchecker*/
+::spelling-error {
+    text-decoration: underline double blue;
+}
+
+/*Applies style to grammar mistakes detected by the browser's spellchecker*/
+::grammar-error {
+    background-color: yellow; 
+}
+    
+  
 /*
 ::marker
 ::backdrop -> applies styles to a dialog or modal message
