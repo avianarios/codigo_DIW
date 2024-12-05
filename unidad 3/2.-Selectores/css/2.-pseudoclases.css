@@ -45,7 +45,7 @@ a:visited {
 /*********************************/
 /*structural -> allows to select elements according to its position or structure in document
   :root -> selects the root element
-  :first-child
+  :first-child -> selects the first child
   :last-child
   :nth-child()
   :nth-last-child() -> nth child starting from the end
@@ -57,27 +57,30 @@ a:visited {
   :only-of-type -> selects an element of a given type which is alone
   :empty
 */
-/*selects the first-child of the elements of type "li"*/
+
+/*applies style ONLY if the first-child of the parent container is a "li" tag*/
 li:first-child{
   background: lightskyblue;
   font-weight: bold;
 }
 
+/*applies style ONLY if the last-child of the parent container is a "li" tag*/
 li:last-child {
   background: lightgreen;
   font-weight: bold;
 }
 
-/*Sets all even elements of a list to have a different background. It also works 2n*/
+/*applies style to all even elements of a list. It also works 2n*/
 li:nth-child(even) {
   background: coral;
 }
-/*Sets all odds elements of a list to have a different background. It also works 2n-1*/
+
+/*applies style to all odds elements of a list. It also works 2n-1 or 2n+1*/
 li:nth-child(odd) {
   background-color: aquamarine;
 }
 
-/*selects the second child of type li*/
+/*applies style only if the second child of the parent container is a "li" tag*/
 li:nth-child(2){
   background-color: lightpink;
 }
@@ -87,18 +90,7 @@ li:nth-child(n){
   background-color: lightpink;
 }
 
-/*selects even elements*/
-li:nth-child(2n){
-  background-color: lightpink;
-}
-
-/*selects odd elements*/
-li:nth-child(2n-1){
-  background-color: lightpink;
-}
-*/
-
-/*Selects the second child with the .especial class within the #parrafos container*/
+/*Selects the second child that has the .especial class within the #parrafos container*/
 #parrafos :nth-child(2 of .especial){
   background-color: red;
 }
@@ -113,8 +105,8 @@ section p:first-of-type{
   background-color: #4CAF50;
 }
 
-/*Selects last paragraph, children at any level, of those elements with a "parrafos" ID*/
-#parrafos p:last-of-type{
+/*applies style to the last paragraph of those articles with a "parrafos" ID*/
+article#parrafos p:last-of-type{
   background-color: aquamarine;
 }
 
@@ -123,7 +115,12 @@ section p:first-of-type{
   border: 2px dashed green;
 }
 
-/*Selects the paragraph before the last one of an element with "listaCompra" ID*/
+/*applies style to the third element of type li*/
+li:nth-of-type(3){
+  background-color: cornflowerblue;
+}
+
+/*applies style to the paragraph before the last one of an container with "parrafos" ID*/
 #parrafos p:nth-last-of-type(2){
   border: 2px dotted red;
 }
@@ -131,28 +128,26 @@ section p:first-of-type{
 
 /*********************************/
 /*Logical
-  :is -> Allows to replace grouped selectors
-  :where
-  :has
-  :not()
+  :is -> groups several selectors and takes the highest specificity among the selectors it contains
+  :where -> groups several selectors and takes the lowest specificity among the selectors it contains
+  :has -> selects a parent element if it contains a child that matches the selectors specified within :has().
+  :not() -> selects an element not matching the selectors specified within :not
 
-*/
-/*
-Specifity (a,b,c) 
-  a-> number of #ids in selector
-  b-> number of .class, [attribute] of :pseudoclass
-  c-> number of element of ::pseudoelement
-
-
-}
-How to apply rules?
+How to apply CSS rules?
   -When two or more selectors match the same element, the selector with the higher specificity is applied. 
   -If two selectors have the same specificity, the last one in the code is applied.
+
+What is specifity?
+  It determines which style rules apply to an element when there are multiple matching selectors.
+  
+  The specificity of a CSS selector is calculated by adding up the number of each type of selector it contains, with the following priorities:
+  Specifity (a,b,c,d) 
+    a-> number of #ids in selector
+    b-> number of .class, [attribute] of :pseudoclass
+    c-> number of element of ::pseudoelement
+    d-> number of universal selectors
 */
 
-#parrafos > p{
-  background-color: bisque;
-}
 
 /*
 Instead of 
@@ -161,22 +156,31 @@ Instead of
   #parrafos p{
 
 we could write the following: */
-
 #parrafos:is(.normal, .especial, p){
   background-color: aquamarine;
 }
+/*
+specificity: 
+  #parrafos .normal: 1,1,0
+  #parrafos .especial: 1,1,0
+  #parrafos p: 1,0,1
 
-/*Which is the difference?: Specifity (and elegance)
-First case: (1,1,0), (1,1,0) and (1,0,1).
-Second case: (1,1,0) at any case
+"is" has no specifity. It just takes the maximum among its selectors (0,1,0) and then it just adds to the specifity of the selector before "is" (1,0,0) resulting in (1,1,0)
+
+Which is the difference?: Specifity (and elegance)
+  First case: (1,1,0), (1,1,0) and (1,0,1).
+  Second case: (1,1,0) at any case
 */
 
-/*same as :is, but specifity is zero*/
+/*where groups rules as :is, but its specifity is always zero*/
 #parrafos:where(.normal, .especial, p){
   background-color: aquamarine;
 }
+/*
+Therefore, the specifity of the whole rule is (1,0,0) due to #parrafos
+*/
 
-/*Selects <section> only if contains an <article> with gato ID*/
+/*applies style to a <section> that contains an <article> with gato ID*/
 /*not fully supported. check caniuse.com*/
 section:has(article#gato){
   border: 3px dotted blue;
@@ -226,31 +230,42 @@ input:placeholder-shown {
   :out-of-range
 */
 
-/*select label right before (adjacent brother) a required input*/
+/*applies style to a label right before (adjacent brother) a required input*/
 label:has(+input:required){
   color: red;
 }
+/*What if web browser doesn't support has? JavaScript
+document.querySelectorAll('input[required]').forEach(input => {
+  const label = input.previousElementSibling;
+  if (label && label.tagName === 'LABEL') {
+    label.style.color = 'red';
+  }
+});
+*/
 
 input:required{
   border: 3px solid red;
 }
 
-/*valid and in-range can be applied at the same time*/
+/*applies style to a non-valid form input, according to the validation form rules
+  -If an input field with the required attribute is empty.
+  -If an input field with an email type contains text that does not conform to a valid email format.
+  -If an input field of type number contains a value outside the range allowed by the min or max attributes.*/
 input:invalid {
   color: red;
 }
 
-/*applied to all valid elements when restrictions are applied on a form*/
+/*applies style to a valid form input*/
 input:valid {
   color: green;
 }
 
-/*controls what happens when values in a form field are between min and max property values*/
+/*applies style to an input field whose values are between min and max property values*/
 input:in-range {
   color: green;
 }
 
-/*controls what happens when values in a form field are not between min and max property values*/
+/*applies style to an input whose values are not between min and max property values*/
 input:out-of-range{
   color: red;
 }
