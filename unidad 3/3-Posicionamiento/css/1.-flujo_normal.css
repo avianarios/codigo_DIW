@@ -13,6 +13,13 @@ p:not(.linea) {
 span {
   background: white;
   border: 1px solid black;
+  width: 100px;
+  height: 100px;
+}
+
+span.margenes{
+  margin: 5px;
+  padding: 5px;
 }
 
 p.linea{
@@ -24,15 +31,15 @@ p.linea{
   margin: 0px 10px;
 }
 
-p.linea_bloque_medidas{ /*if I remove p. this selector has less specifity than p:not(.linea) and, therefore, le latter is applied*/
+p.linea_bloque_medidas{ /*if I remove p. this selector has less specifity than p:not(.linea) and, therefore, the latter is applied*/
   display: inline-block;
   background-color: lightblue;
   border: 1px solid blue;
   overflow: scroll;
-  padding: 10px;
+  padding: 50px;
   margin:10px;
-  width: 100px;
-  height: 150px;
+  width: 150px;
+  height: 250px;
 }
 
 /*if I remove p. from the following selectors, they would have less specifity than p:not(.linea) and, therefore, the latter would be applied*/

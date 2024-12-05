@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>Flujo normal</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="../css/1.-flujo_normal.css">
@@ -12,7 +12,8 @@
       <header>
         <h1>Normal flow</h1>
         <h2>How web browser places boxes by default</h2>
-        <h3>Its placement and behave depends on the type of element: block or line</h3>
+        <h3>Its placement and behave depends on the type of element</h3>
+        <h4>There are two types of elements: block and inline</h4>
           <!--Define cómo coloca el navegador las cajas por defecto
           <h3>Su colocación y comportamiento depende del tipo de etiqueta: bloque (block) o línea (inline).Cada etiqueta tiene su tipo</h3>-->
       </header>
@@ -21,25 +22,23 @@
           <p>I am a basic block level element. My adjacent block level elements sit on new lines below me.</p>
           <p>Block elements ocuppies the whole line altough they don't need it</p>
           <p>By default we span 100% of the width of our parent element, and we are as tall as our child content. Our total width and height is our content + padding +
-            border width/height.</p>
+            border width/height (content-box).</p>
           <p>We are separated by our margins. Because of margin collapsing, we are separated by the width of one of our margins, not both.</p>
-          <p>Inline elements <span>like this one</span> and <span>this one</span> sit on the same line along with adjacent text nodes, if there is space on the same
-            line. Overflowing inline elements will <span>wrap onto a new line if possible (like this one containing text)</span></p>
-        </article>
+          <p>Inline elements <span>don't alter flow content and place at the same line than the rest of elements</span>, if there is room enough. <span>A specific width or height can't be set for them</span>. Overflowing inline elements will <span>wrap onto a new line if possible (like this one containing text is doing)</span></p>
+          <p>Inline elements <span>can't modify their width or height, they occupy the space enough to accommodate their content</span>can modify its margin or padding, but doing so<span class="margenes">don't alter line weight</span></p>
+          </article>
         <article>
           <p class="linea">Párrafo forzado a ser un elemento de línea con display=inline. width and height are ignored</p>
           <p class="linea">Otro párrafo forzado a ser un elemento de línea con display=inline. width and height are ignored</p>
         </article>
         <article>
           <span class="bloque">This inline element has been forced to behave as a block element</span><!-- span ha sido forzado a ser un elemento de bloque-->
+          <span class="bloque">This inline element has been forced to behave as a block element</span><!-- span ha sido forzado a ser un elemento de bloque-->
         </article>
         <article>
-          <p class="linea_bloque_medidas">This is a paragraph (block component) forced to behave as an inline-block element. They sit along the rest of inline components applying width and heigth</p>
-          <p class="linea_bloque_medidas">This is a paragraph (block component) forced to behave as an inline-block element. They sit along the rest of inline components applying width and heigth</p>
-          <p class="linea_bloque_medidas">This is a paragraph (block component) forced to be an inline-block element. They sit along the rest of inline components applying width and heigth</p>
-        </article>
-        <article>
-          <p class="linea_bloque_medidas">This is a paragraph (block component) forced to be an inline-block element. No widht or heigth is provided</p>
+          <p class="linea_bloque_medidas">This is a paragraph (block component) forced to behave as an inline-block element. They sit along the rest of inline components but width and heigth can be applied. Margin and padding alter their position</p>
+          <p class="linea_bloque_medidas">This is a paragraph (block component) forced to behave as an inline-block element. They sit along the rest of inline components applying width and heigth. Margin and padding alter their position</p>
+          <p class="linea_bloque">This is a paragraph (block component) forced to be an inline-block element. No widht or heigth is provided</p>
 <!--          <p class="linea_bloque">Esto es un párrafo que ha sido forzado a ser un elemento inline_block y ocupa todo el espacio a lo ancho. </p>-->
         </article>
       </section>
