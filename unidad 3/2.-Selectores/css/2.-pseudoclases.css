@@ -8,6 +8,12 @@ body{
   display: block;
 }
 
+article{
+  border: 2px solid black;
+  margin: 10px;
+  padding: 10px;
+}
+
 /*A CSS pseudo-class is a selector that selects elements that are in a specific state or in a specific position.*/
 
 /*********************************/
@@ -59,70 +65,70 @@ a:visited {
 */
 
 /*applies style ONLY if the first-child of the parent container is a "li" tag*/
-li:first-child{
+#first-child li:first-child{
   background: lightskyblue;
   font-weight: bold;
 }
 
 /*applies style ONLY if the last-child of the parent container is a "li" tag*/
-li:last-child {
+#last-child li:last-child {
   background: lightgreen;
   font-weight: bold;
 }
 
 /*applies style to all even elements of a list. It also works 2n*/
-li:nth-child(even) {
+#nth-child-even li:nth-child(even) {
   background: coral;
 }
 
 /*applies style to all odds elements of a list. It also works 2n-1 or 2n+1*/
-li:nth-child(odd) {
+#nth-child-odd li:nth-child(odd) {
   background-color: aquamarine;
 }
 
 /*applies style only if the second child of the parent container is a "li" tag*/
-li:nth-child(2){
+#nth-child-2 li:nth-child(2){
   background-color: lightpink;
 }
 
 /*selects all elements*/
-li:nth-child(n){
+#nth-child-n li:nth-child(n){
   background-color: lightpink;
 }
 
 /*Selects the second child that has the .especial class within the #parrafos container*/
-#parrafos :nth-child(2 of .especial){
+#nth-child-2-of-especial :nth-child(2 of .especial){
   background-color: red;
 }
 
 /*selects the 2nd li element starting from the end*/
-li:nth-last-child(2){
+#nth-last-child-2 li:nth-last-child(2){
   background-color: lightsalmon;
 }
 
 /*Selects first p element after a section (even if it's not the first child)*/
-section p:first-of-type{
+#first-of-type p:first-of-type{
   background-color: #4CAF50;
 }
 
 /*applies style to the last paragraph of those articles with a "parrafos" ID*/
-article#parrafos p:last-of-type{
+#last-of-type p:last-of-type{
   background-color: aquamarine;
 }
 
 /*Selects the 2nd child (doesn't matter the type) of an element with "listaCompra" ID*/
-#listaCompra :nth-of-type(2){
+#nth-of-type :nth-of-type(2){
   border: 2px dashed green;
 }
 
 /*applies style to the third element of type li*/
-li:nth-of-type(3){
+#nth-of-type li:nth-of-type(3){
   background-color: cornflowerblue;
 }
 
 /*applies style to the paragraph before the last one of an container with "parrafos" ID*/
-#parrafos p:nth-last-of-type(2){
-  border: 2px dotted red;
+#nth-last-of-type p:nth-last-of-type(2){
+  background-color: cornflowerblue;
 }
 
 
@@ -156,7 +162,7 @@ Instead of
   #parrafos p{
 
 we could write the following: */
-#parrafos:is(.normal, .especial, p){
+#is :is(.normal, .especial, p){
   background-color: aquamarine;
 }
 /*
@@ -173,22 +179,22 @@ Which is the difference?: Specifity (and elegance)
 */
 
 /*where groups rules as :is, but its specifity is always zero*/
-#parrafos:where(.normal, .especial, p){
+#where :where(.normal, .especial, p){
   background-color: aquamarine;
 }
 /*
 Therefore, the specifity of the whole rule is (1,0,0) due to #parrafos
 */
 
-/*applies style to a <section> that contains an <article> with gato ID*/
+/*applies style to an element with "has" class that contains an <ul> with "lista-compra" ID*/
 /*not fully supported. check caniuse.com*/
-section:has(article#gato){
-  border: 3px dotted blue;
+.has:has(ul#lista-compra){
+  background-color:aqua
 }
 
 /*Selects paragraphs which don't have an especial class*/
-p:not(.especial){
-  border: 3px dashed red;
+.not :not(.especial){
+  background-color:aqua
 }
 
 
@@ -243,9 +249,9 @@ document.querySelectorAll('input[required]').forEach(input => {
 });
 */
 
-input:required{
+/*input:required{
   border: 3px solid red;
-}
+}*/
 
 /*applies style to a non-valid form input, according to the validation form rules
   -If an input field with the required attribute is empty.
