@@ -62,7 +62,7 @@ h1, h2, h3{
   -flex-basis applies to main axis which is not always width
   -flex-basis applies only to flex items, not containers
   -flex-basis is the initial size (it may not be the final one) before shrink or grow comes into play*/
-.flex-item {
+.contenedor-flex-nv2 > li {
   background:azure;
   flex-basis: 50px;
   color: black;

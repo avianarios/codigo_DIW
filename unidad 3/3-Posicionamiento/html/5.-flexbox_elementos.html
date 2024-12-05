@@ -18,7 +18,7 @@
                 <h2>Flexbox properties acting over flex items</h2>
                 <!--Propiedades de flexbox que actúan sobre los elementos-->
                 <h3>align-self</h3>
-                <p>Align-self allows to define behaviour only for one element. It only works when elements occupy all the space. Values: flex-start, flex-end, center, baseline y stretch</p>
+                <p>Align-self allows to define behaviour only for one element in the traverse axis (i.e. the axis perpendicular to the main axis of the flex container). Some values require some empty space for the elements to expand. Values: flex-start, flex-end, center, baseline y stretch</p>
                 <!--Align-self permite definir el comportamiento solo para un elemento. Sólo funciona cuando los elementos ocupan todo el espacio. Valores: flex-start, flex-end, center, baseline y stretch-->
             </header>
 
@@ -29,16 +29,16 @@
                     <p>Third element aligns at the end (align-self:end), 7th at stretch, 8th at start</p>
                     <!--Los elementos se organizan en una fila (flex-direction: row) y se estiran para ocupar todo el contenedor (align-content: flex-stretch). El tercer elemento se alinea al final (align-self:end)-->
                     <ul class="contenedor-flex-nv2 gap min-height ai-center">
-                        <li class="flex-item">1</li>
-                        <li class="flex-item">2</li>
-                        <li class="flex-item as-end">3</li>
-                        <li class="flex-item">4</li>
-                        <li class="flex-item">5</li>
-                        <li class="flex-item">6</li>
-                        <li class="flex-item as-stretch">7</li>
-                        <li class="flex-item as-start">8</li>
-                        <li class="flex-item">9</li>
-                        <li class="flex-item">10</li>
+                        <li>1</li>
+                        <li>2</li>
+                        <li class="as-end">3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li class="as-stretch">7</li>
+                        <li class="as-start">8</li>
+                        <li>9</li>
+                        <li>10</li>
                     </ul>
             </section>
 
@@ -57,12 +57,12 @@
                     <p>Elements 1, 2, 3 and 4 have been rearranged</p>
                     <!--Los elementos 1, 2, 3 y 4 han sido modificados para situarlos en el DOM en una posición distinta -->
                     <ul class="contenedor-flex-nv2 columna-al-reves gap">
-                        <li class="flex-item orden3">1</li>
-                        <li class="flex-item orden1">2</li>
-                        <li class="flex-item orden2">3</li>
-                        <li class="flex-item orden2">4</li>
-                        <li class="flex-item">5</li>
-                        <li class="flex-item">6</li>
+                        <li class="orden3">1</li>
+                        <li class="orden1">2</li>
+                        <li class="orden2">3</li>
+                        <li class="orden2">4</li>
+                        <li>5</li>
+                        <li>6</li>
                     </ul>
                 </article>
                 <article class="borde">
@@ -70,12 +70,12 @@
                     <p>Elements 5, 3 and 6 have been rearranged</p>
                     <!--Los elementos 5, 3 y 6 han sido reorganizados-->
                     <ul class="contenedor-flex-nv2 gap">
-                        <li class="flex-item">1</li>
-                        <li class="flex-item">2</li>
-                        <li class="flex-item orden2">3</li>
-                        <li class="flex-item">4</li>
-                        <li class="flex-item orden3">5</li>
-                        <li class="flex-item orden1">6</li>
+                        <li>1</li>
+                        <li>2</li>
+                        <li class="orden2">3</li>
+                        <li>4</li>
+                        <li class="orden3">5</li>
+                        <li class="orden1">6</li>
                     </ul>
                 </article>
             </section>
@@ -99,16 +99,16 @@
                     <p>Boxes 3 and 6 have changed theis size. Wrap is allowed</p>
                     <!--Define el tamaño base del elemento-->
                     <ul class="contenedor-flex-nv2 wrap gap">
-                        <li class="flex-item">1</li>
-                        <li class="flex-item">2</li>
-                        <li class="flex-item basis100px">3</li>
-                        <li class="flex-item">4</li>
-                        <li class="flex-item">5</li>
-                        <li class="flex-item basis200px">6</li>
-                        <li class="flex-item">7</li>
-                        <li class="flex-item">8</li>
-                        <li class="flex-item">9</li>
-                        <li class="flex-item">10</li>                        
+                        <li>1</li>
+                        <li>2</li>
+                        <li class="basis100px">3</li>
+                        <li>4</li>
+                        <li>5</li>
+                        <li class="basis200px">6</li>
+                        <li>7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>10</li>                        
                     </ul>
                 </article>
                 <article class="borde">
@@ -122,10 +122,10 @@
                     -->
                     <p>item 2 has flex-grown:2 and item 4, flex-grown 3</p>
                     <ul class="contenedor-flex-nv2 wrap gap">
-                        <li class="flex-item ">1</li>
-                        <li class="flex-item grow2">2</li>
-                        <li class="flex-item ">3</li>
-                        <li class="flex-item grow3">4</li>
+                        <li class="">1</li>
+                        <li class="grow2">2</li>
+                        <li class="">3</li>
+                        <li class="grow3">4</li>
                     </ul>
                 </article>
                 <article class="borde">
@@ -134,14 +134,14 @@
                     <!--<p>Hay menos espacio libre que redistribuir y, aún así, no saltan a la siguiente línea</p>-->
                     <p>item 2 has flex-grown:2 and item 4 , flex-grown 3</p>
                     <ul class="contenedor-flex-nv2 gap">
-                        <li class="flex-item">1</li>
-                        <li class="flex-item grow2">2</li>
-                        <li class="flex-item">3</li>
-                        <li class="flex-item grow3">4</li>
-                        <li class="flex-item">5</li>
-                        <li class="flex-item">6</li>
-                        <li class="flex-item">7</li>
-                        <li class="flex-item">8</li>                        
+                        <li>1</li>
+                        <li class="grow2">2</li>
+                        <li>3</li>
+                        <li class="grow3">4</li>
+                        <li>5</li>
+                        <li>6</li>
+                        <li>7</li>
+                        <li>8</li>                        
                     </ul>
                 </article>
                 <article class="borde">
@@ -153,16 +153,16 @@
                     <p>item 5 has flex-shrink:2 and item 7, flex-shrink: 3</p>
                     <p>They all look similar, but inspect them with developer's tools</p>
                     <ul class="contenedor-flex-nv2 gap">
-                        <li class="flex-item">1</li>
-                        <li class="flex-item">2</li>
-                        <li class="flex-item">3</li>
-                        <li class="flex-item">4</li>
-                        <li class="flex-item shrink2">5</li>
-                        <li class="flex-item">6</li>
-                        <li class="flex-item shrink3">7</li>
-                        <li class="flex-item">8</li>
-                        <li class="flex-item">9</li>
-                        <li class="flex-item">10</li>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li class="shrink2">5</li>
+                        <li>6</li>
+                        <li class="shrink3">7</li>
+                        <li>8</li>
+                        <li>9</li>
+                        <li>10</li>
                     </ul>
                 </article>                
            </section>
