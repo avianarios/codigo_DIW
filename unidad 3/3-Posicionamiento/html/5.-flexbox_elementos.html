@@ -93,7 +93,7 @@
                 </article>
                 <article class="borde">
                     <h3>flex-basis</h3>
-                    <p>Defines the initial size of the flexbox on its MAIN AXIS. It may grow due to other properties before being presented to user</p>
+                    <p>Defines the initial size of the flexbox item on its MAIN AXIS. It may grow due to other properties before being presented to user</p>
                     <p>If not defined: flex boxes take the minimum space to accomodate their content</p>
                     <p>If defined: flex boxes are rendered with this size unless not enough room on the container. Anyway, proportions are respected
                     <p>Boxes 3 and 6 have changed theis size. Wrap is allowed</p>
@@ -101,10 +101,10 @@
                     <ul class="contenedor-flex-nv2 wrap gap">
                         <li>1</li>
                         <li>2</li>
-                        <li class="basis100px">3</li>
+                        <li id="basis100px">3</li>
                         <li>4</li>
                         <li>5</li>
-                        <li class="basis200px">6</li>
+                        <li id="basis200px">6</li>
                         <li>7</li>
                         <li>8</li>
                         <li>9</li>
@@ -113,14 +113,14 @@
                 </article>
                 <article class="borde">
                     <h3>flex-grow</h3>
-                    <p>It specifies the amount of FREE SPACE assigned to the elements within the flex container.
-                        Free space is defined as the size of flex container minus the size of all flex items combined AFTER being renderized</p>
-                    <p>Items will first fill the main axis according to flex-basis, then free space is redistributed. Flex-grow will not force items to wrap. If there's no free space, no space is redistributed</p>
+                    <p>It controls how FREE SPACE is assigned to flex elements within the flex container. Free space is the space left AFTER all flex items have been renderized</p>
+                    <p>Flex-grow will not force items to wrap. If there's no free space, no space is redistributed</p>
+                    <p>If there's only one element with <code>flex-grow</code>, it'll take all free space. If there's more than one, free space will be distributed among them according to <code>flex-grow</code></p>
                     <!--<p>Especifica la cantidad de espacio libre dentro del contenedor flex que es asignado a los items con la propiedad flex-grow.
-                        El espacio restante es el tamaño del contenedor flexible menos el tamaño de todos los elementos flexibles juntos.</p>
-                        <p>Los elementos primero ocuparán el eje principal, luego se distribuirá el espacio libre. Flex-grow no forzará a los elementos a crecer. Si no hay espacio libre, no hay espacio que redistribuir</p>
+                        El espacio libre es el tamaño del contenedor flexible menos el tamaño de todos los elementos flexibles juntos después de ser renderizados.</p>
+                        <p>Flex-grow no forzará a los elementos a crecer. Si no hay espacio libre, no hay espacio que redistribuir</p>
                     -->
-                    <p>item 2 has flex-grown:2 and item 4, flex-grown 3</p>
+                    <p>item 2 has flex-grown:2 and item 4, flex-grown 3. Free space will be splitted into 5 parts, being given 2 to item 2 and 3 to item 4</p>
                     <ul class="contenedor-flex-nv2 wrap gap">
                         <li class="">1</li>
                         <li class="grow2">2</li>
@@ -141,25 +141,26 @@
                         <li>5</li>
                         <li>6</li>
                         <li>7</li>
-                        <li>8</li>                        
                     </ul>
                 </article>
                 <article class="borde">
                     <h3>flex-shrink</h3>
-                    <p>The opposite to flex-grow</p>
-                    <p>If the size of all flex items is larger than the flex container, items shrink to fit according to flex-shrink.</p>
-                    width is 440px
+                    <p>The opposite of <code>flex-grow</code>: it determines how much space is taken away from flex items when the container reduces its size.</p>
+                    <p>If <code>flex-shrink</code> is undefined, it behaves as if it were set to <code>flex-shrink: 1</code>.</p>
+                    <p>When a container starts reducing its size, all flex items shrink proportionally to their <code>flex-shrink</code> values.</p>
+                    <p>Items with <code>flex-shrink: 0</code> stop shrinking when they reach their base size.</p>
+                    <p>If all items have <code>flex-shrink: 0</code> and the container continues to shrink, items will wrap to the next line (if wrapping is enabled) or overflow the container (if wrapping is disabled).</p>
+                    
                     <!--<p>Hay menos espacio libre que redistribuir y, aún así, no saltan a la siguiente línea</p>-->
                     <p>item 5 has flex-shrink:2 and item 7, flex-shrink: 3</p>
-                    <p>They all look similar, but inspect them with developer's tools</p>
                     <ul class="contenedor-flex-nv2 gap">
                         <li>1</li>
                         <li>2</li>
                         <li>3</li>
                         <li>4</li>
-                        <li class="shrink2">5</li>
+                        <li class="grow2 shrink2">5</li>
                         <li>6</li>
-                        <li class="shrink3">7</li>
+                        <li class="grow3 shrink3">7</li>
                         <li>8</li>
                         <li>9</li>
                         <li>10</li>

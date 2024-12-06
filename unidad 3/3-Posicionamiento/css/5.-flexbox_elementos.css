@@ -1,6 +1,5 @@
 body{
-  /*width: 50%;*/
-  width: 700px;
+  width: 66vw;
   margin: 0 auto;
   background-color: lightblue;
   font-family: 'Open Sans', sans-serif;
@@ -125,11 +124,12 @@ h1, h2, h3{
   order: 3;
 }
 
-.basis200px{
+/*It has to be an ID. If it were a class, .contenedor-flex-nv2 > li would have more specifity and flex-basis is already there*/
+#basis200px{    
   flex-basis: 200px;
 }
 
-.basis100px{
+#basis100px{
   flex-basis: 100px
 }
 
