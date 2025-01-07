@@ -78,10 +78,6 @@ h1, h2, h3{
   /*atajo para row-gap y column-gap*/
 }
 
-.nowrap{
-  flex-wrap: nowrap; 
-}
-
 /*Wrap: Los elementos que no caben se desbordan, es decir, el contenedor no cambia de tamaño, así que las cajas no pueden pasar a la siguiente línea y se salen del contenedor (se desbordan) */
 .wrap{
   flex-wrap: wrap;

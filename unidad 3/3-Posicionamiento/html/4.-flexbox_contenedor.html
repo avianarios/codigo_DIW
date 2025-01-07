@@ -52,8 +52,8 @@
                 </article>            
                 <article class="borde">
                     <h3>flex-direction y flex-wrap</h3>
-                    <p>Los elementos se organizan en una fila inversa (flex-direction: row-reverse) y no se permite el desbordamiento (flex-wrap: nowrap, los elementos reducen su tamaño para caber en la misma línea, no se van a la siguiente)</p>
-                    <ul class="contenedor-flex-nv2 fila-al-reves nowrap gap">
+                    <p>Los elementos se organizan en una fila inversa (flex-direction: row-reverse) y no se permite el desbordamiento, los elementos reducen su tamaño para caber en la misma línea, no se van a la siguiente (comportamiento por defecto o flex-wrap: nowrap)</p>
+                    <ul class="contenedor-flex-nv2 fila-al-reves gap">
                         <li>1</li>
                         <li>2</li>
                         <li>3</li>
@@ -161,16 +161,6 @@
                     <p>Los elementos se organizan en una fila (flex-direction: row)
                         se reparte el espacio entre los elementos en su eje principal (fila) (justify-content: space-evenly) y en su eje secundario (columna) se estira para ocupar todo el sitio (align-items: stretch)</p>
                     <ul class="contenedor-flex-nv2 gap min-height jc-space-evenly ai-stretch">
-                        <li>1</li>
-                        <li>2</li>
-                        <li>3</li>
-                    </ul>
-                </article>
-                <article class="borde">
-                    <h3>justify-content y align-items</h3>
-                    <p>Los elementos se organizan en una fila (flex-direction: row)
-                        se pegan los elementos a los extremos en su eje principal (justify-content: space-between) y en su eje secundario (columna) al centro (align-items: center)</p>
-                    <ul class="contenedor-flex-nv2 gap min-height jc-space-between ai-center">
                         <li>1</li>
                         <li>2</li>
                         <li>3</li>
