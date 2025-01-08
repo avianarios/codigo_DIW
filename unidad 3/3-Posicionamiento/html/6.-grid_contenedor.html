@@ -54,6 +54,7 @@
                 </article> 
                 <article class="contenedor-grid-nv2 gap borde-externo">
                     <h4>Creating 4 columns mixing units (grid-template-columns: 20% 2fr 1fr 100px)</h4>
+                    <p>First 20% of the space is allocated, then the 100px and the rest is divided in 3 parts</p>
                     <p>Leaving 10px columns and row gap </p>
                     <ul class="contenedor-grid-nv3 disposicion-cuatro-columnas gap">
                         <li class="elemento-grid">1</li>
@@ -84,8 +85,8 @@
                     <h4>Creating columns and rows with names and using a mixture of units</h4>
                     <p>columns and rows creation is really flexible. Units can be mixed and names can be provided to refer to columns and rows by their names</p>
                     <p>grid-template-columns: [columna1] 150px [columna2] minmax(50px, 10%) [columna3] 1fr [columna4] 0.5fr [columna5] 1fr [fin-columnas];</p>
-                    <p>grid-template-rows: [fila1] 25% [fila2] 2fr [fila3] auto [fin-filas]</p>
-                    <ul class="contenedor-grid-nv3 disposicion-columnas-y-filas-nombres gap">
+                    <p>grid-template-rows: [fila1] 25% [fila2] 2fr [fila3] auto [fin-filas]. It only can be noticed if container has a higher heigth than needed by its items. If no defined height in the container, the rows will be adjusted to the size of the content. </p>
+                    <ul class="contenedor-grid-nv3 disposicion-columnas-y-filas-nombres gap min-height">
                         <li class="elemento-grid">1</li>
                         <li class="elemento-grid">2</li>
                         <li class="elemento-grid">3</li>
@@ -100,9 +101,10 @@
                 </article>
                 <article class="contenedor-grid-nv2 gap borde-externo">
                     <h4>Defining implicit rows</h4>
+                    <p>If you have more content than the predefined rows (specified by grid-template-rows) can accommodate, the browser will generate additional rows to accommodate that content. These rows are considered ‘implicit’, as you do not explicitly define them with grid-template-rows.e.g.</p>
                     <p>Creating repetitive columns (grid-template-columns: 1fr repeat(3, 2fr) 0.5fr)</p>
-                    <p>Defining implicit row dimensions (grid-auto-rows: minmax(60px, auto))</p>
-                    <ul class="contenedor-grid-nv3 disposicion-tres-columnas-repetitivas minmax gap">
+                    <p>Defining implicit row dimensions (grid-auto-rows: minmax(60px, auto)). Auto allows to create a file with a size up to the max size of the container </p>
+                    <ul class="contenedor-grid-nv3 disposicion-tres-columnas-repetitivas minmax gap min-height">
                         <li class="elemento-grid">1</li>
                         <li class="elemento-grid">2</li>
                         <li class="elemento-grid">3</li>
@@ -118,6 +120,14 @@
                     <p>Names given to columns and rows can be used to place items</p>
                     <p>there's room for 4 columns. As item 6 has no room, it jumps to the next line, below num 7</p>
                     <p>2 to 5 are implicitly positioned</p>
+                    <p>
+                        grid-template-columns: 0.5fr repeat(2, 1fr) auto; the last column get only as many space as it needs to accomodate its content. The remaining free space is distributed among 3 columns 0.5 parts, 1 part and 1 part</p>
+                    <p>
+                        grid-template-areas: 
+                          "header header header header"
+                          "sidebar main main main"
+                          "footer footer footer footer";                        
+                    </p>
                     <ul class="contenedor-grid-nv3 disposicion-areas gap ">
                         <li class="elemento-grid elemento-grid-encabezado">1</li>
                         <li class="elemento-grid">2</li>
@@ -125,7 +135,7 @@
                         <li class="elemento-grid">4</li>
                         <li class="elemento-grid">5</li>
                         <li class="elemento-grid">6</li>
-                        <li class="elemento-grid  elemento-grid-pie">7</li>
+                        <li class="elemento-grid elemento-grid-pie">7</li>
                     </ul>
                 </article>
             </section>
@@ -137,6 +147,7 @@
                     <p>The first one allows to place items along the horizontal axis. values: start end center stretch</p>
                     <p>the second one allows to place items along the vertical axis. values: start end center stretch baseline. It just takes sense when vertical size of container is bigger than the addition of the size of its elements</p>
                     <p>the third one is a shortcut to place items along both axis at the same time</p>
+                    <p>By default, grid elements occupy all the space in their container. Justify-content alters this behaviour and makes them occupy only what they need</p>
                 </article>                
                 <article class="contenedor-grid-nv2 gap borde-externo">
                     <h4>justify-items: center</h4>
@@ -162,9 +173,8 @@
                         <li class="elemento-grid">7</li>
                     </ul>
                 </article>
-
                 <article class="contenedor-grid-nv2 gap borde-externo">
-                    <h4>justify-items: end</h4>
+                    <h4>align-items: start</h4>
                     <ul class="contenedor-grid-nv3 disposicion-tres-columnas-repetitivas gap min-height borde-interno ai-start">
                         <li class="elemento-grid">1</li>
                         <li class="elemento-grid">2</li>
@@ -174,9 +184,9 @@
                         <li class="elemento-grid">6</li>
                         <li class="elemento-grid">7</li>
                     </ul>
-                </article>
+                </article> 
                 <article class="contenedor-grid-nv2 gap borde-externo">
-                    <h4>justify-items: end</h4>
+                    <h4>align-items: end</h4>
                     <ul class="contenedor-grid-nv3 disposicion-tres-columnas-repetitivas gap min-height borde-interno ai-end">
                         <li class="elemento-grid">1</li>
                         <li class="elemento-grid">2</li>
@@ -186,7 +196,7 @@
                         <li class="elemento-grid">6</li>
                         <li class="elemento-grid">7</li>
                     </ul>
-                </article>                
+                </article> 
                 <article class="contenedor-grid-nv2 gap borde-externo">
                     <h4>place-items: center</h4>
                     <ul class="contenedor-grid-nv3 disposicion-tres-columnas-repetitivas gap min-height borde-interno pi-center">
