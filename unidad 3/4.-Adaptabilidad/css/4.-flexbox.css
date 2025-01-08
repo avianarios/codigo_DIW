@@ -5,7 +5,7 @@
 }
 
 .container > p {
-  flex:400px;
+  flex:clamp(10vw,40vw,400px); /*Same as flex-grow:1 flex-shrink:1 flex-basis:clamp(10vw,40vw,400px)*/
   background-color: lightblue;
   margin:0px;
   padding: 1rem;

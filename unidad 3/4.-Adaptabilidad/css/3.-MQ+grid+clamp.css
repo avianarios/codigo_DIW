@@ -13,17 +13,7 @@ ul{
   margin: 0 auto;
   display: grid;
   gap: 1rem;
-}
-
-p{
-  font-size: 0.75rem;
-  margin:0px;
-  padding:0px;
-}
-
-h1{
-  font-size: 1rem;
-  text-align: center;
+  max-width: 100vw;
 }
 
 /* 2 columnas en pantallas mayores de 500px */
@@ -31,14 +21,6 @@ h1{
   .contenedor-grid-nv1 { 
     grid-template-columns: repeat(2, 1fr); 
     max-width: 80vw;
-  }
-
-  p{
-    font-size: 1rem;
-  }
-
-  h1{
-    font-size: 1.25rem;
   }
 }
 
@@ -48,14 +30,5 @@ h1{
      grid-template-columns: repeat(3, 1fr); 
      max-width: 70vw;
   }
-
-  p{
-    font-size: 1.25rem;
-  }
-
-  h1{
-    font-size: 1.5rem;
-  }
-
 }
 

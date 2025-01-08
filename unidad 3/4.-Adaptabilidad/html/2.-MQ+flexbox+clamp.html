@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Media queries and flexbox</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="../css/base.css">
+        <link rel="stylesheet" type="text/css" href="../css/2.-MQ+flexbox+clamp.css">
+    </head>
+    <body>
+      <header>
+        <h1>Ejemplo de disposición adaptable (responsive layout) con puntos de ruptura en 1000 y 500</h1>
+        <p class="masdemil">Disposición mayor a 1000. Se usan 4 columnas</p>
+        <p class="menosdemil">Disposición menor de 1000. Se usan 2 columnas</p>
+        <p class="menosdequinientos">Disposición menor de 500. Se usa 1 columna</p>
+        <p>Es importante la etiqueta que le dice a la web que adapte su ancho al ancho de la pantalla del dispositivo</p>
+      </header>
+      <section class="flex-wrap contenedor-flexbox-nv1 jc-center gap">
+          <article class="contenedor-flexbox-nv2 tamaño-base coloreado borde">
+            <h2>Capítulo primero. Que trata de la condición y ejercicio del famoso hidalgo don Quijote de la Mancha</h2>
+            <p>En un lugar de la Mancha, de cuyo nombre no quiero acordar-me, no ha mucho tiempo que vivía un hidalgo de los de lanza en astillero, adarga antigua, rocín flaco y galgo corredor. </p>
+          </article>
+          
+          <article class="contenedor-flexbox-nv2 tamaño-base coloreado borde">
+            <h2>Capítulo II. Que trata de la primera salida que de su tierra hizo el ingenioso don Quijote</h2>
+            <p>Hechas, pues, estas prevenciones, no quiso aguardar más tiempo a poner en efeto su pensamiento, apretándole a ello la falta que él pensaba que hacía en el mundo su tardanza, según eran los agravios que pensaba deshacer, tuertos que enderezar, sinrazones que emendar, y abusos que mejorar y deudas que satisfacer.</p>
+          </article>
+          
+          <article class="contenedor-flexbox-nv2 tamaño-base coloreado borde">
+            <h2>Capítulo III. Donde se cuenta la graciosa manera que tuvo don Quijote en armarse caballero</h2>
+            <p>Y así, fatigado deste pensamiento, abrevió su venteril y limitada cena; la cual acabada, llamó al ventero, y, encerrándose con él en la caballeriza, se hincó de rodillas ante él, diciéndole:</p>
+          </article>
+          
+          <article class="contenedor-flexbox-nv2 tamaño-base coloreado borde">
+            <h2>Capítulo IV. De lo que le sucedió a nuestro caballero cuando salió de la venta</h2>
+            <p>La del alba sería cuando don Quijote salió de la venta, tan contento, tan gallardo, tan alborozado por verse ya armado caballero, que el gozo le reventaba por las cinchas del caballo.</p>
+          </article>
+      </section>
+    </body>
+</html>

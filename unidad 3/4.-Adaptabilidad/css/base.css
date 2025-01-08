@@ -4,15 +4,25 @@ body {
     width: 90vw;
 }
 
+/*clamp() allows you to set a dynamic value that fits within a specific range, ensuring that the value is neither too small nor too large. This is useful for properties that must change according to the size of the viewport (such as font size), but within controlled limits.
+
+clamp (lowest-value, preferred-value, highest-value)
+    -minimum-value: This is the lowest value that the property can take. If the calculated value is less than this value, the browser will use this value.
+    -preferred-value: This is the value that will normally be calculated, usually based on a dynamic unit such as vw, vh, or %. This value may change depending on the size of the viewport.
+    -max-value: This is the highest value the property can take. If the calculated value is greater than this value, the browser will use this value.
+*/
+
+
 h1{
-    font-size: 2rem;
+    font-size: clamp(1rem, 5vw, 2.5rem);
     text-align: center;
 }
 
 h2{
-    font-size: 1.5rem;
+    font-size: clamp(0.8rem, 4vw, 1.5rem);
 }
 
 p{
-    font-size: 1rem;
+    font-size: clamp(0.5rem, 2vw, 1rem);
+    margin:0px;
 }

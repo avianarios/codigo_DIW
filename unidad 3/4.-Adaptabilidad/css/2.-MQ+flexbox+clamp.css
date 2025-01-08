@@ -1,0 +1,93 @@
+article.borde{
+    padding: 20px;
+    border: 2px solid black;
+}
+
+article.coloreado:nth-of-type(even){
+    background-color: coral;
+}
+
+article.coloreado:nth-of-type(odd){
+    background-color:cornflowerblue;
+}
+
+.masdemil{
+    font-weight: bold;
+}
+
+
+/*disposicion.css*/
+.contenedor-flexbox-nv1 {
+    display: flex;
+}
+  
+.contenedor-flexbox-nv2 {
+    display:flex;
+    flex-direction: column;
+}
+
+.tamaño-base{
+    flex-basis: 20%;
+}
+
+.gap{
+    gap:10px;
+}
+
+.menosdemil, .menosdequinientos{
+    display:none;
+}
+
+.jc-center{
+    justify-content: center;
+}
+
+/*media_queries.css*/
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 1000px) {
+    .tamaño-base {
+        flex-basis: 40%;
+    }
+
+    .flex-wrap{
+        flex-wrap: wrap;    
+    }
+
+    .masdemil, .menosdequinientos{
+        display:none;
+    }
+
+    .menosdemil{
+        display:block;
+        font-weight: bold;
+    }
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 500px) {
+    .contenedor-flexbox-nv1 {
+        flex-direction: column;
+    }
+
+    .masdemil, .menosdemil{
+        display:none;
+    }
+
+    .menosdequinientos{
+        display:block;
+        font-weight: bold;
+    }
+}
+
+@media screen and ((max-width:1000px) and (orientation:landscape)) {
+    body{
+        background-color: lightgreen;
+    }
+}
+
+@media print {
+    body {
+      background-color: transparent;
+    }
+}
+  

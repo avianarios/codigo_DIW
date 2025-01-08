@@ -1,153 +1,39 @@
-/*base.css*/
-body {
-    margin: 0 auto;
-    background-color: antiquewhite;
-}
-
-h1{
-    font-size: 2rem;
-}
-
-h2{
-    font-size: 1.5rem;
-}
-
-p{
-    font-size: 1rem;
-}
-
-article.borde{
-    padding: 20px;
-    border: 2px solid black;
-}
-
-article.coloreado:nth-of-type(even){
-    background-color: coral;
-}
-
-article.coloreado:nth-of-type(odd){
-    background-color:cornflowerblue;
-}
-
-.masdemil{
-    font-weight: bold;
-}
-
-
-/*disposicion.css*/
 .contenedor-flexbox-nv1 {
     display: flex;
+    margin: 0 auto;
+    max-width: 80vw;
 }
 
-.flex-wrap{
-    flex-wrap:nowrap;
-}
-  
-.contenedor-flexbox-nv2 {
-    display:flex;
-    flex-direction: column;
+.flex-wrap {
+    flex-wrap: wrap;
 }
 
-.tamaño-base{
-    flex-basis: 20%;
+/* Crea 4 columnas*/
+.tamaño{
+    /*atajo para combinar tres propiedades: flex-grow, flex-shrink y flex-basis. 
+    Si sólo se especifica un valor, es equivalente a flex: 1 1 50%
+    ojo porque flex-grow:1 no es lo mismo que flex-grow:0. Igual pasa con flex-shrink*/        
+    flex: 25%;
 }
 
-.gap{
-    gap:10px;
-}
-
-.menosdemil, .menosdequinientos{
-    display:none;
-}
-
-.jc-center{
-    justify-content: center;
-}
-
-/*media_queries.css*/
-/* On screens that are 992px wide or less, go from four columns to two columns */
+/*Crea dos columnas cuando el viewport mide menos de 1000px*/
 @media screen and (max-width: 1000px) {
-    .tamaño-base {
-        flex-basis: 40%;
+    .tamaño {
+        flex: 50%;
     }
 
-    .flex-wrap{
-        flex-wrap: wrap;    
-    }
-
-    h1{
-        font-size: 1.75rem;
-    }
-
-    h2{
-        font-size: 1.25rem;
-    }
-
-    p{
-        font-size: 0.75rem;
-    }
-
-    .masdemil, .menosdequinientos{
-        display:none;
-    }
-
-    .menosdemil{
-        display:block;
-        font-weight: bold;
+    .contenedor-flexbox-nv1{
+        max-width: 100vw;
     }
 }
 
-/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+/*Crea una columna cuando el viewport mide menos de 500px*/
 @media screen and (max-width: 500px) {
-    .contenedor-flexbox-nv1 {
-        flex-direction: column;
-        flex-wrap: wrap;
+    .tamaño {
+        flex: 100%;
     }
 
-    .masdemil, .menosdemil{
-        display:none;
-    }
-
-    .menosdequinientos{
-        display:block;
-        font-weight: bold;
-    }
-
-    h1{
-        font-size: 1.5rem;
-    }
-
-    h2{
-        font-size: 1rem;
-    }
-
-    p{
-        font-size: 0.5rem;
-    }
-
-}
-
-@media screen and ((max-width:1000px) and (orientation:landscape)) {
-    body{
-        background-color: lightgreen;
-    }
-
-    h1{
-        font-size: 1.5rem;
-    }
-
-    h2{
-        font-size: 1rem;
-    }
-
-    p{
-        font-size: 0.5rem;
-    }    
-}
-
-@media print {
-    body {
-      background-color: transparent;
+    .contenedor-flexbox-nv1{
+        max-width: 100vw;
     }
 }
-  

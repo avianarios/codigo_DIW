@@ -1,0 +1,15 @@
+.tarjeta {
+  background-color: lightblue;
+  padding: 1rem;
+}
+
+.contenedor-grid-nv1 {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+/* The elements will wrap into rows when the width is not large enough to fit them in without any overflow*/
+/*auto-fit forces the browser to automatically adjust the number of columns depending on the available space. Thus, if having 3 elements and an 800px-wide container, two 300px-wide elements will be accommodated in the first row and the last one in the second one*/
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/*  grid-template-columns: repeat(auto-fill, minmax(clamp(200px, 20vw, 400px), 1fr));  */
+}

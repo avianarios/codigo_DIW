@@ -201,6 +201,11 @@ article>p{
     grid-row: 2/4;
 }
 
+#ejemplo3 li:nth-child(2){
+    /*It expands 2 columns from where it starts */
+    grid-column: span 2;
+}
+
 #ejemplo3 li:nth-child(4){
     /*It starts at column num 2 and it ends two columns later */
     grid-column: 2/span 2;
