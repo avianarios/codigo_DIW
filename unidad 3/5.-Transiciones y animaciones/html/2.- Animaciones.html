@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplos de Animaciones CSS</title>
+    <link rel="stylesheet" href="../css/2.-Animaciones.css">
+</head>
+<body>
+    <header>
+        <h1>Ejemplos de Animaciones CSS</h1>
+    </header>
+
+    <head>
+        <section>
+            <article>
+                <h3>CSS Animations</h3>
+                <p>Transitions don't offer as much control over animations as keyframe-based animations do.</p>
+                <p>Keyframe-based animations allow you to define changes in CSS properties over time using a set of keyframes.</p>
+                <p>Creating CSS animations involves two steps:</p>
+                <ol>
+                    <li>Define individual keyframes and name the animation using a <code>@keyframes</code> declaration.</li>
+                    <li>Reference the keyframes by name with the <code>animation-name</code> property, and specify the <code>animation-duration</code> along with optional properties to control the animation's behavior.</li>
+                </ol>
+            
+                <p>Interesting properties</p>
+                <ul>
+                    <li>animation-name: name of @keyframes that define animations</li>
+                    <li>animation-duration:	how many seconds or milliseconds that an animation takes to complete one cycle</li>
+                    <li>animation-timing-function: the easing functions (linear | ease | ease-in | ease-out | ease-in-out | cubic-bezier(n,n,n,n)).</li>
+                    <li>animation-delay: when the animation will start.</li>
+                    <li>animation-iteration-count: number of times an animation cycle should be played before stopping.</li>
+                    <li>animation-direction: whether or not the animation should play in reverse on alternate cycles. (normal | reverse | alternate | alternate-reverse)</li>
+                    <li>animation-fill-mode: how a CSS animation should apply styles to its target before and after it is executing (none | forwards | backwards | both)</li>
+                    <li>animation-play-state: whether the animation is running or paused.</li>
+                    <li>@keyframes:	 values for the animating properties at various points during the animation.</li>
+                </ul>
+                <p>There is a shortcut property that sums up the previous properties (in that order): animation</p>
+                <p>Those animations using top, botton, right or left require elements to have relative, fixed, or absolute position to manipulate or animate it</p>
+            </article>
+            <article>
+                <main>
+                    <section class="contenedor-flex">
+                        <h2>1. Transformaciones Básicas</h2>
+                        <p class="animacion-item mover">Mover</p>
+                        <p class="animacion-item escalar">Escalar</p>
+                        <p class="animacion-item rotar">Rotar</p>
+                    </section>
+
+                    <section class="contenedor-flex">
+                        <h2>2. Cambios de Propiedades de Estilo</h2>
+                        <p class="animacion-item cambiar-color">Cambiar color</p>
+                        <p class="animacion-item opacidad">Opacidad</p>
+                        <p class="animacion-item borde">Borde</p>
+                        <p class="animacion-item sombra">Sombra</p>
+                    </section>
+
+                    <section class="contenedor-flex">
+                        <h2>3. Tamaño y Dimensiones</h2>
+                        <p class="animacion-item ancho-alto">Ancho/Alto</p>
+                        <p class="animacion-item espaciado">Espaciado</p>
+                    </section>
+
+                    <section class="contenedor-flex">
+                        <h2>4. Movimiento Complejo</h2>
+                        <p class="animacion-item trayectoria">Trayectoria</p>
+                        <p class="animacion-item pendulo">Pendulo</p>
+                    </section>
+
+                    <section class="contenedor-flex">
+                        <h2>5. Efectos Visuales</h2>
+                        <p class="animacion-item fade-in-out">Fade In/Out</p>
+                        <p class="animacion-item zoom">Zoom</p>
+                        <p class="animacion-item pulso">Pulso</p>
+                        <p class="animacion-item sacudir">Sacudir</p>
+                        <p class="animacion-item brillo">Brillo</p>
+                    </section>
+
+                    <section class="contenedor-flex">
+                        <h2>6. Textos</h2>
+                        <p class="animacion-item maquina">Máquina de escribir</p>
+                        <p class="animacion-item texto-color">Texto de color</p>
+                    </section>
+
+                    <section class="contenedor-flex">
+                        <h2>7. Fondos</h2>
+                        <p class="animacion-item gradiente">Gradiente animado</p>
+                    </section>
+
+                    <section class="contenedor-flex">
+                        <h2>8. Efectos 3D</h2>
+                        <p class="animacion-item rotacion-3d">Rotación 3D</p>
+                    </section>
+
+                    <section class="contenedor-flex">
+                        <h2>9. Parallax</h2>
+                        <p class="animacion-item parallax">Parallax</p>
+                    </section>
+                </main>
+            </article>
+        </section>
+    </body>
+</html>

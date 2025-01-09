@@ -1,119 +1,336 @@
-/*apariencia*/
-img{
-    display: block;
+/* Reset global */
+* {
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
-.gato {
-    position: relative;
-    animation-duration: 2s;
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-.img-centrada{
-    margin-left: auto;
-    margin-right: auto;
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 30px;
+}
+
+section {
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 50px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+.contenedor-flex {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;    /* Centra los elementos horizontalmente */
+}
+
+.animacion-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 100px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 1s ease-in-out;
+    cursor: pointer;
+}
+
+.animacion-item:hover {
+    transform: scale(1.5);
 }
 
 
-/*animaciones*/
+/* 1. Transformaciones Básicas */
 
-/*gato1*/
-
-.mueve-derecha{
-    animation-name: move-right;
+.mover {
+    background-color: #4CAF50;
+    animation: mover 3s infinite alternate;
 }
 
-.mueve-izquierda{
-    animation-name: move-left;
+@keyframes mover {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(200px, 0); }
 }
 
-.back {
-    transform: scaleX(-1);
-    filter: fliph;
-}
- 
-@keyframes move-right {
-    from {left: 0;}
-    to {left: 50vw;}
+.escalar {
+    background-color: #3498db;
+    animation: escalar 3s infinite alternate;
 }
 
-/*Nedless to add move-left
-@keyframes move-right {
-    0% {left:0}
-    50% {left:500px}
-    100% {left:0}
-}*/
-
-@keyframes move-left {
-    from {left: 50vw;}
-    to {left: 0;}
+@keyframes escalar {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.5); }
 }
 
-/*gato2*/
-
-.sacudelo {
-    animation-name: shakeit;
+.rotar {
+    background-color: #e74c3c;
+    animation: rotar 3s infinite linear;
 }
 
-@keyframes shakeit {
-    0% {left: 0}
-    10% {left: -15vw;}
-    20% {left: 15vw;}
-    30% {left: -12vw;}
-    40% {left: 12vw;}
-    50% {left: -8vw;}
-    60% {left: 8vw;}
-    70% {left: -4vw;}
-    80% {left: 4vw;}
-    90% {left: -1vw;}
-    100% {left: 1vw;}
+@keyframes rotar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 2. Cambios de Propiedades de Estilo */
+
+.cambiar-color {
+    background-color: #9b59b6;
+    animation: cambiarColor 5s infinite alternate;
+}
+
+@keyframes cambiarColor {
+    0% { background-color: yellow;}
+    33% { background-color: green;}
+    66% { background-color: blue;}
+    100% { background-color: red;}
+
+    /*from {background-color: red;}
+    to {background-color: yellow;}    */
+}
+
+.opacidad {
+    background-color: #f39c12;
+    animation: opacidad 3s infinite alternate;
+}
+
+@keyframes opacidad {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.borde {
+    background-color: #2ecc71;
+    border: 2px solid #2980b9;
+    animation: borde 3s infinite alternate;
+}
+
+@keyframes borde {
+    0% { border-color: #2980b9; }
+    100% { border-color: #f39c12; }
+}
+
+.sombra {
+    background-color: #34495e;
+    animation: sombra 3s infinite alternate;
+}
+
+@keyframes sombra {
+    0% { box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); }
+    100% { box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); }
+}
+
+/* 3. Tamaño y Dimensiones */
+
+.ancho-alto {
+    background-color: #16a085;
+    animation: anchoAlto 3s infinite alternate;
+}
+
+@keyframes anchoAlto {
+    0% { width: 100px; height: 100px; }
+    100% { width: 200px; height: 200px; }
+}
+
+.espaciado {
+    background-color: #f1c40f;
+    animation: espaciado 3s infinite alternate;
+}
+
+@keyframes espaciado {
+    0% { margin-left: 10%; padding: 0px; }
+    100% { margin-left: 80%; padding: 0px; }
+}
+
+/* 4. Movimiento Complejo */
+
+.trayectoria {
+    background-color: #e67e22;
+    animation: trayectoria 3s infinite alternate;
+}
+
+@keyframes trayectoria {
+    0% { transform: translateX(0) rotate(0deg); }
+    100% { transform: translateX(200px) rotate(360deg); }
+}
+
+.pendulo {
+    background-color: #1abc9c;
+    animation: pendulo 2s infinite ease-in-out;
+    transform-origin: center center;
+}
+
+@keyframes pendulo {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(45deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* 5. Efectos Visuales */
+
+.fade-in-out {
+    background-color: #8e44ad;
+    animation: fadeInOut 3s infinite;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.zoom {
+    background-color: #2c3e50;
+    animation: zoom 3s infinite alternate;
+}
+
+@keyframes zoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(2); }
+}
+
+.pulso {
+    background-color: #f39c12;
+    animation: pulso 2s infinite ease-in-out;
+}
+
+@keyframes pulso {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.sacudir {
+    background-color: #e74c3c;
+    animation: sacudir 0.2s infinite alternate;
+}
+
+@keyframes sacudir {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-10px); }
+    100% { transform: translateX(10px); }
+}
+
+.brillo {
+    background-color: #9b59b6;
+    animation: brillo 2s infinite alternate;
+}
+
+@keyframes brillo {
+    0% { filter: brightness(1); }
+    100% { filter: brightness(1.5); }
+}
+
+/* 6. Textos */
+
+.maquina {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: maquina 5s steps(30) infinite;
+}
+
+@keyframes maquina {
+    100% { width: 100%; }
+}
+
+.texto-color {
+    font-size: 30px;
+    font-weight: bold;
+    background: linear-gradient(to right, #ff7e5f, #feb47b, #86a8e7, #91e8e1);
+    background-size: 300% 100%; /* Amplía el gradiente horizontalmente */
+    background-clip: text;
+    color: transparent; /* Oculta el color del texto */
+    animation: textoColor 5s infinite alternate; /* Asocia la animación */
+}
+
+@keyframes textoColor {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* 7. Fondos */
+
+.gradiente {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(45deg, red, blue);
+    background-size: 400% 400%;
+    animation: gradiente 10s ease infinite;
+}
+
+@keyframes gradiente {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 8. Efectos 3D */
+
+.rotacion-3d {
+    background-color: #9b59b6;
+    animation: rotacion3d 4s infinite linear;
+    transform-style: preserve-3d;
+}
+
+@keyframes rotacion3d {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+
+/* 9. Parallax */
+
+.parallax {
+    background: url('https://www.w3schools.com/w3images/parallax1.jpg') no-repeat fixed;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+    animation: parallax 10s infinite linear;
+}
+
+@keyframes parallax {
+    0% { background-position: 0 0; }
+    100% { background-position: 0 50%; }
 }
 
 
-/*gato3*/
-.mueve-infinito-alterno{
-    animation: go-left-right 3s alternate infinite;
-}
-
-@keyframes go-left-right {
-    from { left: -90%; }             /* animate from left: 0px */
-    to { left: 90%; } /* animate to left: 100%-50px */
-}
-
-/*boton1*/
-@keyframes cambia-fondo {
-    /*from {background-color: red;}*/
-    to {background-color: yellow;}
-}
- 
-button{
-    font-size: 1.15rem;
-}
-
-.boton1 {
-    animation: cambia-fondo 4s;
-}
-
-/*gato4*/
-.mueve-cuatro-inversa{
-    /*The animation CSS property is a shorthand property for animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode and animation-play-state.*/
-    animation: go-left-right 3s alternate-reverse 4;
-    /*animation-name: go-left-right;
-    animation-duration: 3s;
-    animation-iteration-count: 2;
-    animation-direction: alternate-reverse;*/
-
-}
-
-/*boton2*/
-@keyframes four-corners {
-    0%   {background-color:lightcoral; left:0px; top:0px;}
-    25%  {background-color:lightblue; left:-200px; top:0px;}
-    50%  {background-color:lightgreen; left:-200px; top:-200px;}
-    75%  {background-color:lightyellow; left:0px; top:-200px;}
-    100% {background-color:lightskyblue; left:0px; top:0px;}
-}
-
-.cuatro-esquinas-ease-out{
-    position: relative;
-    animation: four-corners 5s ease-out;
-}
