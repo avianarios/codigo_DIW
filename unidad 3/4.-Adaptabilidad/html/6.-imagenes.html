@@ -7,29 +7,51 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--Obliga al dispositivo móvil a usar su ancho de pantalla real. Algunos mienten y usan uno más ancho para luego redimensionar la página web recibida-->
-        <link rel="stylesheet" type="text/css" href="../css/8.-imagenes.css">
+        <link rel="stylesheet" type="text/css" href="../css/6.-imagenes.css">
+        <link rel="stylesheet" type="text/css" href="../css/base.css">
+
     </head>
-    <body>
-        <section class="contenedor-flex-nv1">
-            <h1>Ejemplo de imágenes adaptables</h1>
-            <p>Los puntos de ruptura son: 1800px,1200px y 800px</p>
-            <p>Las imágenes tienen dos formatos: webp y jpg</p>
-            <p>Cada formato tiene cuatro tamaños (en píxeles), para acomodarse a cada resolución (resolution switching). El último tamaño es una imagen recortada (art direction): 1600, 1000, 700 y 300</p>
-            <p>Se usan las siguientes reglas para asignar cada tamaño de imagen a cada resolución con la idea de que siempre queden márgenes a los lados de la imagen:</p>
-            <ul>
-                <li>En una pantalla con más de 1800px de anchura, se muestra la imagen de 1600px</li>
-                <li>En una pantalla entre 1200 y 1799px de anchura, se muestra la imagen de 1000px</li>
-                <li>En una pantalla entre 800 y 1199px de anchura, se muestra la imagen de 700px</li>
-                <li>En una pantalla menor de 800px de anchura, se muestra la imagen de 3000px</li>
-            </ul>
-            <p>Estos puntos de ruptura se han elegido a partir de unas estadísticas que dicen que las resoluciones (horizontales, en píxeles) más usadas son:</p>
-            <ul>
-                <li>Para escritorio, 1920 y 1366</li>
-                <li>Para Tableta, 768</li>
-                <li>Para móviles, Alrededor de 400</li>
-            </ul>
-            <p>Por supuesto, los cálculos anteriores se aplican cuando se trata de imágenes que ocupan toda la página a las que se les deja expandirse a su máximo tamaño.
-                    A las que se les ha puesto unas dimensiones en CSS, su tamaño en el fichero debe ser justo ese y sólo debería cambiar cuando cambie el código CSS para adaptarse a distintos dispositivos.</p>
+    <body class="contenedor-flex-nv1">
+        <section>
+            <article>
+                <h1>Imágenes adaptables</h1>
+                <p>Hay dos técnicas para gestionar imágenes adaptativas para distintas resoluciones</p>
+                <ul>
+                    <li>Resolution switching (cambio de resolución): cargar imágenes de distinta resolución según el tamaño de pantalla. Permite que la imagen se vea bien con el menor peso posible. Se usa la etiqueta <code>img</code> con las propiedades <code>srcset</code> y <code>sizes</code></li>
+                    <li>art direction (adaptación artística). Modifica la composición visual de la imagen según la resolución en la que se muestre. No sólo cambiará el tamaño, sino se podría aplicar recorte, orientación o proporción. Se usa la etiqueta <code>picture</code> y la propiedad <code>source</code></li>
+                </ul>
+                <p>En ambas técnicas se puede, y es deseable, proporcionar varios formatos de fichero  para que el navegador elija el que soporte</p>
+                <p>La lista de formatos debe ir de más moderno a más antiguo, ya que el navegador elegirá el primero que soporte</p>
+                <p>Recordemos que los formatos más modernos tienen la ventaja de que suelen comprimir más los datos y, por tanto, a igualdad de calidad, ofrecen menos peso O a igualdad de peso, ofrecen más calidad</p>
+                <p>El primer paso es determinar los puntos de ruptura, que son dimensiones del ancho de la pantalla para las que un diseño de un sitio web cambia para adaptarse a diferentes dispositivos</p>
+                <p>Una lista de puntos de ruptura exhaustiva sería:</p>
+                <ul>
+                    <li>360px: Teléfonos inteligentes pequeños.</li>
+                    <li>480px: Teléfonos grandes en orientación vertical.</li>
+                    <li>576px: Teléfonos grandes en orientación horizontal.</li>
+                    <li>768px: Tabletas en orientación vertical.</li>
+                    <li>992px: Tabletas en orientación horizontal o laptops compactas.</li>
+                    <li>1200px: Laptops Full HD y monitores pequeños.</li>
+                    <li>1440px: Monitores estándar de alta resolución (2K).</li>
+                    <li>1920px: Pantallas Full HD grandes.</li>
+                    <li>2560px: Pantallas ultrawide y 2K.</li>
+                    <li>3840px: Pantallas 4K.</li>
+                </ul>
+            </article>
+        </section>
+        <section>
+            <article>
+                <h1>Ejemplo de imágenes adaptables</h1>
+                <p>En este ejemplo se han usado como puntos de ruptura: 1800px,1200px y 800px (deberían haberse usado más, es sólo un ejemplo)</p>
+                <p>Las imágenes tienen dos formatos: webp y jpg y cada uno está en cuatro resoluciones (1600, 1000, 700 y 300), para acomodarse a cada resolución de pantalla (resolution switching) siendo la última resolución una imagen recortada (art direction)</p>
+                <p>Se usan las siguientes reglas para asignar cada tamaño de imagen a cada resolución con la idea de que siempre queden márgenes a los lados de la imagen:</p>
+                <ul>
+                    <li>En una pantalla con más de 1800px de anchura, se muestra la imagen de 1600px</li>
+                    <li>En una pantalla entre 1200 y 1799px de anchura, se muestra la imagen de 1000px</li>
+                    <li>En una pantalla entre 800 y 1199px de anchura, se muestra la imagen de 700px</li>
+                    <li>En una pantalla menor de 800px de anchura, se muestra la imagen de 300px</li>
+                </ul>
+            </article>
 
 <!--
     When the browser starts to load a page, it starts to download (preload) any images before the main parser has started to load and interpret the page's CSS and JavaScript.
@@ -37,16 +59,29 @@
     Is unavoidable to have presentation information on a markup document due to the fact that the browser starts downloading image sources before the size of the image in the page is known
 -->
             <article>
-                <p>Opción 1: usar max-width o max-heigth para que la imagen se adapte</p>
-                <p>Muy mala idea, aunque en pantalla aparezca con tamaño reducido, se sigue descargando la imagen a plena resolución</p>
+                <h2>Opción 1: adaptar la imagen a la resolución de la pantalla usando CSS</h2>
+                <p>Hay dos opciones:</p>
+                    <ul>
+                        <li>max-width</li>
+                        <li>width y height junto con consultas de medios (media queries)</li>
+                    </ul>
+                <p>Muy mala idea porque, aunque en pantalla aparezca con tamaño reducido, se sigue descargando la imagen a plena resolución Lo recomendable es cambiar su resolución en un programa de tratamiento de imágenes y así se tiene una imagen con un peso menor.</p>
                 <picture>
                     <img src="../img/Paisaje-arbol-1600px.webp" alt="un paisaje precioso" id="imagen1">
                 </picture>
             </article>
 
             <article>
-                <h3>Resolution problem</h3>
-                <p>Se le proporciona al navegador información sobre las imágenes disponibles, su resolución y el tamaño que queremos que ocupen en pantalla según la resolución y el navegador es quien elige la imagen</p>
+                <h2>Opción 2: Cambio de resolución (resolution switching)</h2>
+                <p>Mediante un programa de tratamiento de imágenes, se hacen varias versiones de cada imagen y cada formato cambiando la resolución (recuerda ponerles un nombre descriptivo)</p>
+                <p>Se le proporciona al navegador información sobre las imágenes disponibles, su resolución y el tamaño que queremos que ocupen en pantalla según la resolución y el navegador es quien elige la imagen. Recuerda ordenarlas decrecientemente por modernidad, ya que el navegador presentará la primera que soporte.</p>
+                <p>¿Cómo funciona?</p>
+                <ul>
+                    <li>Se presenta, mediante la etiqueta <code>srcset</code>, una lista de imágenes alternativas junto con su tamaño en píxeles para que el navegador presente la más adecuada</li>
+                    <li>Se define,  mediante la etiqueta <code>sizes</code>, el tamaño que la imagen debería ocupar en la ventana del navegador expresada como un porcentaje del ancho de pantalla (vw) o un tamaño fijo en píxeles</li>
+                    <li>Se define, mediante la etiqueta <code>img</code>, una imagen de respaldo por si el navegador no soporta srcset o no puede evaluarla</li>
+                    <li>El navegador evalúa el tamaño del viewport y aplica la regla correspondiente en sizes. Esto le indica qué tamaño "parece" tener la imagen en el diseño, y el navegador elige de srcset la imagen más cercana a ese tamaño. Si no soporta <code>srcset</code>, usa la imagen en <code>src</code></li>
+                </ul>
                 <img
                     srcset="../img/Paisaje-arbol-1600px.webp 1600w,
                             ../img/Paisaje-arbol-1000px.webp 1000w,
@@ -61,16 +96,14 @@
                             (max-width: 1199px) 60vw,
                             (max-width: 1799px) 50vw,
                             1600px"
-                            src="../img/Paisaje-arbol-300px.webp" alt="Un bonito paisaje de sierra"
+                    src="../img/Paisaje-arbol-300px.webp" alt="Un bonito paisaje de sierra"
                 />
-                <!--If the viewport is less than 499px, the image will fill 80% of the viewport width. Other units can be used
-                    If no rule fits (the width of the viewport is higher than 1799px), then 1600px image will be selected-->
             </article>
 
             <article>
-                <h3>Art-direction problem</h3>
+                <h2>Opción 2: Adaptación artística (Art-direction)</h3>
                 <p>Cuando la pantalla es muy pequeña, la imagen se reduce tanto que es imposible apreciar bien al protagonista de la imagen</p>
-                <p>Solución: Para resoluciones muy pequeñas, se descarta parte del fondo para centrar la atención en el protagonista, recortando la imagen</p>
+                <p>Solución: recortar la imagen, descartando parte del fondo para centrar la atención en el protagonista</p>
                 <p>El diseñador obliga al navegador a usar la imagen que él especifica</p>
                 <picture>
                     <source type="image/webp"  media="(max-width: 799px)" srcset="../img/Paisaje-arbol-300px.webp" />
