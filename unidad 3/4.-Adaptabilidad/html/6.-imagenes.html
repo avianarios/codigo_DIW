@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--Obliga al dispositivo móvil a usar su ancho de pantalla real. Algunos mienten y usan uno más ancho para luego redimensionar la página web recibida-->
         <link rel="stylesheet" type="text/css" href="../css/6.-imagenes.css">
-        <link rel="stylesheet" type="text/css" href="../css/base.css">
+        <link rel="stylesheet" type="text/css" href="../css/base+clamp.css">
 
     </head>
     <body class="contenedor-flex-nv1">
@@ -62,62 +62,76 @@
                 <h2>Opción 1: adaptar la imagen a la resolución de la pantalla usando CSS</h2>
                 <p>Hay dos opciones:</p>
                     <ul>
-                        <li>max-width</li>
-                        <li>width y height junto con consultas de medios (media queries)</li>
+                        <li>usar max-width para que la imagen se redimensione cuando lo hace la pantalla</li>
+                        <li>Usar una anchura y altura fijas (width y height) junto con consultas de medios (media queries)</li>
                     </ul>
-                <p>Muy mala idea porque, aunque en pantalla aparezca con tamaño reducido, se sigue descargando la imagen a plena resolución Lo recomendable es cambiar su resolución en un programa de tratamiento de imágenes y así se tiene una imagen con un peso menor.</p>
+                <p>Muy mala idea porque, aunque en pantalla aparezca con la resolución adecuada, se sigue descargando la imagen a plena resolución, con lo cual se está desperdiciando ancho de banda.</p>
+                <p>¿Qué es lo recomendable? Redimensionar la imagen en un programa de tratamiento de imágenes para obtener una imagen para cada resolución de pantalla para la que queremos diseñar y mandarle al navegador sólo la imagen adecuada a la resolución de la pantalla. De esta forma, se tiene una imagen con un peso menor.</p>
                 <picture>
                     <img src="../img/Paisaje-arbol-1600px.webp" alt="un paisaje precioso" id="imagen1">
                 </picture>
             </article>
 
             <article>
-                <h2>Opción 2: Cambio de resolución (resolution switching)</h2>
-                <p>Mediante un programa de tratamiento de imágenes, se hacen varias versiones de cada imagen y cada formato cambiando la resolución (recuerda ponerles un nombre descriptivo)</p>
-                <p>Se le proporciona al navegador información sobre las imágenes disponibles, su resolución y el tamaño que queremos que ocupen en pantalla según la resolución y el navegador es quien elige la imagen. Recuerda ordenarlas decrecientemente por modernidad, ya que el navegador presentará la primera que soporte.</p>
-                <p>¿Cómo funciona?</p>
+                <h2>Opción 2: Cambio de resolución (resolution switching) y dirección de arte (art direction)</h2>
                 <ul>
-                    <li>Se presenta, mediante la etiqueta <code>srcset</code>, una lista de imágenes alternativas junto con su tamaño en píxeles para que el navegador presente la más adecuada</li>
-                    <li>Se define,  mediante la etiqueta <code>sizes</code>, el tamaño que la imagen debería ocupar en la ventana del navegador expresada como un porcentaje del ancho de pantalla (vw) o un tamaño fijo en píxeles</li>
-                    <li>Se define, mediante la etiqueta <code>img</code>, una imagen de respaldo por si el navegador no soporta srcset o no puede evaluarla</li>
-                    <li>El navegador evalúa el tamaño del viewport y aplica la regla correspondiente en sizes. Esto le indica qué tamaño "parece" tener la imagen en el diseño, y el navegador elige de srcset la imagen más cercana a ese tamaño. Si no soporta <code>srcset</code>, usa la imagen en <code>src</code></li>
+                    <li>Cambio de resolución: Mediante un programa de tratamiento de imágenes, se hacen varias versiones de cada imagen y cada formato cambiando la resolución (recuerda ponerles un nombre descriptivo). Recuerda ordenarlas decrecientemente por modernidad, ya que el navegador presentará la primera que soporte.</li>
+                    <li>Dirección de arte: Cuando la pantalla es muy pequeña, la imagen se reduce tanto que es imposible apreciar bien al protagonista de la imagen. Solución: recortar la imagen, descartando parte del fondo para centrar la atención en el protagonista</li>
                 </ul>
+                <p>
+                <p>¿Cómo funciona?. Hay dos opciones:</p>
+                <ul>
+                    <li>
+                        <code>img srcset</code>
+                        <ul>
+                            <li>Se presenta, mediante la etiqueta <code>srcset</code>, una lista de imágenes alternativas junto con su tamaño en píxeles para que el navegador presente la más adecuada</li>
+                            <li>Se define,  mediante la etiqueta <code>sizes</code>, el tamaño que la imagen debería ocupar en la ventana del navegador expresada como un porcentaje del ancho de pantalla (vw) o un tamaño fijo en píxeles</li>
+                            <li>Se define, mediante la etiqueta <code>img</code>, una imagen de respaldo por si el navegador no soporta srcset o no puede evaluarla</li>
+                            <li>El navegador evalúa el tamaño del viewport y aplica la regla correspondiente en sizes. Esto le indica qué tamaño "parece" tener la imagen en el diseño, y el navegador elige de srcset la imagen más cercana a ese tamaño. Si no soporta <code>srcset</code>, usa la imagen en <code>src</code></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <code>picture source</code>
+                        <ul>
+                            <li>Se presenta, mediante la etiqueta <code>source</code>, cada fichero especificando su tipo (etiqueta <code>type</code>), las condiciones que, de cumplirse, permitirán seleccionarlo (etiqueta <code>media</code>) y el nombre del fichero (etiqueta <code>srcset</code>)</li>
+                            <li>se presenta un fichero de respaldo mediante la etiqueta <code>img</code></li>
+                            <li>El navegador va recorriendo la lista de ficheros y presenta la que cumpla con los criterios establecidos, siempre que soporte el formato.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3>La siguiente imagen se carga usando img srcset</h3>
+                <p>img srcset no está diseñada para proporcionar formatos alternativos. Se puede, pero el navegador elige por resolución, no tiene forma de conocer el formato del archivo. Por tanto, habría que organizarlos por resolución y, dentro de cada una, por tipo de archivo. Además, tampoco permite aplicar reglas complejas. La siguiente etiqueta, <code>picture</code> sí permite elegir por formato y aplicar reglas más avanzadas</p>
                 <img
                     srcset="../img/Paisaje-arbol-1600px.webp 1600w,
-                            ../img/Paisaje-arbol-1000px.webp 1000w,
-                            ../img/Paisaje-arbol-700px.webp 700w,
-                            ../img/Paisaje-arbol-300px.webp 300w,
                             ../img/Paisaje-arbol-1600px.jpg 1600w,
+                            ../img/Paisaje-arbol-1000px.webp 1000w,
                             ../img/Paisaje-arbol-1000px.jpg 1000w,
+                            ../img/Paisaje-arbol-700px.webp 700w,
                             ../img/Paisaje-arbol-700px.jpg 700w,
+                            ../img/Paisaje-arbol-300px.webp 300w,
                             ../img/Paisaje-arbol-300px.jpg 300w"
                     sizes=" (max-width: 499px) 80vw,
                             (max-width: 799px) 70vw,
                             (max-width: 1199px) 60vw,
                             (max-width: 1799px) 50vw,
                             1600px"
-                    src="../img/Paisaje-arbol-300px.webp" alt="Un bonito paisaje de sierra"
+                    src="../img/Paisaje-arbol-300px.jpg" alt="Un bonito paisaje de sierra"
                 />
             </article>
+            <h3>La siguiente imagen se carga usando picture</h3>
+            <p>Picture es la elección recomendada. Proporciona mucho más control al programador sobre qué imagen cargará el navegador. Además, permite al navegador usar reglas complejas y seleccionar por resolución o por formato de archivo</p>
+            <picture>
+                <source type="image/webp"  media="(max-width: 799px)" srcset="../img/Paisaje-arbol-300px.webp" />
+                <source type="image/webp"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/Paisaje-arbol-700px.webp" />
+                <source type="image/webp"  media="(min-width: 1200px) and (max-width: 1899px)" srcset="../img/Paisaje-arbol-1000px.webp" />
+                <source type="image/webp"  media="(min-width: 1900px)" srcset="../img/Paisaje-arbol-1600px.webp" />
 
-            <article>
-                <h2>Opción 2: Adaptación artística (Art-direction)</h3>
-                <p>Cuando la pantalla es muy pequeña, la imagen se reduce tanto que es imposible apreciar bien al protagonista de la imagen</p>
-                <p>Solución: recortar la imagen, descartando parte del fondo para centrar la atención en el protagonista</p>
-                <p>El diseñador obliga al navegador a usar la imagen que él especifica</p>
-                <picture>
-                    <source type="image/webp"  media="(max-width: 799px)" srcset="../img/Paisaje-arbol-300px.webp" />
-                    <source type="image/webp"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/Paisaje-arbol-700px.webp" />
-                    <source type="image/webp"  media="(min-width: 1200px) and (max-width: 1899px)" srcset="../img/Paisaje-arbol-1000px.webp" />
-                    <source type="image/webp"  media="(min-width: 1900px)" srcset="../img/Paisaje-arbol-1600px.webp" />
-
-                    <source type="image/jpeg"  media="(max-width: 799px)" srcset="../img/Paisaje-arbol-300px.jpg" />
-                    <source type="image/jpeg"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/Paisaje-arbol-700px.jpg" />
-                    <source type="image/jpeg"  media="(min-width: 1200px) and (max-width: 1899px)" srcset="../img/Paisaje-arbol-1000px.jpg" />
-                    <img src="../img/Paisaje-arbol-1600px.jpg" alt="Un bonito paisaje" />
-                </picture>
-            </article>
-
+                <source type="image/jpeg"  media="(max-width: 799px)" srcset="../img/Paisaje-arbol-300px.jpg" />
+                <source type="image/jpeg"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/Paisaje-arbol-700px.jpg" />
+                <source type="image/jpeg"  media="(min-width: 1200px) and (max-width: 1899px)" srcset="../img/Paisaje-arbol-1000px.jpg" />
+                <img src="../img/Paisaje-arbol-1600px.jpg" alt="Un bonito paisaje" />
+            </picture>
         </section>
     </body>
 </html>
