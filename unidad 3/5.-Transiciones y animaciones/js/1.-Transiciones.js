@@ -15,7 +15,7 @@ cambio2.addEventListener("click", (evento) => {
 });
 
 
-let transformaciones=["escalar-rotar", "escalar", "rotar", "trasladar"];
+let transformaciones=["escalar-rotar", "escalar", "rotar", "trasladar", "deformar"];
 for (let imagen of document.querySelectorAll("#imagenes1 > img")){
     imagen.addEventListener("mouseover", (evento)=>{
         if (!imagen.classList.contains("transition-linear")){

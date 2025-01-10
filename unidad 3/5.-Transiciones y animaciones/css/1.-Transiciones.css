@@ -72,6 +72,10 @@ button{
     transform: scale(0.15) rotate(1turn);
 }
 
+.deformar{
+    transform: skew(20deg, 10deg);
+}
+
 .transformacion1{
     transition-property: background-color;
     transition-duration: 2s;
@@ -107,9 +111,6 @@ button{
 }
 
 .transition-bezier{
-    /*transition-property: transform;
-    transition-duration: 3s;
-    transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);*/
     transition: transform 3s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
