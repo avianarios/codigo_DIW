@@ -1,0 +1,119 @@
+/*apariencia*/
+img{
+    display: block;
+}
+
+.gato {
+    position: relative;
+    animation-duration: 2s;
+}
+
+.img-centrada{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*animaciones*/
+
+/*gato1*/
+
+.mueve-derecha{
+    animation-name: move-right;
+}
+
+.mueve-izquierda{
+    animation-name: move-left;
+}
+
+.back {
+    transform: scaleX(-1);
+    filter: fliph;
+}
+ 
+@keyframes move-right {
+    from {left: 0;}
+    to {left: 50vw;}
+}
+
+/*Nedless to add move-left
+@keyframes move-right {
+    0% {left:0}
+    50% {left:500px}
+    100% {left:0}
+}*/
+
+@keyframes move-left {
+    from {left: 50vw;}
+    to {left: 0;}
+}
+
+/*gato2*/
+
+.sacudelo {
+    animation-name: shakeit;
+}
+
+@keyframes shakeit {
+    0% {left: 0}
+    10% {left: -15vw;}
+    20% {left: 15vw;}
+    30% {left: -12vw;}
+    40% {left: 12vw;}
+    50% {left: -8vw;}
+    60% {left: 8vw;}
+    70% {left: -4vw;}
+    80% {left: 4vw;}
+    90% {left: -1vw;}
+    100% {left: 1vw;}
+}
+
+
+/*gato3*/
+.mueve-infinito-alterno{
+    animation: go-left-right 3s alternate infinite;
+}
+
+@keyframes go-left-right {
+    from { left: -90%; }             /* animate from left: 0px */
+    to { left: 90%; } /* animate to left: 100%-50px */
+}
+
+/*boton1*/
+@keyframes cambia-fondo {
+    /*from {background-color: red;}*/
+    to {background-color: yellow;}
+}
+ 
+button{
+    font-size: 1.15rem;
+}
+
+.boton1 {
+    animation: cambia-fondo 4s;
+}
+
+/*gato4*/
+.mueve-cuatro-inversa{
+    /*The animation CSS property is a shorthand property for animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode and animation-play-state.*/
+    animation: go-left-right 3s alternate-reverse 4;
+    /*animation-name: go-left-right;
+    animation-duration: 3s;
+    animation-iteration-count: 2;
+    animation-direction: alternate-reverse;*/
+
+}
+
+/*boton2*/
+@keyframes four-corners {
+    0%   {background-color:lightcoral; left:0px; top:0px;}
+    25%  {background-color:lightblue; left:-200px; top:0px;}
+    50%  {background-color:lightgreen; left:-200px; top:-200px;}
+    75%  {background-color:lightyellow; left:0px; top:-200px;}
+    100% {background-color:lightskyblue; left:0px; top:0px;}
+}
+
+.cuatro-esquinas-ease-out{
+    position: relative;
+    animation: four-corners 5s ease-out;
+}
