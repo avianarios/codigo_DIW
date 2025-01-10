@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transiciones vs Animaciones en CSS</title>
+    <link rel="stylesheet" href="../css/1.-Transiciones vs animaciones.css">
+    <script src="../js/1.-Transiciones vs animaciones.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Transiciones vs Animaciones en CSS</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>¿Qué son las Transiciones?</h2>
+            <p>Las transiciones permiten cambiar el valor de una propiedad de un elemento en respuesta a un evento.</p>
+            <p>Son ideales para efectos simples</p>
+            <p>No se ejecutan por sí solas; necesitan un "disparador" que puede ser un cambio de estado o evento (como hover, focus, o la modificación de una propiedad en JavaScript). </p>
+            <p>Son más simples que las animaciones y están limitadas a un cambio entre dos estados (el inicial y el final). No permiten control detallado sobre los pasos intermedios del cambio.</p>
+            <p>Se definen con la propiedad transition.</p>
+            <p>Se ejecutan una sola vez cuando se dispara el cambio de estado.</p>
+
+            <h3>Ejemplo de Transición</h3>
+            <p class="caja-transicion transicion-color-fondo">Pasa el ratón por aquí</p>
+            <pre><code>
+.caja-transicion{
+    text-align: center;
+    padding: 20px;
+    margin: 10px auto;
+    width: 200px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: blue;
+}
+
+.transicion-color-fondo {
+    transition: background-color 1s;
+}
+
+.caja-transicion:hover {
+    background-color: red;
+}
+            </code></pre>
+            <h3>Ejemplo de transición controlado mediante JavaScript</h3>
+            <p>Las transiciones también pueden ejecutarse mediante el cambio dinámico de clases. En este caso, el "disparador" es el cambio en el valor de una propiedad transicionada.</p>
+
+            <h3>Ejemplo</h3>
+            <button id="boton_color" class="transicion-color-fondo">Cambiar color</button>
+            <pre><code>
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 1s;
+}                
+
+.transicion-color-fondo {
+    transition: background-color 1s;
+}
+        
+.fondo-rojo {
+    background-color: red;
+}
+            </code></pre>
+            <p><strong>JavaScript:</strong></p>
+            <pre><code>
+let cambio = document.getElementById("boton_color");
+cambio.addEventListener("click", () => cambio.classList.toggle("fondo-rojo"));
+            </code></pre>
+        </section>        
+
+        <section>
+            <h2>¿Qué son las Animaciones?</h2>
+            <p>Las animaciones permiten definir cambios complejos con múltiples estados usando <code>@keyframes</code></p>
+            <p>Son ideales para secuencias repetitivas o automáticas.</p>
+            <p>Pueden ejecutarse automáticamente (cuando se carga la página) o controlarse mediante JavaScript.</p>
+            <p>Ofrecen mayor control y permiten definir múltiples estados (keyframes) para crear secuencias complejas.</p>
+            <p>Requieren la propiedad animation y el uso de @keyframes para definir los pasos.</p>
+            <p>Pueden configurarse para repetirse (infinite) o limitar el número de iteraciones con animation-iteration-count.</p>
+            <p></p>
+
+            <h3>Ejemplo de Animación automática</h3>
+            <p class="caja-animacion">Esto es una animación</p>
+            <pre><code>.caja-animacion {
+                width: 100px;
+                height: 100px;
+                background-color: blue;
+                animation: cambio-color 2s infinite;
+            }
+
+            @keyframes cambio-color {
+                0% { background-color: blue; }
+                33% { background-color: green; }
+                66% { background-color: red; }
+                100% { background-color: blue; }
+            }</code></pre>
+        </section>
+
+        <section>
+            <h2>Diferencias Principales</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>Transiciones</th>
+                        <th>Animaciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Desencadenante</td>
+                        <td>Cambio de estado/evento</td>
+                        <td>Automáticas o cambio de estado/evento</td>
+                    </tr>
+                    <tr>
+                        <td>Complejidad</td>
+                        <td>Limitadas a dos estados</td>
+                        <td>Secuencias complejas con keyframes</td>
+                    </tr>
+                    <tr>
+                        <td>Ciclos</td>
+                        <td>Una sola vez por cambio</td>
+                        <td>Pueden repetirse (<code>infinite</code>)</td>
+                    </tr>
+                    <tr>
+                        <td>Definición</td>
+                        <td>Usan <code>transition</code></td>
+                        <td>Usan <code>@keyframes</code> y <code>animation</code></td>
+                    </tr>
+                    <tr>
+                        <td>Flexibilidad</td>
+                        <td>Menor</td>
+                        <td>Mayor</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>Ejemplo creado para entender las diferencias entre transiciones y animaciones en CSS.</p>
+    </footer>
+</body>
+</html>
