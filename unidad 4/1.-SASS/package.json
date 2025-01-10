@@ -4,8 +4,8 @@
   "description": "First npm project",
   "browserslist": "> 0.5%, last 4 versions, not dead",
   "scripts": {
-    "parcel:desarrollo": "parcel fuente/index.html --dist-dir 'desarrollo'",
-    "parcel:produccion": "parcel build fuente/index.html --public-url './' --dist-dir 'produccion'",
+    "parcel:desarrollo": "parcel fuente/index.html --dist-dir desarrollo",
+    "parcel:produccion": "parcel build fuente/index.html --public-url './' --dist-dir produccion",
     "limpia": "rimraf desarrollo produccion .parcel-cache",
     "des": "npm run parcel:desarrollo",
     "prod": "npm-run-all limpia parcel:produccion"

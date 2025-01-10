@@ -14,12 +14,6 @@
     Similarly, @extends will only apply up the chain; extending selectors in imported files, but not extending files that import this one.
     All imported members are namespaced by default.
     */
-/*@use 'variables' as *;
-@use 'media-query' as *;
-@use 'funciones' as *;
-@use 'varios' as *;*/
-/*MAPA
-Se accede a los valores con una llave*/
 /*
 Sass viene con muchos módulos, organizados por categoría
 
@@ -35,22 +29,23 @@ Para usar funciones incluidas en esos módulos en nuestro código, hay que invoc
     */
 /*FUNCIONES
 Se usan cuando hay que hacer algún cálculo, NO PARA REUTILIZAR CÓDIGO. Para eso están los mixins*/
-/************AVISO************
-El presente documento sólo pretende dar a conocer, de forma breve, las posibilidades de SASS.
-Para conocer el verdadero potencial de cada elemento, hay que acudir a la página oficial https://sass-lang.com/documentation
-*****************************/
-/*COMENTARIOS*/
+/*MAPA
+Se accede a los valores con una llave*/
 /*Este comentario irá en el CSS, salvo que se use el modo comprimido*/
 /*!Este comentario siempre irá en el CSS*/
+body {
+  font-size: 16px;
+  background-color: #3498db;
+}
+
+.navbar {
+  background-color: #2c3e50;
+}
+
 /*INTERPOLACIÓN*/
 /*Web desarrollada por Chiquito de la calzada*/
-/*VARIABLES
-Globales, definidas al principio del documento, fuera de toda clase o etiqueta, o locales, definidas dentro de una clase o etiqueta)
-En caso de conflicto se usa la local
-Las variables deberían estar todas en el mismo fichero _variables.scss
-*/
 body {
-  background-color: rgb(116, 222, 246);
+  background-color: rgb(181, 181, 243);
   color: rgb(248, 176, 176);
 }
 
@@ -60,7 +55,7 @@ Los Mixins permiten reutilizar el mismo código css en diferentes partes invocá
 En este se ha usado una función ("masOscuro", definida en el fichero _funciones.scss)*/
 main p, main .clase, footer p, footer .clase {
   text-align: center;
-  color: #f27272;
+  color: masOscuro(rgb(248, 176, 176));
   font-weight: bold;
   font-size: 1.25em;
 }
@@ -80,15 +75,15 @@ Se usa el operador & para referenciar al padre (en este caso a .header)*/
 
 nav h1 {
   text-align: center;
-  color: #f27272;
+  color: masOscuro(rgb(248, 176, 176));
   font-weight: bold;
   font-size: 2em;
 }
 nav p {
   text-align: center;
-  color: #f27272;
+  color: masOscuro(rgb(248, 176, 176));
   font-weight: bold;
-  font-size: 6.25rem;
+  font-size: pasaPXaREM(100);
 }
 
 /*LISTAS
@@ -268,5 +263,9 @@ h2:after {
   font: Arial sans-serif;
 }
 
+/*Las funciones definidas en un módulo pueden ser accesibles sin un @use explícito en algunos casos cuando se importan a través de un archivo principal (_main.scss). Esto se debe a un comportamiento algo permisivo en Sass que permite la propagación de funciones sin necesidad de hacer un @use explícito en los archivos que las necesiten, siempre que el archivo se haya importado previamente.
+Las variables de Sass:
+
+Por otro lado, las variables no se propagan de la misma manera que las funciones. Para las variables, es necesario que cada archivo donde se vayan a utilizar haga explícitamente un @use del archivo que las define. Esto se debe a que las variables están asociadas a un espacio de nombres y Sass no permite que se compartan entre archivos a menos que se haga explícitamente.*/
 /*if star is not used, namespaces need to be utilized:
     variables.$nombre_variable need to be specified everytime it's used*//*# sourceMappingURL=main.css.map */
