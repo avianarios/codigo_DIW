@@ -1,0 +1,21 @@
+@use '../utils/variables' as *;
+
+.layout {
+    display: flex;
+    gap: 20px;
+}
+
+.sidebar {
+    flex: 1;
+    background-color: $secondary-color;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.content {
+    flex: 3;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}

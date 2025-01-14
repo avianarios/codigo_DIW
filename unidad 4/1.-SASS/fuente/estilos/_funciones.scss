@@ -30,3 +30,5 @@ Se usan cuando hay que hacer algún cálculo, NO PARA REUTILIZAR CÓDIGO. Para e
 @function claro( $color ) 		{ @return lighten($color,16.667%); }
 @function masClaro( $color ) 	{ @return lighten($color,33.333%); }
 @function aunMasClaro( $color ) 	{ @return lighten($color,50%); }
+
+

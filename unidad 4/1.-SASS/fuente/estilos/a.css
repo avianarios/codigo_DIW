@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+header {
+    background: #4CAF50;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+main {
+    margin: 20px;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background: #f4f4f9;
+}
+
+pre {
+    background: #f4f4f4;
+    padding: 15px;
+    border-left: 5px solid #4CAF50;
+    overflow-x: auto;
+}
+
+.caja-transicion, .caja-animacion, .caja {
+    text-align: center;
+    padding: 20px;
+    margin: 10px auto;
+    width: 200px;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    background-color: blue;
+}
+
+.transicion-color-fondo {
+    transition: background-color 1s;
+}
+
+.caja-transicion:hover {
+    background-color: red;
+}
+
+.caja-animacion {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    animation: cambio-color 5s infinite;
+}
+
+@keyframes cambio-color {
+    0% { background-color: blue; }
+    33% { background-color: green; }
+    66% { background-color: red; }
+    100% { background-color: blue; }
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*button:hover {
+    background-color: #45a049;
+}*/
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #333;
+    color: white;
+    margin-top: 20px;
+}
+
+
+
+.fondo-rojo {
+    background-color: red;
+}

@@ -1,0 +1,4 @@
+@function escala-tipografica($base, $factor) {
+    @return $base * $factor;
+}
+  

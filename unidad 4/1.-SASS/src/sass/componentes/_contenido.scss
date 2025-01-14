@@ -1,0 +1,12 @@
+@use '../utils/variables' as *;
+
+.content article {
+    margin-bottom: 20px;
+}
+
+.content code {
+    background-color: $code-bg;
+    padding: 5px;
+    border-radius: 4px;
+}
+  

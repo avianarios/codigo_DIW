@@ -1,0 +1,14 @@
+@use '../utils/variables' as *;
+
+h1{
+    color:$accent-color;
+}
+
+h2 {
+    color: $primary-color;
+}
+
+p {
+    margin-bottom: 1em;
+}
+  
