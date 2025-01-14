@@ -1,0 +1,32 @@
+Ejercicio 1: Reglas Anidadas. Crea un archivo Sass que defina una clase .container con propiedades de padding y margin. Dentro de esa clase, define otra clase .title que tenga un color de texto y un tamaño de fuente. Utiliza reglas anidadas para definir la estructura.
+Create a Sass file that defines a .container class with padding and margin properties. Inside this class, define another class .title with text color and font size. Use nested rules to define the structure.
+
+Ejercicio 2: Estructuras de Datos (Variables, Listas y Mapas)
+    Crea variables para almacenar un color primario y un color secundario.
+    Crea una lista de valores con los tamaños de fuente.
+    Crea un mapa con el nombre de varios botones y sus propiedades como color y background-color.
+
+Ejercicio 3: Interpolación. Usa la interpolación para generar un nombre dinámico de clase, concatenando el prefijo "btn-" con un valor proporcionado.
+
+Ejercicio 4: Módulos Definidos por el Usuario. Crea dos archivos Sass: uno para definir funciones y otro para usarlas.
+    En el archivo _functions.scss, crea una función que calcule el área de un círculo dado su radio.
+    En el archivo principal styles.scss, importa el archivo de funciones y usa la función para calcular el área.
+
+Ejercicio 5: Módulos de Sass (sass:math, sass:string, etc.). Usa las funciones del módulo sass:math para realizar cálculos con tamaños de fuente.
+
+Ejercicio 6: Operadores. Usa los operadores de Sass para realizar cálculos con los valores de color, como aumentar la saturación o ajustar el brillo.
+
+Ejercicio 7: Estructuras de Control (if, for, each). Crea un archivo Sass donde uses una estructura de control @if para cambiar el color de fondo según el valor de una variable.
+
+Ejercicio 8: Funciones Definidas por el Usuario. Crea una función personalizada para calcular el valor de un borde en píxeles, dado un valor base y un factor multiplicador.
+
+Ejercicio 9: Mixins. Crea un mixin que agregue un borde redondeado y sombra a cualquier elemento. Usa el mixin en una clase .card.
+
+Ejercicio 10: Herencia. Usa la directiva @extend para crear una clase base .button con propiedades comunes, y luego extiende esa clase para crear una clase .primary-button con un color específico.
+
+Ejercicio 11: Uso combinado de todos los temas. Crea una página web con un sistema de botones dinámicos. Utiliza:
+    Variables para almacenar colores.
+    Funciones para calcular tamaños.
+    Mixins para aplicar estilos comunes.
+    Herencia para evitar la repetición de estilos.
+    Control de flujo (@if, @for, etc.) para manejar los diferentes tipos de botones.

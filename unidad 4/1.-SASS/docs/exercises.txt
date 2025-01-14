@@ -1,0 +1,41 @@
+Exercise 1: Nested Rules
+Create a Sass file that defines a .container class with padding and margin properties. Inside this class, define another class .title with text color and font size. Use nested rules to define the structure.
+
+Exercise 2: Data Structures (Variables, Lists, and Maps)
+    Create variables to store a primary and a secondary color.
+    Create a list of values with font sizes.
+    Create a map with the names of various buttons and their properties such as color and background-color.
+
+Exercise 3: Interpolation
+Use interpolation to generate a dynamic class name by concatenating the prefix "btn-" with a given value.
+
+Exercise 4: User-Defined Modules
+Create two Sass files: one to define functions and another to use them.
+    In the _functions.scss file, create a function that calculates the area of a circle given its radius.
+    In the main styles.scss file, import the functions file and use the function to calculate the area.
+
+Exercise 5: Sass Modules (sass:math, sass:string, etc.)
+Use functions from the sass:math module to perform calculations with font sizes.
+
+Exercise 6: Operators
+Use Sass operators to perform calculations with color values, such as increasing saturation or adjusting brightness.
+
+Exercise 7: Control Structures (if, for, each)
+Create a Sass file where you use an @if control structure to change the background color based on the value of a variable.
+
+Exercise 8: User-Defined Functions
+Create a custom function to calculate the border size in pixels, given a base value and a multiplier.
+
+Exercise 9: Mixins
+Create a mixin that adds rounded corners and a shadow to any element. Use the mixin in a .card class.
+
+Exercise 10: Inheritance
+Use the @extend directive to create a base .button class with common properties, and then extend this class to create a .primary-button class with a specific color.
+
+Exercise 11: Combined Use of All Topics
+Create a webpage with a dynamic button system. Use:
+    Variables to store colors.
+    Functions to calculate sizes.
+    Mixins to apply common styles.
+    Inheritance to avoid style repetition.
+    Control flow (@if, @for, etc.) to handle different button types.

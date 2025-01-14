@@ -1,1 +1,8 @@
 NO*
+*solu*
+node_modules
+desarrollo
+produccion
+tmp*
+.parcel-cache
+*SASS/*/*.css*
