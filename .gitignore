@@ -5,4 +5,4 @@ desarrollo
 produccion
 tmp*
 .parcel-cache
-*SASS/*/*.css*
+*sass/*/*.css*
