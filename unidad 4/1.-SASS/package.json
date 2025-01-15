@@ -6,6 +6,7 @@
   "scripts": {
     "parcel:desarrollo": "parcel fuente/index.html --dist-dir desarrollo",
     "parcel:produccion": "parcel build fuente/index.html --public-url './' --dist-dir produccion",
+    "compilar-sass": "sass --watch fuente:fuente --source-map",
     "limpia": "rimraf desarrollo produccion .parcel-cache",
     "des": "npm run parcel:desarrollo",
     "prod": "npm-run-all limpia parcel:produccion"
@@ -17,6 +18,7 @@
     "npm-run-all": "^4.1.5",
     "parcel": "^2.13.3",
     "parcel-plugin-imagemin": "^4.0.2",
-    "rimraf": "^5.0.5"
+    "rimraf": "^5.0.5",
+    "sass": "^1.83.4"
   }
 }
