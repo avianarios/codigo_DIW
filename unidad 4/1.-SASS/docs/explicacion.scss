@@ -3,6 +3,7 @@
 /*Este comentario irá en el CSS, salvo que se use el modo comprimido*/
 /*!Este comentario siempre irá en el CSS*/
 
+
 ////////////////////
 ////nested rules////
 ////////////////////
@@ -158,7 +159,7 @@ $color-fondo: #ecf0f1;
 $tamanyos:(40px, 80px, 160px);
 .banner {
   h1{
-    font-size: nth($tamanyos,2);  //Selecciono el 2º elemento de la lista tamanyos
+    font-size: nth($tamanyos,2);
   }
 }
   
@@ -172,6 +173,7 @@ $error:(
 .error-leve{
   font-size: map.get($error, "leve");
 }
+
 
 /////////////////////
 ////Interpolation////
@@ -221,162 +223,26 @@ $image-path: 'images/logo.png';
   background-image: url('#{$image-path}');
 }
 
-////////////////////////////
-////user defined modules////
-////////////////////////////
-/*User-defined modules allow code to be organised and reused by splitting it into smaller, more specific files. This improves the readability, modularity and maintainability of projects.
-
-How to name module files? _miModulo.scss.  This "_" prevents sass compiler to compile this files which are intented to be imported
-How to import modules? @use 'miModulo'; (no _ and no .scss)
-How to use imported content?
-  -@use ‘mySuperComplicatedFunctions' makes the contents of the imported file to be under a namespace based on the file name.For instance, mySuperComplicatedFunctions.variable or mySuperComplicatedFunctions.add(2,3)
-  -@use ‘mySuperComplicatedFunctions' as * -> no namespace is required to access any resource. This practice is risky because it can make it harder to track the origin of a resource and may cause conflicts if resources with the same name exist in different modules.
-  -@use ‘mySuperComplicatedFunctions' as 'myFunc'; -> the namespace is changed
-
-Forwarding modules (@forward 'miModulo';) ->
-  -In large projects, it is common to create a master file that gathers all modules. This simplifies the import into the main project file.
-  -@forward is useful when you want to consolidate several modules into a single file, so that the other files in your project don't have to import each module individually.
-
-Good practices using modules
-  -create an index file and use @forward on
-  -do not use large namespaces
-  -organize modules
-    -according to its purpose: variables, mixins, functions, etc.
-    -according to layout: header, sidebar, main, grid, etc.
-    -according to its purpose and to layout: 
-      base 
-      ∟_reinicio.scss -> global styles such as resets or normalisations
-      ∟ _tipografia.scss
-      componentes
-      ∟_contenido.scss -> styles for individual components
-      ∟_disposicion.scss -> styles related to the positioning of elements
-      ∟_lateral.scss -> styles for secondary elements such as sidebars
-      utilidades
-      ∟_funciones.scss
-      ∟_medios.scss
-      ∟_mixins.scss
-      ∟_variables.scss
-
-What is a reset?
-  a reset is a set of rules that are applied to remove the default styles that browsers automatically apply to HTML elements. Each browser has its own default stylesheet, which can cause inconsistencies in the appearance of a web page when viewed in different browsers.
-
-  Eric meyers's reset might be one of the most famous reset
-
-
-What is normalize?
-  Normalize keeps some reasonable default styles, adjusting them to be consistent across browsers. It's ideal for getting started with a modern design without worrying too much about inconsistencies.
-*/
-
-//Example 1: importing modules
-// _misFuncionesSuperComplicadas.scss
-$primary-color: #3498db;
-
-@mixin border-radius($radius) {
-  border-radius: $radius;
-}
-
-@function darken-color($color, $amount) {
-  @return darken($color, $amount);
-}
-
-//using _miModulo.scss in another file
-// styles.scss
-@use 'misFuncionesSuperComplicadas';
-
-.button {
-  color: misFuncionesSuperComplicadas.$primary-color;
-  @include misFuncionesSuperComplicadas.border-radius(10px);
-  background-color: misFuncionesSuperComplicadas.darken-color(#3498db, 10%);
-}
-
-/*Resulting CSS:
-.button {
-  color: #3498db;
-  border-radius: 10px;
-  background-color: #2980b9;
-}
-*/
-
-//Example 2: avoiding using namespaces
-//not recommended as this can lead to a loss of awareness of where the resource is located and can lead to conflict with resources that have the same name but belong to different modules.
-@use 'misFuncionesSuperComplicadas' as *;
-
-//Example 3: avoiding using large namespaces
-@use 'misFuncionesSuperComplicadas' as 'func';
-
-//Example 4: forwarding imported modules
-// _colors.scss
-$primary-color: #3498db;
-$secondary-color: #2ecc71;
-
-// _styles.scss
-@forward 'colors';
-
-// main.scss -> no need to import _colors.scss as it is importing _styles.scss wich forwards the former
-@use 'styles';
-
-.button {
-  background-color: styles.$primary-color;
-}
-
-
-//Example 5: forwarding
-// _variables.scss
-$font-size: 16px;
-$primary-color: #3498db;
-
-// _mixins.scss
-@mixin center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-// _functions.scss
-@function multiply($value, $factor) {
-  @return $value * $factor;
-}
-
-// _main.scss
-//hay que hacer @use?
-
-@forward 'variables';
-@forward 'mixins';
-@forward 'functions';
-
-// styles.scss
-@use 'main';
-
-.container {
-  font-size: main.$font-size;
-  color: main.$primary-color;
-  @include main.center;
-  width: main.multiply(10px, 2);
-}
 
 /////////////////
 ////operators////
 /////////////////
-//Example 1: arithmetic operators: +, -, *, /, %
+//Example 1: arithmetic operators: +, -, *, % (/ is deprecated, use math.div instead)
 $base: 16px;
 
 .container {
   font-size: $base * 1.5; // Resultado: 24px
-  padding: $base / 2;     // Resultado: 8px
+  padding: $base - 2;     // Resultado: 14px
 }
 
-
-//Example 2: comparison operators: ==, !=, <, >, <=, >=
+//Example 2: comparison operators: ==, !=, <, >, <=, >= using global function "if"
 $size: 10px;
 
 .container {
-  @if $size > 5px {
-    font-size: $size; // Resultado: 10px
-  }
+  font-size: if($size > 5px, $size, 5px); // Resultado: 10px si $size > 5px, 5px si no
 }
 
-//Example 3: Logical operators: and, or, not
-
+//Example 3: Logical operators: and, or, not using "if" global function
 $primary-color: #3498db;
 $use-color: true;
 
@@ -392,30 +258,253 @@ $variant: 'primary';
   content: $base-color + '-' + $variant; // Resultado: "color-primary"
 }
 
+//////////////////////
+////user functions////
+//////////////////////
+// Se usan cuando hay que hacer algún cálculo, NO PARA REUTILIZAR CÓDIGO. Para eso están los mixins
 
-//Operadores lógicos
-$list-map: (success: lightgreen, alert: tomato, info: lightblue);
-@mixin button-state($btn-state) {
-  @if (length($list-map) > 2 and length($list-map) < 5) {
-      background-color: map-get($list-map, $btn-state);
-  }
+//Example 1: converting units
+@function px-to-rem($px, $base-font-size: 16px) {
+  @return $px / $base-font-size * 1rem;
 }
 
-.btn {
-  @include button-state(success);
+.container {
+  padding: px-to-rem(32px); // Resultado: 2rem
+}
+
+.parrafo{
+  padding: px-to-rem(16px);
+}
+
+//Example 2: unit scaling
+@function escala-tipografica($base, $factor) {
+  @return $base * $factor;
+}
+
+h1 {
+  font-size: escala-tipografica(16px, 1.5); // Resultado: 24px
+}
+
+h2 {
+  font-size: escala-tipografica(16px, 1.25); // Resultado: 20px
+}
+
+//Example 3: chain manipulation
+@function generar-clase-color($nombre) {
+  @return '.color-' + $nombre;
+}
+
+#{generar-clase-color('primario')} {
+  color: #3498db;
+}
+
+#{generar-clase-color('secundario')} {
+  color: #34db8a;
+}
+
+#{generar-clase-color('resalto')} {
+  color: #db3434;
+}
+
+//Example 4: adding dynamic prefixes
+@function add-prefix($prefix, $value) {
+  @return "#{$prefix}-#{$value}";
+}
+
+#{add-prefix('btn', 'primary')}{
+  color:blue;
 }
 
 
 
-////////////////////////
-////built-in modules////
-////////////////////////
+/////////////////
+////debugging////
+/////////////////
+// @debug allows printing in the terminal the result of a calculation or the value of a method or variable.
+// it does not work with VS Code extension "live sass compiler". Use node package "sass" instead and configure a script: sass --watch source:destination --source-map
 
-//Para usar los elementos definidos en un primer módulo en un segundo hay que usar @use en el segundo salvo en las funciones, en cuyo caso SASS es permisivo y permite usarlas en algunos casos cuando se importan a través de un archivo principal (_main.scss). Así, si se importan las funciones y el fichero que las usa en el principal, el que las usa las puede utilizar aunque no tenga @use funciones   
+//Example 1: debugging variables
+$color-principal: #3498db;
+$padding: 20px;
 
-//Usar as * es útil cuando prefieres no agregar el prefijo del nombre del archivo o cuando necesitas importar muchas variables y no quieres escribir constantemente el nombre del módulo. Sin embargo, usar as * puede hacer que el código sea más difícil de mantener si tienes muchos archivos y variables con nombres similares, ya que no sabrás fácilmente de qué archivo proviene cada variable.
-/// 
-/*Sass viene con muchos módulos, organizados por categoría
+@debug $color-principal;
+@debug $padding;
+
+//Example 2: debugging expressions with operators
+$base-size: 16px;
+$multiplier: 1.5;
+$calculated-size: $base-size * $multiplier;
+@debug "Calculated size is #{$calculated-size}"; // Saldrá en la terminal con Dart Sass
+
+
+//Example 3: debugging user-defined functions
+@function add-prefix($prefix, $value) {
+  @return "#{$prefix}#{$value}";
+}
+@debug(add-prefix("button", ":hover"));
+
+
+//Example 3: debugging sass built-in functions
+@use 'sass:list';
+$colors: red, blue, green;
+@debug (list.append($colors, yellow));
+
+
+////////////////////////////
+////user-defined modules////
+////////////////////////////
+/*User-defined modules allow code to be organised and reused by splitting it into smaller, more specific files. This improves the readability, modularity and maintainability of projects.
+
+How to name module files? _miModulo.scss.  This "_" prevents sass compiler to compile this files which are intented to be imported
+
+How to import modules? by using @use directive at the beginning of the file: @use 'miModulo'; (no _ and no .scss)
+
+What is a directive?
+  -It's a special statement that affects the compiler's behavior or the file structure.
+  -They don't return any value but perform actions like import, mix, or condition.
+  -They start with an @.
+
+How to use imported content in the receiving module? 
+  -@use ‘mySuperComplicatedFunctions' makes the contents of the imported file to be under a namespace named like the file. Therefore, any resource must be preceded by the name of the module like, for instance, mySuperComplicatedFunctions.variable or mySuperComplicatedFunctions.add(2,3)
+  -@use ‘mySuperComplicatedFunctions' as * -> no namespace is required to access any resource. This is risky because it can make it harder to track the origin of a resource and may cause conflicts if resources with the same name exist in different modules.
+  -@use ‘mySuperComplicatedFunctions' as 'myFunc'; -> the namespace is changed to myFunc
+
+Forwarding modules
+  -In large projects, it is common to create an intermediate file that imports all modules before exporting them to the main file.
+  -This way, the main file don't have to import every single module individually.
+
+How to forward modules? by using @use and @forward directive (@use 'moduloInicial'; @forward 'miModulo';)
+
+Good practices using modules
+  -create an index file and use @forward on it
+  -do not use large namespaces
+  -organize modules:
+    -according to its purpose: variables, mixins, functions, etc.
+    -according to components: header, sidebar, main, grid, etc.
+    -according to its components and to its layout (my favourite): (suggested organization)
+        proyecto/
+        ├── fuente/
+        │   ├── sass/
+        │   │   ├── base/ -> 
+        |   |   |   ├── _normalizacion.scss
+        |   |   |   ├── _reinicio.scss
+        |   |   |   └── _tipografia.scss
+        │   │   ├── componentes/ -> organized by components, every style except layout!
+        │   │   │   ├── _botones.scss
+        │   │   │   ├── _cabecera.scss
+        │   │   │   ├── _pie.scss
+        │   │   │   └── _principal.scss
+        │   │   ├── disposicion/ -> organized by components, only layout-related sytles!
+        │   │   │   ├── _disp_comun.scss
+        │   │   │   ├── _disp_cabecera.scss
+        │   │   │   ├── _disp_pie.scss
+        │   │   │   └── _disp_principal.scss
+        │   │   ├── global/ -> reusable elements. they does not contain anything related to layout
+        │   │   │   ├── _funciones.scss
+        │   │   │   ├── _medios.scss
+        │   │   │   ├── _mixins.scss
+        │   │   │   └── _variables.scss
+        │   │   ├── principal.scss -> Everything will be imported here
+        │   ├── html/
+        │   ├── js/
+        │   ├── package.json
+        |   └── package-lock.json
+
+What is a reset?
+  a reset is a set of rules that are applied to remove the default styles that browsers automatically apply to HTML elements. Each browser has its own default stylesheet, which can cause inconsistencies in the appearance of a web page when viewed in different browsers.
+
+  Eric meyers's reset might be one of the most famous reset
+
+What is normalize?
+  Normalize keeps some reasonable default styles, adjusting them to be consistent across browsers. It's ideal for getting started with a modern design without worrying too much about inconsistencies.
+*/
+
+//Example 1: importing modules
+// This is the file "_misVariablesParaTodosLosCasos.scss "
+$primary-color: #3498db;
+
+//using _misVariablesParaTodosLosCasos.scss in styles.css
+// This is styles.scss file
+@use 'misVariablesParaTodosLosCasos';
+
+.button {
+  color: misVariablesParaTodosLosCasos.$primary-color;
+}
+
+//Example 2: avoid using namespaces
+//not recommended as this can lead to a loss of awareness of where the resource is located and can lead to conflict with resources that have the same name but belong to different modules.
+//this is styles.scss files
+@use 'misVariablesParaTodosLosCasos' as *;
+.button {
+  color: $primary-color;
+}
+
+//Example 3: avoid using large namespaces
+//this is styles.scss files
+@use 'misVariablesParaTodosLosCasos' as vars;
+.button {
+  color: vars.$primary-color;
+}
+
+//Example 4: forwarding imported modules
+// this is the file _colors.scss
+$primary-color: #3498db;
+$secondary-color: #2ecc71;
+
+// this is the file _styles.scss
+@use 'colors';
+@forward 'colors';
+
+// this is the file main.scss -> no need to import _colors.scss as it is importing _styles.scss wich forwards the former
+@use 'styles';
+
+.button {
+  background-color: styles.$primary-color;
+}
+
+
+//Example 5: forwarding
+// this is the file _variables.scss
+$font-size: 16px;
+$primary-color: #3498db;
+
+// this is the file _mixins.scss
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// this is the file _functions.scss
+@function multiply($value, $factor) {
+  @return $value * $factor;
+}
+
+// this is the file _main.scss
+@forward 'variables';
+@forward 'mixins';
+@forward 'functions';
+
+// this is the file styles.scss
+@use 'main';
+
+.container {
+  font-size: main.$font-size;
+  color: main.$primary-color;
+  @include main.center;
+  width: main.multiply(10px, 2);
+}
+
+
+
+
+//////////////////////////
+////built-in functions////
+//////////////////////////
+/*
+SASS has built-in functions. Some are global and some others are organized into modules that need to be imported before using them
+
+These modules are organized by similarity
     -sass:color -> generates new colors based on existing ones, making it easy to build color themes.
     -sass:list -> access and modify values in lists. They can be used to create dynamic collections like colors, sizes or menu elements
     -sass:map -> work with maps (a list of key-value pairs). They can be used to store configuration information, colors, sizes or any data that needs to be associated with a key in a map
@@ -429,26 +518,37 @@ $list-map: (success: lightgreen, alert: tomato, info: lightblue);
       -Dynamic generation of classes or ids
       -Working with paths or URLs
 
-     
-Para usar funciones incluidas en esos módulos en nuestro código, hay que invocarlo con @use "sass:módulo"
-
-@use "sass:map";
-@use "sass:math";
-@use "sass:string";
-
+The way of invoking sass built-in modules is @use "sass:map";
 */
 
-//Example 1: sass:color functions
+//Example 1: global built-in color functions
+//They are global functions, so no need to import anything
+
+//rgb($red, $green, $blue) Crea un color en formato RGB a partir de valores numéricos de los componentes rojo, verde y azul. 
+$color: rgb(52, 152, 219);
+
+//rgba($red, $green, $blue, $alpha) Similar a rgb, pero permite especificar la opacidad del color a través de un valor de alfa (transparencia).
+$color: rgba(52, 152, 219, 0.5);
+
+//hsla($hue, $saturation, $lightness, $alpha) Permite crear un color en el modelo de color HSL (matiz, saturación, luminosidad) con un valor alfa para la opacidad.
+$color: hsla(200, 100%, 50%, 0.3);
+
+
+//Example 2: sass color built-in module
 @use 'sass:color';
 $color: #3498db;
 //adjust-color($color, $adjustment...) Permite ajustar propiedades del color, como el brillo, la saturación, la opacidad, etc. 
-$adjusted-color: color.adjust($color, $lightness: 20%, $saturation: -10%);
+.button2 {
+  background-color: color.adjust($color-primary, $blue: -30%, $alpha: 0.5);
+}
 
 //change-color($color, $changes...) Cambia una propiedad específica de un color, como el tono, la saturación o la opacidad, sin afectar las demás propiedades. Similar a adjust-color, pero más explícito.
 $changed-color: color.change($color, $hue: 180deg, $alpha: 0.8);
 
 //color.scale($color, $adjustments...) Escala un color, ajustando su brillo, saturación, opacidad, etc. Es útil para crear variaciones de un color base.
-$scaled-color: color.scale($color, $lightness: -10%, $saturation: 15%);
+.button {
+  background-color: color.scale($color, $lightness: -10%, $saturation: 15%);
+}
 
 //mix($color1, $color2, $weight) color.scale($color, $adjustments...) Mezcla dos colores en un porcentaje especificado. Es útil para crear transiciones suaves o combinaciones de colores.
 $color2: #e74c3c;
@@ -463,68 +563,53 @@ $grayscale-color: color.grayscale($color);
 //invert($color, $amount) Invierte los colores en un porcentaje dado. Esto es útil para crear efectos visuales como inversiones de color en interacciones o animaciones.
 $inverted-color: color.invert($color, 50%);
 
-//rgb($red, $green, $blue) Crea un color en formato RGB a partir de valores numéricos de los componentes rojo, verde y azul. 
-$color: color.rgb(52, 152, 219);
 
-//rgba($red, $green, $blue, $alpha) Similar a rgb, pero permite especificar la opacidad del color a través de un valor de alfa (transparencia).
-$color: color.rgba(52, 152, 219, 0.5);
-
-//hsla($hue, $saturation, $lightness, $alpha) Permite crear un color en el modelo de color HSL (matiz, saturación, luminosidad) con un valor alfa para la opacidad.
-$color: color.hsla(200, 100%, 50%, 0.3);
-
-
-$color-primary: #3498db;
-.button {
-  background-color: color.scale(#$color-primary, $lightness: -30%);
-}
-
-.button:hover{
-  background-color: color.scale(#$color-primary, $lightness: 10%);
-}
-
-$new-color: color.scale($color-primary, $red: 10%, $saturation: -20%);
-
-a:visited {
-  background-color: color.scale($color-primary, $red: 10%, $saturation: -20%);;
-}
-
-.button2 {
-  background-color: color.adjust($color-primary, $blue: -30%, $alpha: 0.5);
-}
-
-
-
-//Example 2: sass:list functions
+//Example 3: sass:list functions
+//Sass lists are immutable, it doesn’t modify the original list.
 @use 'sass:list';
-
 $colors: red, blue, green;
+$colors2: lightcoral, lightblue, lightgreen;
 
 // list.length($list) Devuelve la longitud de una lista.
 $number-of-colors: list.length($colors); // Resultado: 3
 
+// list.index($list, $value) Devuelve la posición del primer elemento en la lista que coincide con $value.
+$index: list.index($colors, blue); // Resultado: 2
+
 // list.nth($list, $n) Devuelve el elemento en la posición $n de la lista (empezando desde 1).
 $second-color: list.nth($colors, 2); // Resultado: blue
+
+//list.set-nth($list, $n, $value) devuelve una copia de la lista $list con el valor $value en la posición $n
+$second-color: list.set-nth($second-color, 3, green);
 
 // list.append($list, $value) Añade un valor al final de la lista.
 $new-colors: list.append($colors, yellow); // Resultado: red, blue, green, yellow
 
-// list.insert($list, $index, $value) Inserta un valor en la posición especificada de la lista.
-$updated-colors: list.insert($colors, 2, cyan); // Resultado: red, cyan, blue, green
-
-// list.remove($list, $index) Elimina el valor en la posición especificada de la lista.
-$updated-colors: list.remove($colors, 2); // Resultado: red, green
-
 // list.join($list, $separator) Une los elementos de la lista en una cadena, separándolos con el valor $separator.
 $colors-string: list.join($colors, ', '); // Resultado: red, blue, green
 
-// list.index($list, $value) Devuelve la posición del primer elemento en la lista que coincide con $value.
-$index: list.index($colors, blue); // Resultado: 2
-
-// list.slice($list, $start, $length) Extrae una sublista de la lista original, comenzando desde la posición $start y con una longitud de $length.
-$sublist: list.slice($colors, 2, 2); // Resultado: blue, green
+// list.zip($lista1, $lista2) combina las listas de forma que va intercalando sus valores
+$nueva-lista: list.zip($colors,$colors2);
 
 
-//Example 3: sass:map functions
+//Example 4: some list functions
+@use "sass:list";
+$colors: red, blue, green, yellow;
+$menu-items: home, about, services, contact;
+
+.example {
+  color: list.nth($colors, 2);
+}
+
+.contenedor {
+  width: list.length($menu-items) * 100px;
+  display: grid;
+  grid-template-columns: repeat(list.length($menu-items), 1fr);
+}
+
+
+//Example 5: sass:map functions
+//Maps in Sass are immutable, which means that the contents of a map value never changes. Sass’s map functions all return new maps rather than modifying the originals
 $colors: (
   primary: #3498db,
   secondary: #2ecc71,
@@ -580,19 +665,7 @@ $nested-map: (
 $updated-map: map.deep-remove($nested-map, secondary);
 // Resultado: (colors: (primary: #3498db), typography: (header: 16px, body: 14px))
 
-//map.filter($map, $predicate) Filtra el mapa basándose en una función de predicado. Retorna un nuevo mapa con las claves y valores que cumplan con el predicado.
-$colors: (
-  primary: #3498db,
-  secondary: #2ecc71,
-  accent: #e74c3c
-);
-
-$filtered-map: map.filter($colors, $key, $value) {
-  @return $value == #3498db;
-}
-// Resultado: (primary: #3498db)
-
-//map.merge-deep($map1, $map2) Fusiona dos mapas, pero si una clave tiene un valor de mapa en ambos mapas, los valores se fusionan recursivamente.
+//map.deep-merge($map1, $map2) Fusiona dos mapas, pero si una clave tiene un valor de mapa en ambos mapas, los valores se fusionan recursivamente.
 $map1: (
   colors: (
     primary: #3498db,
@@ -606,99 +679,78 @@ $map2: (
   )
 );
 
-$merged-map: map.merge-deep($map1, $map2);
+$merged-map: map.deep-merge($map1, $map2);
 // Resultado: (colors: (primary: #3498db, secondary: #2ecc71, accent: #e74c3c))
 
 
-$colors: red, blue, green, yellow;
-$menu-items: home, about, services, contact;
-
-.example {
-  color: list.nth($colors, 2);  // Devuelve 'blue'
-}
-
-.contenedor {
-  // Usamos list.length para contar los elementos de la lista
-  width: list.length($menu-items) * 100px;  // Resultado: 400px
-  display: grid;
-  grid-template-columns: repeat(list.length($menu-items), 1fr);  // Distribuye los elementos en columnas iguales
-}
-
-
-
-//Example 4: sass:math functions
+//Example 6:sass:math functions
 //math.div($a, $b) Realiza una división, pero de forma segura para evitar la confusión de unidades en las divisiones.
 $width: 500px;
 $columns: 5;
-$column-width: math.div($width, $columns); // Resultado: 100px
+$column-width: math.div($width, $columns);
 
 //math.pow($base, $exponent) Calcula el valor de $base elevado a la potencia de $exponent.
 $base: 2;
 $exponent: 3;
-$result: math.pow($base, $exponent); // Resultado: 8
+$result: math.pow($base, $exponent);
 
 //math.sqrt($number) Calcula la raíz cuadrada de un número.
 $number: 16;
-$square-root: math.sqrt($number); // Resultado: 4
+$square-root: math.sqrt($number);
 
 //math.abs($number) Devuelve el valor absoluto de un número.
 $number: -20;
-$absolute-value: math.abs($number); // Resultado: 20
+$absolute-value: math.abs($number);
 
 //math.min($a, $b, ...) Devuelve el valor mínimo de los números proporcionados.
 $number1: 50;
 $number2: 20;
 $number3: 100;
-$min-value: math.min($number1, $number2, $number3); // Resultado: 20
+$min-value: math.min($number1, $number2, $number3);
 
 //math.max($a, $b, ...) Devuelve el valor máximo de los números proporcionados.
 $number1: 50;
 $number2: 20;
 $number3: 100;
-$max-value: math.max($number1, $number2, $number3); // Resultado: 100
+$max-value: math.max($number1, $number2, $number3);
 
 //math.random($min, $max) Devuelve un número aleatorio entre los valores $min y $max (inclusive).
 $min: 1;
 $max: 10;
-$random-value: math.random($min, $max); // Resultado: un número aleatorio entre 1 y 10
+$random-value: math.random($min, $max);
 
 //math.round($number)Redondea el número al entero más cercano.
 $number: 3.7;
-$rounded: math.round($number); // Resultado: 4
+$rounded: math.round($number);
 
 //math.floor($number) Redondea el número hacia abajo al entero más cercano.
 $number: 3.7;
-$floored: math.floor($number); // Resultado: 3
+$floored: math.floor($number);
 
 //math.ceil($number) Redondea el número hacia arriba al entero más cercano.
 $number: 3.1;
-$ceiled: math.ceil($number); // Resultado: 4
-
-//math.mod($a, $b) Devuelve el residuo de dividir $a entre $b.
-$a: 17;
-$b: 5;
-$remainder: math.mod($a, $b); // Resultado: 2
+$ceiled: math.ceil($number);
 
 //math.clamp($value, $min, $max) Devuelve $value si está dentro del rango definido por $min y $max. Si $value es menor que $min, devuelve $min. Si es mayor que $max, devuelve $max.
 $value: 10;
 $min: 5;
 $max: 15;
-$clamped: math.clamp($value, $min, $max); // Resultado: 10
+$clamped: math.clamp($value, $min, $max);
 
 // Si el valor estuviera fuera del rango:
 $value2: 20;
-$clamped2: math.clamp($value2, $min, $max); // Resultado: 15
+$clamped2: math.clamp($value2, $min, $max);
 
 //math.sin($angle) Calcula el seno de un ángulo en radianes.
-$angle: math.div(45, 180) * math.pi; // Convertir 45 grados a radianes
+$angle: math.div(45, 180) * pi; // Convertir 45 grados a radianes
 $sine: math.sin($angle); // Resultado: 0.7071...
 
 //math.cos($angle) Calcula el coseno de un ángulo en radianes.
-$angle: math.div(60, 180) * math.pi; // Convertir 60 grados a radianes
+$angle: math.div(60, 180) * pi; // Convertir 60 grados a radianes
 $cosine: math.cos($angle); // Resultado: 0.5
 
 //math.tan($angle) Calcula la tangente de un ángulo en radianes.
-$angle: math.div(45, 180) * math.pi; // Convertir 45 grados a radianes
+$angle: math.div(45, 180) * pi; // Convertir 45 grados a radianes
 $tangent: math.tan($angle); // Resultado: 1
 
 
@@ -710,57 +762,44 @@ $texto: "Hoy es un día maravilloso para aprender Sass";
 $nombre: "Juan Pérez";
 $longitud: string.length($nombre);
 
-//str-includes($string, $substring) Comprueba si una subcadena está presente en la cadena principal. Devuelve true si la subcadena está presente y false en caso contrario.
-$contiene: string.str-includes($texto, "Sass");
-// Resultado: true
-
 //str-index($string, $substring) Devuelve la posición de la primera aparición de la subcadena dentro de la cadena principal. Si no se encuentra, devuelve null.
-$posicion: string.str-index($texto, "día");
+$posicion: string.index($texto, "día");
 // Resultado: 11
 
 //str-slice($string, $start, $end) Extrae una sección de la cadena desde la posición $start hasta la posición $end. Si no se especifica $end, extrae hasta el final de la cadena.
-$parte: string.str-slice($texto, 1, 3);
+$parte: string.slice($texto, 1, 3);
 // Resultado: "Hoy"
 
+//string.split($string, $separator, $limit: null) devuelve el texto como una lista. El carácter para decidir cómo separar los elementos es $separator. Limit es opcional y fija el número de elementos separados
+@debug (string.split($texto, " "));
+
 //str-replace($string, $old, $new) Reemplaza una subcadena dentro de la cadena con otra subcadena.
-$nueva-frase: string.str-replace($texto, "maravilloso", "increíble");
+$nueva-frase: string.replace($texto, "maravilloso", "increíble");
 // Resultado: "Hoy es un día increíble para aprender Sass";
 
 //str-to-lower-case($string) Convierte todos los caracteres de la cadena a minúsculas.
-$texto-minusculas: string.str-to-lower-case($texto);
+$texto-minusculas: string.to-lower-case($texto);
 
 //str-to-upper-case($string) Convierte todos los caracteres de la cadena a mayúsculas.
-$nombre-mayusculas: string.str-to-upper-case($texto);
+$nombre-mayusculas: string.to-upper-case($texto);
 
 //str-unquote($string) Elimina las comillas de una cadena, lo que es útil cuando se trabaja con cadenas citadas.
-$frase: "'Hola, mundo!'";
-$sin-comillas: string.str-unquote($frase);
+$sin-comillas: string.unquote($texto);
 // Resultado: "Hola, mundo!"
 
 //quote($string) Agrega comillas a la cadena.
-@use 'sass:string';
 $con-comillas: string.quote($texto);
 // Resultado: "'Hoy es un día maravilloso para aprender Sass'"
 
-//str-escape($string) Escapa caracteres especiales en una cadena de texto, lo cual es útil cuando se trabajan con valores CSS que incluyen caracteres especiales.
-$texto: "Escapando la comilla: \"";
-$texto-escapado: string.str-escape($texto);
-// Resultado: "Escapando la comilla: \\""
-
-//str-append($string, $suffix) Agrega una cadena al final de otra.
-$completo: string.str-append($texto, ". ¡Ánimo!");
-// Resultado: "Hola mundo!"
-
 //str-insert($string, $substring, $position) Inserta una subcadena en una posición específica dentro de la cadena.
-$texto: "Hola mundo";
-$insertado: string.str-insert($texto, " y genial", 25);
+$insertado: string.insert($texto, " y genial", 26);
 // Resultado: "Hoy es un día maravilloso y genial para aprender Sass";
-
 
 
 //////////////////////////
 ////Control structures////
 //////////////////////////
+//
 
 //Example 1: using if-else block to define background and text color
 $theme: 'dark';
@@ -792,7 +831,10 @@ body{
 }
 
 //Example 3: using for to set each paragraph with a different color
-//though includes the last value. to does not.
+/*Two options:
+    -though includes the last value.
+    -to does not.
+    */
 $colors: green, lightgreen, red, lightcoral;
 @for $i from 1 through list.length($colors) {
   p:nth-of-type(#{$i}) {
@@ -872,67 +914,6 @@ $color-list:(#0f0, #00f, orange, #ccc);
 }
 
 
-//////////////////////
-////user functions////
-//////////////////////
-// Se usan cuando hay que hacer algún cálculo, NO PARA REUTILIZAR CÓDIGO. Para eso están los mixins
-
-//Example 1: converting units
-@function px-to-rem($px, $base-font-size: 16px) {
-  @return $px / $base-font-size * 1rem;
-}
-
-.container {
-  padding: px-to-rem(32px); // Resultado: 2rem
-}
-
-.parrafo{
-  padding: px-to-rem(16px);
-}
-
-//Example 2: unit scaling
-@function escala-tipografica($base, $factor) {
-  @return $base * $factor;
-}
-
-h1 {
-  font-size: escala-tipografica(16px, 1.5); // Resultado: 24px
-}
-
-h2 {
-  font-size: escala-tipografica(16px, 1.25); // Resultado: 20px
-}
-
-//Example 3: chain manipulation
-@function generar-clase-color($nombre) {
-  @return '.color-' + $nombre;
-}
-
-#{generar-clase-color('primario')} {
-  color: #3498db;
-}
-
-#{generar-clase-color('secundario')} {
-  color: #34db8a;
-}
-
-#{generar-clase-color('resalto')} {
-  color: #db3434;
-}
-
-//Example 4: adding dynamic prefixes
-@function add-prefix($prefix, $value) {
-  @return "#{$prefix}-#{$value}";
-}
-
-// Uso
-.button {
-  class-name: add-prefix('btn', 'primary'); // btn-primary
-}
-
-
-
-
 ///////////////
 ////Mixins/////
 ///////////////
@@ -981,6 +962,20 @@ main, footer{
       color: blue;
   }
 }
+
+
+//Example 3: logical operators using @if directive
+$list-map: (success: lightgreen, alert: tomato, info: lightblue);
+@mixin button-state($btn-state) {
+  @if (length($list-map) > 2 and length($list-map) < 5) {
+      background-color: map-get($list-map, $btn-state);
+  }
+}
+
+.btn {
+  @include button-state(success);
+}
+
 
 
 ///////////////////
