@@ -902,6 +902,24 @@ $buttons: (
   }
 }
 
+
+$colores: (
+    error: (red, lightcoral),
+    exito: (green, lightgreen),
+    aviso: (blue, lightblue)
+);
+
+.texto{
+    @each $prop, $valor in $colores{
+        $color-fondo:list.nth($valor,1);
+        $color-texto:list.nth($valor,2);
+        &-#{$prop}{
+            background-color: $color-fondo;
+            color: $color-texto;
+        }
+    }
+}
+
 //Example 8: using while to set every td element with a different color
 $num: 1;
 $color-list:(#0f0, #00f, orange, #ccc);
