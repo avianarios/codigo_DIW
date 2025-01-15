@@ -6,4 +6,3 @@
   $color-negro: rgba(0, 0, 0, 1); /* Color negro para mezclar */
   @return color.mix($color-negro, $color, $porcentaje);
 }
- 

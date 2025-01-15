@@ -2,7 +2,7 @@
 @use '../global/variables'; /* Importamos variables sin usar '*' como alias */
 @use '../global/funciones';
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, nav {
   font-weight: bold;
 }
 
@@ -26,6 +26,10 @@ body {
   font-family: variables.$fuente-base;
   font-size: variables.$tamaño-base-fuente;
   line-height: 1.5;
-  background-color: variables.$color-neutro1;
-  color: variables.$color-texto;
+}
+
+footer{
+  color: variables.$color-menu;
+  font-size: variables.$tamaño-fuente-pie;
+  font-weight: bold;
 }

@@ -1,8 +1,10 @@
-@mixin respond-to($breakpoint) {
-    @if $breakpoint == small {
-        @media (max-width: 600px) { @content; }
-    } @else if $breakpoint == medium {
-        @media (max-width: 900px) { @content; }
+@mixin mixin-media-query($ruptura) {
+    @if $ruptura == p {
+        @media (max-width: 400px) { @content; }
+    } @else if $ruptura == m {
+        @media (max-width: 800px) { @content; }
+    } @else if $ruptura==g{
+        @media (max-width: 1200px) { @content; }
     }
 }
   

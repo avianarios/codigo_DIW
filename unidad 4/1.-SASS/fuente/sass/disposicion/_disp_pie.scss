@@ -2,8 +2,11 @@
 @use '../global/mixins';
 
 /* Disposición del pie de página usando flexbox */
-.pie {
+footer {
   @include mixins.contenedor-flex();
   padding: variables.$padding-base;
 }
-  
+
+footer > p:nth-of-type(2){
+  flex-grow: 1;
+}

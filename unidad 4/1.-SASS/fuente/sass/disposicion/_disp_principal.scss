@@ -1,14 +1,7 @@
 @use '../global/variables'; /* Importamos variables sin usar '*' como alias */
+@use '../global/mixins';
 
-/* Disposición principal usando flexbox */
-.principal {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+//aquí irá el código para la etiqueta main
+.contenedor-flex-vertical > article{
+    @include mixins.contenedor-flex(column)
 }
-  
-.contenido {
-  flex: 1; /* Hace que el contenido ocupe el espacio restante */
-  padding: variables.$padding-base;
-}
-  

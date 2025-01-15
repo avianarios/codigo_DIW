@@ -1,20 +1,14 @@
 @use '../global/variables'; /* Importamos variables sin usar '*' como alias */
 
 /* Estilos para formularios */
-.formulario {
-    display: flex;
-    flex-direction: column;
-    gap: variables.$padding-base;
-  }
+.input {
+  padding: variables.$padding-base;
+  margin: variables.$padding-base 0;
+  border: 1px solid variables.$color-principal;
+  border-radius: 5px;
+}
   
-  .input {
-    padding: variables.$padding-base;
-    margin: variables.$padding-base 0;
-    border: 1px solid variables.$color-principal;
-    border-radius: 5px;
-  }
-  
-  .input:focus {
-    border-color: darken(variables.$color-principal, 10%);
-  }
+.input:focus {
+  border-color: darken(variables.$color-principal, 10%);
+}
   
