@@ -1,0 +1,7 @@
+@use '../global/variables'; /* Importamos variables sin usar '*' como alias */
+
+/* Estilos visuales del pie de página */
+footer {
+    background-color: variables.$color-principal;
+}
+  

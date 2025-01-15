@@ -1,0 +1,35 @@
+/* base/_tipografia.scss */
+@use '../global/variables'; /* Importamos variables sin usar '*' como alias */
+@use '../global/funciones';
+
+h1, h2, h3, h4, h5, h6, nav {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: variables.$tamaño-base-fuente*3;
+}
+
+h2 {
+  font-size: variables.$tamaño-base-fuente*2;
+}
+
+h3 {
+  font-size: variables.$tamaño-base-fuente*1.5;
+}
+
+p {
+  font-size: variables.$tamaño-base-fuente;
+}
+
+body {
+  font-family: variables.$fuente-base;
+  font-size: variables.$tamaño-base-fuente;
+  line-height: 1.5;
+}
+
+footer{
+  color: variables.$color-menu;
+  font-size: variables.$tamaño-fuente-pie;
+  font-weight: bold;
+}

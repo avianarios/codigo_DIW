@@ -1,0 +1,7 @@
+@use '../global/variables'; /* Importamos variables sin usar '*' como alias */
+@use '../global/mixins';
+
+//aquí irá el código para la etiqueta main
+.contenedor-flex-vertical > article{
+    @include mixins.contenedor-flex(column)
+}

@@ -1,0 +1,18 @@
+/* fuente/sass/principal.scss */
+@use 'base/normalizacion';
+@use 'base/reinicio';
+@use 'base/tipografia';
+@use 'global/mixins';
+@use 'global/funciones';
+@use 'global/variables';
+@use 'componentes/cuerpo';
+@use 'componentes/botones';
+@use 'componentes/cabecera';
+@use 'componentes/pie';
+@use 'componentes/principal';
+@use 'disposicion/disp_comun';
+@use 'disposicion/disp_cabecera';
+@use 'disposicion/disp_pie';
+@use 'disposicion/disp_principal';
+
+

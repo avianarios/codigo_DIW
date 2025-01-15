@@ -1,0 +1,8 @@
+@use "sass:color";
+@use "sass:math";
+/* Funciones para colores y tamaños */
+
+@function oscurecer($color, $porcentaje: 10%) {
+  $color-negro: rgba(0, 0, 0, 1); /* Color negro para mezclar */
+  @return color.mix($color-negro, $color, $porcentaje);
+}

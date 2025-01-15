@@ -1,0 +1,22 @@
+@use '../global/variables'; /* Importamos variables sin usar '*' como alias */
+
+/* Estilos visuales de la cabecera */
+header {
+  background-color: variables.$color-principal;
+  color: variables.$color-titulo-principal;
+}
+  
+.cabecera .logo {
+  font-size: variables.$font-size-header;
+}
+  
+.cabecera nav a {
+  color: variables.$color-menu;
+  text-decoration: none;
+  margin: 0 10px;
+}
+  
+.cabecera nav a:hover {
+  text-decoration: underline;
+}
+  

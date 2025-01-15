@@ -1,0 +1,19 @@
+@use '../global/mixins';
+@use '../global/variables';
+
+.contenedor-flex-vertical{
+    @include mixins.contenedor-flex(column)
+}
+
+.contenedor-flex-horizontal{
+    @include mixins.contenedor-flex(row)
+}
+
+.espaciado{
+    gap:variables.$espacio-entre-contenedores;
+}
+
+
+h1, h2{
+    text-align: center;
+}
