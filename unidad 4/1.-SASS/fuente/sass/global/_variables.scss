@@ -1,0 +1,17 @@
+@use "funciones";
+/* Definición de variables globales */
+$color-principal: #007bff;
+$color-secundario1: #0c385c;
+$color-secundario2: funciones.oscurecer($color-principal, 25%);
+$color-resalto: #e6991d;
+$color-neutro1: #ffffff;
+$color-neutro2: #cdcdcd;
+$color-texto: black;
+
+$fuente-base: 'Mali', 'Arial', sans-serif;
+
+$padding-base: 15px;
+$tamaño-base-fuente: 16px;
+$font-size-header: 24px;
+$tamaño-fuente-pie: $tamaño-base-fuente*0.75;
+$espacio-entre-contenedores: 10px;

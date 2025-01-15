@@ -1,0 +1,14 @@
+@use '../global/variables'; /* Importamos variables sin usar '*' como alias */
+
+/* Disposición principal usando flexbox */
+.principal {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+  
+.contenido {
+  flex: 1; /* Hace que el contenido ocupe el espacio restante */
+  padding: variables.$padding-base;
+}
+  

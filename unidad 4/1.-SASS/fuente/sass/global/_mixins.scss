@@ -1,0 +1,9 @@
+/* global/_mixins.scss */
+@use 'variables';
+
+@mixin contenedor-flex($direction: row, $justify: flex-start, $align: stretch) { 
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}

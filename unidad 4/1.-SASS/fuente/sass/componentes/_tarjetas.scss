@@ -1,0 +1,16 @@
+@use '../global/variables'; /* Importamos variables sin usar '*' como alias */
+
+/* Estilos para tarjetas */
+.tarjeta {
+    padding: variables.$padding-base;
+    background-color: variables.$color-secundario;
+    border: 1px solid variables.$color-fondo;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  
+    &:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+  }
+  

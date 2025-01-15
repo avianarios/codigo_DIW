@@ -1,0 +1,200 @@
+@charset "UTF-8";
+/* fuente/sass/principal.scss */
+/* base/_normalizacion.scss */
+/* Funciones para colores y tamaños */
+/* Definición de variables globales */
+/* Importamos variables sin usar '*' como alias */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%; /* Asegura que html y body ocupen el 100% de la ventana */
+  margin: 0; /* Elimina márgenes predeterminados */
+}
+
+/* Reinicio de estilos para evitar problemas de compatibilidad */
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* base/_tipografia.scss */
+/* Importamos variables sin usar '*' como alias */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 32px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Mali", "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #ffffff;
+  color: black;
+}
+
+/* global/_mixins.scss */
+/* componentes/_botones.scss */
+/* Importamos variables sin usar '*' como alias */
+/* Importamos el mixin de oscurecer */
+.boton {
+  padding: 15px;
+  background-color: #007bff;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.boton:hover {
+  background-color: rgb(0, 104.55, 216.75);
+}
+
+/* Importamos variables sin usar '*' como alias */
+/* Estilos visuales de la cabecera */
+header {
+  background-color: #007bff;
+  color: #ffffff;
+  font-size: 24px;
+}
+
+.cabecera .logo {
+  font-size: 24px;
+}
+
+.cabecera nav a {
+  color: black;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.cabecera nav a:hover {
+  text-decoration: underline;
+}
+
+/* Importamos variables sin usar '*' como alias */
+/* Estilos visuales del pie de página */
+.pie {
+  background-color: #007bff;
+  color: black;
+  font-size: 12px;
+}
+
+/* Importamos variables sin usar '*' como alias */
+/* Estilos generales de la página principal */
+.principal {
+  background-color: #cdcdcd;
+  color: black;
+  padding: 15px;
+  font-size: 16px;
+}
+
+pre {
+  background: #f4f4f4;
+  padding: 15px;
+  border-left: 5px solid #4CAF50;
+  overflow-x: auto;
+}
+
+.contenedor-flex-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.contenedor-flex-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.espaciado {
+  gap: 10px;
+}
+
+.contenedor {
+  width: 80vw;
+  margin: 0 auto; /* Centra el contenedor */
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+/* Importamos variables sin usar '*' como alias */
+/* Disposición de la cabecera usando flexbox */
+/*.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: variables.$padding-base;
+  }*/
+nav > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 10px;
+}
+
+/* Disposición del pie de página usando flexbox */
+.pie {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  padding: 15px;
+}
+
+/* Importamos variables sin usar '*' como alias */
+/* Disposición principal usando flexbox */
+.principal {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contenido {
+  flex: 1; /* Hace que el contenido ocupe el espacio restante */
+  padding: 15px;
+}
+
+/*# sourceMappingURL=principal.css.map */

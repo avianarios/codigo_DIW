@@ -1,0 +1,18 @@
+@use '../global/variables'; /* Importamos variables sin usar '*' como alias */
+@use '../global/mixins';
+
+/* Disposición de la cabecera usando flexbox */
+/*.cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: variables.$padding-base;
+  }*/
+  
+//Se podría haber aplicado la clase .contenedor-flex-vertical, .centrado y .espaciado al ul en vez de la siguiente regla
+nav > ul{
+  @include mixins.contenedor-flex(row, center);
+  gap:variables.$espacio-entre-contenedores;
+}
+
+
