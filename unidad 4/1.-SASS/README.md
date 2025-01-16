@@ -3,11 +3,11 @@
 SASS (Syntactically Awesome Stylesheets) es un preprocesador de CSS que amplía las capacidades del lenguaje añadiendo características como variables, anidación, mixins, herencia y más. Esto permite escribir estilos más organizados, reutilizables y fáciles de mantener.
 
 Hay varios servicios que ofrecen colecciones de iconos gratis y de pago. Usarlos permite mantener la coherencia visual en todo el sitio y acelera el desarrollo. Suelen ser iconos escalables, por lo que no pierden calidad al aumentar su tamaño. Algunos de los más conocidos son:
-   -Font Awesome (el que usaremos nosotros)
-   -Hero icons
-   -Feather icons
-   -Material icons
-   -Iconify
+   - Font Awesome (el que usaremos nosotros)
+   - Hero icons
+   - Feather icons
+   - Material icons
+   - Iconify
 
 Los pasos para echar a andar este proyecto con Node.js son los siguientes:
 

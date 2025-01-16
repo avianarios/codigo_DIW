@@ -4,7 +4,7 @@
   "description": "translating-sass",
   "scripts": {
     "compilar-sass": "sass fuente/sass:fuente/css --source-map",
-    "monitorizar-sass": "sass --watch fuente/sass:fuente/css --source-map",
+    "monitorizar-sass": "sass --watch fuente/sass:fuente/css --source-map"
   },
   "author": "Alejandro Viana Ríos",
   "license": "ISC",
