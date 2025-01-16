@@ -106,20 +106,26 @@ a:visited {
   background-color: lightsalmon;
 }
 
-/*Selects first p element after a section (even if it's not the first child)*/
+/*Selects first p element after a element with "first-of-type" ID (even if it's not the first child)*/
 #first-of-type p:first-of-type{
   background-color: #4CAF50;
 }
 
-/*applies style to the last paragraph of those articles with a "parrafos" ID*/
+/*applies style to the last paragraph of those articles with a "last-of-type" ID*/
 #last-of-type p:last-of-type{
   background-color: aquamarine;
 }
 
-/*Selects the 2nd child (doesn't matter the type) of an element with "listaCompra" ID*/
+/*Selects the 2nd child (doesn't matter the type) of an element with "nth-of-type" ID*/
 #nth-of-type :nth-of-type(2){
   border: 2px dashed green;
 }
+
+/* selects the second img inside its container (there has to be two images at the same container)
+img:nth-of-type(2){
+  background-color: red;
+}
+*/
 
 /*applies style to the third element of type li*/
 #nth-of-type li:nth-of-type(3){
