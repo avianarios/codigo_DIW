@@ -111,8 +111,8 @@ a:visited {
   background-color: #4CAF50;
 }
 
-/*Selecciona el primer section con la clase atributos que sea el primer hijo de su tipo (en este caso, un section). Es decir, busca el primer section con clase atributos que esté en la posición de primer section en su contenedor padre.
-#section.atributos:first-of-type{
+/*Selecciona el primer section de cada contenedor
+section:first-of-type{
   background-color: #4CAF50;
 }
 */
