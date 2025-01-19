@@ -1,0 +1,12 @@
+@use '../global/variables';
+
+figure {
+    text-align: center;
+    margin: 20px;
+  }
+  
+figcaption {
+    font-style: italic;
+    font-size: variables.$tamaño-fuente-pie;
+    color: variables.$color-pie-foto;
+  }

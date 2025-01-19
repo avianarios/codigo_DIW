@@ -1,0 +1,6 @@
+@use '../global/variables';
+
+.tarjeta{
+    background-color: variables.$color-secundario3;
+    padding:10px;
+}

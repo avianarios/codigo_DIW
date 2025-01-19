@@ -3,17 +3,19 @@
 $color-principal: #007bff;
 $color-secundario1: #0c385c;
 $color-secundario2: funciones.oscurecer($color-principal, 25%);
+$color-secundario3: #dfefff;
 $color-resalto: #e6991d;
 $color-neutro1: #ffffff;
 $color-neutro2: #f4f4f4;
 $color-texto: black;
+$color-pie-foto: #555;
 
 $fuente-base: 'Mali', 'Arial', sans-serif;
 
 $padding-base: 15px;
 $tamaño-base-fuente: 18px;
 $font-size-header: 24px;
-$tamaño-fuente-pie: $tamaño-base-fuente*0.75;
+$tamaño-fuente-reducida: $tamaño-base-fuente*0.75;
 $espacio-entre-contenedores: 10px;
 
 $anchura-max: 80vw;
