@@ -1,6 +1,24 @@
 @use '../global/variables';
 
+/*Estilos para tarjetas*/
 .tarjeta{
     background-color: variables.$color-secundario3;
     padding:10px;
 }
+
+.tarjeta{
+    background-color: variables.$color-secundario3;
+    padding:10px;
+    border: 3px solid variables.$color-principal;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+  
+.tarjeta:hover {
+    background-color: variables.$color-secundario4; /* Color ligeramente más claro */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px); /* Un pequeño desplazamiento hacia arriba */
+    transition: all 0.3s ease;
+}
+  
