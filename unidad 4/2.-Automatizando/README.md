@@ -37,7 +37,8 @@ Los pasos para echar a andar este proyecto con Node.js son los siguientes:
 4. **Abrir el archivo `package.json`** y crear los scripts necesarios para automatizar tareas.
    Si no se crean los scripts, deberás ejecutar manualmente:
    ```bash
-   npx sass --watch fuente/scss:fuente/css
+   npx parcel ruta/index.html --dist-dir desarrollo
+   ```
 
 5. **Integrar los iconos de Fontawesome en tu proyecto`** Se puede hacer de varias formas (nosotros lo vamos a hacer con node)
    -Incluyendo el CDN en la cabecera: <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"> Dependo de que el CDN esté disponible
