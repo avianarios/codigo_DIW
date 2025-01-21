@@ -1,9 +1,4 @@
-NO*
-*solu*
 node_modules
-desarrollo
-produccion
+compilado
 tmp*
 .parcel-cache
-*sass/*/*.css*
-falta

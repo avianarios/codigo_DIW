@@ -1,0 +1,158 @@
+// **Solution 1: Nested Rules**
+.container {
+    padding: 20px;
+    margin: 10px;
+  
+    .title {
+      color: #333;
+      font-size: 24px;
+    }
+  }
+  
+  // **Solution 2: Data Structures (Variables, Lists, and Maps)**
+  $primary-color: #3498db;
+  $secondary-color: #2ecc71;
+  
+  $font-sizes: 12px, 14px, 16px, 18px;
+  
+  $button-properties: (
+    'primary': (
+      color: #fff,
+      background-color: $primary-color
+    ),
+    'secondary': (
+      color: #fff,
+      background-color: $secondary-color
+    )
+  );
+  
+  // Access example:
+  .primary-button {
+    color: map-get(map-get($button-properties, 'primary'), color);
+    background-color: map-get(map-get($button-properties, 'primary'), background-color);
+  }
+  
+  // **Solution 3: Interpolation**
+  $btn-type: 'primary';
+  
+  .btn-#{$btn-type} {
+    background-color: $primary-color;
+    color: #fff;
+  }
+  
+  // **Solution 4: User-Defined Modules**
+  // _functions.scss
+  @function circle-area($radius) {
+    @return sass:math.pi() * $radius * $radius;
+  }
+  
+  // styles.scss
+  @use 'functions';
+  
+  .circle {
+    width: functions.circle-area(10px);
+    height: functions.circle-area(10px);
+  }
+  
+  // **Solution 5: Sass Modules (sass:math, sass:string, etc.)**
+  @use 'sass:math';
+  
+  .text {
+    font-size: math.round(16.8px);
+    line-height: math.ceil(24.3px);
+  }
+  
+  // **Solution 6: Operators**
+  $base-color: #3498db;
+  
+  .button {
+    background-color: lighten($base-color, 10%);
+    color: darken($base-color, 10%);
+  }
+  
+  // **Solution 7: Control Structures (if, for, each)**
+  $theme: 'dark';
+  
+  body {
+    @if $theme == 'dark' {
+      background-color: #333;
+      color: #fff;
+    } @else {
+      background-color: #fff;
+      color: #000;
+    }
+  }
+  
+  // Loop Example
+  @for $i from 1 through 5 {
+    .box-#{$i} {
+      width: 10px * $i;
+      height: 10px * $i;
+    }
+  }
+  
+  // **Solution 8: User-Defined Functions**
+  @function border-size($base, $multiplier) {
+    @return $base * $multiplier;
+  }
+  
+  .card {
+    border: border-size(2px, 3);
+  }
+  
+  // **Solution 9: Mixins**
+  @mixin rounded-shadow($radius: 10px, $shadow-color: rgba(0, 0, 0, 0.2)) {
+    border-radius: $radius;
+    box-shadow: 0 4px 6px $shadow-color;
+  }
+  
+  .card {
+    @include rounded-shadow(15px, rgba(0, 0, 0, 0.3));
+  }
+  
+  // **Solution 10: Inheritance**
+  .button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .primary-button {
+    @extend .button;
+    background-color: $primary-color;
+    color: #fff;
+  }
+  
+  // **Solution 11: Combined Use of All Topics**
+  // Variables
+  $colors: (
+    'primary': #3498db,
+    'secondary': #2ecc71,
+  );
+  
+  // Function
+  @function get-color($name) {
+    @return map-get($colors, $name);
+  }
+  
+  // Mixin
+  @mixin button-style($color-name) {
+    background-color: get-color($color-name);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  // Main Styles
+  @for $i from 1 through 3 {
+    .button-#{$i} {
+      @if $i == 1 {
+        @include button-style('primary');
+      } @else if $i == 2 {
+        @include button-style('secondary');
+      } @else {
+        background-color: gray;
+      }
+    }
+  }
+  
