@@ -8,6 +8,7 @@ Hay varios servicios que ofrecen colecciones de iconos gratis y de pago. Usarlos
    - Feather icons
    - Material icons
    - Iconify
+   - Flaticon
 
 Los pasos para echar a andar este proyecto con Node.js son los siguientes:
 
