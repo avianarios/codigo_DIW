@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header {
+  height: 60px;
+  background-color: #61dc9d;
+  position: relative;  /*sirve de referencia para los elementos que se van a posicionar con position: absolute dentro de ese contenedor. Así, al posicionar los elementos dentro del header, el navegador los colocará en relación con el borde de este contenedor .header, no respecto a la página completa (aunque si el header ocupa el ancho completo, daría igual y no sería necesario)*/
+}
+
+.logo {
+  position: absolute;
+  left: 50%; /*left se refiere al borde izquierdo del elemento y no al centro. Por tanto, esto coloca el borde izquierdo del logo justo en la mitad del contenedor haciendo que el logo esté ligeramente a la derecha del centro de la anchura del contenedor respecto al que se posiciona*/
+
+  transform: translateX(-50%); /* Desplazo el logo un 50% de su tamaño a la izquierda, dejando el logo justo en el centro del contenedor respecto al que se posiciona*/
+}
+
+.buttons {
+  position: absolute; /*saca a los botones del flujo normal de la página. Si no se hace, podrían empujar el logo o desalinearlo del centro porque ocuparían espacio en la misma línea que el logo.*/
+  right: 20px; /* los botones se colocan a 20px contando desde el borde derecho del contenedor respecto al que se posicionan */
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
