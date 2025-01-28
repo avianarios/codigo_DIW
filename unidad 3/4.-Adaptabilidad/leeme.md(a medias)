@@ -50,11 +50,9 @@ Ejemplo de organización por resolución en srcset:
    alt="Un bonito paisaje de sierra"
 />
 
-Explicación:
+    En el atributo srcset de la etiquta img, se especifican las imágenes organizadas en orden de resolución (de mayor a menor), lo que permite que el navegador seleccione la imagen más adecuada en función de la pantalla y el tamaño.
 
-    Organizar por resolución: En el srcset, las imágenes están organizadas en orden de resolución (de mayor a menor), lo que permite que el navegador seleccione la imagen más adecuada en función de la pantalla y el tamaño.
-
-    Uso de sizes: El atributo sizes también juega un papel importante para informar al navegador el tamaño estimado de la imagen dependiendo del tamaño de la ventana de visualización. Esto ayuda a optimizar la carga de imágenes.
+    Cuando se especifica el atributo sizes, el navegador puede tomar una decisión más informada sobre qué imagen cargar, no solo basándose en el tamaño del dispositivo (como con srcset), sino también en el tamaño que realmente ocupará la imagen en la página. Esto ayuda a optimizar la carga de la imagen, ya que el navegador sabe con más precisión qué imagen es la mejor opción según las condiciones actuales del viewport.
 
 ¿Por qué es mejor organizar por resolución en srcset?
 
