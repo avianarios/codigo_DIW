@@ -5,10 +5,11 @@ const sourceWebp = document.getElementById("sourceWebp");
 const imagen = document.getElementById("imagen");
 
 // Definir imágenes disponibles según tamaño
+// ¡¡¡Cuidado!!! La ruta de las imágenes es relativa al archivo HTML (que en este caso coincide con la de este script, pero podría no ser así)
 const imagenes = [
-  { ancho: 1200, avif: "img/alhambra-granada_1200.avif", webp: "img/alhambra-granada_1200.webp", jpg: "img/alhambra-granada_1200.jpg" },
-  { ancho: 768, avif: "img/alhambra-granada_768.avif", webp: "img/alhambra-granada_768.webp", jpg: "img/alhambra-granada_768.jpg" },
-  { ancho: 0, avif: "img/alhambra-granada_480.avif", webp: "img/alhambra-granada_480.webp", jpg: "img/alhambra-granada_480.jpg" }
+  { ancho: 1200, avif: "../img/alhambra-granada_1200.avif", webp: "../img/alhambra-granada_1200.webp", jpg: "../img/alhambra-granada_1200.jpg" },
+  { ancho: 768, avif: "../img/alhambra-granada_768.avif", webp: "../img/alhambra-granada_768.webp", jpg: "../img/alhambra-granada_768.jpg" },
+  { ancho: 0, avif: "../img/alhambra-granada_480.avif", webp: "../img/alhambra-granada_480.webp", jpg: "../img/alhambra-granada_480.jpg" }
 ];
 
 // Función para cambiar la imagen según el tamaño del contenedor
