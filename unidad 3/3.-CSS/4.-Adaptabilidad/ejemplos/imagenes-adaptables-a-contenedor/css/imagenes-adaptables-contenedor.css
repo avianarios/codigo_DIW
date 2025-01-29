@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    justify-content: center;
+/*7    align-items: center;*/
+    height: 100vh;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+#contenedor {
+    width: 100%;
+    max-width: 1200px;
+    height: 300px;
+    background-color: lightgray;
+    transition: width 0.3s ease;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+  
+
+    /* Media Queries para cambiar el tamaño del contenedor */
+@media (max-width: 1200px) {
+    #contenedor {
+        max-width: 768px;
+    }
+}
+
+@media (max-width: 768px) {
+    #contenedor {
+        max-width: 480px;
+    }
+}
