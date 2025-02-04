@@ -1,0 +1,91 @@
+/* Reinicio de estilos */
+menu {
+    margin: 10px;
+    padding: 0px;
+    list-style: none; /* Elimina los estilos de lista */
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.contenedor-flex-vertical{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main {
+    max-width: 800px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 2rem;
+    padding-top: 0px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    margin-top: 0;
+    color: #555;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 0.5rem;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+
+/*pie de imagen*/
+.image-container {
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+}
+
+.image {
+    width: 100%; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto;
+}
+
+.image-caption {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #555;
+    padding-top: 8px;
+    text-align: center;
+    margin-top: 0.5em;
+}
+
+figure{
+    padding: 20px;
+}
+
+/*Contenedor para la carga diferida*/
+.spacer {
+    height: 150vh;
+    background-color: #f0f0f0;
+}
+
