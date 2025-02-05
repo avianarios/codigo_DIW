@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/*Agrupo las clases creadas en una capa llama "components". Esto permite controlar el orden de las reglas CSS aplicadas*/
 @layer components{
     .boton{
         @apply px-4 py-2 bg-red-200 rounded md:bg-green-300 md:text-black xl:bg-blue-400 ;
