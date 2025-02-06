@@ -288,10 +288,15 @@ Tailwind CSS is highly configurable and allows customization of default styles t
 
 # 6- Creating Reusable Components
 
-Although it is not the philosophy of TailwindCSS, reusable components can be created to avoid repeating classes by using `@apply`, a Tailwind directive that allows grouping multiple utility classes into a single custom class.
+A **component** is a reusable unit of code that encapsulates the CSS styles needed to quickly give a website a nice look and feel. Components allow the user interface to be modularised, making it easy to maintain and reuse in different parts of a project. There are two types of reusable components, depending on who builds them: the user or an external company.
 
-Example: creating a reusable button with default styles, such as a background color, rounded borders, and a slight shadow. Instead of writing the same classes in every button throughout the project, `@apply` can be used to define a custom class in the CSS file.
+## User-built
 
+Although it is not TailWindCSs philosophy, reusable components can be created to avoid repetition of classes by using `@apply`, a Tailwind directive that allows to group several utility classes into a single custom class.
+
+Example: creating a reusable button with default styles, such as a coloured background, rounded edges and some shading. Instead of writing the same classes on every button in the project, you can use `@apply` to define a custom class in the CSS file.
+
+Translated with DeepL.com (free version)
 ```css
 /* styles.css */
 .btn {
@@ -304,6 +309,42 @@ Example: creating a reusable button with default styles, such as a background co
   Hacer clic
 </button>
 ```
+
+## Built by third-party companies
+
+Another option is to use reusable component libraries from other companies that provide pre-built components optimised for Tailwind CSS. Some of these are:
+
+ 1. **Flowbite**: Fast and easy to use.
+ 2. **DaisyUI**: Speed and ease-of-use
+ 3. **Headless UI**: Total flexibility
+ 4. **Tailwind UI**: Professional designs by the creators of Tailwindcss
+ 5. **Preline UI**: Free of charge
+
+### Using flowbite
+  Flowbite offers quite a wide range of components on its website. Some simply offer a nice design and others have some functionality. The latter require JavaScript code, which flowbite offers, to work.
+
+  You can go to their website, copy the code and paste it into your website, but the components that require JavaScript will not work. For this, you have to use the CDN or serve it locally using node.
+
+  - Link to a CDN
+    ````html
+    <!--Use of flowbite with CDN-->
+    <link href=‘https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.css’ rel=‘stylesheet’ />
+    <script src=‘https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.js’ defer></script>
+    ```
+
+  - Use with node
+    - Installation as a node package:
+      ````bash
+      npm install flowbite
+      ```
+  
+    - Import flowbit as an extension inside principal.css
+      ````css
+      @plugin ‘flowbite/plugin’
+      ```
+    - Add JavaScript code to main.css
+      ````css
+      @source ‘../node_modules
 
 ----
 

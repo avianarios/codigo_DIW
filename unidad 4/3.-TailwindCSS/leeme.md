@@ -344,37 +344,36 @@ Otra opción es usar bibliotecas de componentes reutilizables de otras empresas 
  4. **Tailwind UI**: Diseños profesionales de los creadores de Tailwindcss
  5. **Preline UI**: Gratuito
 
-Uso de flowbite
+### Uso de flowbite
   Flowbite ofrece una serie bastante amplia de componentes en su web. Algunos ofrecen simplemente un diseño bonito y otros tienen cierta funcionalidad. Éstos últimos necesitan de código JavaScript, que flowbite ofrece, para funcionar.
 
   Se puede ir a su web, copiar el código y pegarlo en nuestra web, pero los componentes que necesiten de JavaScript, no funcionarán. Para ello, hay que usar el CDN o servirlo en local usando node
 
   - Enlace con un CDN
     ```html
-      <!--Uso de flowbite con CDN-->
-      <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.css" rel="stylesheet" />
-      <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.js" defer></script>
+    <!--Uso de flowbite con CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.js" defer></script>
     ```
 
-  - Instalación en node:
+  - Uso con node
+    - Instalación como paquete de node:
       ```bash
       npm install flowbite
       ```
   
-  - Importar flowbit como una extensión dentro de principal.css
+    - Importar flowbit como una extensión dentro de principal.css
       ```css
-        @plugin "flowbite/plugin"
+      @plugin "flowbite/plugin"
       ```
-  - Añadir el código JavaScript al principal.css
+    - Añadir el código JavaScript al principal.css
       ```css
       @source "../node_modules/flowbite";
       ```
-  - Añadir el script al html. Si se usa un empaquetador, éste cogerá el fichero y lo pondrá en la carpeta local al empaquetar
+    - Añadir el script al html. Si se usa un empaquetador, éste cogerá el fichero y lo pondrá en la carpeta local al empaquetar
       ```html
       <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
       ```
-
-
 ----
 
 # 7- Organización del código
