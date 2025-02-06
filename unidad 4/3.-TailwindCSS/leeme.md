@@ -7,11 +7,13 @@
 5. [Personalización](#5--personalización)
 6. [Creación de componentes reutilizables](#6--creación-de-componentes-reutilizables)
 7. [Organización del código](#7--organización-del-código)
+8. [Extensiones](#8--extensiones)
 
 ----
-Tailwind CSS es un entorno (framework) de CSS que permite diseñar interfaces sin más que agregar clases ya predefinidas al HTML.
 
 # 1- Características 
+
+Tailwind CSS es un entorno (framework) de CSS que permite diseñar interfaces sin más que agregar clases ya predefinidas al HTML.
 
 - **Basado en utilidades** (utility-first): Define una gran cantidad de clases pequeñas, es decir, que modifican una sola propiedad CSS. Estas clases se aplican directamente en el fichero HTML. Por contra, otros entorno (frameworks) definen clases muy grandes que modifican muchas propiedades CSS y que, por sí solas, ya le dan aspecto a un componente como, por ejemplo, `btn` y `btn-primary` en `bootstrap`
 ```html
@@ -36,6 +38,13 @@ Tailwind CSS es un entorno (framework) de CSS que permite diseñar interfaces si
 - **Modo JIT (Just-In-Time)**: El modo JIT compila sólo las clases que realmente se usan en el HTML, en lugar de generar un archivo CSS con todas las clases posibles. Esto mejora significativamente el rendimiento al reducir el tamaño del archivo CSS y acelerar la carga de la página.
 
 - **Diseño adaptable (responsive design)**: El diseño se adapta a todas las pantallas mediante el uso de prefijos en las clases que indican para qué resolución es válida dicha clase.
+
+- **Normalización de estilos** mediante su clase `@tailwind base` para ofrecer una base consistente y eliminar diferencias de estilo entre los navegadores debido a los estilos predeterminados del navegador. No se realiza un reinicio completo. Esto incluye:
+  - Eliminación de márgenes y paddings por defecto en la mayoría de los elementos.
+  - Establecimiento de un tamaño de fuente y line-height básicos.
+  - Todos los elementos de encabezado están completamente sin estilo por defecto y tienen el mismo tamaño de fuente y peso de fuente que el texto normal.
+  - Las listas están sin estilo por defecto, sin viñetas / números y sin margen o relleno.
+  - Los elementos de formulario están sin estilo, pero no pierden comportamientos interactivos.
 
 - **Enfoque móvil-primero (mobile-first)** Las clases **sin prefijo** se aplican a todos los tamaños de pantalla y se definen prefijos para pantallas mayores que las de un móvil (640px en adelante). Por tanto, se diseña primero para móviles y luego se aplican clases para el resto de pantallas.
   ```html
@@ -83,7 +92,7 @@ Se puede usar TailWindCSS mediante la inclusión de un enlace a un CDN (Content 
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <script src="https://cdn.tailwindcss.com"></script>
+      <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
       <title>Ejemplo Tailwind</title>
     </head>
     <body>
@@ -92,43 +101,49 @@ Se puede usar TailWindCSS mediante la inclusión de un enlace a un CDN (Content 
     </html>
     ```
 
-2. **Uso como recurso local**. Ideal para para proyectos más complejos y avanzados, donde se necesita poder cambiar la configuración
+    Esto es cómodo porque no hay que configurar nada, sólo incluir el enlace al CDN, pero se descarga todo el código de Tailwind, incluidas las clases que no se usen. En proyectos grandes es un pequeño sobrecoste a pagar por la comodidad, pero en proyectos pequeños la situación es peor porque posiblemente contenga muchas clases que no se usen. 
 
-  1. Instalación de tailwindcss, postcss y autoprefixer
-    ```bash
-    npm install --save-dev tailwindcss postcss autoprefixer
-    npx tailwindcss init
-    ```
-    ¿Por qué se necesita PostCSS y autoprefixer?
-    - **PostCSS** procesa las clases utilitarias generadas por el framework, optimizando el código CSS, eliminando clases innecesarias y haciendo que el archivo resultante sea más pequeño y eficiente. Además, puede ayudar a compilar cualquier característica de CSS moderna que no sea compatible con todos los navegadores, a través de plugins adicionales.
-    - **Autoprefixer** agrega automáticamente los prefijos necesarios para que el CSS sea compatible con diferentes navegadores. A menudo, las propiedades CSS no son completamente soportadas en todos los navegadores, por lo que se añaden prefijos como -webkit- o -moz-. Autoprefixer automatiza este proceso, asegurando que tu CSS funcione correctamente en una amplia gama de navegadores sin que tengas que agregar estos prefijos manualmente.
-
-  2. Creación del archivo de configuración de tailwindcss (`tailwindcss.config.js`)
-    ```bash
-    npx taildinwdcss init
-    ```
-    Ejemplo de configuración de `tailwind.config.js` para indicarle a tailwindcss qué ficheros analizar, generando sólo las clases CSS necesarias
-    ```js
-    module.exports = {
-      content: ["./src/**/*.{html,js}"],
-      theme: {
-        extend: {},
-      },
-      plugins: [],
-    }
-    ```
-
-  3. Crear el archivo de configuración de PostCSS
-    ```javascript
-    module.exports = {
-      plugins: [
-        require('tailwindcss'),
-        require('autoprefixer'),
-      ],
-    }
-    ```
+    El resultado es que se descarga un fichero más grandes de lo que se necesita, pudiendo afectar el rendimiento de la página al cargarla.
   
-  4. Incluir Tailwind en el archivo CSS
+2. **Uso como recurso local**. Ideal para para proyectos más complejos y avanzados, donde se necesita poder cambiar la configuración.
+
+Con esta opción, el fichero de clases de tailwindcss que se usa es el menor posible, porque no incluye las clases que no se utilizan y, además, si se usa un empaquetadaor, el código estará minimizado. Como desventaja, está que hay que **configurar el entorno** y **compilar el código tailwindcss** para que se genere un fichero sólo con las clases necesarias
+
+En esta instalación se va a usar **node** y **parcel**, que ya minimiza, traduce SASS, autoprefija y empaqueta. Si se usara otro, es posible que hiciera falta instalar más paquetes.
+
+  1. **Instalar Node.js**.
+
+  2. **Iniciar el proyecto desde su directorio con `npm init`**.  
+    Responde a las preguntas para generar el archivo `package.json`, que es el archivo de configuración para Node.js.  
+    No uses mayúsculas, espacios o caracteres especiales en el campo «name».
+
+  3. **Instalar tailwindcss** para node
+      ```bash
+      npm install --save-dev tailwindcss
+      ```
+
+  2. **Crear del archivo de configuración** de tailwindcss (`tailwindcss.config.js`)
+      ```bash
+      npx taildinwdcss init
+      ```
+
+      Ejemplo de configuración de `tailwind.config.js` para indicarle a tailwindcss qué ficheros analizar, generando sólo las clases CSS necesarias
+
+
+      ```javascript
+      module.exports = {
+        content: ["./src/**/*.{html,js}"],
+        theme: {
+          extend: {},
+        },
+        plugins: [],
+      }
+      ```
+
+  3. **Incluir Tailwind** en el archivo CSS
+  - `@tailwind base`: Incluye los estilos base predeterminados de Tailwind, como los reinicios de CSS y la normalización de estilos entre navegadores.
+  - `@tailwind components`: Importa los estilos predefinidos de componentes que Tailwind incluye por defecto (como botones, formularios, etc.). Aunque estos componentes no son tan extensivos como los de otros marcos, se incluyen algunos básicos.
+  - `@tailwind utilities`: Trae las clases utilitarias de Tailwind, que son las que usas más comúnmente (como m-6, text-center, bg-blue-500, etc.).
 
     ```css
     @tailwind base;
@@ -139,22 +154,21 @@ Se puede usar TailWindCSS mediante la inclusión de un enlace a un CDN (Content 
   5. Configurar el empaquetador para incluir el CSS, prefijar, minimizar y empaquetar (en este caso no es necesario porque se usa parcel)
   
   6. Crear los scripts en `package.json`
-  ```json
-    "scripts":{
-      "parcel:desarrollo": "parcel fuente/index.html --dist-dir desarrollo",
-      "parcel:produccion": "parcel build fuente/index.html --public-url './' --dist-dir 'produccion'",
+      ```json
+      "scripts":{
+        "parcel:desarrollo": "parcel fuente/index.html --dist-dir desarrollo",
+        "parcel:produccion": "parcel build fuente/index.html --public-url './' --dist-dir 'produccion'",
 
-      "tailwind:una-vez": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css",
-      "tailwind:vigila": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css --watch",
-  
-      "des": "run-p tailwind:vigila parcel:desarrollo",
-      "prod": "run-s limpia tailwind:una-vez parcel:produccion",
-  
-      "limpia": "rimraf desarrollo produccion .parcel-cache",
-      "ordena": "prettier --write fuente"
-    }
-    
-  ```
+        "tailwind:una-vez": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css",
+        "tailwind:vigila": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css --watch",
+
+        "des": "run-p tailwind:vigila parcel:desarrollo",
+        "prod": "run-s limpia tailwind:una-vez parcel:produccion",
+
+        "limpia": "rimraf desarrollo produccion .parcel-cache",
+        "ordena": "prettier --write fuente"
+      }
+      ```
 
 ----
     
@@ -362,3 +376,41 @@ En el ejemplo:
   3. Espaciado: p-4, p-2, mt-4
   4. Bordes y sombras: rounded-lg, shadow-md, shadow-sm
   5. Estado y comportamiento: hover:bg-blue-700, focus:outline-none
+
+---
+
+# 8- Extensiones
+Las extensiones (plugins) de Tailwind CSS son una forma de ampliar su funcionalidad agregando nuevas utilidades, componentes o características que no están incluidas de forma predeterminada. Estos plugins pueden ser oficiales (creados y mantenidos por el equipo de Tailwind CSS) o de la comunidad, y pueden ayudar a personalizar aún más un proyecto sin tener que escribir demasiado CSS manualmente.
+
+Tipos de extensiones en Tailwind CSS:
+
+1. **Oficiales**: Algunos de estos incluyen:
+    - **@tailwindcss/forms**: Proporciona un conjunto de estilos prediseñados para formularios (inputs, selectores, botones, etc.), haciéndolos más fáciles de usar y personalizar.
+    - **@tailwindcss/typography**: Mejora el estilo de los textos largos (como artículos o blogs), dándoles un aspecto más bonito sin tener que crear estilos adicionales.
+    - **@tailwindcss/aspect-ratio**: Ayuda a controlar la proporción de un elemento (como un video o una imagen), sin tener que calcular manualmente los valores de padding-bottom.
+    - **@tailwindcss/line-clamp**: Permite truncar el texto a un número específico de líneas, agregando el comportamiento de "línea de puntos suspensivos" (ellipsis).
+
+2. De la comunidad
+    - **tailwindcss-animations**: Agrega animaciones.
+    - **tailwindcss-gradients**: Añade gradientes personalizados de manera más sencilla.
+    - **tailwindcss-rtl**: Agrega soporte para idiomas de lectura de derecha a izquierda (como árabe o hebreo).
+
+Para instalar las extensiones, sean oficiales o no, hay que
+
+  1. Instalarlas en node
+      ```bash
+      npm install @tailwindcss/forms @tailwindcss/typography @tailwindcss/aspect-ratio @tailwindcss/line-clamp
+      ```
+  2. Habilitarlas en `tailwind.config.js`
+      ```javascript
+      module.exports = {
+        plugins: [
+          require('@tailwindcss/forms'),
+          require('@tailwindcss/typography'),
+          require('@tailwindcss/aspect-ratio'),
+          require('@tailwindcss/line-clamp'),
+        ],
+      }
+      ```
+
+

@@ -1,7 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+/* Cargamos fuentes */
+/*Pacifico, proveniente de un CDN*/
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+/*Mali, proveniente del disco local*/
+@font-face {
+    font-family: 'mali';
+    src: url('../tipografia/Mali-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*Estilos de tailwindCSS*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 /*Agrupo las clases creadas en una capa llama "components". Esto permite controlar el orden de las reglas CSS aplicadas*/
 @layer components{
@@ -12,4 +26,31 @@
     .boton:hover{
         @apply hover:bg-blue-800 hover:text-white hover:text-lg;
     }
+
+
+    .card {
+        @apply max-w-sm overflow-hidden transition-shadow duration-300 bg-white rounded-lg shadow-lg hover:shadow-xl;
+    }
+
+    .card img {
+        @apply object-cover w-full h-48;
+    }
+
+    .card-content {
+        @apply p-6;
+    }
+
+    .card-title {
+        @apply mb-4 text-2xl font-semibold text-gray-800;
+    }
+
+    .card-text {
+        @apply mb-4 text-gray-600;
+    }
+
+    .card-button {
+        @apply inline-block px-4 py-2 text-white transition-colors bg-blue-500 rounded-lg hover:bg-blue-600;
+    }
+      
 }
+
