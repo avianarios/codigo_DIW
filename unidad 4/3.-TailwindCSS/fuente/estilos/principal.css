@@ -11,10 +11,7 @@
 }
 
 /*Estilos de tailwindCSS*/
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss";
 
 
 /*Agrupo las clases creadas en una capa llama "components". Esto permite controlar el orden de las reglas CSS aplicadas*/

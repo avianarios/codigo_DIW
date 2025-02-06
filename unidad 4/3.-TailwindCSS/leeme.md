@@ -33,8 +33,6 @@ Tailwind CSS es un entorno (framework) de CSS que permite diseñar interfaces si
 
 - **Altamente personalizable**: A través del archivo `tailwind.config.js`, se pueden modificar colores, tamaños, tipografías y más.
 
-- **Elimina CSS innecesario**: Utiliza PurgeCSS para eliminar clases no utilizadas en la producción, reduciendo el tamaño del CSS final.
-
 - **Modo JIT (Just-In-Time)**: El modo JIT compila sólo las clases que realmente se usan en el HTML, en lugar de generar un archivo CSS con todas las clases posibles. Esto mejora significativamente el rendimiento al reducir el tamaño del archivo CSS y acelerar la carga de la página.
 
 - **Diseño adaptable (responsive design)**: El diseño se adapta a todas las pantallas mediante el uso de prefijos en las clases que indican para qué resolución es válida dicha clase.
@@ -119,10 +117,10 @@ En esta instalación se va a usar **node** y **parcel**, que ya minimiza, traduc
 
   3. **Instalar tailwindcss** para node
       ```bash
-      npm install --save-dev tailwindcss
+      npm install --save-dev tailwindcss @tailwindcss/cli
       ```
 
-  2. **Crear del archivo de configuración** de tailwindcss (`tailwindcss.config.js`)
+  2. **Crear archivo de configuración** de tailwindcss (`tailwindcss.config.js`)
       ```bash
       npx taildinwdcss init
       ```
@@ -140,34 +138,36 @@ En esta instalación se va a usar **node** y **parcel**, que ya minimiza, traduc
       }
       ```
 
-  3. **Incluir Tailwind** en el archivo CSS
-  - `@tailwind base`: Incluye los estilos base predeterminados de Tailwind, como los reinicios de CSS y la normalización de estilos entre navegadores.
-  - `@tailwind components`: Importa los estilos predefinidos de componentes que Tailwind incluye por defecto (como botones, formularios, etc.). Aunque estos componentes no son tan extensivos como los de otros marcos, se incluyen algunos básicos.
-  - `@tailwind utilities`: Trae las clases utilitarias de Tailwind, que son las que usas más comúnmente (como m-6, text-center, bg-blue-500, etc.).
+  3. **Incluir Tailwind** en el archivo CSS. En la versión antigua, hay que incluir:
+      - `@tailwind base`: Incluye los estilos base predeterminados de Tailwind, como los reinicios de CSS y la normalización de estilos entre navegadores.
+      - `@tailwind components`: Importa los estilos predefinidos de componentes que Tailwind incluye por defecto (como botones, formularios, etc.). Aunque estos componentes no son tan extensivos como los de otros marcos, se incluyen algunos básicos.
+      - `@tailwind utilities`: Trae las clases utilitarias de Tailwind, que son las que usas más comúnmente (como m-6, text-center, bg-blue-500, etc.).
 
-    ```css
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-    ```
+     En la versión nueva: `@import "tailwindcss"`
 
-  5. Configurar el empaquetador para incluir el CSS, prefijar, minimizar y empaquetar (en este caso no es necesario porque se usa parcel)
+      ```css
+      /*versión antigua:
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;*/
+
+      /*Versión nueva */
+      @import "tailwindcss";
+      ```
+
+  4. Configurar el empaquetador para incluir el CSS, prefijar, minimizar y empaquetar
   
-  6. Crear los scripts en `package.json`
+  5. Añadir los scripts de tailwindcss a `package.json`
       ```json
       "scripts":{
-        "parcel:desarrollo": "parcel fuente/index.html --dist-dir desarrollo",
-        "parcel:produccion": "parcel build fuente/index.html --public-url './' --dist-dir 'produccion'",
-
-        "tailwind:una-vez": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css",
-        "tailwind:vigila": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css --watch",
-
-        "des": "run-p tailwind:vigila parcel:desarrollo",
-        "prod": "run-s limpia tailwind:una-vez parcel:produccion",
-
-        "limpia": "rimraf desarrollo produccion .parcel-cache",
-        "ordena": "prettier --write fuente"
+        "compila": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css",
+        "vigila": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css --watch",
       }
+      ```
+
+  6. Enlazar el archivo compilado de tailwindcss (salida.css) en el html
+      ```html
+      <link rel="stylesheet" href="../estilos/salida.css" type="text/css">
       ```
 
 ----
@@ -284,7 +284,7 @@ Tailwind CSS es altamente configurable y permite personalizar los estilos predet
   }
   ```
 
-  Ahora puedes utilizar este nuevo tamaño en tu proyecto:
+  Ahora se puede utilizar este nuevo tamaño en el proyecto:
   ```html
   <article class="mt-128">
     <p>Este margen superior tiene el tamaño personalizado de 32rem.</p>
@@ -311,7 +311,11 @@ Tailwind CSS es altamente configurable y permite personalizar los estilos predet
 
 ----
 
-# 6- Creación de componentes reutilizables
+# 6- Componentes reutilizables
+
+Un **componente** es una unidad reutilizable de código que, encapsula los estilos CSS necesarios para darle una apariencia agradable de forma rápida a una web. Los componentes permiten modularizar la interfaz de usuario, facilitando su mantenimiento y reutilización en diferentes partes de un proyecto. Hay dos tipos de componentes reutilizables, según quien los construya: el usuario o alguna empresa externa
+
+## Construidos por el usuario
 
 Aunque no sea la filosofía de TailWindCSs, se puede crear componentes reutilizables para evitar la repetición de clases mediante el uso de `@apply`, una directiva de Tailwind que permite agrupar varias clases utilitarias en una sola clase personalizada.
 
@@ -329,6 +333,47 @@ Ejemplo: creación de un botón reutilizable con estilos predeterminados, como u
   Hacer clic
 </button>
 ```
+
+## Construidos por empresas externas
+
+Otra opción es usar bibliotecas de componentes reutilizables de otras empresas que proporcionan componentes preconstruidos optimizados para Tailwind CSS. Algunas son:
+
+ 1. **Flowbite**: Rapidez y falicidad de uso
+ 2. **DaisyUI**: Rapidez y falicidad de uso
+ 3. **Headless UI**: Flexibilidad total
+ 4. **Tailwind UI**: Diseños profesionales de los creadores de Tailwindcss
+ 5. **Preline UI**: Gratuito
+
+Uso de flowbite
+  Flowbite ofrece una serie bastante amplia de componentes en su web. Algunos ofrecen simplemente un diseño bonito y otros tienen cierta funcionalidad. Éstos últimos necesitan de código JavaScript, que flowbite ofrece, para funcionar.
+
+  Se puede ir a su web, copiar el código y pegarlo en nuestra web, pero los componentes que necesiten de JavaScript, no funcionarán. Para ello, hay que usar el CDN o servirlo en local usando node
+
+  - Enlace con un CDN
+    ```html
+      <!--Uso de flowbite con CDN-->
+      <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.css" rel="stylesheet" />
+      <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.js" defer></script>
+    ```
+
+  - Instalación en node:
+      ```bash
+      npm install flowbite
+      ```
+  
+  - Importar flowbit como una extensión dentro de principal.css
+      ```css
+        @plugin "flowbite/plugin"
+      ```
+  - Añadir el código JavaScript al principal.css
+      ```css
+      @source "../node_modules/flowbite";
+      ```
+  - Añadir el script al html. Si se usa un empaquetador, éste cogerá el fichero y lo pondrá en la carpeta local al empaquetar
+      ```html
+      <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+      ```
+
 
 ----
 
@@ -412,5 +457,7 @@ Para instalar las extensiones, sean oficiales o no, hay que
         ],
       }
       ```
+-----
 
+# 9- Bibliotecas de componentes
 

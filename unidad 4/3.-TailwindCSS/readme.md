@@ -32,8 +32,6 @@ Tailwind CSS is a CSS framework that allows designing interfaces by simply addin
 
 - **Highly customizable**: Using the `tailwind.config.js` file, colors, sizes, fonts, and more can be modified.
 
-- **Removes unused CSS**: Utilizes PurgeCSS to eliminate unused classes in production, reducing the final CSS file size.
-
 - **JIT (Just-In-Time) Mode**: JIT mode compiles only the classes actually used in the HTML instead of generating a CSS file with all possible classes. This significantly improves performance by reducing CSS file size and speeding up page load times.
 
 - **Responsive design**: Tailwind enables responsive design by using class prefixes that indicate the resolution at which a class applies.
@@ -116,33 +114,38 @@ Tailwind CSS can be used by linking to a CDN (Content Delivery Network) or insta
       plugins: [],
     }
     ```
+
+  3. **Include Tailwind** in the CSS file. In the old version, you need to include:
+      - `@tailwind base`: Includes Tailwind's default base styles, such as CSS restarts and cross-browser style normalisation.
+      - `@tailwind components`: Imports the predefined styles of components that Tailwind includes by default (such as buttons, forms, etc.). Although these components are not as extensive as those of other frameworks, some basic ones are included.
+      - `@tailwind utilities`: Brings the Tailwind utility classes, which are the ones you use most commonly (like m-6, text-center, bg-blue-500, etc.).
+
+     In the new version: `@import ‘tailwindcss’`.
+
+      ```css
+      /*old version:
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;*/
+
+      /*new version */
+      @import ‘tailwindcss’;
+      ```  
+
+  4. Configure the bundler to include, prefix, minify, and bundle the CSS.
   
-  3. Create the PostCSS configuration file:
-    ```js
-    module.exports = {
-      plugins: [
-        require('tailwindcss'),
-        require('autoprefixer'),
-      ],
-    }
-    ```
-  
-  4. Include Tailwind in the CSS file:
-    ```css
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-    ```
-  
-  5. Configure the build tool to include, prefix, minify, and bundle the CSS (not needed if using Parcel).
-  
-  6. Add scripts to `package.json`:
+  5. Add scripts to `package.json`:
     ```json
     "scripts": {
-      "dev": "tailwindcss -i ./src/styles.css -o ./dist/output.css --watch",
-      "build": "tailwindcss -i ./src/styles.css -o ./dist/output.css --minify"
+      "compile": "tailwindcss -i ./src/styles.css -o ./dist/output.css --watch",
+      "watch": "tailwindcss -i ./src/styles.css -o ./dist/output.css --minify"
     }
     ```
+
+  6. Link the compiled tailwindcss file (output.css) in the html
+      ````html
+      <link rel=‘stylesheet’ href=‘../styles/output.css’ type=‘text/css’>
+      ```
 
 # 3- Essential Utility Classes
 
