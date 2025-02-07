@@ -1,0 +1,25 @@
+/* Declaración de la fuente utilizando @font-face */
+@font-face {
+    font-family: 'Mali';
+    src: url('tipografia/Mali-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Mali', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2em;
+}
