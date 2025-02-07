@@ -5,7 +5,7 @@
 3. [Clases de utilidad esenciales](#3--clases-de-utilidad-esenciales)
 4. [Diseño adaptable](#4--diseño-adaptable)
 5. [Personalización](#5--personalización)
-6. [Creación de componentes reutilizables](#6--creación-de-componentes-reutilizables)
+6. [Componentes](#6--componentes)
 7. [Organización del código](#7--organización-del-código)
 8. [Extensiones](#8--extensiones)
 
@@ -311,7 +311,7 @@ Tailwind CSS es altamente configurable y permite personalizar los estilos predet
 
 ----
 
-# 6- Componentes reutilizables
+# 6- Componentes
 
 Un **componente** es una unidad reutilizable de código que, encapsula los estilos CSS necesarios para darle una apariencia agradable de forma rápida a una web. Los componentes permiten modularizar la interfaz de usuario, facilitando su mantenimiento y reutilización en diferentes partes de un proyecto. Hay dos tipos de componentes reutilizables, según quien los construya: el usuario o alguna empresa externa
 
@@ -349,31 +349,43 @@ Otra opción es usar bibliotecas de componentes reutilizables de otras empresas 
 
   Se puede ir a su web, copiar el código y pegarlo en nuestra web, pero los componentes que necesiten de JavaScript, no funcionarán. Para ello, hay que usar el CDN o servirlo en local usando node
 
-  - Enlace con un CDN
+- Enlace con un CDN
     ```html
     <!--Uso de flowbite con CDN-->
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.1/dist/flowbite.min.js" defer></script>
     ```
 
-  - Uso con node
-    - Instalación como paquete de node:
+- Uso con node
+  - Instalación como paquete de node:
       ```bash
       npm install flowbite
       ```
-  
-    - Importar flowbit como una extensión dentro de principal.css
-      ```css
-      @plugin "flowbite/plugin"
-      ```
-    - Añadir el código JavaScript al principal.css
-      ```css
-      @source "../node_modules/flowbite";
-      ```
-    - Añadir el script al html. Si se usa un empaquetador, éste cogerá el fichero y lo pondrá en la carpeta local al empaquetar
+  - Cargar el script `node_modules/flowbite/dist/flowbite.min.js` en el html. Si se usa un empaquetador (recomendado, en este proyecto no se usa), se puede poner la ruta tal cual, puesto que éste cogerá el fichero y lo pondrá en la carpeta local al empaquetar. Si no, debe copiarlo el usuario
       ```html
-      <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+      <script src="../js/flowbite.min.js"></script>
       ```
+
+    La documentación oficial dice: 
+      - Importar flowbit como una extensión dentro de principal.css
+        ```css
+        @plugin "flowbite/plugin"
+        ```
+      - Añadir el código JavaScript al principal.css
+        ```css
+        @source "../node_modules/flowbite";
+        ```
+    Pero en CSS no existen ni `@plugin` ni `@source`
+    
+    La documentación antes decía: 
+    - Añadir la extensión den tailwind.config.js
+      ```javascript
+      plugins: [
+        require('flowbite/plugin')
+      ]
+      ```
+
+
 ----
 
 # 7- Organización del código
