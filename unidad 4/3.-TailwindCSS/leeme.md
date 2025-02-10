@@ -99,76 +99,80 @@ Se puede usar TailWindCSS mediante la inclusión de un enlace a un CDN (Content 
     </html>
     ```
 
-    Esto es cómodo porque no hay que configurar nada, sólo incluir el enlace al CDN, pero se descarga todo el código de Tailwind, incluidas las clases que no se usen. En proyectos grandes es un pequeño sobrecoste a pagar por la comodidad, pero en proyectos pequeños la situación es peor porque posiblemente contenga muchas clases que no se usen. 
+   Esto es cómodo porque no hay que configurar nada, sólo incluir el enlace al CDN, pero se descarga todo el código de Tailwind, incluidas las clases que no se usen. En proyectos grandes es un pequeño sobrecoste a pagar por la comodidad, pero en proyectos pequeños la situación es peor porque posiblemente contenga muchas clases que no se usen. 
 
     El resultado es que se descarga un fichero más grandes de lo que se necesita, pudiendo afectar el rendimiento de la página al cargarla.
   
 2. **Uso como recurso local**. Ideal para para proyectos más complejos y avanzados, donde se necesita poder cambiar la configuración.
 
-Con esta opción, el fichero de clases de tailwindcss que se usa es el menor posible, porque no incluye las clases que no se utilizan y, además, si se usa un empaquetadaor, el código estará minimizado. Como desventaja, está que hay que **configurar el entorno** y **compilar el código tailwindcss** para que se genere un fichero sólo con las clases necesarias
+    Instalarlo en local mediante node tiene una serie de ventajas:
+      - La **actualización es más sencilla**, ya que sólo hay que hacer `npm update` para actualizar los paquetes a la versión más alta sin pasar al siguiente número (por ejemplo, actualiza de la 3.6 a la 3.9, pero no a la 4.0) o `npm update paquete@latest` o `npx npm-check-updates -u` para actualizar un paquete concreto o todos los paquetes, respectivamente, a la última versión, aunque implique un cambio mayor. Con un CDN hay que conectarse de vez en cuando, descargar el fichero cuando cambie la versión y ponerlo en el directorio correcto.
+      - **Control de versiones**: Con npm, se puede especificar la versión exacta a usar en el proyecto, o incluso se puede fijar un rango de versiones compatibles para evitar sorpresas cuando se actualicen las dependencias.
+      - **Empaquetado y optimización**: Al usar un empaquetador como Webpack o Parcel el empaquetador se encargará de optimizar el código (minificarlo, dividirlo en trozos, etc.). Esto permite gestionar mejor el tamaño y la estructura del proyecto.
+      - **No depender de un CDN**: Los CDNs pueden fallar y dejar a la web sin el recurso.
 
-En esta instalación se va a usar **node** y **parcel**, que ya minimiza, traduce SASS, autoprefija y empaqueta. Si se usara otro, es posible que hiciera falta instalar más paquetes.
+    Con esta opción, el fichero de clases de tailwindcss que se usa es el menor posible, porque no incluye las clases que no se utilizan y, además, si se usa un empaquetadaor, el código estará minimizado. Como desventaja, está que hay que **configurar el entorno** y **compilar el código tailwindcss** para que se genere un fichero sólo con las clases necesarias.
 
-  1. **Instalar Node.js**.
+    Los pasos para instalar tailwindcss en node son:
 
-  2. **Iniciar el proyecto desde su directorio con `npm init`**.  
-    Responde a las preguntas para generar el archivo `package.json`, que es el archivo de configuración para Node.js.  
-    No uses mayúsculas, espacios o caracteres especiales en el campo «name».
+    1. **Instalar Node.js**.
 
-  3. **Instalar tailwindcss** para node
-      ```bash
-      npm install --save-dev tailwindcss @tailwindcss/cli
-      ```
+    2. **Iniciar el proyecto desde su directorio con `npm init`**, lo que generará un archivo de configuración del proyecto `package.json`. No se deben usar mayúsculas, espacios o caracteres especiales en el campo «name».
 
-  2. **Crear archivo de configuración** de tailwindcss (`tailwindcss.config.js`)
-      ```bash
-      npx taildinwdcss init
-      ```
+    3. **Instalar tailwindcss** para node como una dependencia necesaria para el desarrollo, no para produccción
+        ```bash
+        npm install --save-dev tailwindcss @tailwindcss/cli
+        ```
 
-      Ejemplo de configuración de `tailwind.config.js` para indicarle a tailwindcss qué ficheros analizar, generando sólo las clases CSS necesarias
+    2. **Crear archivo de configuración** de tailwindcss (`tailwindcss.config.js`)
+        ```bash
+        npx taildinwdcss init
+        ```
+
+        Ejemplo de configuración de `tailwind.config.js` para indicarle a tailwindcss qué ficheros analizar, generando sólo las clases CSS necesarias
 
 
-      ```javascript
-      module.exports = {
-        content: ["./src/**/*.{html,js}"],
-        theme: {
-          extend: {},
-        },
-        plugins: [],
-      }
-      ```
+        ```javascript
+        module.exports = {
+          content: ["./src/**/*.{html,js}"],
+          theme: {
+            extend: {},
+          },
+          plugins: [],
+        }
+        ```
 
-  3. **Incluir Tailwind** en el archivo CSS. En la versión antigua, hay que incluir:
-      - `@tailwind base`: Incluye los estilos base predeterminados de Tailwind, como los reinicios de CSS y la normalización de estilos entre navegadores.
-      - `@tailwind components`: Importa los estilos predefinidos de componentes que Tailwind incluye por defecto (como botones, formularios, etc.). Aunque estos componentes no son tan extensivos como los de otros marcos, se incluyen algunos básicos.
-      - `@tailwind utilities`: Trae las clases utilitarias de Tailwind, que son las que usas más comúnmente (como m-6, text-center, bg-blue-500, etc.).
+    3. **Incluir Tailwind** en el archivo CSS. En la versión antigua, hay que incluir:
+        - `@tailwind base`: Incluye los estilos base predeterminados de Tailwind, como los reinicios de CSS y la normalización de estilos entre navegadores.
+        - `@tailwind components`: Importa los estilos predefinidos de componentes que Tailwind incluye por defecto (como botones, formularios, etc.). Aunque estos componentes no son tan extensivos como los de otros marcos, se incluyen algunos básicos.
+        - `@tailwind utilities`: Trae las clases utilitarias de Tailwind, que son las que usas más comúnmente (como m-6, text-center, bg-blue-500, etc.).
 
-     En la versión nueva: `@import "tailwindcss"`
+        En la versión nueva: `@import "tailwindcss"`
 
-      ```css
-      /*versión antigua:
-      @tailwind base;
-      @tailwind components;
-      @tailwind utilities;*/
+          ```css
+          /*versión antigua:
+          @tailwind base;
+          @tailwind components;
+          @tailwind utilities;*/
 
-      /*Versión nueva */
-      @import "tailwindcss";
-      ```
+          /*Versión nueva */
+          @import "tailwindcss";
+          ```
 
-  4. Configurar el empaquetador para incluir el CSS, prefijar, minimizar y empaquetar
-  
-  5. Añadir los scripts de tailwindcss a `package.json`
-      ```json
-      "scripts":{
-        "compila": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css",
-        "vigila": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css --watch",
-      }
-      ```
+    4. **Instalar y configurar el empaquetador** para incluir el CSS, prefijar, minimizar y empaquetar
+    
+    5. Añadir los scripts de tailwindcss a `package.json`
+        ```json
+        "scripts":{
+          "compila": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css",
+          "vigila": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css --watch",
+        }
+        ```
 
-  6. Enlazar el archivo compilado de tailwindcss (salida.css) en el html
-      ```html
-      <link rel="stylesheet" href="../estilos/salida.css" type="text/css">
-      ```
+    6. Enlazar el archivo compilado de tailwindcss (salida.css) en el html
+        ```html
+        <link rel="stylesheet" href="../estilos/salida.css" type="text/css">
+        ```
 
 ----
     

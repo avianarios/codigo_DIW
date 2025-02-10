@@ -98,9 +98,19 @@ Tailwind CSS can be used by linking to a CDN (Content Delivery Network) or insta
 
 2. **Using a local setup**: Recommended for more complex projects where customization is needed.
 
-  1. Install Tailwind CSS, PostCSS, and Autoprefixer:
+Installing it locally via node has a number of advantages:
+  - **updating is easier**, as you only have to do `npm update` to update packages to the highest version without going to the next number (e.g. update from 3.6 to 3.9, but not to 4.0) or `npm update package@latest` or `npx npm-check-updates -u` to update a particular package or all packages, respectively, to the latest version, even if it involves a major change. With a CDN you have to connect from time to time, download the file when the version changes and put it in the correct directory.
+  - **Version control**: With npm, you can specify the exact version to use in your project, or even set a range of compatible versions to avoid surprises when updating dependencies.
+  - **Packaging and optimisation**: When using a packager such as Webpack or Parcel, the packager will take care of optimising the code (minifying it, splitting it into chunks, etc.). This allows you to better manage the size and structure of your project.
+  - **No dependency on a CDN**: CDNs can fail and leave our website without the resource.
+
+With this option, the tailwindcss class file used is the smallest possible, because it does not include the classes that are not used and, in addition, if a packager is used, the code will be minimised. On the downside, you have to **configure the environment** and **compile the tailwindcss code** to generate a tailwindcss file.
+
+The steps to install tailwindcss on node are:
+
+  1. Install Tailwind CSS:
     ```bash
-    npm install --save-dev tailwindcss postcss autoprefixer
+    npm install --save-dev tailwindcss
     npx tailwindcss init
     ```
   
