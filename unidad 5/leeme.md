@@ -65,7 +65,7 @@ Las WCAG se basan en cuatro principios fundamentales, conocidos como POUR:
 
 
 ## Pautas
-Dentro de cada principio, las pautas son recomendaciones específicas sobre cómo hacer que el contenido web sea accesible. Estas pautas son más generales y se agrupan dentro de los principios. Por ejemplo:
+Cada principio de accesibilidad se desglosa sen pautas, que son directrices más específicas sobre cómo hacer que el contenido web sea accesible. Por ejemplo:
 - Principio Perceptible:
     - Pauta 1.1 (Contenido no textual): Asegúrate de que el contenido no textual tenga alternativas textuales.
     - Pauta 1.2 (Contenido multimedia): Proporciona subtítulos y otras alternativas para el contenido multimedia.
@@ -74,7 +74,104 @@ Dentro de cada principio, las pautas son recomendaciones específicas sobre cóm
     - Pauta 2.4 (Navegación): Proporciona mecanismos para ayudar a los usuarios a navegar, encontrar contenido y determinar dónde están.
 
 ## Criterios de éxito
-Son las condiciones exactas que deben cumplirse para lograr el cumplimiento de una pauta en un nivel de conformidad determinado (A, AA o AAA). Estos criterios son declaraciones medibles que permiten evaluar si un sitio cumple con las pautas. Por ejemplo:
-- Pauta 1.1 (Contenido no textual): Uno de los criterios de éxito sería 1.1.1 (Contenido no textual), que establece que todo contenido no textual que sirva como función (como botones, imágenes con enlaces, etc.) debe tener una alternativa textual.
-- Pauta 2.1 (Accesibilidad mediante teclado): Un criterio de éxito sería 2.1.1 (Teclado), que asegura que todo el contenido interactivo sea accesible mediante el teclado, es decir, que los usuarios puedan navegar por el sitio usando únicamente el teclado sin necesidad de un ratón.
+Mientras que las pautas siguen siendo elementos generales, los criterios las concretan y las hacen medibles para determinar si un determinado diseño cumple con un determinado nivel de conformidad (A, AA o AAA). Esos criterios están organizados según el nivel de conformidad:
+- **Nivel A**: Los criterios más fundamentales que, si no se cumplen, hacen que el sitio sea inaccesible para muchos usuarios.
+- **Nivel AA**: Criterios importantes, pero no críticos para que el sitio sea accesible en términos básicos. Aun así, cumplirlos mejora considerablemente la accesibilidad para una gran cantidad de usuarios, especialmente para aquellos con discapacidades comunes.
+- **Nivel AAA**: Criterios adicionales para hacer que el contenido sea aún más accesible, pero que no siempre son necesarios en todos los casos. Este nivel está destinado a optimizar la accesibilidad para personas con discapacidades más específicas o graves.
+    
+Por ejemplo:
+- Pauta 1.1 (Contenido no textual): 
+    - Criterio 1.1.1 (Contenido no textual) (Nivel A):
+        - Descripción: Todo contenido no textual debe tener una alternativa textual.
+        - Ejemplo: Una imagen debe tener un atributo alt que describa su contenido.
 
+- Pauta 1.2 (contenido multimedia):
+    - Criterio 1.2.1 Solo audio y solo video (pregrabado) (Nivel A):
+        - Descripción: Proporcionar alternativas textuales para contenido de solo audio o solo video pregrabado.
+        - Ejemplo: Un podcast debe tener una transcripción textual disponible.
+
+    - Criterio 1.2.2 Subtítulos (pregrabados) (Nivel A):
+        - Descripción: Proporcionar subtítulos sincronizados para contenido de audio en videos pregrabados.
+        - Ejemplo: Un video con diálogo debe tener subtítulos que transcriban el diálogo y otros sonidos relevantes.
+
+    - Criterio 1.2.3 Descripción auditiva o alternativa para medios (pregrabados) (Nivel A):
+        - Descripción: Proporcionar una descripción auditiva o una alternativa para contenido visual en videos pregrabados.
+        - Ejemplo: Un video con información visual importante (como gráficos o acciones) debe tener una descripción auditiva que explique estos elementos.
+
+    - Criterio 1.2.4 Subtítulos (en vivo) (Nivel AA):
+        - Descripción: Proporcionar subtítulos en tiempo real para contenido de audio en vivo.
+        - Ejemplo: Una transmisión en vivo de una conferencia debe tener subtítulos sincronizados.
+
+    - Criterio 1.2.5 Descripción auditiva (pregrabada) (Nivel AA):
+        - Descripción: Proporcionar una descripción auditiva para contenido visual en videos pregrabados.
+        - Ejemplo: Un video con información visual importante debe tener una descripción auditiva que explique estos elementos.
+
+    - Criterio 1.2.6 Lengua de señas (pregrabada) (Nivel AAA):
+        - Descripción: Proporcionar una interpretación en lengua de señas para contenido de audio en videos pregrabados.
+        - Ejemplo: Un video con diálogo importante puede incluir una interpretación en lengua de señas.
+
+    - Criterio 1.2.7 Descripción auditiva ampliada (pregrabada) (Nivel AAA):
+        - Descripción: Proporcionar una descripción auditiva más detallada para contenido visual en videos pregrabados.
+        - Ejemplo: Un video con información visual compleja debe tener una descripción auditiva que explique todos los detalles.
+
+    - Criterio 1.2.8 Alternativa para medios (pregrabados) (Nivel AAA):
+        - Descripción: Proporcionar una alternativa textual completa para contenido multimedia pregrabado.
+        - Ejemplo: Un video con audio y contenido visual debe tener una transcripción textual que incluya descripciones de ambos.
+
+
+ # Pautas clave
+ 1. Perceptible. El contenido debe ser presentado de manera que los usuarios puedan percibirlo, independientemente de sus capacidades sensoriales.
+Pautas clave:
+- Pauta 1.1: Contenido no textual
+    - Criterio clave: 1.1.1 Contenido no textual (Nivel A).
+    - Objetivo: Proporcionar alternativas textuales para contenido no textual (imágenes, videos, iconos, etc.).
+- Pauta 1.3: Adaptable
+    - Criterio clave: 1.3.1 Información y relaciones (Nivel A).
+    - Objetivo: Asegurar que el contenido pueda ser presentado de diferentes maneras sin perder información o estructura.
+- Pauta 1.4: Distinguible
+    - Criterio clave: 1.4.3 Contraste mínimo (Nivel AA).
+    -Objetivo: Hacer que el contenido sea fácil de ver y escuchar, incluyendo requisitos como el contraste de color y la capacidad de ajustar el tamaño del texto.
+
+2. Operable. Los componentes de la interfaz de usuario y la navegación deben ser operables por todos los usuarios, incluyendo aquellos que dependen del teclado o tecnologías asistivas.
+Pautas clave:
+- Pauta 2.1: Teclado accesible
+        Criterio clave: 2.1.1 Teclado (Nivel A).
+        Objetivo: Garantizar que todo el contenido y la funcionalidad sean accesibles mediante el teclado.
+    Pauta 2.4: Navegable
+        Criterios clave:
+            2.4.2 Título de la página (Nivel A).
+            2.4.7 Enfoque visible (Nivel AA).
+        Objetivo: Facilitar la navegación y la localización de contenido, asegurando que los usuarios puedan encontrar lo que necesitan y saber dónde están.
+
+3. Comprensible. La información y el funcionamiento de la interfaz de usuario deben ser comprensibles para todos los usuarios.
+Pautas clave:
+    Pauta 3.1: Legible
+        Criterio clave: 3.1.1 Idioma de la página (Nivel A).
+        Objetivo: Asegurar que el texto sea legible y comprensible, incluyendo la identificación del idioma del contenido.
+    Pauta 3.2: Predecible
+        Criterio clave: 3.2.1 Al enfocar (Nivel A).
+        Objetivo: Hacer que las páginas web funcionen de manera predecible, evitando cambios inesperados en el contexto.
+    Pauta 3.3: Entrada de datos asistida
+        Criterio clave: 3.3.1 Identificación de errores (Nivel A).
+        Objetivo: Ayudar a los usuarios a evitar y corregir errores en formularios y entradas de datos.
+
+4. Robusto. El contenido debe ser suficientemente robusto para ser interpretado de manera confiable por una amplia variedad de tecnologías, incluyendo tecnologías asistivas.
+Pautas clave:
+    Pauta 4.1: Compatible
+        Criterios clave:
+            4.1.1 Procesamiento (Nivel A).
+            4.1.2 Nombre, función, valor (Nivel A).
+        Objetivo: Garantizar que el contenido sea compatible con las tecnologías asistivas actuales y futuras.
+
+
+| Principio     | Pautas clave                          | Criterios clave                                                                 |
+|---------------|---------------------------------------|---------------------------------------------------------------------------------|
+| **Perceptible** | 1.1 Contenido no textual              | 1.1.1 Contenido no textual (Nivel A).                                           |
+|               | 1.3 Adaptable                         | 1.3.1 Información y relaciones (Nivel A).                                       |
+|               | 1.4 Distinguible                      | 1.4.3 Contraste mínimo (Nivel AA).                                              |
+| **Operable**    | 2.1 Teclado accesible                 | 2.1.1 Teclado (Nivel A).                                                        |
+|               | 2.4 Navegable                         | 2.4.2 Título de la página (Nivel A), 2.4.7 Enfoque visible (Nivel AA).          |
+| **Comprensible**| 3.1 Legible                           | 3.1.1 Idioma de la página (Nivel A).                                            |
+|               | 3.2 Predecible                        | 3.2.1 Al enfocar (Nivel A).                                                     |
+|               | 3.3 Entrada de datos asistida         | 3.3.1 Identificación de errores (Nivel A).                                      |
+| **Robusto**     | 4.1 Compatible                        | 4.1.1 Procesamiento (Nivel A), 4.1.2 Nombre, función, valor (Nivel A).          |
