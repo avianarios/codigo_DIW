@@ -42,44 +42,53 @@ Las WCAG definen tres niveles de conformidad para medir el grado de accesibilida
 - AAA (nivel óptimo): Este es el nivel más alto de conformidad y cubre las mejores prácticas para hacer que un sitio sea accesible para la mayor cantidad de personas posible. Sin embargo, cumplir con todos los requisitos de este nivel puede ser difícil o innecesario para todos los sitios web.
 
 
-La accesibilidad se estructura en principios, que se desglosan en pautas específicas y, dentro de cada pauta, hay criterios de éxito que son medibles y describen qué es necesario para cumplir con un determinado nivel de conformidad (A, AA o AAA).
+## Organización de la accesibilidad
+La accesibilidad se organiza en una jerarquía donde el nivel más alto contiene grandes objetivos que se van concretando conforme se baja a los niveles inferiores, hasta que se alcanza el último nivel, donde los parámetros ya son medibles. Así, la organización, de más alto a más bajo nivel es la siguiente:
+- **Principios**. Proporcionan una visión general de lo que significa la accesibilidad web y ayudan a los diseñadores y desarrolladores a pensar en las necesidades de todos los usuarios desde el inicio del proyecto.
+- **Pautas**. Cada principio se divide en pautas que concretan un poco más dicho principio.
+- **Criterios de éxito**. La forma de comprobar si una pauta se cumple es mediante la verificación de una serie de criterios de éxito que, ya sí, proporcionan parámetros medibles para comprobar si un determinado diseño cumple con un determinado nivel de conformidad.
 
 
-## Principios de WCAG
-Las WCAG se basan en cuatro principios fundamentales, conocidos como POUR:
-- **Perceptible**: La información y los componentes de la interfaz de usuario deben ser presentados de manera que los usuarios puedan percibirlos. Si algo no puede ser percibido por un usuario, debe ofrecerse una alternativa accesible. Esto incluye:
-    - Proporcionar alternativas textuales para contenido no textual (alt en imágenes o subtítulos y transcripciones para videos y transcripciones para audios).
-    - Asegurar que el contenido sea adaptable y se pueda presentar de diferentes formas sin perder información.
-    - Asegurar que el contraste de color sea suficiente para personas con dificultades visuales.
-- **Operable**: Los componentes de la interfaz y la navegación deben ser operables por todos los usuarios, es decir, los usuarios deben poder interactuar con el sitio sin barreras, ya sea usando un teclado, ratón o dispositivos de asistencia.Esto implica:
-    - Asegurar que todo el contenido sea accesible mediante teclado.
-    - Dar suficiente tiempo a los usuarios para leer y usar el contenido.
-    - No depender de un solo tipo de entrada (como el ratón).
-- **Comprensible**: La información y el funcionamiento de la interfaz de usuario deben ser comprensibles. Esto incluye:
-    - Hacer el texto legible y comprensible.
-    - Asegurar que las páginas web funcionen de manera predecible.
-    - Ayudar a los usuarios a corregir errores en formularios.
-- **Robusto**: El contenido debe ser suficientemente robusto para ser interpretado de manera confiable por una amplia variedad de tecnologías, incluyendo tecnologías asistivas. Esto significa:
-    - Usar código válido y bien estructurado.
-    - Asegurar la compatibilidad con navegadores y dispositivos actuales y futuros.
+### Principios
+Las WCAG se basan en cuatro principios fundamentales:
+- **Perceptible**: La información y los componentes de la interfaz de usuario deben ser presentados de manera que los usuarios puedan percibirlos. Si algo no puede ser percibido por un usuario, debe ofrecerse una alternativa accesible. 
+- **Operable**: Los componentes de la interfaz y la navegación deben ser operables por todos los usuarios, es decir, se debe poder interactuar con el sitio usando diferentes métodos (teclado, ratón o dispositivos de asistencia).
+- **Comprensible**: La información y el funcionamiento de la interfaz de usuario deben ser comprensibles, predecible y fácil de usar.
+- **Robusto**: El contenido debe ser suficientemente robusto para ser interpretado de manera fiable por una amplia variedad de tecnologías, incluyendo tecnologías asistivas, es decir, el contenido debe funcionar correctamente en diferentes navegadores, dispositivos y tecnologías, tanto actuales como futuras.
 
 
-## Pautas
-Cada principio de accesibilidad se desglosa sen pautas, que son directrices más específicas sobre cómo hacer que el contenido web sea accesible. Por ejemplo:
-- Principio Perceptible:
-    - Pauta 1.1 (Contenido no textual): Asegúrate de que el contenido no textual tenga alternativas textuales.
-    - Pauta 1.2 (Contenido multimedia): Proporciona subtítulos y otras alternativas para el contenido multimedia.
-- Principio Operable:
-    - Pauta 2.1 (Accesibilidad mediante teclado): Asegúrate de que todos los elementos interactivos sean accesibles con un teclado.
-    - Pauta 2.4 (Navegación): Proporciona mecanismos para ayudar a los usuarios a navegar, encontrar contenido y determinar dónde están.
+### Pautas
+Cada principio de accesibilidad se desglosa en pautas, que son directrices más específicas sobre cómo hacer que el contenido web sea accesible. Hay, en total 13
 
-## Criterios de éxito
+**Perceptible:**
+- **Pauta 1.1: Contenido no textual:** Proporcionar alternativas textuales para cualquier contenido no textual para que pueda ser cambiado a otras formas que las personas necesiten, como el texto en braille, el habla, los símbolos o un lenguaje más simple.
+- **Pauta 1.2: Medios temporales (audio y video):** Proporcionar alternativas para los contenidos de audio y video pregrabados, como subtítulos y descripciones de audio.
+- **Pauta 1.3: Adaptable:** Crear contenido que pueda ser presentado de diferentes maneras, incluyendo la adaptación a las necesidades de los usuarios sin pérdida de información o estructura.
+- **Pauta 1.4: Distinguible:** Facilitar que los usuarios vean y oigan el contenido, separando el contenido del fondo y haciendo que el contenido sea distinguible.
+
+**Operable:**
+- **Pauta 2.1: Teclado accesible:** Asegurar que todas las funcionalidades estén disponibles desde un teclado, permitiendo a los usuarios navegar y operar el contenido sin necesidad de un ratón.
+- **Pauta 2.2: Tiempo suficiente:** Proporcionar a los usuarios tiempo suficiente para leer y usar el contenido, permitiendo la extensión de los límites de tiempo o la desactivación de las interrupciones.
+- **Pauta 2.3: Convulsiones y reacciones físicas:** Evitar contenido que pueda causar convulsiones o reacciones físicas, como el parpadeo o los destellos.
+- **Pauta 2.4: Navegable:** Proporcionar maneras para ayudar a los usuarios a navegar, encontrar contenido y determinar dónde se encuentran.
+- **Pauta 2.5: Métodos de entrada adicionales:** Proporcionar métodos adicionales para la entrada de datos, como el reconocimiento de voz y la entrada táctil.
+
+**Comprensible:**
+- **Pauta 3.1: Legible:** Hacer el texto legible y comprensible, asegurando que el contenido sea claro y fácil de entender.
+- **Pauta 3.2: Predecible:** Hacer que las páginas web aparezcan y funcionen de manera predecible, con un diseño y comportamiento consistentes.
+- **Pauta 3.3: Asistencia en la entrada de datos:** Ayudar a los usuarios a evitar y corregir errores, proporcionando instrucciones claras y sugerencias para la entrada de datos.
+
+**Robusto:**
+- **Pauta 4.1: Compatible:** Asegurar que el contenido sea compatible con los agentes de usuario actuales y futuros, incluyendo tecnologías de asistencia.
+
+
+### Criterios de éxito
 Mientras que las pautas siguen siendo elementos generales, los criterios las concretan y las hacen medibles para determinar si un determinado diseño cumple con un determinado nivel de conformidad (A, AA o AAA). Esos criterios están organizados según el nivel de conformidad:
 - **Nivel A**: Los criterios más fundamentales que, si no se cumplen, hacen que el sitio sea inaccesible para muchos usuarios.
 - **Nivel AA**: Criterios importantes, pero no críticos para que el sitio sea accesible en términos básicos. Aun así, cumplirlos mejora considerablemente la accesibilidad para una gran cantidad de usuarios, especialmente para aquellos con discapacidades comunes.
 - **Nivel AAA**: Criterios adicionales para hacer que el contenido sea aún más accesible, pero que no siempre son necesarios en todos los casos. Este nivel está destinado a optimizar la accesibilidad para personas con discapacidades más específicas o graves.
     
-Por ejemplo:
+Un ejemplo de las dos primeras pautas sería:
 - Pauta 1.1 (Contenido no textual): 
     - Criterio 1.1.1 (Contenido no textual) (Nivel A):
         - Descripción: Todo contenido no textual debe tener una alternativa textual.
@@ -119,7 +128,7 @@ Por ejemplo:
         - Ejemplo: Un video con audio y contenido visual debe tener una transcripción textual que incluya descripciones de ambos.
 
 
- # Pautas clave
+# Pautas clave
  1. Perceptible. El contenido debe ser presentado de manera que los usuarios puedan percibirlo, independientemente de sus capacidades sensoriales.
 Pautas clave:
 - Pauta 1.1: Contenido no textual
@@ -130,38 +139,38 @@ Pautas clave:
     - Objetivo: Asegurar que el contenido pueda ser presentado de diferentes maneras sin perder información o estructura.
 - Pauta 1.4: Distinguible
     - Criterio clave: 1.4.3 Contraste mínimo (Nivel AA).
-    -Objetivo: Hacer que el contenido sea fácil de ver y escuchar, incluyendo requisitos como el contraste de color y la capacidad de ajustar el tamaño del texto.
+    - Objetivo: Hacer que el contenido sea fácil de ver y escuchar, incluyendo requisitos como el contraste de color y la capacidad de ajustar el tamaño del texto.
 
 2. Operable. Los componentes de la interfaz de usuario y la navegación deben ser operables por todos los usuarios, incluyendo aquellos que dependen del teclado o tecnologías asistivas.
 Pautas clave:
 - Pauta 2.1: Teclado accesible
-        Criterio clave: 2.1.1 Teclado (Nivel A).
-        Objetivo: Garantizar que todo el contenido y la funcionalidad sean accesibles mediante el teclado.
-    Pauta 2.4: Navegable
-        Criterios clave:
-            2.4.2 Título de la página (Nivel A).
-            2.4.7 Enfoque visible (Nivel AA).
-        Objetivo: Facilitar la navegación y la localización de contenido, asegurando que los usuarios puedan encontrar lo que necesitan y saber dónde están.
+    - Criterio clave: 2.1.1 Teclado (Nivel A).
+    - Objetivo: Garantizar que todo el contenido y la funcionalidad sean accesibles mediante el teclado.
+- Pauta 2.4: Navegable
+    - Criterios clave:
+        - 2.4.2 Título de la página (Nivel A).
+        - 2.4.7 Enfoque visible (Nivel AA).
+        - Objetivo: Facilitar la navegación y la localización de contenido, asegurando que los usuarios puedan encontrar lo que necesitan y saber dónde están.
 
 3. Comprensible. La información y el funcionamiento de la interfaz de usuario deben ser comprensibles para todos los usuarios.
 Pautas clave:
-    Pauta 3.1: Legible
-        Criterio clave: 3.1.1 Idioma de la página (Nivel A).
-        Objetivo: Asegurar que el texto sea legible y comprensible, incluyendo la identificación del idioma del contenido.
-    Pauta 3.2: Predecible
-        Criterio clave: 3.2.1 Al enfocar (Nivel A).
-        Objetivo: Hacer que las páginas web funcionen de manera predecible, evitando cambios inesperados en el contexto.
-    Pauta 3.3: Entrada de datos asistida
-        Criterio clave: 3.3.1 Identificación de errores (Nivel A).
-        Objetivo: Ayudar a los usuarios a evitar y corregir errores en formularios y entradas de datos.
+- Pauta 3.1: Legible
+    - Criterio clave: 3.1.1 Idioma de la página (Nivel A).
+    - Objetivo: Asegurar que el texto sea legible y comprensible, incluyendo la identificación del idioma del contenido.
+- Pauta 3.2: Predecible
+    - Criterio clave: 3.2.1 Al enfocar (Nivel A).
+    - Objetivo: Hacer que las páginas web funcionen de manera predecible, evitando cambios inesperados en el contexto.
+- Pauta 3.3: Entrada de datos asistida
+    - Criterio clave: 3.3.1 Identificación de errores (Nivel A).
+    - Objetivo: Ayudar a los usuarios a evitar y corregir errores en formularios y entradas de datos.
 
 4. Robusto. El contenido debe ser suficientemente robusto para ser interpretado de manera confiable por una amplia variedad de tecnologías, incluyendo tecnologías asistivas.
 Pautas clave:
-    Pauta 4.1: Compatible
-        Criterios clave:
-            4.1.1 Procesamiento (Nivel A).
-            4.1.2 Nombre, función, valor (Nivel A).
-        Objetivo: Garantizar que el contenido sea compatible con las tecnologías asistivas actuales y futuras.
+- Pauta 4.1: Compatible
+    - Criterios clave:
+        - 4.1.1 Procesamiento (Nivel A).
+        - 4.1.2 Nombre, función, valor (Nivel A).
+    - Objetivo: Garantizar que el contenido sea compatible con las tecnologías asistivas actuales y futuras.
 
 
 | Principio     | Pautas clave                          | Criterios clave                                                                 |
@@ -175,3 +184,70 @@ Pautas clave:
 |               | 3.2 Predecible                        | 3.2.1 Al enfocar (Nivel A).                                                     |
 |               | 3.3 Entrada de datos asistida         | 3.3.1 Identificación de errores (Nivel A).                                      |
 | **Robusto**     | 4.1 Compatible                        | 4.1.1 Procesamiento (Nivel A), 4.1.2 Nombre, función, valor (Nivel A).          |
+
+
+# Comprobación de accesiblidad
+
+Para que el diseñador pueda comprobar si cumple con los criterios de accesibilidad, es necesario consultar la [WCAG 2.2 Quick Reference](https://www.w3.org/WAI/WCAG22/quickref/), que es una herramienta muy útil para entender y aplicar las Pautas de Accesibilidad para el Contenido Web (WCAG). Aquí se pueden encontrar detalles específicos sobre cada criterio de éxito, incluyendo:
+- **Descripción del criterio**: Una explicación clara de lo que significa el criterio y por qué es importante.
+- **Ejemplos**: Ejemplos prácticos de cómo cumplir con el criterio en diferentes contextos.
+- **Técnicas suficientes y recomendadas**: Técnicas específicas que se pueden usar para cumplir con el criterio. Estas técnicas están clasificadas como "suficientes" (que son suficientes para cumplir con el criterio) y "recomendadas" (que son adicionales y mejoran la accesibilidad).
+- **Recursos adicionales**: Enlaces a documentos y herramientas que pueden ayudar a implementar el criterio.
+
+----
+
+# Comprobación del cumplimiento de los criterios de accesibilidad
+
+Una vez que hayas implementado todas las recomendaciones y técnicas para cumplir con los criterios de accesibilidad de las WCAG, es crucial verificar que tu sitio web realmente cumple con estos estándares. Aquí tienes una guía paso a paso para realizar esta comprobación:
+
+## 1. Revisión Manual
+
+### 1.1. Revisión Visual
+- **Contraste de Color:** Utiliza herramientas como el [Contrast Checker](https://webaim.org/resources/contrastchecker/) para verificar que el contraste entre el texto y el fondo cumple con los criterios de éxito 1.4.3 y 1.4.6.
+- **Tamaño del Texto:** Asegúrate de que el texto se puede aumentar hasta un 200% sin perder funcionalidad (criterio 1.4.4).
+
+### 1.2. Revisión de Contenido
+- **Alternativas Textuales:** Verifica que todas las imágenes, videos y otros contenidos no textuales tienen alternativas textuales adecuadas (criterio 1.1.1).
+- **Subtítulos y Transcripciones:** Asegúrate de que los videos tienen subtítulos y transcripciones (criterios 1.2.2 y 1.2.3).
+
+### 1.3. Revisión de Formularios
+- **Etiquetas y Instrucciones:** Verifica que todos los campos de formulario tienen etiquetas claras y, cuando sea necesario, instrucciones adicionales (criterio 3.3.2).
+- **Mensajes de Error:** Asegúrate de que los mensajes de error son claros y específicos (criterio 3.3.1).
+
+## 2. Herramientas Automáticas
+
+### 2.1. Validadores de Accesibilidad
+- **WAVE (Web Accessibility Evaluation Tool):** Utiliza [WAVE](https://wave.webaim.org/) para escanear tu sitio web y obtener un informe detallado de posibles problemas de accesibilidad.
+- **AXE:** Instala la extensión [AXE](https://www.deque.com/axe/) en tu navegador para realizar auditorías de accesibilidad en tiempo real.
+
+### 2.2. Validadores de HTML
+- **W3C Markup Validation Service:** Utiliza el [validador de HTML del W3C](https://validator.w3.org/) para asegurarte de que tu código HTML es válido y no contiene errores que puedan afectar la accesibilidad.
+
+## 3. Pruebas con Tecnologías Asistivas
+
+### 3.1. Lectores de Pantalla
+- **NVDA y JAWS:** Prueba tu sitio web con lectores de pantalla como NVDA (gratuito) o JAWS (de pago) para asegurarte de que el contenido es accesible para usuarios con discapacidades visuales.
+- **VoiceOver:** Si tienes un dispositivo Apple, utiliza VoiceOver para realizar pruebas adicionales.
+
+### 3.2. Navegación por Teclado
+- **Navegación Completa:** Asegúrate de que todo el contenido y la funcionalidad de tu sitio web son accesibles utilizando solo el teclado (criterio 2.1.1).
+- **Trampas de Teclado:** Verifica que no hay trampas de teclado, es decir, situaciones en las que el usuario no puede salir de un componente utilizando el teclado (criterio 2.1.2).
+
+## 4. Pruebas con Usuarios Reales
+
+### 4.1. Pruebas de Usuario
+- **Usuarios con Discapacidades:** Si es posible, realiza pruebas de usuario con personas que tienen diferentes tipos de discapacidades para obtener feedback directo sobre la accesibilidad de tu sitio web.
+- **Feedback Continuo:** Establece un canal para recibir feedback continuo de los usuarios sobre posibles problemas de accesibilidad.
+
+## 5. Documentación y Revisión Continua
+
+### 5.1. Informe de Accesibilidad
+- **Documentación:** Mantén un informe detallado de todas las pruebas y revisiones realizadas, incluyendo los resultados y las acciones correctivas tomadas.
+- **Revisión Periódica:** Establece un calendario para realizar revisiones periódicas de accesibilidad, ya que el contenido y la funcionalidad del sitio web pueden cambiar con el tiempo.
+
+## Recursos Adicionales
+
+- **WCAG 2.2 Quick Reference:** [WCAG 2.2 Quick Reference](https://www.w3.org/WAI/WCAG22/quickref/)
+- **Guía de Accesibilidad Web (WAI):** [Web Accessibility Initiative (WAI)](https://www.w3.org/WAI/)
+
+Siguiendo estos pasos y utilizando estas herramientas, puedes asegurarte de que tu sitio web cumple con los criterios de accesibilidad de las WCAG y proporciona una experiencia inclusiva para todos los usuarios.
