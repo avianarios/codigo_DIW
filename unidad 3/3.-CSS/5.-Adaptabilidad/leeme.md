@@ -37,8 +37,7 @@ La etiqueta <img> es la forma más simple de mostrar una imagen en HTML. Contien
 <!-- Versión más simple, se le envía una imagen al navegador -->
 <img src="paisaje.jpg" alt="un bonito paisaje">
 ```
-- `srcset`: Permite ofrecer al navegador varias imágenes en diferentes resoluciones y formatos, indicando su tamaño o la densidad de píxeles a la que están destinadas. Con esta información, el navegador elige la imagen más adecuada según:
-    - **El formato del archivo**: Si no se especifica ni la densidad de píxeles ni el tamaño del archivo, el navegador seleccionará la imagen basándose en el formato compatible (por ejemplo, image.webp en lugar de image.jpg si el navegador soporta WebP).
+- `srcset`: Permite ofrecer al navegador varias imágenes en diferentes resoluciones, indicando su tamaño o la densidad de píxeles a la que están destinadas. Con esta información, el navegador elige la imagen más adecuada según:
     - **La densidad de píxeles de la pantalla**: Si se especifica la densidad de píxeles para cada imagen (usando descriptores como 1x, 2x, 3x), el navegador seleccionará automáticamente la imagen con la resolución adecuada para que se vea nítida en la pantalla del dispositivo. Por ejemplo:
         - 1x: Para pantallas estándar.
         - 2x: Para pantallas de alta densidad (como Retina).
@@ -46,18 +45,8 @@ La etiqueta <img> es la forma más simple de mostrar una imagen en HTML. Contien
     - **El tamaño de la ventana del navegador (viewport)**: Si se especifica el ancho de cada imagen (usando descriptores como 300w, 600w, etc.), el navegador elegirá la imagen más adecuada según el ancho disponible en la ventana del navegador. En este caso, es necesario usar el atributo sizes para indicar cómo se mostrará la imagen en el layout de la página.
 
     ```html
-    <!-- El navegador descargará la primera imagen que soporte  según el orden definido -->
-    <img src="paisaje.jpg" srcset="paisaje.webp, paisaje.jpg" alt="Paisaje">
-
     <!-- El navegador decidirá qué imagen descargar en función del ancho del viewport -->
     <img src="paisaje.jpg" srcset="paisaje-500.jpg 500w, paisaje-1000.jpg 1000w" alt="Un paisaje">
-
-    <!-- El navegador descargará la primera imagen que soporte y que se ajuste al ancho del viewport, según el orden definido -->
-    <img 
-        src="paisaje.jpg" 
-        srcset="paisaje-500.webp 500w, paisaje-1000.webp 1000w, 
-                paisaje-500.jpg 500w, paisaje-1000.jpg 1000w" 
-        alt="Un paisaje">
 
     <!-- El navegador descargará la imagen más adecuada en función de la densidad de píxeles 
     - Aquí estamos ofreciendo tres versiones de la misma imagen:
@@ -67,13 +56,28 @@ La etiqueta <img> es la forma más simple de mostrar una imagen en HTML. Contien
         <img src="paisaje.jpg" srcset="paisaje-500.jpg 1x, paisaje-1000.jpg 2x, paisaje-1500.jpg 3x" alt="Un paisaje">
     ```
 
-- `sizes` se utiliza junto con `srcset` en la etiqueta `<img>`, **cuando se usan descriptores de ancho**, para indicarle al navegador con qué tamaño renderizar la imagen en pantalla según el tamaño del viewport. Si se usan descriptores de densidad, el navegador la ignora.
+`srcset` permite especificar las imaǵenes pero, al no permitir usar el atributo `type`, no se puede especificar el tipo de archivo, así que el navegador elige según el tamaño del viewport o la densidad de píxeles. En caso de que no se especifiquen o que haya empate, selecciona la primera imagen que encuentre, pero esto no es robusto ya que:
+- Depende del orden. Si se cambia el orden, el navegador elegirá otra imagen.
+- No verifica la compatibilidad del formato: El navegador no garantiza que el formato de la imagen seleccionada sea compatible antes de cargarla.
+
+    ```html
+    <!-- El navegador descargará la primera imagen  según el orden definido -->
+    <img src="paisaje.jpg" srcset="paisaje.webp, paisaje.jpg" alt="Paisaje">
+   
+    <!-- El navegador descargará la primera imagen que soporte y que se ajuste al ancho del viewport, según el orden definido.-->
+    <img 
+        src="paisaje.jpg" 
+        srcset="paisaje-500.webp 500w, paisaje-1000.webp 1000w, 
+                paisaje-500.jpg 500w, paisaje-1000.jpg 1000w" 
+        alt="Un paisaje">
+    ```
+
+- `sizes` se utiliza junto con `srcset`, **cuando se usan descriptores de ancho**, para indicarle al navegador con qué tamaño renderizar la imagen en pantalla según el tamaño del viewport. Si se usan descriptores de densidad, el navegador la ignora.
 
     ```html
     <!-- El navegador ajusta el tamaño de la imagen según el tamaño del navegador-->
     <img 
-        srcset="../img/paisaje-500.webp 500w, ../img/paisaje-900.webp 900w, ../img/paisaje-1400.webp 1400w, 
-                ../img/paisaje-500.jpg 500w, ../img/paisaje-900.jpg 900w, ../img/paisaje-1400.jpg 1400w"
+        srcset="../img/paisaje-500.jpg 500w, ../img/paisaje-900.jpg 900w, ../img/paisaje-1400.jpg 1400w"
         sizes="(max-width: 799px) 100vw,
             (min-width: 800px) and (max-width: 1199px) 50vw,
             (min-width: 1200px) 33vw"
@@ -81,13 +85,12 @@ La etiqueta <img> es la forma más simple de mostrar una imagen en HTML. Contien
         alt="Un bonito paisaje">
 
     <!-- Descripción del ejemplo: 
-    - srcset proporciona una lista de imágenes en diferentes resoluciones y formatos, junto con sus anchos en píxeles (usando el descriptor w).
-        En este caso, se ofrecen dos formatos de imagen: WebP (moderno y más eficiente) y JPG (compatible con todos los navegadores).
+    - srcset proporciona una lista de imágenes en diferentes resoluciones, junto con sus anchos en píxeles (usando el descriptor w).
         Las imágenes están disponibles en tres tamaños:
             - 500 píxeles de ancho (500w).
             - 900 píxeles de ancho (900w).
             - 1400 píxeles de ancho (1400w).
-        Esto permite al navegador elegir la imagen más adecuada según el ancho disponible en el layout de la página.
+        Esto permite al navegador elegir la imagen más adecuada según el ancho disponible en la disposición de la página.
     
     - sizes le indica al navegador cuánto espacio ocupará la imagen en la página, dependiendo del tamaño de la ventana del navegador (viewport). En este caso, se definen tres condiciones:
         (max-width: 799px) 100vw: Si el ancho de la ventana es de 799 píxeles o menos, la imagen ocupará el 100% del ancho del viewport (100vw).
@@ -100,79 +103,151 @@ La etiqueta <img> es la forma más simple de mostrar una imagen en HTML. Contien
     - alt proporciona un texto alternativo para la imagen, que se muestra si la imagen no puede cargarse o para mejorar la accesibilidad (por ejemplo, para lectores de pantalla).
 
     ¿Cómo funciona esto en la práctica?
-
     El navegador evalúa el ancho de la ventana (viewport) y aplica la regla correspondiente en sizes para determinar cuánto espacio ocupará la imagen.
     Luego, elige la imagen más adecuada de srcset basándose en:
         El ancho calculado (según sizes).
         La densidad de píxeles de la pantalla.
-        El formato de imagen compatible (por ejemplo, si el navegador soporta WebP, elegirá esa versión en lugar de JPG).
     Si el navegador no soporta srcset o sizes, simplemente carga la imagen definida en src.    -->
-
     ```
+
+Por tanto, la etiqueta `<img>` con `srcset` y `sizes` permite:
+- Ofrecer múltiples resoluciones de una imagen: Usando descriptores de densidad (1x, 2x, etc.) o de ancho (300w, 600w, etc.).
+- Adaptar la imagen al tamaño del viewport: Usando el atributo sizes para indicar cuánto espacio ocupará la imagen en el layout.
+- Cargar la imagen más adecuada: El navegador elige la imagen óptima basándose en la densidad de píxeles y el ancho del viewport.
+
+Como no permite el atributo `type`, el navegador elige según el orden de las imágenes, su ancho o la densidad de píxeles, pero no hay garantía de que elija el mejor formato.
+
 ----
 
 ## 2. La etiqueta `<picture>`
 
-La etiqueta `<picture>` es una opción más avanzada y flexible. Permite especificar diferentes versiones de una imagen para adaptarse a las características del dispositivo (como el tamaño del viewport, la resolución de pantalla y la compatibilidad con formatos específicos).
-
-```html
-<!-- Se sirven dos formatos distintos de la misma imagen -->
-<picture>
-  <source srcset="paisaje.webp" type="image/webp">
-  <source srcset="paisaje.jpg" type="image/jpeg">
-  <img src="paisaje.jpg" alt="Paisaje">
-</picture>
-```
+La etiqueta `<picture>` también se usa para ofrecer al navegador varias imágenes, pero es una opción más avanzada y flexible que permite un control más preciso que `<img>`. Pero, ¿qué permite `<picture>` que `<img>` no puede?
+ - Cargar imágenes diferentes según condiciones específicas.
+ - Especificar el tipo de imagen que se ofrece, lo que permite al navegador elegir automáticamente el formato más eficiente y compatible. `<img>` no tiene forma de informar al navegador del tipo de imagen, por lo que la elección depende de otros parámetros, como la anchura, la densidad de píxeles o el orden de los ficheros especificado si hubiera empate.
 
 
-```html
-<!-- Se formulan condiciones basadas en el tamaño de la ventana del navegador (viewport) -->
-<picture>
-    <!-- WebP como primer intento -->
-    <source type="image/webp" media="(max-width: 799px)" srcset="../img/paisaje-500.webp">
-    <source type="image/webp" media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/paisaje-900.webp">
-    <source type="image/webp" media="(min-width: 1200px)" srcset="../img/paisaje-1400.webp">
+`<picture>` permite las siguientes etiquetas y atributos:
 
-    <!-- JPEG como fallback para navegadores que no soportan WebP -->
-    <source type="image/jpg" media="(max-width: 799px)" srcset="../img/paisaje-500.jpg">
-    <source type="image/jpg" media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/paisaje-900.jpg">
-    <source type="image/jpg" media="(min-width: 1200px)" srcset="../img/paisaje-1400.jpg">
-
-    <!-- Imagen predeterminada para navegadores que no soportan <picture> -->
-    <img src="paisaje-600.jpg" alt="Paisaje">
-</picture>
-```
-
-- La etiqueta `<type>` permite especificar el tipo de medio que se encontrará el navegador. Aunque si no se pone, el navegador intentará descubrirlo por sí mismo, especificarlo explícitamente hace que el proceso de buscar imagen sea más rápido y eficiente.
 - La etiqueta `<source>` se utiliza para proporcionar imágenes en diferentes formatos y tamaños.
-- El atributo `media` permite especificar el tamaño de la ventana del navegador (viewport) (mediante media queries) que determinan qué imagen cargar.
-- El orden es importante: el navegador intentará cargar primero el formato WebP si es compatible. Si no lo es, cargará la imagen JPEG.
 - La etiqueta `<img>` actúa como una alternativa para navegadores antiguos que no soportan la etiqueta `<picture>` y especifica una imagen predeterminada en caso de que ninguna de las condiciones de las etiquetas `<source>` se cumpla.
+- El atributo `media` permite especificar el tamaño de la ventana del navegador (viewport) (mediante consultas de medios, media queries) que determina qué imagen cargar. Se utiliza cuando se quiere cargar imágenes totalmente distintas en función de la resolución de la pantalla.
+- El atributo `srcset` permite especificar las imágenes disponibles para que el navegador elija la más adecuada. El orden de colocación es importante, ya que el navegador elegirá la primera imagen que cumpla con las condiciones de compatibilidad (especificadas con el atributo type) y las condiciones de visualización (especificadas con el atributo media, si está presente).
+
+    ```html
+    <!-- Ejemplo. Se elige la imagen en función de la resolución de la pantalla -->
+    <picture>
+        <source media="(max-width: 799px)" srcset="imagen-mobile.jpg">
+        <source media="(min-width: 800px)" srcset="imagen-desktop.jpg">
+        <img src="imagen-desktop.jpg" alt="Descripción de la imagen">
+    </picture>
+    ```
+
+- El atributo `type` permite especificar el tipo de medio que se encontrará el navegador y que este pueda elegir en función del tipo de fichero. Aunque si no se pone, el navegador intentará descubrirlo por sí mismo, especificarlo explícitamente hace que el proceso de buscar imagen sea más rápido y eficiente. Es obligatorio ponerlo sólo si hay imágenes de distinto tipo.
+
+    ```html
+    <!-- Se sirven dos formatos distintos de la misma imagen -->
+    <picture>
+        <!-- Imagen para móviles -->
+        <source media="(max-width: 799px)" srcset="imagen-mobile.webp" type="image/webp">
+        <source media="(max-width: 799px)" srcset="imagen-mobile.jpg" type="image/jpeg">
+        
+        <!-- Imagen para desktop -->
+        <source media="(min-width: 800px)" srcset="imagen-desktop.webp" type="image/webp">
+        <source media="(min-width: 800px)" srcset="imagen-desktop.jpg" type="image/jpeg">
+        
+        <!-- Imagen de respaldo -->
+        <img src="imagen-desktop.jpg" alt="Descripción de la imagen">
+    </picture>
+    ```
+
+- El atributo `sizes` se usa junto con `srcset` para indicar al navegador cuánto espacio ocupará la imagen en la página, dependiendo del tamaño de la ventana de visualización (viewport). Esto permite al navegador elegir la imagen más adecuada de las especificadas en `srcset` basándose en:
+    - El ancho de la ventana del navegador (viewport).
+    - El espacio que ocupará la imagen en la página (definido por sizes).
+Se usa para ofrecer diferentes resoluciones de la misma imagen para adaptarla a diferentes tamaños de pantalla.
+
+    ```html
+    <picture>
+        <!-- Versión en WebP para navegadores que lo soportan -->
+        <source 
+            srcset="../img/paisaje-500.webp 500w, 
+                    ../img/paisaje-900.webp 900w, 
+                    ../img/paisaje-1400.webp 1400w"
+            sizes="(max-width: 799px) 100vw, 
+                    (min-width: 800px) and (max-width: 1199px) 50vw, 
+                    (min-width: 1200px) 33vw"
+            type="image/webp">
+
+        <!-- Versión en JPEG para navegadores que no soportan WebP -->
+        <source 
+            srcset="../img/paisaje-500.jpg 500w, 
+                    ../img/paisaje-900.jpg 900w, 
+                    ../img/paisaje-1400.jpg 1400w"
+            sizes="(max-width: 799px) 100vw, 
+                    (min-width: 800px) and (max-width: 1199px) 50vw, 
+                    (min-width: 1200px) 33vw"
+            type="image/jpeg">
+
+        <!-- Imagen de respaldo -->
+        <img src="../img/paisaje-900.jpg" alt="Un bonito paisaje">
+    </picture>
+
+    <!--
+    Etiqueta <source> para WebP:
+        Proporciona imágenes en formato WebP con tres tamaños: 500px, 900px y 1400px.
+        El atributo sizes indica cómo se mostrará la imagen en diferentes viewports:
+            100vw si el viewport es menor o igual a 799px.
+            50vw si el viewport está entre 800px y 1199px.
+            33vw si el viewport es mayor o igual a 1200px.
+        El atributo type="image/webp" asegura que el navegador solo elija esta opción si soporta WebP.
+    Etiqueta <source> para JPEG:
+        Proporciona las mismas imágenes en formato JPEG como respaldo.
+        El atributo type="image/jpeg" asegura que el navegador elija esta opción si no soporta WebP.
+    Etiqueta <img> de respaldo:
+        Se usa como respaldo para navegadores que no soportan <picture> o srcset.
+        También proporciona el texto alternativo (alt) para accesibilidad.
+        
+    Si el navegador soporta WebP: elige la imagen en formato WebP más adecuada según el ancho del viewport y el espacio definido en sizes.
+    Si el navegador no soporta WebP: elige la imagen en formato JPEG más adecuada según el ancho del viewport y el espacio definido en sizes.
+    Si el navegador no soporta <picture> o srcset: carga la imagen de respaldo (../img/paisaje-900.jpg).
+    -->
+    ```
 
 
-### Uso del atributo sizes con la etiqueta `<picture> <source>`
-El atributo sizes se usa junto con srcset para que el navegador sepa qué imagen cargar según el tamaño de la ventana de visualización. Es útil cuando usas diferentes imágenes para distintos tamaños de pantalla.
 
+Ejemplo combinando media y srcset sizes. En este caso:
+- media se usa para cargar imágenes completamente diferentes para móviles y desktop.
+- sizes se usa para optimizar la resolución de cada imagen según el viewport.
 ```html
 <picture>
-    <source 
-        srcset="../img/paisaje-500.webp 500w, ../img/paisaje-900.webp 900w, ../img/paisaje-1400.webp 1400w"
-        sizes="(max-width: 799px) 100vw, (min-width: 800px) and (max-width: 1199px) 50vw, (min-width: 1200px) 33vw">
-    <img src="../img/paisaje-900.webp" alt="Un bonito paisaje">
-
-    <source 
-        srcset="../img/paisaje-500.jpg 500w, ../img/paisaje-900.jpg 900w, ../img/paisaje-1400.jpg 1400w"
-        sizes="(max-width: 799px) 100vw, (min-width: 800px) and (max-width: 1199px) 50vw, (min-width: 1200px) 33vw">
-    <img src="../img/paisaje-900.jpg" alt="Un bonito paisaje">
+    <!-- Imagen para móviles -->
+    <source media="(max-width: 799px)" 
+            srcset="imagen-mobile-500.webp 500w, 
+                    imagen-mobile-900.webp 900w"
+            sizes="100vw"
+            type="image/webp">
+    <source media="(max-width: 799px)" 
+            srcset="imagen-mobile-500.jpg 500w, 
+                    imagen-mobile-900.jpg 900w"
+            sizes="100vw"
+            type="image/jpeg">
+    
+    <!-- Imagen para desktop -->
+    <source media="(min-width: 800px)" 
+            srcset="imagen-desktop-500.webp 500w, 
+                    imagen-desktop-900.webp 900w"
+            sizes="50vw"
+            type="image/webp">
+    <source media="(min-width: 800px)" 
+            srcset="imagen-desktop-500.jpg 500w, 
+                    imagen-desktop-900.jpg 900w"
+            sizes="50vw"
+            type="image/jpeg">
+    
+    <!-- Imagen de respaldo -->
+    <img src="imagen-desktop-900.jpg" alt="Descripción de la imagen">
 </picture>
 ```
-
-`sizes` define cómo se deben comportar las imágenes en función del tamaño del viewport (ventana de visualización). Por ejemplo, en el código anterior:
-- Si el ancho de la pantalla es de hasta 799px, la imagen se cargará con un ancho de 100vw (el 100% del ancho de la ventana).
-- Entre 800px y 1199px, se cargará una imagen con un ancho del 50vw (el 50% del ancho de la ventana).
-- Si el ancho es de 1200px o más, se cargará con un ancho de 33vw (el 33% del ancho de la ventana).
-
-
+zzzzzz
 
 # Diferencias entre picture e img
 
@@ -191,19 +266,6 @@ Diferencias clave entre <img> y <picture>:
         <picture>: Es más flexible y adecuado cuando necesitas servir imágenes de diferentes formatos o tamaños dependiendo de las características del dispositivo y del navegador.
 
 
-
-
-
-
-
-
-Entonces, ¿cuál elegir?
-
-    Si solo te importa usar WebP cuando sea posible y no necesitas controlar otros factores como medios o tamaños específicos:
-    Usar srcset con <img> es suficiente, ya que si WebP está primero, y el navegador lo soporta, lo elegirá.
-
-    Si quieres más control sobre las condiciones en las que se cargan las imágenes (por ejemplo, diferenciar entre dispositivos con soporte de WebP y sin soporte, o diferentes tamaños de pantalla)**:
-    Usar <picture> te da más flexibilidad, permitiéndote definir diferentes fuentes con criterios más complejos, como el uso de media queries.
 
 
 Diferencias clave de <picture> frente a srcset en <img>:
