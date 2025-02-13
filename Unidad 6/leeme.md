@@ -295,6 +295,7 @@ Para hacer una análisis de un diseño es necesario:
 - **Conocer el tipo de usuario y público objetivo** que usará el sitio web, revisando, si se dispone de él, un documento Personas.
 - **Contar con entre 3 y 5 evaluadores**, preferiblemente con experiencia en usabilidad y conocimientos en el área del negocio.
 - **Elegir el tipo de prueba**
+   - **Pruebas heurísticas**, realizada por expertos en usabilidad en lugar de usuarios finales. Se basa en principios y directrices predefinidas para detectar problemas en la interfaz. Por ejemplo, las pruebas de Yusef Hassam Moreno o as.
    - **Pruebas de usuarios**: Se observa a usuarios reales realizando tareas específicas, se anotan sus reaccione y se recopilan sus comentarios.
    - **Pruebas de prototipos**: Se prueban versiones preliminares del producto para recibir retroalimentación temprana y hacer ajustes antes de la implementación final.
    - **Pruebas de tiempo de respuesta**: Evalúan la eficiencia midiendo el tiempo que un usuario tarda en completar una tarea o encontrar información.
