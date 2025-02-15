@@ -88,6 +88,7 @@
                             <li>Se define,  mediante la etiqueta <code>sizes</code>, el tamaño que la imagen debería ocupar en la ventana del navegador expresada como un porcentaje del ancho de pantalla (vw) o un tamaño fijo en píxeles</li>
                             <li>Se define, mediante la etiqueta <code>img</code>, una imagen de respaldo por si el navegador no soporta srcset o no puede evaluarla</li>
                             <li>El navegador evalúa el tamaño del viewport y aplica la regla correspondiente en sizes. Esto le indica qué tamaño "parece" tener la imagen en el diseño, y el navegador elige de srcset la imagen más cercana a ese tamaño. Si no soporta <code>srcset</code>, usa la imagen en <code>src</code></li>
+                            <li>Importante: la etiqueta img srcset no está diseñada para ofrecer formatos alternativos. Se puede, pero el navegador elegirá el primero sin comprobar su tipo</li>
                         </ul>
                     </li>
                     <li>
@@ -96,6 +97,7 @@
                             <li>Se presenta, mediante la etiqueta <code>source</code>, cada fichero especificando su tipo (etiqueta <code>type</code>), las condiciones que, de cumplirse, permitirán seleccionarlo (etiqueta <code>media</code>) y el nombre del fichero (etiqueta <code>srcset</code>)</li>
                             <li>se presenta un fichero de respaldo mediante la etiqueta <code>img</code></li>
                             <li>El navegador va recorriendo la lista de ficheros y presenta la que cumpla con los criterios establecidos, siempre que soporte el formato.</li>
+                            <li>En este caso el navegador sí soporta el tipo de fichero que soporta</li>
                         </ul>
                     </li>
                 </ul>
@@ -111,7 +113,7 @@
                             ../img/Paisaje-arbol-700px.jpg 700w,
                             ../img/Paisaje-arbol-300px.webp 300w,
                             ../img/Paisaje-arbol-300px.jpg 300w"
-                    sizes=" (max-width: 499px) 80vw,
+                    sizes=" (max-width: 499px) 300px,
                             (max-width: 799px) 70vw,
                             (max-width: 1199px) 60vw,
                             (max-width: 1799px) 50vw,
@@ -122,25 +124,33 @@
             <h3>La siguiente imagen se carga usando picture</h3>
             <p>Picture es la elección recomendada. Proporciona mucho más control al programador sobre qué imagen cargará el navegador. Además, permite al navegador usar reglas complejas y seleccionar por resolución o por formato de archivo</p>
             <picture>
-                <source type="image/webp"  media="(max-width: 799px)" srcset="../img/Paisaje-arbol-300px.webp" />
-                <source type="image/webp"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/Paisaje-arbol-700px.webp" />
-                <source type="image/webp"  media="(min-width: 1200px) and (max-width: 1899px)" srcset="../img/Paisaje-arbol-1000px.webp" />
-                <source type="image/webp"  media="(min-width: 1900px)" srcset="../img/Paisaje-arbol-1600px.webp" />
-
-                <source type="image/jpeg"  media="(max-width: 799px)" srcset="../img/Paisaje-arbol-300px.jpg" />
-                <source type="image/jpeg"  media="(min-width: 800px) and (max-width: 1199px)" srcset="../img/Paisaje-arbol-700px.jpg" />
-                <source type="image/jpeg"  media="(min-width: 1200px) and (max-width: 1899px)" srcset="../img/Paisaje-arbol-1000px.jpg" />
-                <img src="../img/Paisaje-arbol-1600px.jpg" alt="Un bonito paisaje" />
-            </picture>
-
-
-            <picture>
-                <source srcset="../img/Paisaje-arbol-300px.jpg 300w, ../img/Paisaje-arbol-700px.jpg 700w, ../img/Paisaje-arbol-1000px.jpg 1000w"
-                    sizes="(max-width: 799px) 100vw, (min-width: 800px) and (max-width: 1199px) 50vw, (min-width: 1200px) 33vw">
-                <img src="../img/Paisaje-arbol-1000px.jpg" alt="Un bonito paisaje">
-            </picture>
-            
-    
+                <!-- WebP como primer intento -->
+                <source type="image/webp" 
+                 srcset="
+                   ../img/Paisaje-sierra-300px.webp 300w,
+                   ../img/Paisaje-sierra-700px.webp 700w,
+                   ../img/Paisaje-sierra-1000px.webp 1000w,
+                   ../img/Paisaje-sierra-1600px.webp 1600w"
+                 sizes="(max-width: 799px) 300px,
+                         (max-width: 1199px) 700px,
+                         (max-width: 1899px) 1000px,
+                         1600px">
+                
+                <!-- JPEG como alternativa -->
+                <source type="image/jpeg" 
+                 srcset="
+                   ../img/Paisaje-sierra-300px.jpg 300w,
+                   ../img/Paisaje-sierra-700px.jpg 700w,
+                   ../img/Paisaje-sierra-1000px.jpg 1000w,
+                   ../img/Paisaje-sierra-1600px.jpg 1600w"
+                 sizes="(max-width: 799px) 300px,
+                         (max-width: 1199px) 700px,
+                         (max-width: 1899px) 1000px,
+                         1600px">
+                
+                <!-- Imagen predeterminada en JPEG para navegadores más antiguos -->
+                <img src="../img/Paisaje-sierra-1600px.jpg" alt="Un bonito paisaje">
+             </picture>                
         </section>
     </body>
 </html>
