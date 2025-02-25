@@ -16,7 +16,7 @@
       6. [Vínculos](#446--medidas-de-usabilidad-en-los-vínculos)
 5. [Pruebas de usabilidad](#5--pruebas-de-usabilidad)
    1. [Proceso de prueba](#51--proceso-de-prueba)
-   2. [Pruebas de usuario](#52--tipos-de-pruebas)
+   2. [Pruebas de usuario](#52--pruebas-de-usuario)
       1. [Tipos de pruebas](#521--tipos-de-pruebas)
       2. [Participantes](#522--participantes)
       3. [Tareas](#523--tareas)
@@ -314,15 +314,13 @@ La mejor manera de entender qué funciona y qué no en una interfaz es observand
 - **Usuarios representativos (participantes)** de la web, reales o potenciales, que realizarán las tareas anteriores. 
 - Un **observador (facilitator)**, que dirigirá la prueba, observando al participante y anotando el resultado de su interacción con la interfaz.
 
-Para identificar los problemas de usabilidad más importantes de un diseño, probar con **5 usuarios suele ser suficiente**. Es mejor realizar muchas pruebas pequeñas y revisar el diseño entre cada una para solucionar los problemas de usabilidad a medida que se identifican. El diseño iterativo es la mejor manera de aumentar la calidad de la experiencia del usuario.
-
+Es mejor realizar muchas pruebas pequeñas y revisar el diseño entre cada una para solucionar los problemas de usabilidad a medida que se identifican. El diseño iterativo es la mejor manera de aumentar la calidad de la experiencia del usuario.
 
 ### 5.2.1- Tipos de pruebas
 
 Las pruebas de usabilidad pueden ser cualitativas o cuantitativas:
 
 - **Cualitativas**: Recopilan información sobre cómo las personas usan un producto o servicio. Son útiles para descubrir problemas en la experiencia del usuario y comprender el comportamiento de los usuarios.
-
 - **Cuantitativas**: Recogen métricas que describen la experiencia del usuario, como el éxito de las tareas y el tiempo de ejecución. Son útiles para establecer puntos de referencia y hacer comparaciones objetivas.
 
 
