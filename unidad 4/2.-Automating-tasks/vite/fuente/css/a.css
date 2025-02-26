@@ -1,0 +1,14 @@
+.azul{
+    background-color: lightcyan;
+}
+
+.rojo{
+    background-color: lightcoral;
+}
+
+/* Para que se vea que se aplican prefijos */
+.example {
+    display: flex;
+    user-select: none;
+  }
+  
