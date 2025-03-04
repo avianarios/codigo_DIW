@@ -1,0 +1,50 @@
+@use '../global/variables' as var; /* Importamos variables sin usar '*' como alias */
+@use '../global/mixins' as mixin;
+
+// Cabecera
+header {
+    background: linear-gradient(135deg, var.$color-primario, var.$color-secundario);
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+    // Navegación
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        // Logo
+        .logo {
+            img {
+                height: 50px;
+                @include mixin.efecto-hover;
+            }
+        }
+
+        // Lista de navegación
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+
+            li {
+                a {
+                    text-decoration: none;
+                    color: var.$color-texto;
+                    font-size: 16px;
+                    font-weight: bold;
+                    padding: 8px 12px;
+                    border-radius: 5px;
+                    @include mixin.efecto-hover;
+
+                    &:hover {
+                        background: rgba(255, 255, 255, 0.2);
+                    }
+                }
+            }
+        }
+    }
+}
+

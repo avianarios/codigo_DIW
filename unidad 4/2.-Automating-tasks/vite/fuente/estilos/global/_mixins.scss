@@ -1,0 +1,7 @@
+// Mixin para efectos de hover
+@mixin efecto-hover {
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
