@@ -42,13 +42,39 @@ Los pasos para echar a andar este proyecto con Node.js son los siguientes:
    npx parcel ruta/index.html --dist-dir desarrollo
    ```
 
-5. **Integrar los iconos de Fontawesome en tu proyecto`** Se puede hacer de varias formas (nosotros lo vamos a hacer con node)
-   -Incluyendo el CDN en la cabecera: <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"> Dependo de que el CDN esté disponible
-   -Instalándolo en node e integrándolo en local (lo haremos así)
+5. **Integrar los iconos de Fontawesome en tu proyecto`** Se puede hacer de varias formas (nosotros lo vamos a hacer con la tercera opción)
+   1. Incluyendo el CDN en la cabecera: <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"> Dependo de que el CDN esté disponible
+   
+   2. Instalándolo en node e integrándolo en local
       - `npm install @fortawesome/fontawesome-free`
       - Copia node_modules/@fortawesome/fontawesome-free/webfonts a tu directorio de css
       - Copia node_modules/@fortawesome/fontawesome-free/css/all.min.css a tu directorio de css
       - Enlaza all.min.css en tu html
       - Para incluir un en tu web, hay que copiar su etiqueta en tu código HTML. Para ver qué etiqueta corresponde a cada icono, búscalo en https://fontawesome.com/icons. El de instagram, por ejemplo, es <i class="fa-brands fa-instagram"></i>. Se puede controlar su tamaño usando las clases fa-xs, fa-sm, fa-lg, fa-2x, fa-3x, fa-4x y fa5x
+
+   3. Enlazando, desde el fichero sass o el JavaScript principal, al css de fontawesome que está en node_modules/@fortawesome/fontawesome-free/css/all.min.css  (en este punto lo haremos así, puesto que ya sabemos manejar empaquetadores)
+
+      Esto supone la siguiente estructura:
+      proyecto/
+      ├── node_modules/
+      │   └── @fortawesome/
+      │       └── fontawesome-free/
+      │           └── css/
+      │               └── all.min.css
+      ├── fuente/
+      │   ├── sass/
+      │   │   └── principal.scss
+      │   └── index.html
+      ├── package.json
+      └── parcel.config.js (opcional)
+
+      ```scss
+      // En el archivo SCSS principal (por ejemplo, fuente/sass/main.scss)
+      @import '../../@fortawesome/fontawesome-free/css/all.min.css';
+      ```
+      ```js
+      // En el archivo JavaScript principal (por ejemplo, fuente/js/main.js)
+      import '../../@fortawesome/fontawesome-free/css/all.min.css';
+      ```
 
 
