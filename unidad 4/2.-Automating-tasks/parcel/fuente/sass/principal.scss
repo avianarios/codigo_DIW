@@ -1,3 +1,4 @@
+
 /* fuente/sass/principal.scss */
 @use 'base/normalizacion';
 @use 'base/reinicio';
@@ -16,3 +17,4 @@
 @use 'posicion/posicion_principal';
 
 
+@import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';

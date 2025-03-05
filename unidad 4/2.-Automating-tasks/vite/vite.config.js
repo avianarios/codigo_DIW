@@ -12,7 +12,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'fuente/index.html'),
-        about: resolve(__dirname, 'fuente/html/b.html'),
+        about: resolve(__dirname, 'fuente/html/servicios.html'),
       },
     },
     minify: 'terser', // Asegura que JS y CSS también se minimicen
