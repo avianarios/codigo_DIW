@@ -1,0 +1,14 @@
+main {
+    height: 100vh;
+
+    /* Soporte para navegadores que no soportan image-set */
+    background-image: url('../img/Paisaje-arbol-700px.jpg');
+
+    background-image: image-set(
+        url('../img/Paisaje-arbol-700px.avif') type('image/avif'),
+        url('../img/Paisaje-arbol-700px.webp') type('image/webp'),
+        url('../img/Paisaje-arbol-700px.jpg') type('image/jpg')
+    );
+
+    background-repeat: no-repeat;
+}
