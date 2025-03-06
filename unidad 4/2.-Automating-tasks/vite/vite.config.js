@@ -11,8 +11,8 @@ export default defineConfig({
     emptyOutDir: true,    //Vacía el directorio de producción antes de compilar
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'fuente/index.html'),
-        about: resolve(__dirname, 'fuente/html/servicios.html'),
+        index: resolve(__dirname, 'fuente/index.html'),
+        servicios: resolve(__dirname, 'fuente/html/servicios.html'),
       },
     },
     minify: 'terser', // Asegura que JS y CSS también se minimicen
