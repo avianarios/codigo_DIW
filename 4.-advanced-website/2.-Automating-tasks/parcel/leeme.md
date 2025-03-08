@@ -50,10 +50,10 @@ Los pasos para echar a andar este proyecto con Node.js son los siguientes:
       - Copia node_modules/@fortawesome/fontawesome-free/webfonts a tu directorio de css
       - Copia node_modules/@fortawesome/fontawesome-free/css/all.min.css a tu directorio de css
       - Enlaza all.min.css en tu html
-      - Para incluir un en tu web, hay que copiar su etiqueta en tu código HTML. Para ver qué etiqueta corresponde a cada icono, búscalo en https://fontawesome.com/icons. El de instagram, por ejemplo, es <i class="fa-brands fa-instagram"></i>. Se puede controlar su tamaño usando las clases fa-xs, fa-sm, fa-lg, fa-2x, fa-3x, fa-4x y fa5x
+      - Para incluir un en tu web, hay que copiar su etiqueta en tu código HTML. Para ver qué etiqueta corresponde a cada icono, búscalo en https://fontawesome.com/icons. El de instagram, por ejemplo, es `<i class="fa-brands fa-instagram"></i>`. Se puede controlar su tamaño usando las clases fa-xs, fa-sm, fa-lg, fa-2x, fa-3x, fa-4x y fa5x
 
    3. Enlazando, desde el fichero sass o el JavaScript principal, al css de fontawesome que está en node_modules/@fortawesome/fontawesome-free/css/all.min.css  (en este punto lo haremos así, puesto que ya sabemos manejar empaquetadores)
-
+      ```
       Esto supone la siguiente estructura:
       proyecto/
       ├── node_modules/
@@ -67,14 +67,14 @@ Los pasos para echar a andar este proyecto con Node.js son los siguientes:
       │   └── index.html
       ├── package.json
       └── parcel.config.js (opcional)
-
+      ```
       ```scss
       // En el archivo SCSS principal (por ejemplo, fuente/sass/main.scss)
-      @import '../../@fortawesome/fontawesome-free/css/all.min.css';
+      @import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
       ```
       ```js
       // En el archivo JavaScript principal (por ejemplo, fuente/js/main.js)
-      import '../../@fortawesome/fontawesome-free/css/all.min.css';
+      import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
       ```
 
 
