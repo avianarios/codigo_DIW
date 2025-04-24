@@ -2,6 +2,7 @@
   "name": "tailwindcss",
   "version": "1.0.0",
   "description": "tailwindCSS-example",
+  "type": "module",
   "scripts": {
     "compila": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css",
     "vigila": "tailwindcss -i ./fuente/estilos/principal.css -o ./fuente/estilos/salida.css --watch"

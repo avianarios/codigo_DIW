@@ -1,16 +1,91 @@
 # Índice
 
-1. [Colocación de `index.html`](#1--colocación-de-indexhtml)
-2. [Nombrado de ficheros](#2--nombrado-de-ficheros)
-3. Estructura de directorios
+1. [Estructura de un proyecto](#1-estructura-de-un-proyecto)
+2. [Colocación de `index.html`](#2--colocación-de-indexhtml)
+3. [Nombres de ficheros](#3--nombres-de-ficheros)
 
 ---
 
-# 1- Colocación de `index.html`
+# 1. Estructura de un proyecto
+
+En el desarrollo web, la organización del proyecto en directorios no es solo una cuestión de orden, sino una **práctica esencial** que impacta directamente en la eficiencia, mantenibilidad y escalabilidad del trabajo. Una estructura de carpetas bien definida permite:
+
+1. **Facilitar la colaboración**: Cuando varios desarrolladores trabajan en un proyecto, una organización clara evita confusiones y asegura que todos encuentren rápidamente los archivos que necesitan.
+   
+2. **Mejorar el mantenimiento**: Un proyecto bien estructurado es más fácil de actualizar y depurar. Saber dónde está cada archivo ahorra tiempo y reduce errores.
+
+3. **Escalabilidad**: A medida que el proyecto crece, una estructura organizada permite añadir nuevas funcionalidades sin caos. Cada componente, estilo o script tiene su lugar definido.
+
+4. **Optimización del flujo de trabajo**: Herramientas como Vite, Webpack o Parcel funcionan mejor cuando los archivos están organizados de manera lógica, permitiendo una compilación y construcción más eficiente.
+
+5. **Claridad y profesionalismo**: Un proyecto bien organizado refleja profesionalismo y atención al detalle, cualidades valoradas tanto en equipos de trabajo como en proyectos personales.
+
+En resumen, invertir tiempo en diseñar una estructura de directorios coherente no es solo una buena práctica, sino una **inversión en la calidad y el éxito del proyecto**.
+
+La siguiente estructura es la que yo recomiendo para trabajar. Hasta dentro de un tiempo no aparecerán todos los tipos de ficheros y directorios que hay en ella.
+
+```
+proyecto/
+├── fuente/
+│   ├── index.html
+│   ├── html/
+│   │   ├── acerca-de.html
+│   │   ├── servicios.html
+│   │   └── contacto.html
+│   ├── estilos/
+│   │   ├── base/
+│   │   │   ├── _reset.scss
+│   │   │   ├── _tipografia.scss
+│   │   │   └── _variables.scss
+│   │   ├── componentes/
+│   │   │   ├── _botones.scss
+│   │   │   ├── _tarjetas.scss
+│   │   │   └── _formularios.scss
+│   │   ├── layout/
+│   │   │   ├── _header.scss
+│   │   │   ├── _footer.scss
+│   │   │   └── _grid.scss
+│   │   ├── paginas/
+│   │   │   ├── _inicio.scss
+│   │   │   ├── _servicios.scss
+│   │   │   └── _contacto.scss
+│   │   └── principal.scss
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── componentes/
+│   │   │   ├── menu.js
+│   │   │   ├── slider.js
+│   │   │   └── formulario.js
+│   │   └── paginas/
+│   │       ├── inicio.js
+│   │       ├── servicios.js
+│   │       └── contacto.js
+│   └── recursos/
+│       ├── img/
+│       │   ├── logo.png
+│       │   ├── banner.jpg
+│       │   └── iconos/
+│       │       ├── facebook.svg
+│       │       ├── twitter.svg
+│       │       └── instagram.svg
+│       └── fuentes/
+│           ├── fuente-regular.woff2
+│           ├── fuente-bold.woff2
+│           └── fuente-italic.woff2
+├── node_modules/
+├── package.json
+├── vite.config.js
+├── postcss.config.js
+└── .browserslistrc
+```
+
+----
+
+# 2- Colocación de `index.html`
  
 Debe estar fuera del directorio `html`
 
-## 1. **Convención estándar**
+## 2.1. **Convención estándar**
 Por convención, **`index.html`** es considerado el archivo principal o "página de inicio" de un sitio web. Los servidores web (como Apache, Nginx o incluso servidores locales como Python HTTP Server) están configurados para buscar automáticamente un archivo llamado `index.html` o `index.htm` cuando un usuario accede a un directorio raíz o cualquier subdirectorio.
 
 - Si el archivo `index.html` está en el **directorio raíz** del proyecto (fuera de carpetas como `html/`), no necesitas especificar la ruta completa. Por ejemplo:
@@ -27,26 +102,27 @@ Si `index.html` estuviera dentro de un subdirectorio como `html/`, necesitarías
 https://mi-sitio.com/html/index.html
 ```
 
-## 2. **Facilidad de acceso**
+## 2.2. **Facilidad de acceso**
 Cuando colocas `index.html` fuera del directorio `html/` y en la raíz, simplificas el acceso. Esto es especialmente útil para la **experiencia del usuario** y **SEO** porque:
 - URLs más cortas son más fáciles de recordar.
 - Mejora la presentación visual de tu URL.
 
-Por ejemplo:
-- ✅ `https://mi-sitio.com/` es más claro y limpio que `https://mi-sitio.com/html/index.html`.
+Por ejemplo `https://mi-sitio.com/` es más claro y limpio que `https://mi-sitio.com/html/index.html`.
 
-## 3. **Compatibilidad con configuraciones predeterminadas del servidor**
+## 2.3. **Compatibilidad con configuraciones predeterminadas del servidor**
 Los servidores web están configurados para buscar un `index.html` en cada directorio como el archivo predeterminado que se debe servir. Si `index.html` está en un subdirectorio, necesitarías configurar explícitamente el servidor para redirigir o cambiar la raíz del documento (lo que no siempre es ideal).
 
-## 4. **Organización del proyecto**
+## 2.4. **Organización del proyecto**
 - Dejar `index.html` en la raíz permite organizar mejor los recursos adicionales (imágenes, scripts y estilos) en subdirectorios como `css/`, `js/` o `assets/`.
 - Si pones `index.html` en `html/`, puede volverse confuso al estructurar otros archivos y se rompe con la convención estándar.
 
- **Resumen:** mantener `index.html` en la raíz del proyecto es una **mejor práctica** que simplifica la gestión del sitio y lo hace más accesible para los usuarios y compatible con configuraciones comunes del servidor.
-
 ----
 
+<<<<<<< HEAD
 # 2- Nombrado de ficheros
+=======
+# 3- Nombres de ficheros
+>>>>>>> 9523c148187d96291f4df9bf98bfd729e9911dc1
 
 Un nombre descriptivo para los ficheros de un proyecto web es crucial para mantener el proyecto organizado, fácil de entender y mantenible. A continuación se presentan algunas recomendaciones para nombrar los ficheros en un proyecto web:
 

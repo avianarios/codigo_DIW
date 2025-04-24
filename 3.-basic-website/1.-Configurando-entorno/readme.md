@@ -1,15 +1,92 @@
 # Index
 
-1. [Placement of `index.html`](#1--placement-of-indexhtml)
-2. [File names](#2---file-names)
+1. [Project structure](#1-project-structure)
+2. [Placement of `index.hmtl`](#2--placement-of-indexhtml)
+3. [File names](#3--file-names)
 
 ----
 
-# 1- Placement of `index.html`
+# 1. Project structure
+
+In web development, the organisation of the project in directories is not only a matter of order, but an **essential practice** that directly impacts the efficiency, maintainability and scalability of the work. A well-defined folder structure allows:
+
+1. **Facilitate collaboration**: When several developers are working on a project, a clear organisation avoids confusion and ensures that everyone can quickly find the files they need.
+   
+2. **Improve maintenance**: A well-structured project is easier to update and debug. Knowing where each file is saves time and reduces errors.
+
+3. 3. **Scalability**: As the project grows, an organised structure allows new functionality to be added without chaos. Each component, style or script has its defined place.
+
+4. **Workflow optimisation**: Tools such as Vite, Webpack or Parcel work best when files are logically organised, allowing for more efficient compilation and building.
+
+5. **Clarity and professionalism**: A well-organised project reflects professionalism and attention to detail, qualities valued in teams and personal projects alike.
+
+In short, investing time in designing a coherent directory structure is not only good practice, but an **investment in the quality and success of the project**.
+
+The following structure is the one I recommend to work with. Not all the file types and directories in it will appear for some time.
+
+```
+project/
+├── src/
+│   ├── index.html
+│   ├── html/
+│   │   ├── about.html
+│   │   ├── services.html
+│   │   └── contact.html
+│   ├── styles/
+│   │   ├── base/
+│   │   │   ├── _reset.scss
+│   │   │   ├── _typography.scss
+│   │   │   └── _variables.scss
+│   │   ├── components/
+│   │   │   ├── _buttons.scss
+│   │   │   ├── _cards.scss
+│   │   │   └── _forms.scss
+│   │   ├── layout/
+│   │   │   ├── _header.scss
+│   │   │   ├── _footer.scss
+│   │   │   └── _grid.scss
+│   │   ├── pages/
+│   │   │   ├── _home.scss
+│   │   │   ├── _services.scss
+│   │   │   └── _contact.scss
+│   │   └── main.scss
+│   ├── js/
+│   │   ├── main.js
+│   │   ├── components/
+│   │   │   ├── menu.js
+│   │   │   ├── slider.js
+│   │   │   └── form.js
+│   │   └── pages/
+│   │       ├── home.js
+│   │       ├── services.js
+│   │       └── contact.js
+│   └── assets/
+│       ├── img/
+│       │   ├── logo.png
+│       │   ├── banner.jpg
+│       │   └── icons/
+│       │       ├── facebook.svg
+│       │       ├── twitter.svg
+│       │       └── instagram.svg
+│       └── fonts/
+│           ├── font-regular.woff2
+│           ├── font-bold.woff2
+│           └── font-italic.woff2
+├── node_modules/
+├── package.json
+├── vite.config.js
+├── postcss.config.js
+└── .browserslistrc
+```
+
+
+----
+
+# 2- Placement of `index.html`
 
 It should be outside the `html` directory
 
-## 1. **Standard convention**
+## 2.1. **Standard convention**
 By convention, **`index.html`** is considered the main file or "home page" of a website. Web servers (like Apache, Nginx, or local servers such as Python HTTP Server) are configured to automatically look for a file named `index.html` or `index.htm` when a user accesses a root directory or any subdirectory.
 
 - If `index.html` is in the **root directory** of the project (outside folders like `html/`), you don’t need to specify the full path. For example:
@@ -26,27 +103,24 @@ If `index.html` were inside a subdirectory like `html/`, you would need to expli
 https://my-site.com/html/index.html
 ```
 
-## 2. **Ease of access**
+## 2.2. **Ease of access**
 Placing `index.html` outside the `html/` directory and in the root simplifies access. This is especially useful for **user experience** and **SEO** because:
 - Shorter URLs are easier to remember.
 - It improves the visual presentation of your URL.
 
-For example:
-- ✅ `https://my-site.com/` is clearer and cleaner than `https://my-site.com/html/index.html`.
+For example `https://my-site.com/` is clearer and cleaner than `https://my-site.com/html/index.html`.
 
-## 3. **Compatibility with server defaults**
+## 2.3. **Compatibility with server defaults**
 Web servers are configured to look for an `index.html` in each directory as the default file to serve. If `index.html` is in a subdirectory, you would need to explicitly configure the server to redirect or change the document root (which is not always ideal).
 
-## 4. **Project organization**
+## 2.4. **Project organization**
 - Keeping `index.html` in the root allows better organization of additional resources (images, scripts, and styles) in subdirectories like `css/`, `js/`, or `assets/`.
 - If you place `index.html` in `html/`, it can become confusing when structuring other files, and it breaks the standard convention.
 
 
-**Summary**: keeping `index.html` in the root directory is a **best practice** that simplifies site management and makes it more accessible to users while ensuring compatibility with common server configurations.
-
 ----
 
-# 2- File names
+# 3- File names
 
 A descriptive name for files in a web project is crucial for keeping the project organized, easy to understand, and maintainable. Below are some recommendations for naming files in a web project:
 

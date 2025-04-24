@@ -129,11 +129,9 @@ Se puede usar TailWindCSS mediante la inclusión de un enlace a un CDN (Content 
         npx taildinwdcss init
         ```
 
-        Ejemplo de configuración de `tailwind.config.js` para indicarle a tailwindcss qué ficheros analizar, generando sólo las clases CSS necesarias
-
-
+        Ejemplo de configuración de `tailwind.config.js` para indicarle a tailwindcss qué ficheros analizar, generando sólo las clases CSS necesarias (sintaxis ES6, no CommonJS)
         ```javascript
-        module.exports = {
+        export default {
           content: ["./src/**/*.{html,js}"],
           theme: {
             extend: {},
