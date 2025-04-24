@@ -1,6 +1,6 @@
 # Index
 
-1. [Placement of `index.hmtl`](#1--placement-of-indexhtml)
+1. [Placement of `index.html`](#1--placement-of-indexhtml)
 2. [File names](#2---file-names)
 
 ----

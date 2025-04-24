@@ -1,7 +1,8 @@
 # Índice
 
-1. [Colocación de `index.hmtl`](#1--colocación-de-indexhtml)
-2. [Nombres de ficheros](#2--nombres-de-ficheros)
+1. [Colocación de `index.html`](#1--colocación-de-indexhtml)
+2. [Nombrado de ficheros](#2--nombrado-de-ficheros)
+3. Estructura de directorios
 
 ---
 
@@ -45,7 +46,7 @@ Los servidores web están configurados para buscar un `index.html` en cada direc
 
 ----
 
-# 2- Nombres de ficheros
+# 2- Nombrado de ficheros
 
 Un nombre descriptivo para los ficheros de un proyecto web es crucial para mantener el proyecto organizado, fácil de entender y mantenible. A continuación se presentan algunas recomendaciones para nombrar los ficheros en un proyecto web:
 
