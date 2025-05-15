@@ -128,11 +128,11 @@ Los pasos para echar a andar este proyecto con Node.js son los siguientes:
       ```
       ```scss
       // En el archivo SCSS principal (por ejemplo, fuente/sass/main.scss)
-      @import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+      @import '@fortawesome/fontawesome-free/css/all.min.css';
       ```
       ```js
       // En el archivo JavaScript principal (por ejemplo, fuente/js/main.js)
-      import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+      import '@fortawesome/fontawesome-free/css/all.min.css';
       ```
 
 
