@@ -118,7 +118,11 @@ Los servidores web están configurados para buscar un `index.html` en cada direc
 
 ----
 
+<<<<<<< HEAD
+# 2- Nombrado de ficheros
+=======
 # 3- Nombres de ficheros
+>>>>>>> 9523c148187d96291f4df9bf98bfd729e9911dc1
 
 Un nombre descriptivo para los ficheros de un proyecto web es crucial para mantener el proyecto organizado, fácil de entender y mantenible. A continuación se presentan algunas recomendaciones para nombrar los ficheros en un proyecto web:
 
